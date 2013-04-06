@@ -6,6 +6,6 @@ The website is built upon [Jekyll](https://github.com/mojombo/jekyll) and [inuit
 
 ---
 
-*Ceci est le code source non-compilé du blog de @nicoespeon.
+*Ceci est le code source non-compilé du blog de @nicoespeon.*
 
-Le site est construit grâce à Jekyll et inuit.css de l'excellent @csswizardry.*
+*Le site est construit grâce à Jekyll et inuit.css de l'excellent @csswizardry.*
