@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% comment %}On récupère la langue en fonction de l'URL{% endcomment %}
+{% capture locale %}{{ page.url | truncate: 3, "" | remove: "/" }}{% endcapture %}
+
+{% unless site.authorized_locales contains locale %}
+    {% assign locale = site.default_locale %}
+{% endunless %}
+
+<article role="main">
+    <h1>
+        {{ page.title }}
+        <span class="epsilon">
+            {% if locale == site.default_locale %}
+                ({{ page.date | date: "%d %B, %Y" }})
+            {% else %}
+                ({{ page.date | localize: "%d %B, %Y" }})
+            {% endif %}
+        </span>
+    </h1>
+
+    {{ content }}
+</article>

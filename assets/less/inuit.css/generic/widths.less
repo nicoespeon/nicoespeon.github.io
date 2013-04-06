@@ -1,0 +1,180 @@
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Sizes in human readable format. These are used in conjunction with other
+ * objects and abstractions found in inuit.css, most commonly the grid system
+ * and faux flexbox.
+ */
+
+
+.grid-setup(@prefix: 'null') {
+	// no access to outer scope
+	@p: @prefix;
+	@the-prefix: ~`(this.p.toJS() == "'null'")?'':this.p.toJS()`;
+	
+	/**
+	 * Whole
+	 */
+	.@{the-prefix}one-whole {
+	  width: 100%;
+	}
+
+	/**
+	 * Halves
+	 */
+	.@{the-prefix}one-half, .@{the-prefix}two-quarters, .@{the-prefix}three-sixths, .@{the-prefix}four-eighths, .@{the-prefix}five-tenths, .@{the-prefix}six-twelfths {
+	  width: 50%;
+	}
+
+	/**
+	 * Thirds
+	 */
+	.@{the-prefix}one-third, .@{the-prefix}two-sixths, .@{the-prefix}four-twelfths {
+	  width: 33.333%;
+	}
+
+	.@{the-prefix}two-thirds, .@{the-prefix}four-sixths, .@{the-prefix}eight-twelfths {
+	  width: 66.666%;
+	}
+
+	/**
+	 * Quarters
+	 */
+	.@{the-prefix}one-quarter, .@{the-prefix}two-eighths, .@{the-prefix}three-twelfths {
+	  width: 25%;
+	}
+
+	.@{the-prefix}three-quarters, .@{the-prefix}six-eighths, .@{the-prefix}nine-twelfths {
+	  width: 75%;
+	}
+
+	/**
+	 * Fifths
+	 */
+	.@{the-prefix}one-fifth, .@{the-prefix}two-tenths {
+	  width: 20%;
+	}
+
+	.@{the-prefix}two-fifths, .@{the-prefix}four-tenths {
+	  width: 40%;
+	}
+
+	.@{the-prefix}three-fifths, .@{the-prefix}six-tenths {
+	  width: 60%;
+	}
+
+	.@{the-prefix}four-fifths, .@{the-prefix}eight-tenths {
+	  width: 80%;
+	}
+
+	/**
+	 * Sixths
+	 */
+	.@{the-prefix}one-sixth, .@{the-prefix}two-twelfths {
+	  width: 16.666%;
+	}
+
+	.@{the-prefix}five-sixths, .@{the-prefix}ten-twelfths {
+	  width: 83.333%;
+	}
+
+	/**
+	 * Eighths
+	 */
+	.@{the-prefix}one-eighth {
+	  width: 12.5%;
+	}
+
+	.@{the-prefix}three-eighths {
+	  width: 37.5%;
+	}
+
+	.@{the-prefix}five-eighths {
+	  width: 62.5%;
+	}
+
+	.@{the-prefix}seven-eighths {
+	  width: 87.5%;
+	}
+
+	/**
+	 * Tenths
+	 */
+	.@{the-prefix}one-tenth {
+	  width: 10%;
+	}
+
+	.@{the-prefix}three-tenths {
+	  width: 30%;
+	}
+
+	.@{the-prefix}seven-tenths {
+	  width: 70%;
+	}
+
+	.@{the-prefix}nine-tenths {
+	  width: 90%;
+	}
+
+	/**
+	 * Twelfths
+	 */
+	.@{the-prefix}one-twelfth {
+	  width: 8.333%;
+	}
+
+	.@{the-prefix}five-twelfths {
+	  width: 41.666%;
+	}
+
+	.@{the-prefix}seven-twelfths {
+	  width: 58.333%;
+	}
+
+	.@{the-prefix}eleven-twelfths {
+	  width: 91.666%;
+	}
+} // .grid-setup(@prefix: 'null') {
+.grid-setup();
+
+/**
+ * If you have set `@responsive` to ‘true’ in `vars.less` then you now have
+ * access to these classes. You can define at which breakpoing you’d like an
+ * element to be a certain size, e.g.:
+ *
+ * `<div class="g  one-quarter  lap-one-half  palm-one-whole"> ... </div>`
+ *
+ * This would create a `div` that, at ‘desktop’ sizes, takes up a quarter of the
+ * horizontal space, a half of that space at ‘tablet’ sizes, and goes full width
+ * at ‘mobile’ sizes.
+ *
+ * Demo: jsfiddle.net/inuitcss/WS4Ge
+ *
+ */
+
+.responsive-widths() when (@responsive = false) {
+}
+
+.responsive-widths() when (@responsive = true) {
+	@media only screen and (max-width:~"@{palm-end}px") { /* palm */
+	.grid-setup(palm-);
+	  
+	} // @media palm
+	
+	@media only screen and (min-width:~"@{lap-start}px") and (max-width:~"@{lap-end}px") { /* lap */
+		.grid-setup(lap-);
+	} // @media lap
+
+
+	@media only screen and (max-width:~"@{lap-end}px") { /* portable */
+		.grid-setup(portable-);
+	} // @media portable
+
+
+	@media only screen and (min-width:~"@{desk-start}px") { /* desk */
+		.grid-setup(desk-);
+	} // @media desk
+} //responsive=true mixin
+
+.responsive-widths();

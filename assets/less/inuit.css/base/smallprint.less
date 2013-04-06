@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    $SMALLPRINT
+\*------------------------------------*/
+/**
+ * A series of classes for setting tiny type; for use in smallprint etc.
+ * 
+ * `small` is relative to whatever its parent is, `.milli` and `.micro` are
+ * absolute.
+ */
+.smallprint,
+.milli{
+    .font-size(@milli-size);
+}
+.micro{
+    .font-size(@micro-size);
+}

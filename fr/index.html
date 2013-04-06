@@ -1,0 +1,49 @@
+---
+layout: default
+title: Accueil
+meta_description: Pensées d'un développeur en freelance et chef de projet en devenir. OOCSS, Backbone.js, front-end performance et un peu de frameworks PHP.
+---
+
+<p>
+    Salut à vous !<br />
+    Je m'appelle Nicolas et voici quelques articles et pensées que j'ai rédigé sur le développement web.
+</p>
+
+<section>
+    <ul class="block-list">
+        {% for post in paginator.posts %}
+        <li>
+            <h2>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <span class="epsilon">({{ post.date | localize: "%d %B, %Y" }})</span>
+            </h2>
+            <p>{{ post.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% if paginator.previous_page or paginator.next_page %}
+<!-- Pagination links -->
+<ol class="nav nav--block pagination">
+    <li class="pagination__prev">
+        {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+                <a href="/fr">&lt; Plus récents</a>
+            {% else %}
+                <a href="/fr/page{{paginator.previous_page}}">&lt; Plus récents</a>
+            {% endif %}
+        {% else %}
+            &lt; Plus récents
+        {% endif %}
+    </li>
+
+    <li class="pagination__next">
+        {% if paginator.next_page %}
+            <a href="/fr/page{{paginator.next_page}}">Plus anciens &gt;</a>
+        {% else %}
+            Plus anciens &gt;
+        {% endif %}
+    </li>
+</ol>
+{% endif %}

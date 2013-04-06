@@ -1,0 +1,84 @@
+/*------------------------------------*\
+    $BASE
+\*------------------------------------*/
+/**
+ * Base rule define the default styling for how that element 
+ * should look in all occurrences on the page.
+ * See http://smacss.com/book/type-base
+ */
+
+/**
+ * Main body
+ */
+body {
+    background-color: #000;
+    background-image: url('/assets/img/background.png');
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+/**
+ * Headings
+ */
+h1 {
+    color: @brand-color;
+
+    > span {
+        color: @main-color;
+    }
+}
+
+h1, h2, h3 {
+    font-family: @brand-face;
+}
+
+/**
+ * Links
+ */
+a {
+    color: @brand-color;
+
+    &:hover {
+        color: darken(@brand-color, 30%);
+        text-decoration: none;
+
+        footer & {
+            color: lighten(@brand-color, 10%);
+        }
+    }
+
+    .current & {
+        text-decoration: none;
+
+        &:hover {
+            color: @brand-color;
+        }
+
+        &:before {
+            content: "< ";
+        }
+
+        &:after {
+            content: " >";
+        }
+    }
+}
+
+/**
+ * Emphasis
+ */
+em {
+    font-style: normal;
+    font-family: @brand-face;
+}
+
+/**
+ * Code
+ */
+code {
+    color: @brand-color;
+
+    pre & {
+        color: #000;
+    }
+}

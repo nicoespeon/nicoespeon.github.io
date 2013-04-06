@@ -1,0 +1,49 @@
+---
+layout: default
+title: Home
+meta_description: Freelance web-developer and project manager thoughts. OOCSS, Backbone.js, front-end performance and a bit of PHP back-end frameworks.
+---
+
+<p>
+    Hi there!<br />
+    My name is Nicolas and these are some articles and thoughts I wrote about web development.
+</p>
+
+<section>
+    <ul class="block-list">
+        {% for post in paginator.posts %}
+        <li>
+            <h2>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <span class="epsilon">({{ post.date | date: "%d %B, %Y" }})</span>
+            </h2>
+            <p>{{ post.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% if paginator.previous_page or paginator.next_page %}
+<!-- Pagination links -->
+<ol class="nav nav--block pagination">
+    <li class="pagination__prev">
+        {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+                <a href="/">&lt; Previous</a>
+            {% else %}
+                <a href="/page{{paginator.previous_page}}">&lt; Previous</a>
+            {% endif %}
+        {% else %}
+            &lt; Previous
+        {% endif %}
+    </li>
+
+    <li class="pagination__next">
+        {% if paginator.next_page %}
+            <a href="/page{{paginator.next_page}}">Next &gt;</a>
+        {% else %}
+            Next &gt;
+        {% endif %}
+    </li>
+</ol>
+{% endif %}

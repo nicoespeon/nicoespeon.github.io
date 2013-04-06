@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    $CLEARFIX
+\*------------------------------------*/
+/**
+ * Micro clearfix, as per: nicolasgallagher.com/micro-clearfix-hack
+ * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
+ * and over in your markup.
+ */
+.cf,
+.gw,
+.grid-wrapper,
+.nav,
+.media,
+.island,
+.islet,
+.matrix,
+.multi-list,
+.stat-group{
+    zoom:1;
+    
+    &:before,
+    &:after{
+        content:" ";
+        display:table;
+    }
+    
+    &:after{
+        clear:both;
+    }
+}

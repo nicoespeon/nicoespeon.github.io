@@ -1,0 +1,23 @@
+---
+layout: default
+permalink: /archive/
+title: Archive
+---
+
+<p>
+    Here's the list of all post I wrote here (in both french and english).
+</p>
+
+<section>
+    <ul class="block-list">
+        {% for post in site.posts %}
+        <li>
+            <h2>
+                <a href="{{ post.url }}">&lt; {{ post.categories }} &gt; {{ post.title }}</a>
+                <span class="epsilon">({{ post.date | date: "%d %B, %Y" }}) </span>
+            </h2>
+            <p>{{ post.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
