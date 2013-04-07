@@ -1,49 +1,143 @@
----
-layout: default
-title: Accueil
-meta_description: Pensées d'un développeur en freelance et chef de projet en devenir. OOCSS, Backbone.js, front-end performance et un peu de frameworks PHP.
----
 
-<p>
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF8">
+    <meta name="viewport"    content="width=device-width, minimum-scale=1.0">
+    <meta name="description" content="Pensées d'un développeur en freelance et chef de projet en devenir. OOCSS, Backbone.js, front-end performance et un peu de frameworks PHP.">
+
+    <title>Accueil | @nicoespeon</title>
+
+    <link rel="icon"         href="/assets/img/icon.png">
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//platform.twitter.com">
+    <link rel="dns-prefetch" href="//p.twitter.com">
+    <link rel="dns-prefetch" href="//cdn.api.twitter.com">
+    <!-- <link rel="dns-prefetch" href="//google-analytics.com"> -->
+
+    <link rel="stylesheet"   href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'>
+    <link rel="stylesheet"   href="/assets/css/nicoespeon.css" media="screen">
+</head>
+<body>
+    <div id="main-content">
+        <div class="container">
+            <div class="gw">
+                <div class="g seven-tenths portable-one-whole">
+                    <header class="media" role="banner">
+                        <!-- Brand logo -->
+                        <img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" />
+
+                        <!-- Main navigation -->
+                        <nav class="media__body" role="navigation">
+                            <ul class="nav nav--main">
+                                
+                                    <li class="current">
+                                        <a href="/fr/index.html">Accueil</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/fr/about.html">À propos</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/fr/projects.html">Projets</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/fr/worth-reading.html">A Lire</a>
+                                    </li>
+                                
+                            </ul>
+                        </nav><!-- /navigation -->
+                    </header><!-- /header -->
+
+                    <p>
     Salut à vous !<br />
     Je m'appelle Nicolas et voici quelques articles et pensées que j'ai rédigé sur le développement web.
 </p>
 
 <section>
     <ul class="block-list">
-        {% for post in paginator.posts %}
-        <li>
-            <h2>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-                <span class="epsilon">({{ post.date | localize: "%d %B, %Y" }})</span>
-            </h2>
-            <p>{{ post.description }}</p>
-        </li>
-        {% endfor %}
+        
     </ul>
 </section>
 
-{% if paginator.previous_page or paginator.next_page %}
-<!-- Pagination links -->
-<ol class="nav nav--block pagination">
-    <li class="pagination__prev">
-        {% if paginator.previous_page %}
-            {% if paginator.previous_page == 1 %}
-                <a href="/fr">&lt; Plus récents</a>
-            {% else %}
-                <a href="/fr/page{{paginator.previous_page}}">&lt; Plus récents</a>
-            {% endif %}
-        {% else %}
-            &lt; Plus récents
-        {% endif %}
-    </li>
 
-    <li class="pagination__next">
-        {% if paginator.next_page %}
-            <a href="/fr/page{{paginator.next_page}}">Plus anciens &gt;</a>
-        {% else %}
-            Plus anciens &gt;
-        {% endif %}
-    </li>
-</ol>
-{% endif %}
+                </div>
+            
+                <div class="g three-tenths portable-one-whole">
+                    <div id="sidebar" role="complementary">
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+
+<!-- Lang navigation -->
+<nav role="navigation">
+    <ul class="nav nav--stacked text-center">
+        
+            <li >
+                
+                <a href="/index.html">
+                    English version
+                </a>
+            </li>
+        
+            <li class="current">
+                
+                <a href="/fr/index.html">
+                    Version française
+                </a>
+            </li>
+        
+    </ul>
+</nav>
+
+<!-- About -->
+<aside class="text-justify">
+    <p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis étudiant d'une école de commerce orientée IT, développeur web en freelance à mes heures.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/' target='_blank'>LinkedIn</a> et je <a href='http://twitter.com/nicoespeon' target='_blank'>tweet</a> pas mal aussi.</p>
+</aside>
+
+<!-- Tweets -->
+<aside class="text-center hide--portable">
+    <a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a>
+</aside>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /container -->
+    </div><!-- /main-content -->
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>
+                &copy; 2013 - <a href="https://twitter.com/nicoespeon" target="_blank">Nicolas (Espeon) Carlo</a><br>
+                Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> et à <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.com' target='_blank'>hébergé sur GitHub</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Le scripts -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</body>
+</html>
