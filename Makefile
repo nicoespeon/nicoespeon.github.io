@@ -19,3 +19,27 @@ build:
 	@echo "${HR}\n"
 	@echo "Script by @nicoespeon,"
 	@echo "inspired by @mdo's and @fat's Bootstrap Makefile\n"
+
+#
+# DEPLOY TO MASTER
+#
+
+deploy:
+	@echo  "\n${HR}"
+	@echo  "Deploying website..."
+	@echo  "${HR}\n"
+	@git   checkout master
+	@echo  "Switch to master...                ${CHECK} Done"
+	@sudo  cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile 
+	@echo  "Update files...                    ${CHECK} Done"
+	@git   add . && git commit -m "Regenerate files (jekyll deployment)"
+	@echo  "Committing files...                ${CHECK} Done"
+	@git   checkout develop && sudo git clean -f -d
+	@echo  "Switch back to develop...          ${CHECK} Done"
+	@mkdir _site/
+	@echo  "Creating site folder...            ${CHECK} Done"
+	@echo  "You can run back jekyll now"
+	@echo  "\n${HR}"
+	@echo "Deployed successfully completed at ${DATE}."
+	@echo "${HR}\n"
+	@echo "Script by @nicoespeon"
