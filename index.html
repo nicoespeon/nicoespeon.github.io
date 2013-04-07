@@ -14,8 +14,8 @@ meta_description: Freelance web-developer and project manager thoughts. OOCSS, B
         {% for post in paginator.posts %}
         <li>
             <h2>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-                <span class="epsilon">({{ post.date | date: "%d %B, %Y" }})</span>
+                <a href="{{ post.url }}">{{ post.title }}</a><br>
+                <span class="zeta">({{ post.date | date: "%d %B, %Y" }})</span>
             </h2>
             <p>{{ post.description }}</p>
         </li>

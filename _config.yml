@@ -1,7 +1,7 @@
 auto:       true
 server:     true
 pygments:   true
-paginate:   6
+paginate:   5
 permalink:  /:categories/:year/:month/:title
 exclude:    less/, "nicoespeon.sublime-project", "nicoespeon.sublime-workspace"
 

@@ -11,8 +11,8 @@ layout: default
 
 <article role="main">
     <h1>
-        {{ page.title }}
-        <span class="epsilon">
+        {{ page.title }}<br>
+        <span class="zeta">
             {% if locale == site.default_locale %}
                 ({{ page.date | date: "%d %B, %Y" }})
             {% else %}
@@ -20,6 +20,10 @@ layout: default
             {% endif %}
         </span>
     </h1>
+
+    <p class="islet">
+        {{ page.description }}
+    </p>
 
     {{ content }}
 </article>
