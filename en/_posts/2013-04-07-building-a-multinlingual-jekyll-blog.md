@@ -10,7 +10,7 @@ description: As a first post, what about sharing the way I managed to build this
 ---
 
 ## Why Jekyll?
-I won't write a n-th post about the reason of choosing Jekyll as the static site generator for my blog. There is already [plenty of them](https://www.google.fr/search?q=moving+blog+to+jekyll).
+I won't write a n-th post about the reason of choosing Jekyll as the static site generator for my blog. There are already [plenty of them](https://www.google.fr/search?q=moving+blog+to+jekyll).
 
 I'll just sum it up with the following bullet-points :
 
@@ -18,7 +18,7 @@ I'll just sum it up with the following bullet-points :
 - **I want to have my website updated when I push it to Github**. I could have done some hook to deal with that but I don't have to, thanks to [Github Pages](https://help.github.com/categories/20/articles).
 - **I love keeping myself up-to-date with new trends**. And the Jekyll approach just sounds good to me.
 
-I could recommend you [the post from Harry Roberts](http://csswizardry.com/2012/12/a-new-css-wizardry/) and [the one from Hugo Giraudel](http://hugogiraudel.com/2013/02/21/jekyll) which comfort me in my choice. 
+I could recommend you [the post from Harry Roberts](http://csswizardry.com/2012/12/a-new-css-wizardry/) and [the one from Hugo Giraudel](http://hugogiraudel.com/2013/02/21/jekyll) which comforted me in my choice. 
 
 ## What about multilingual?
 The thing is, Jekyll is not actually build to support multinlingual blogs. The [Liquid `date` filter](http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012) will display the english version of the date.  
@@ -28,7 +28,7 @@ Nevertheless, I wanted to create my blog both in French and English for few reas
 
 1. **Most of the nicest websites treating about front-end development are in English**, which is fine but I would like to see few of them written in my native language for other French developers who may not be fluent in English (even if they should be).
 2. **I'm French and proud to be**. Although I love English, there's no reason for me not to write some posts in my native language too.
-3. **This is a challenge** and I love challenges... as every developer do, right?
+3. **This is a challenge** and I love challenges... as every developer does, right?
 
 *So here's the strategy.*  
 English is the default language, at the root level.  
@@ -71,14 +71,14 @@ When launched, Jekyll generates the static final website into the `_site/` folde
 In order to solve the mentioned problems, I used 2 plugins to override the regular Jekyll workflow.
 
 #### 1. Pagination per category
-[category_pagination.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb) have the paginator only considers posts of the current category in order to distinguish the two languages. 
+[category_pagination.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb) has the paginator only considers posts of the current category in order to distinguish the two languages. 
 
 I modified the original plugin to have the default category, at root level, set as the *English* one instead of displaying all of the `site.posts`.
 
 #### 2. i18n Filter
-[i18n_filter.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/i18n_filter.rb) customize the `page.date` treatment accordingly to the locale.
+[i18n_filter.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/i18n_filter.rb) customizes the `page.date` treatment accordingly to the locale.
 
-I've had to create the [\_locales/fr.yml](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_locales/fr.yml) file to create the `localize` function. It performs just as the `date` does, but it displays the French format for the date.
+I've had to add the [\_locales/fr.yml](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_locales/fr.yml) file to create the `localize` function. It performs just as the `date` does, but it displays the French format for the date.
 
 ## The Github thing
 
@@ -104,4 +104,4 @@ I just create a [Makefile](https://github.com/nicoespeon/nicoespeon.github.io/bl
 
 Here we are, it just works perfectly and I'm now ready to go with a both English and French, Jekyll-flavored, Github-hosted blog *\o/*
 
-There is still I should take care of -such as deploying a Google Analytics and a comments system- but I'm satisfied about the result. The challenge is taken up and the journey has begun. **Let's transform these posts into a monster.**
+There is still enhancements I should take care of -such as deploying a Google Analytics and a comments system- but I'm satisfied with the result. The challenge is taken up and the journey has begun. **Let's transform these posts into a monster.**
