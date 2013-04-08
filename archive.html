@@ -13,8 +13,8 @@ title: Archive
         {% for post in site.posts %}
         <li>
             <h2>
-                <a href="{{ post.url }}">&lt; {{ post.categories }} &gt; {{ post.title }}</a>
-                <span class="epsilon">({{ post.date | date: "%d %B, %Y" }}) </span>
+                <a href="{{ post.url }}">&lt; {{ post.categories }} &gt; {{ post.title }}</a><br>
+                <span class="zeta">({{ post.date | date: "%d %B, %Y" }})</span>
             </h2>
             <p>{{ post.description }}</p>
         </li>
