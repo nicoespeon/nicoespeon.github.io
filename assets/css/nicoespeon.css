@@ -279,6 +279,7 @@ header>img,header>nav{line-height:80px;}
 .block-list>li{border-color:#DDD;border-style:dashed;}
 .block-list,.block-list>li:last-child{border:none;}
 .img--circle{-webkit-border-radius:500px;-moz-border-radius:500px;border-radius:500px;}
+.island,.islet{border-left:2px solid #ff4444;}
 .nav--main>li{padding-right:7%;}
 .pagination{text-align:center;}
 .pagination__prev{margin-right:10%;}
