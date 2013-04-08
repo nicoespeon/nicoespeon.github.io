@@ -28,7 +28,7 @@ locales:
 
         about_message: "<p>My name is <span class='brand-face'>Nicolas</span> and I'm a french IT business student, doing some freelance web development aside.</p><p>I <a href='/archive'>write</a> articles about web development and project management. I got <a href='http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/' target='_blank'>LinkedIn</a> and I <a href='http://twitter.com/nicoespeon' target='_blank'>tweet</a> too.</p>"
 
-        footer_message: "The website is built upon <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> and <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.com' target='_blank'>hosted on GitHub</a>."
+        footer_message: "The website is built upon <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> and <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io' target='_blank'>hosted on GitHub</a>."
     fr:
         nav:
         - text:         "Accueil"
@@ -48,4 +48,4 @@ locales:
 
         about_message: "<p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis étudiant d'une école de commerce orientée IT, développeur web en freelance à mes heures.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/' target='_blank'>LinkedIn</a> et je <a href='http://twitter.com/nicoespeon' target='_blank'>tweet</a> pas mal aussi.</p>"
 
-        footer_message: "Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> et à <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.com' target='_blank'>hébergé sur GitHub</a>."
+        footer_message: "Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> et à <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io' target='_blank'>hébergé sur GitHub</a>."
