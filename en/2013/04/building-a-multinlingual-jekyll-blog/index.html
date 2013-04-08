@@ -78,7 +78,7 @@
 
     <h2 id='why_jekyll'>Why Jekyll?</h2>
 
-<p>I won&#8217;t write a n-th post about the reason of choosing Jekyll as the static site generator for my blog. There is already <a href='https://www.google.fr/search?q=moving+blog+to+jekyll'>plenty of them</a>.</p>
+<p>I won&#8217;t write a n-th post about the reason of choosing Jekyll as the static site generator for my blog. There are already <a href='https://www.google.fr/search?q=moving+blog+to+jekyll'>plenty of them</a>.</p>
 
 <p>I&#8217;ll just sum it up with the following bullet-points :</p>
 
@@ -90,7 +90,7 @@
 <li><strong>I love keeping myself up-to-date with new trends</strong>. And the Jekyll approach just sounds good to me.</li>
 </ul>
 
-<p>I could recommend you <a href='http://csswizardry.com/2012/12/a-new-css-wizardry/'>the post from Harry Roberts</a> and <a href='http://hugogiraudel.com/2013/02/21/jekyll'>the one from Hugo Giraudel</a> which comfort me in my choice.</p>
+<p>I could recommend you <a href='http://csswizardry.com/2012/12/a-new-css-wizardry/'>the post from Harry Roberts</a> and <a href='http://hugogiraudel.com/2013/02/21/jekyll'>the one from Hugo Giraudel</a> which comforted me in my choice.</p>
 
 <h2 id='what_about_multilingual'>What about multilingual?</h2>
 
@@ -103,7 +103,7 @@
 
 <li><strong>I&#8217;m French and proud to be</strong>. Although I love English, there&#8217;s no reason for me not to write some posts in my native language too.</li>
 
-<li><strong>This is a challenge</strong> and I love challenges&#8230; as every developer do, right?</li>
+<li><strong>This is a challenge</strong> and I love challenges&#8230; as every developer does, right?</li>
 </ol>
 
 <p><em>So here&#8217;s the strategy.</em><br />English is the default language, at the root level.<br />Each language represents a category, which could be done thanks to the folders architecture.<br />The French part should be under the <code>/fr</code> base url, which is fine with the previous statements.<br />English posts should only display into <code>/index.html</code>, French posts should only display into <code>/fr/index.html</code> (and the pagination should be done accordingly).<br />It should Keep It Simple (Stupid).</p>
@@ -139,15 +139,15 @@
 
 <h4 id='1_pagination_per_category'>1. Pagination per category</h4>
 
-<p><a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb'>category_pagination.rb</a> have the paginator only considers posts of the current category in order to distinguish the two languages.</p>
+<p><a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb'>category_pagination.rb</a> has the paginator only considers posts of the current category in order to distinguish the two languages.</p>
 
 <p>I modified the original plugin to have the default category, at root level, set as the <em>English</em> one instead of displaying all of the <code>site.posts</code>.</p>
 
 <h4 id='2_i18n_filter'>2. i18n Filter</h4>
 
-<p><a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/i18n_filter.rb'>i18n_filter.rb</a> customize the <code>page.date</code> treatment accordingly to the locale.</p>
+<p><a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/i18n_filter.rb'>i18n_filter.rb</a> customizes the <code>page.date</code> treatment accordingly to the locale.</p>
 
-<p>I&#8217;ve had to create the <a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_locales/fr.yml'>_locales/fr.yml</a> file to create the <code>localize</code> function. It performs just as the <code>date</code> does, but it displays the French format for the date.</p>
+<p>I&#8217;ve had to add the <a href='https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_locales/fr.yml'>_locales/fr.yml</a> file to create the <code>localize</code> function. It performs just as the <code>date</code> does, but it displays the French format for the date.</p>
 
 <h2 id='the_github_thing'>The Github thing</h2>
 
@@ -167,7 +167,7 @@
 
 <p>Here we are, it just works perfectly and I&#8217;m now ready to go with a both English and French, Jekyll-flavored, Github-hosted blog <em>\o/</em></p>
 
-<p>There is still I should take care of -such as deploying a Google Analytics and a comments system- but I&#8217;m satisfied about the result. The challenge is taken up and the journey has begun. <strong>Let&#8217;s transform these posts into a monster.</strong></p>
+<p>There is still enhancements I should take care of -such as deploying a Google Analytics and a comments system- but I&#8217;m satisfied with the result. The challenge is taken up and the journey has begun. <strong>Let&#8217;s transform these posts into a monster.</strong></p>
 </article>
                 </div>
             
@@ -228,7 +228,7 @@
         <div class="container">
             <p>
                 &copy; 2013 - <a href="https://twitter.com/nicoespeon" target="_blank">Nicolas (Espeon) Carlo</a><br>
-                The website is built upon <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> and <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.com' target='_blank'>hosted on GitHub</a>.
+                The website is built upon <a href='https://github.com/mojombo/jekyll' target='_blank'>Jekyll</a> and <a href='http://inuitcss.com/' target='_blank'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry' target='_blank'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io' target='_blank'>hosted on GitHub</a>.
             </p>
         </div>
     </footer>
