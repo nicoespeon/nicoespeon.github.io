@@ -16,4 +16,4 @@ In fact, I wanted to build a both French and English blog. To do so, I needed fe
 
 *La branche `master` est la version compilée par Jekyll afin que Github puisse la livrer directement, grâce au fichier `.nojekyll`. La branche `develop` contient les fichiers sources, compilés par Jekyll.*
 
-*En fait je souhaitais créer un blog à la fois en Français et en Anglais. Pour ce faire j'avais besoin de quelques plugins. Mais Github lance Jekyll en mode `--safe`, donc **sans plugin**. C'est pourquoi je dois déployer le `_site/` complet sur la branche `master` pour continuer avec l'hébergement Github (en supprimant les fichiers sources de cette branche).*
+*En fait je souhaitais créer un blog à la fois en Français et en Anglais. Pour ce faire j'avais besoin de quelques plugins. Mais Github lance Jekyll en mode `--safe`, donc __sans plugin__. C'est pourquoi je dois déployer le `_site/` complet sur la branche `master` pour continuer avec l'hébergement Github (en supprimant les fichiers sources de cette branche).*
