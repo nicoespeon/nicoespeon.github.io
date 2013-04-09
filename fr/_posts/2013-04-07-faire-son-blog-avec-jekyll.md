@@ -2,6 +2,7 @@
 layout: post
 robots: index,follow
 published: true
+comments: true
 
 tags: [jekyll]
 
