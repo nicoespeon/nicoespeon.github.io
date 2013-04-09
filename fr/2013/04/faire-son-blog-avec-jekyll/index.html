@@ -185,6 +185,10 @@ description: Pourquoi et comment créer son blog avec Jekyll plutôt qu&#39;un b
 <h2 id='le_mot_de_la_fin'>Le mot de la fin</h2>
 
 <p>C&#8217;est tout pour cette petite introduction à l&#8217;utilisation de Jekyll. Si l&#8217;anglais ne vous rebutte pas, vous trouverez votre bonheur sur Google. Je vous suggère notamment <a href='http://csswizardry.com/2012/12/a-new-css-wizardry/'>cet article de Harry Roberts</a> et <a href='http://hugogiraudel.com/2013/02/21/jekyll/'>celui-ci de Hugo Giraudel</a> (c&#8217;est un français !) qui m&#8217;ont inspiré et conforté dans mon choix.</p>
+
+    
+        <div id="disqus_thread"></div> 
+    
 </article>
                 </div>
             
@@ -254,17 +258,11 @@ description: Pourquoi et comment créer son blog avec Jekyll plutôt qu&#39;un b
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     
     <!-- Google Analytics -->
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-39957541-2']);
-      _gaq.push(['_setDomainName', 'nicoespeon.com']);
-      _gaq.push(['_trackPageview']);
+    <script>var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-39957541-2']);_gaq.push(['_setDomainName', 'nicoespeon.com']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    
+    <!-- Disqus -->
+    <script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2013/04/faire-son-blog-avec-jekyll';var title = 'Faire son blog avec Jekyll';(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 </body>
 </html>
