@@ -41,7 +41,7 @@ module Jekyll
     end
 
     def output_html(dest, content)
-      path = self.destination(dest)
+      path = destination(dest)
       self.output_file(path, compress_html(content))
     end
 
@@ -54,9 +54,7 @@ module Jekyll
   end
 
 
-
   # Overwrite old methods to insert a hook
-
   class Post
 
     include Compressor
@@ -64,9 +62,7 @@ module Jekyll
     def write(dest)
       self.output_html(dest, self.output)
     end
-
   end
-
 
 
   class Page
@@ -76,9 +72,7 @@ module Jekyll
     def write(dest)
       self.output_html(dest, self.output)
     end
-
   end
-
 
 
   class StaticFile
@@ -88,12 +82,12 @@ module Jekyll
     def write(dest)
       dest_path = destination(dest)
 
-      return false if File.exist?(dest_path) and !self.modified?
+      return false if File.exist?(dest_path) and !modified?
       @@mtimes[path] = mtime
 
       case File.extname(dest_path)
         when '.html'
-          self.output_html(dest_path, File.read(path))
+          self.output_html(dest, File.read(path))
         # when '.js'
         #   self.output_js(dest_path, File.read(path))
         else
