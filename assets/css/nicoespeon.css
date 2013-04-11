@@ -264,8 +264,8 @@ label,.label{display:block;}
 [dir=rtl] .accessibility{left:auto;right:-99999px;}
 .hide{position:absolute;left:-9999px;}
 @media only screen and (max-width:480px){.hide--palm{position:absolute;left:-9999px;}}@media only screen and (min-width:481px) and (max-width:1023px){.hide--lap{position:absolute;left:-9999px;}}@media only screen and (max-width:1023px){.hide--portable{position:absolute;left:-9999px;}}@media only screen and (min-width:1024px){.hide--desk{position:absolute;left:-9999px;}}body{background-color:#000;background-image:url('/assets/img/background.png');color:#FFF;font-family:'Roboto',sans-serif;}
-h1{color:#ff4444;}h1>span{color:#333333;}
-h1,h2,h3{font-family:"Snippet",sans-serif;}
+h1{color:#ff4444;}
+h1,h2,h3{font-family:"Snippet",sans-serif;}h1>span,h2>span,h3>span{color:#333333;font-weight:normal;}
 a{color:#ff4444;}a:hover{color:#aa0000;text-decoration:none;}footer a:hover{color:#ff7777;}
 .current a{text-decoration:none;}.current a:hover{color:#ff4444;}
 .current a:before{content:"< ";}
