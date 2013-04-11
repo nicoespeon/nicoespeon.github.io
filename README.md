@@ -1,6 +1,6 @@
 # About this
 
-This is [@nicoespeon](https://twitter.com/nicoespeon)'s blog uncompilled source code.
+This is [@nicoespeon](https://twitter.com/nicoespeon)'s blog uncompiled source code.
 
 The website is built upon [Jekyll](https://github.com/mojombo/jekyll) and [inuit.css](http://inuitcss.com/) from the excellent [@csswizardry](https://twitter.com/csswizardry).
 
