@@ -11,15 +11,20 @@ layout: default
 
 <article role="main">
     <h1>
-        {{ page.title }}<br>
-        <span class="zeta">
+        {{ page.title }}
+    </h1>
+
+    <div class="media">
+        <a href="https://twitter.com/share" class="twitter-share-button media__img--rev" data-text="{{ page.title }} |" data-via="nicoespeon">Tweeter</a>
+
+        <div class="media__body brand-face zeta">
             {% if locale == site.default_locale %}
                 ({{ page.date | date: "%d %B, %Y" }})
             {% else %}
                 ({{ page.date | localize: "%d %B, %Y" }})
             {% endif %}
-        </span>
-    </h1>
+        </div>
+    </div>
 
     <p class="islet">
         {{ page.description }}
