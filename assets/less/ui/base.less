@@ -2,7 +2,7 @@
     $BASE
 \*------------------------------------*/
 /**
- * Base rule define the default styling for how that element 
+ * Base rule define the default styling for how that element
  * should look in all occurrences on the page.
  * See http://smacss.com/book/type-base
  */
@@ -22,14 +22,15 @@ body {
  */
 h1 {
     color: @brand-color;
-
-    > span {
-        color: @main-color;
-    }
 }
 
 h1, h2, h3 {
     font-family: @brand-face;
+
+    > span {
+        color: @main-color;
+        font-weight: normal;
+    }
 }
 
 /**
