@@ -78,5 +78,15 @@
     <!-- Disqus -->
     <script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com{{ page.url }}';var title = "{{ page.title | escape }}";(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     {% endif %}
+
+    {% if page.jsbin %}
+    <!-- JSBin -->
+    <script src="http://static.jsbin.com/js/embed.js"></script>
+    {% endif %}
+
+    {% if page.codepen %}
+    <!-- CodePen -->
+    <script async src="http://codepen.io/assets/embed/ei.js"></script>
+    {% endif %}
 </body>
 </html>
