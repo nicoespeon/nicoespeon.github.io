@@ -143,7 +143,7 @@ Pour ceux qui, comme moi, utilisent [LESS](http://lesscss.org/) plutôt que Sass
 
 Le seul hic est qu'**il ne s'agit pas forcément de la même version**. Si inuit.css est passé à la `v5.0`, l'alternative LESS correspond aujourd'hui à la `v4.3.7`.
 
-Nous tâchons cependant de faire évoluer la version LESS avec l'optique d'offrir une version la plus up-to-date possible. Par exemple, Peter devrait traiter ma ma pull-request pour la `v4.5` ce week-end et j'ai actuellement la `v4.5.3` dans les bacs donc c'est une question de temps !
+Nous tâchons cependant de faire évoluer la version LESS avec l'optique d'offrir une version la plus up-to-date possible. Par exemple, Peter devrait traiter ma pull-request pour la `v4.5` ce week-end et j'ai actuellement la `v4.5.4` dans les bacs donc c'est une question de temps !
 
 ---
 
