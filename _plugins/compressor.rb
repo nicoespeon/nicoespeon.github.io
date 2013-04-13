@@ -5,6 +5,9 @@
 # By [mytharcher](https://github.com/mytharcher)
 # 2012-05-20
 #
+# Updated by [nicoespeon](https://github.com/nicoespeon)
+# 2013-04-12
+#
 # This plugin for compressing text files, including
 # HTML and JavaScript of jekyll site. NOT support CSS
 # file yet.
@@ -13,13 +16,12 @@
 # third-party lib. I'm not sure if GitHub has this
 # extension. But the compressor for HTML files works OK.
 #
-# For HTML files I use a simpliest compress strategy,
-# just remove all the blank between ">" and "<". So if
-# your HTML text content contains "<" or ">", It would
-# be danger to use this plugin.
-#
-# Modification by [nicoespeon](https://github.com/nicoespeon) > I don't need JS, I don't require 'packr'
+# For HTML files it uses Alan Moore's regexp :
+# http://stackoverflow.com/questions/5312349/minifying-final-html-output-using-regular-expressions-with-codeigniter
+# It removes spaces between HTML, excepted within
+# <textarea> and <pre> code, so you don't get into trouble!
 
+# Personal use modification > I don't need JS, I don't require 'packr'
 # require 'packr'
 
 module Jekyll
@@ -27,9 +29,7 @@ module Jekyll
   module Compressor
 
     def compress_html(content)
-      content.gsub(/>\s+</, '><').
-        gsub(/<!--([^-]*(-[^-][^>])?(--[^>])?)*-*-->/m, '').
-        gsub(/\s*<!DOCTYPE/i, '<!DOCTYPE')
+      content.gsub(/(?>[^\S ]\s*|\s{2,})(?=(?:(?:[^<]++|<(?!\/?(?:textarea|pre)\b))*+)(?:<(?>textarea|pre)\b|\z))/ix, '')
     end
 
     # Really writing process
