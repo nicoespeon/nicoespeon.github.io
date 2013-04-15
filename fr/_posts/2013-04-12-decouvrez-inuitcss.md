@@ -79,7 +79,7 @@ Pour mettre à jour le coeur du framework, il suffira de mettre à jour le sous-
 
 #### Méthode 2 - Sans Git
 
-Téléchargez le [template web](https://github.com/csswizardry/inuit.css-web-template/blob/master/go) puis téléchargez [le coeur du framework]() et placez ce dernier dans le dossier `css/` du template web. Placez le tout dans `your-project-folder`.
+Téléchargez le [template web](https://github.com/csswizardry/inuit.css-web-template/) puis téléchargez [le coeur du framework]() et placez ce dernier dans le dossier `css/` du template web. Placez le tout dans `your-project-folder`.
 
 Pour mettre à jour le coeur du framework, il vous suffira de remplacer le dossier `inuit.css` par la version la plus récente.
 
@@ -112,6 +112,8 @@ Le fichier `_vars.scss` doit contenir les variables du framework que vous souhai
 2. changez `@var: defaultvalue!default;` par `@var: newvalue;`
 3. rien d'autre
 
+Vous avez également dans ce fichier l'ensemble des objets du frameworks contenus dans le dossier `objects/`. Vous pouvez les activer selon vos besoins, le framework est **modulaire** !
+
 Le fichier `_style.scss` importe les fichiers Sass pour la compilation du CSS. C'est lui le grand architecte. A vous d'y incorporer les fichiers que vous aurez créé dans `ui/` notamment.
 
 Le script `watch` permet à Sass de compiler votre code à la volée lorsque vous faîtes des mises à jour. C'est pas impératif, ça dépend de votre workflow personnel... C'est vous qui voyez ! Le script est personnalisable et lance la commande suivante :
@@ -121,11 +123,6 @@ Le script `watch` permet à Sass de compiler votre code à la volée lorsque vou
 Pour le lancer, inutile de mémoriser la commande précédente, exécutez simplement :
 
     $ ./watch
-
-<p class="islet">
-    <strong>Note</strong> - A l'heure actuelle, la seule manière de définir les objets du frameworks que vous importez ou non consiste à modifier le fichier <code>inuit.css/_inuit.scss</code>. Vous pouvez commenter les éléments dont vous ne vous servez pas afin d'alléger votre CSS final notamment (c'est dans cet esprit modulaire qu'a été élaboré le framework).<br><br>
-    Ce n'est pas encore très propre et cela signifie qu'il faudra répéter cette opération lors d'une mise à jour, mais je gage que d'ici quelques releases cette configuration sera exportée à l'extérieur du coeur du framework.
-</p>
 
 En définitive, vous disposez d'un fichier CSS unique, compressé et optimisé, qu'il ne vous reste plus qu'à incorporer dans votre HTML :
 
@@ -144,6 +141,10 @@ Pour ceux qui, comme moi, utilisent [LESS](http://lesscss.org/) plutôt que Sass
 Le seul hic est qu'**il ne s'agit pas forcément de la même version**. Si inuit.css est passé à la `v5.0`, l'alternative LESS correspond aujourd'hui à la `v4.3.7`.
 
 Nous tâchons cependant de faire évoluer la version LESS avec l'optique d'offrir une version la plus up-to-date possible. Par exemple, Peter devrait traiter ma pull-request pour la `v4.5` ce week-end et j'ai actuellement la `v4.5.4` dans les bacs donc c'est une question de temps !
+
+<p class="islet">
+    <strong>Edit du 15/04</strong> - La version correspond à présent à la <code>v4.5</code> et la <code>v5.0.0</code> est en chemin !
+</p>
 
 ---
 
