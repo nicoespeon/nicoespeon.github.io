@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About
-meta_description: Freelance web-developer and project manager thoughts. Who am I and how to get in touch.
+description: Freelance web-developer and project manager thoughts. Who am I and how to get in touch.
 ---
 
 # Who am I?

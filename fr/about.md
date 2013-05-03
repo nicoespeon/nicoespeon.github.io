@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About
-meta_description: Pensées d'un développeur en freelance et chef de projet en devenir. Qui suis-je et comment se contacter.
+description: Pensées d'un développeur en freelance et chef de projet en devenir. Qui suis-je et comment se contacter.
 ---
 
 # Qui suis-je ?
