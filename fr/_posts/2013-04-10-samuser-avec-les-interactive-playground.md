@@ -34,7 +34,7 @@ Voici donc, après cette petite mise en jambes, une petite présentation non-exh
 Particulièrement abouti, il permet d'interpréter directement les Gist, ce qui est appréciable en soi pour les grands adeptes de la plateforme.
 
 <p class="islet">
-    <a href="https://gist.github.com/" target="_blank">Gist</a> est un moyen rapide et efficace que propose Github pour partager des snippets de codes versionnés sous Git. JSBin permet donc de visualiser directement dans le navigateur le rendu du code, permettant de le modifier et de sauvegarder une nouvelle version du Gist.
+    <a href="https://gist.github.com/">Gist</a> est un moyen rapide et efficace que propose Github pour partager des snippets de codes versionnés sous Git. JSBin permet donc de visualiser directement dans le navigateur le rendu du code, permettant de le modifier et de sauvegarder une nouvelle version du Gist.
 </p>
 
 Il dispose également d'un certain nombre de features notables comme [JSHint](http://jshint.com/) (un linter qui vérifie que votre Javascript ne comporte pas d'erreur) ou encore la possibilité d'insérer le JS/CSS à un endroit spécifique du HTML avec `%code%`/`%css`.
@@ -60,7 +60,7 @@ Les fonctionnalités sont sensiblement les mêmes à ceci près que jsFiddle per
 Fait notable également : le HTML est épuré, il est inutile de renseigner les entêtes ou le doctype puisque le code du panel sera de facto intégré entre les balises `<body>`. En contrepartie, la configuration du doctype et des informations se fait sur le côté, via un panneau de configuration.
 
 <p class="islet">
-    <a href="https://twitter.com/csswizardry" target="_blank">Harry Roberts</a> utilise d'ailleurs jsFiddle pour présenter les fonctionnalités d'<a href="http://jsfiddle.net/user/inuitcss/fiddles/" target="_blank"><em>inuit.css</em></a>, ce qui permet de se faire rapidement une idée de comment fonctionne le framework et de ses capacités sans même avoir à le télécharger.
+    <a href="https://twitter.com/csswizardry">Harry Roberts</a> utilise d'ailleurs jsFiddle pour présenter les fonctionnalités d'<a href="http://jsfiddle.net/user/inuitcss/fiddles/"><em>inuit.css</em></a>, ce qui permet de se faire rapidement une idée de comment fonctionne le framework et de ses capacités sans même avoir à le télécharger.
 </p>
 
 <p class="hide--palm">
@@ -103,7 +103,7 @@ CodePen propose un certain nombre de features intéressantes, y compris l'usage 
 [dabblet](http://dabblet.com/) est un peu particulier dans le genre. En effet, **ce dernier s'oriente** non pas sur le Javascript (fer de lance de JSBin et jsFiddle, rien que par le nom) mais **sur le CSS**.
 
 <p class="islet">
-    L'idée de <a href="https://twitter.com/LeaVerou" target="_blank">Léa Verou</a> était de produire une alternative qui ne s'embarassait pas de requêtes HTTP à chaque fois que l'on fait/code quelque chose dans l'éditeur. Si cela prend sens pour le Javascript, ce n'est d'aucun intérêt quand on ne cherche qu'à tester du HTML/CSS.
+    L'idée de <a href="https://twitter.com/LeaVerou">Léa Verou</a> était de produire une alternative qui ne s'embarassait pas de requêtes HTTP à chaque fois que l'on fait/code quelque chose dans l'éditeur. Si cela prend sens pour le Javascript, ce n'est d'aucun intérêt quand on ne cherche qu'à tester du HTML/CSS.
 </p>
 
 Sous son apparence design, dabblet offre également tout un panel de fonctionnalités comme la visualisation du rendu en temps réel, des "inline previewers" particulièrement sympathiques sur toutes sortes de propriétés CSS (pour visualiser une longueur, une couleur, un effet, ...) et même l'incorporation native de [-prefix-free](http://leaverou.github.com/prefixfree/), luxe ultime pour tout développeur CSS. Ce dernier vous permet d'utiliser les propriétés CSS3 sans vous préoccuper des préfixes, il les ajoute en background quand c'est nécessaire.

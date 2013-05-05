@@ -18,7 +18,7 @@ Mais **je préfère le développement front-end**, me tenant toujours informé d
 # Comment me contacter ?
 
 Vous pouvez [m'envoyer un e-mail](mailto:nicolascarlo.espeon@gmail.com) pour toute question ou demande.
-Vous pouvez également <a href="http://twitter.com/?status=@nicoespeon%20>%20" target="_blank">me tweeter</a> si ça vous chante, ou me rejoindre sur <a href="http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/" target="_blank">LinkedIn</a>.
+Vous pouvez également <a href="http://twitter.com/?status=@nicoespeon%20>%20">me tweeter</a> si ça vous chante, ou me rejoindre sur <a href="http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/">LinkedIn</a>.
 
 Pour toute proposition de développement freelance, veuillez plutôt me contacter à l'adresse suivante : <nicolas.carlo@planee.fr>.
 Je considérerais chacune de vos requêtes au cas par cas.

@@ -70,7 +70,7 @@ $('#main-article').find('.pagination__prev');       // super-fast
 
 <p class="islet">
     Ce qui va suivre relève de bonnes pratiques CSS connues sous le nom d'OOCSS (<em>Object Oriented CSS</em>). C'est une philosophie assez répandue et à laquelle j'adhère, mais ce n'est pas la seule façon de voir les choses. Je crois cependant qu'elle s'adapte à tout type de projets, grands ou petits, avec l'avantage d'être <em>future-proof</em>.<br><br>
-    <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/" target="_blank">Voici une introduction à ses principes</a>, pour ceux que ça intéresse, ainsi qu'une <a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/" target="_blank">vision alternative</a> (que je ne partage pas, mais qui a sa légitimité selon moi). Libre à chacun de suivre sa voie.
+    <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">Voici une introduction à ses principes</a>, pour ceux que ça intéresse, ainsi qu'une <a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/">vision alternative</a> (que je ne partage pas, mais qui a sa légitimité selon moi). Libre à chacun de suivre sa voie.
 </p>
 
 #### Class ou ID ?
@@ -155,7 +155,7 @@ Si les chiffres ne sont pas votre fort (et que vous n'aimez pas mon lien précé
 
 <p class="islet">
     <strong>N.B.</strong> - <em>Javascript</em> est un abus de langage ici dans la mesure où je parle de bibliothèques JS avec jQuery en référence.<br><br>
-    Il convient cependant de noter qu'en termes de performances, le JS pur donnera de meilleurs résultats et <code>document.getElementById()</code> est probablement <a href="http://jsperf.com/id-selector-comparison/3" target="_blank">le plus performant</a>.
+    Il convient cependant de noter qu'en termes de performances, le JS pur donnera de meilleurs résultats et <code>document.getElementById()</code> est probablement <a href="http://jsperf.com/id-selector-comparison/3">le plus performant</a>.
 </p>
 
 #### Un(e) bon(ne) ID

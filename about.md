@@ -18,7 +18,7 @@ But **I enjoy front-end development the most**, keeping myself up-to-date with H
 # How to get in touch?
 
 You can [send me an e-mail](mailto:nicolascarlo.espeon@gmail.com) for any question or request.
-You can also <a href="http://twitter.com/?status=@nicoespeon%20>%20" target="_blank">tweet me some words</a> if you wish, or catch me on <a href="http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/" target="_blank">LinkedIn</a>.
+You can also <a href="http://twitter.com/?status=@nicoespeon%20>%20">tweet me some words</a> if you wish, or catch me on <a href="http://fr.linkedin.com/pub/nicolas-carlo/3b/b24/95/">LinkedIn</a>.
 
 For any freelance work proposition, please contact me with this address: <nicolas.carlo@planee.fr>.
 I will consider your request with a case-by-case approach.

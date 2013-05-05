@@ -72,7 +72,7 @@ $('#main-article').find('.pagination__prev');       // super-fast
 
 <p class="islet">
     This come from CSS best practices known as OOCSS (<em>Object Oriented CSS</em>). It's a fairly generalized philosophy I agree with, but it's not the only way. However, I trust it could be used for any kind of project, regardless its size, with a <em>future-proof</em> argument.<br><br>
-    <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/" target="_blank">Here is an introduction to OOCSS principles</a> for those who are interested in. <a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/" target="_blank">This is an alternative vision</a> I don't share but which is legit still. Feel free to follow your own path.
+    <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">Here is an introduction to OOCSS principles</a> for those who are interested in. <a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/">This is an alternative vision</a> I don't share but which is legit still. Feel free to follow your own path.
 </p>
 
 #### Class or ID ?
@@ -157,7 +157,7 @@ If you're not a really good numbers person, [here is an online CSS specificity c
 
 <p class="islet">
     <strong>NB</strong> - <em>Javascript</em> is an abuse of terms. I mainly deal with JS libraries, jQuery as a reference.<br><br>
-    It worth noting that vanilla JS will give better results and <code>document.getElementById()</code> is probably <a href="http://jsperf.com/id-selector-comparison/3" target="_blank">the most efficient</a>.
+    It worth noting that vanilla JS will give better results and <code>document.getElementById()</code> is probably <a href="http://jsperf.com/id-selector-comparison/3">the most efficient</a>.
 </p>
 
 #### A good ID

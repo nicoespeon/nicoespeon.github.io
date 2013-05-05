@@ -47,7 +47,7 @@ Il est parti du principe qu'un framework CSS devait apporter une logique et un l
 
 ## Installation
 
-<p class="islet"><strong>Pré-requis</strong> - avoir <a href="http://sass-lang.com/tutorial.html" target="_blank">installé Sass</a> au préalable pour pouvoir compiler le code.</p>
+<p class="islet"><strong>Pré-requis</strong> - avoir <a href="http://sass-lang.com/tutorial.html">installé Sass</a> au préalable pour pouvoir compiler le code.</p>
 
 A l'heure actuelle, **inuit.css** est passé à la version **v5.0**, ce qui change considérablement la manière de l'implémenter par rapport aux versions précédentes.
 
@@ -70,7 +70,7 @@ Pour un nouveau projet, clonez simplement le dépôt de la manière suivante :
     $ git submodule add git://github.com/csswizardry/inuit.css.git your-project-folder/inuit.css
 
 <p class="islet">
-    Il vous faudra ensuite organiser vos fichiers selon vos besoin, en vous inspirant de l'architecture du dossier <code>css/</code> du <a href="https://github.com/csswizardry/inuit.css-web-template/tree/master/css" target="_blank">template web</a>.
+    Il vous faudra ensuite organiser vos fichiers selon vos besoin, en vous inspirant de l'architecture du dossier <code>css/</code> du <a href="https://github.com/csswizardry/inuit.css-web-template/tree/master/css">template web</a>.
 </p>
 
 Pour mettre à jour le coeur du framework, il suffira de mettre à jour le sous-module Git :
