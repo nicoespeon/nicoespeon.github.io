@@ -12,7 +12,7 @@ description: Bonne pratique et manipulation des données en jQuery, sans coloran
 
 ## TL;DR
 
-jQuery simplifie la manipulation des données attachées aux éléments manipulés.
+jQuery simplifie la manipulation des données rattachées aux éléments.
 
 L'attribut HTML5 `data-*` est lié à l'objet **data** de jQuery pour les éléments du DOM.
 
