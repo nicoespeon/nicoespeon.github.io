@@ -14,7 +14,7 @@ description: Pourquoi et comment créer son blog avec Jekyll plutôt qu'un bon v
 
 [Jekyll](https://github.com/mojombo/jekyll) est un générateur de sites statiques, pensé pour les blogs, développé en *Ruby*, simple à utiliser. Basiquement, une fois que vous avez construit vos templates `.html`, il ne vous reste qu'à rédiger vos articles sous le format qui vous sied le mieux (le *Markdown* me convient tout à fait) et basta, le serveur fait le reste !
 
-C'est [Tom Preston Werner](http://tom.preston-werner.com/), le co-fondateur de Github, qui l'a créé.  
+C'est [Tom Preston Werner](http://tom.preston-werner.com/), le co-fondateur de Github, qui l'a créé.
 D'ailleurs (et surtout), c'est ce qu'utilise [Github Pages](http://pages.github.com/) pour générer vos pages. Basiquement, il suffit de pusher le code sur Github pour l'avoir en ligne (c'est magico-magique).
 
 Le principe de fonctionnement est assez simple, l'architecture rapide à prendre en main. C'est vraiment pensé pour que vous vous concentriez sur le contenu plutôt que le contenant (tout en laissant le plaisir de créer ses templates de A à Z, bien que Github propose également de faire ça à votre place).
@@ -76,7 +76,7 @@ Jekyll compile l'ensemble dans un dossier `_site/` contenant votre site statique
 
 Basiquement, le code source de mes posts se présente ainsi :
 
-{% highlight text linenos %}
+{% highlight text %}
 ---
 layout: post
 robots: index,follow
@@ -99,11 +99,11 @@ Cette [entête YAML](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter) p
 
 En ce qui me concerne, j'ai choisi d'héberger mon site directement sur Github. [Github Pages](https://help.github.com/categories/20/articles) permet d'héberger son site statique gratuitement et facilement.
 
-Il suffit de créer un dépôt `username.github.io` (dans mon cas [nicoespeon.github.io](https://github.com/nicoespeon/nicoespeon.github.io)).  
-Le contenu de la branche `master` est utilisé pour le site statique.  
+Il suffit de créer un dépôt `username.github.io` (dans mon cas [nicoespeon.github.io](https://github.com/nicoespeon/nicoespeon.github.io)).
+Le contenu de la branche `master` est utilisé pour le site statique.
 Le site est disponible par l'URL `http://username.github.io`.
 
-Il est également possible d'acheter un nom de domaine (sur OVH ou Gandhi par exemple) et de faire [une redirection DNS](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) : 
+Il est également possible d'acheter un nom de domaine (sur OVH ou Gandhi par exemple) et de faire [une redirection DNS](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) :
 
 1. Créez un fichier `CNAME` à la racine du projet, contenant votre nom de domaine (`nicoespeon.com` par exemple)
 2. Faîtes pointer **A** vers l'IP de Github `204.232.175.78` (dans les *Zones DNS* chez OVH).

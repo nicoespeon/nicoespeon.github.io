@@ -19,10 +19,10 @@ I'll just sum it up with the following bullet-points :
 - **I want to have my website updated when I push it to Github**. I could have done some hook to deal with that but I don't have to, thanks to [Github Pages](https://help.github.com/categories/20/articles).
 - **I love keeping myself up-to-date with new trends**. And the Jekyll approach just sounds good to me.
 
-I could recommend you [the post from Harry Roberts](http://csswizardry.com/2012/12/a-new-css-wizardry/) and [the one from Hugo Giraudel](http://hugogiraudel.com/2013/02/21/jekyll) which comforted me in my choice. 
+I could recommend you [the post from Harry Roberts](http://csswizardry.com/2012/12/a-new-css-wizardry/) and [the one from Hugo Giraudel](http://hugogiraudel.com/2013/02/21/jekyll) which comforted me in my choice.
 
 ## What about multilingual?
-The thing is, Jekyll is not actually build to support multinlingual blogs. The [Liquid `date` filter](http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012) will display the english version of the date.  
+The thing is, Jekyll is not actually build to support multinlingual blogs. The [Liquid `date` filter](http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012) will display the english version of the date.
 Futhermore, if you want to distinguish posts by their language, then you have to create a category per language. But the Jekyll `.paginator` is not build to deal with categories, which is kind of a problem.
 
 Nevertheless, I wanted to create my blog both in French and English for few reasons :
@@ -31,11 +31,11 @@ Nevertheless, I wanted to create my blog both in French and English for few reas
 2. **I'm French and proud to be**. Although I love English, there's no reason for me not to write some posts in my native language too.
 3. **This is a challenge** and I love challenges... as every developer does, right?
 
-*So here's the strategy.*  
-English is the default language, at the root level.  
-Each language represents a category, which could be done thanks to the folders architecture.  
-The French part should be under the `/fr` base url, which is fine with the previous statements.  
-English posts should only display into `/index.html`, French posts should only display into `/fr/index.html` (and the pagination should be done accordingly).  
+*So here's the strategy.*
+English is the default language, at the root level.
+Each language represents a category, which could be done thanks to the folders architecture.
+The French part should be under the `/fr` base url, which is fine with the previous statements.
+English posts should only display into `/index.html`, French posts should only display into `/fr/index.html` (and the pagination should be done accordingly).
 It should Keep It Simple (Stupid).
 
 Let's build the architecture for the source files:
@@ -65,14 +65,14 @@ When launched, Jekyll generates the static final website into the `_site/` folde
 
 <p class="islet">
     I use the <code>_config.yml</code> file to put some locale variables I could use in the main templates.<br><br>
-    This is definitely <strong>not the cleanest solution</strong> in my humble opinion, but it's quite easy to deal with and it works fine for the moment. It may change in the future in a smarter way to handle this. 
+    This is definitely <strong>not the cleanest solution</strong> in my humble opinion, but it's quite easy to deal with and it works fine for the moment. It may change in the future in a smarter way to handle this.
 </p>
 
 ## Plugins on the road
 In order to solve the mentioned problems, I used 2 plugins to override the regular Jekyll workflow.
 
 #### 1. Pagination per category
-[category_pagination.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb) has the paginator only considers posts of the current category in order to distinguish the two languages. 
+[category_pagination.rb](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/category_pagination.rb) has the paginator only considers posts of the current category in order to distinguish the two languages.
 
 I modified the original plugin to have the default category, at root level, set as the *English* one instead of displaying all of the `site.posts`.
 
@@ -85,14 +85,14 @@ I've had to add the [\_locales/fr.yml](https://github.com/nicoespeon/nicoespeon.
 
 Plugins are set up, templates are built, design has been completed, the git workflow is ready and so is the remote repository on Github. *Let's push!*
 
-[The DNS redirection for my custom domain](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) just works fine but... wait. It doesn't play as expected.  
+[The DNS redirection for my custom domain](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) just works fine but... wait. It doesn't play as expected.
 Damn it! I just notice that Github is running Jekyll in `--safe` mode, which means that plugins are disabled. And so are my category pagination and my i18n filter.
 
 **For every problem, a solution**, with Google being your best friend. [I found inspiration](http://charliepark.org/jekyll-with-plugins/) to redesign my personal workflow in that way.
 
-*Let's have a look to my branching model.*  
-The `master` branch correspond to the compiled website (the one generated into `_site/` directory) so that Github can deliver it directly as a static website, thanks to the `.nojekyll` file.  
-The `develop` branch correspond to the source files, as I would like to keep them tracked and open-sourced. They would be compiled with Jekyll in order to proceed to deployment.  
+*Let's have a look to my branching model.*
+The `master` branch correspond to the compiled website (the one generated into `_site/` directory) so that Github can deliver it directly as a static website, thanks to the `.nojekyll` file.
+The `develop` branch correspond to the source files, as I would like to keep them tracked and open-sourced. They would be compiled with Jekyll in order to proceed to deployment.
 There's no more merge from `develop` into `master` as there's only deployments from now. I just work on `develop` and, when I'm ready, I deploy the whole site with a new commit on `master`.
 
 <p class="islet">
