@@ -43,6 +43,9 @@ locales:
         - text:         "A Lire"
           url:          "/fr/worth-reading.html"
           class:        "worth-reading"
+        - text:         "Prestations"
+          url:          "/fr/prestations.html"
+          class:        "prestations"
 
         lang_message: "Version française"
 
