@@ -18,7 +18,7 @@ Les sélecteurs sont interprétés **de la droite vers la gauche**.
 
 **En JS**, un identifiant et une spécificité accrue donnera de meilleurs résultats en terme de performance. Il s'agit d'aller droit au but. Inutile cependant d'être trop spécifique, c'est contre-productif.
 
-**Évitez d'utiliser le sélecteur universel `*`**.
+**Évitez d'utiliser le sélecteur universel `*` dans une chaîne de sélecteurs**.
 
 Les deux pratiques ne sont pas incompatibles et n'empêchent pas votre HTML d'être sémantique :
 
@@ -46,6 +46,16 @@ Les deux pratiques ne sont pas incompatibles et n'empêchent pas votre HTML d'ê
 
 .nav--block {
     line-height:1;
+}
+
+/* Mauvaise idée */
+.nav--block * {
+    color: red;
+}
+
+/* Pas de gros soucis */
+* {
+    box-sizing: border-box;
 }
 {% endhighlight %}
 
@@ -176,11 +186,15 @@ $('.nav--block li.pagination__next a.muted'); // non-optimisé
 $('.nav--block a.muted');                     // optimisé
 {% endhighlight %}
 
-## Dîtes "non" au sélecteur universel
+## Gare au sélecteur universel
 
-Que ce soit en CSS ou en JS, `*` est la bête noire des performances en terme de sélection.
+<p class="islet">
+    MAJ le 4 Mai 2013 après une <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">intéressante lecture</a> sur l'utilisation de <code>*</code> en CSS et son impact sur la performance (le paragraphe sur la performance).
+</p>
 
-Souvent utilisé (à tort) dans les resets CSS ou, sans le savoir, dans les sélecteurs JS, c'est ce qu'il peut y avoir de pire pour le moteur de sélection qui doit se coltiner tous les éléments du DOM.
+Que ce soit en CSS ou en JS, `*` peut devenir la bête noire des performances en terme de sélection.
+
+Mal utilisé en CSS ou, sans le savoir, dans les sélecteurs JS, c'est ce qu'il peut y avoir de pire pour le moteur de sélection qui doit se coltiner tous les éléments du DOM.
 
 **Dans le cas du CSS**, posez-vous la question : ais-je vraiment besoin de cibler tous les éléments, quels qu'ils soient ? La réponse sera probablement "non".
 
@@ -193,6 +207,17 @@ Et n'allez pas croire que ceci est une bonne idée :
 {% endhighlight %}
 
 Car si vous lisez *"dans les éléments `.nav--block`, tous les éléments"*, le moteur lira *"tous les éléments, puis ceux qui ont `.nav--block` comme parent"*. De droite à gauche on vous dit !
+
+En revanche, ceci ne posera pas de soucis de performance, à moins que vous en soyez à peaufiner votre score [Page Speed](https://developers.google.com/speed/pagespeed) au delà de 90 (autrement dit, c'est pas la priorité) :
+
+{% highlight css %}
+/* apply a natural box layout model to all elements */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+{% endhighlight %}
 
 **Dans le cas du JS**, c'est encore plus fourbe car si vous ne faîtes pas attention, vous le suggérez par défaut. Enfin, il existe probablement des fonctions alternatives qui permettent d'arriver à exprimer ce que vous souhaitez faire.
 

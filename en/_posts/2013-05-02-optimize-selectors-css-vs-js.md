@@ -20,7 +20,7 @@ Selectors are interpreted **from right to left**.
 
 **With JS**, an identifier and an high specificity will lead to more efficient results. You've to go straight to the point. But it's pointless to be over-specific, it's counter-productive.
 
-**Don't use the universal selector `*`**.
+**Don't use the universal selector `*` in a selector chain**.
 
 Both are not mutually exclusive and do not prevent your HTML to be semantic:
 
@@ -48,6 +48,16 @@ Both are not mutually exclusive and do not prevent your HTML to be semantic:
 
 .nav--block {
     line-height:1;
+}
+
+/* Bad idea */
+.nav--block * {
+    color: red;
+}
+
+/* Not a big deal */
+* {
+    box-sizing: border-box;
 }
 {% endhighlight %}
 
@@ -179,11 +189,15 @@ $('.nav--block li.pagination__next a.muted'); // not-optimized
 $('.nav--block a.muted');                     // optimized
 {% endhighlight %}
 
-## Say "no" to the universal selector
+## Be careful with the universal selector
 
-Whether it is with CSS or JS, `*` is the bugbear of selection performance.
+<p class="islet">
+    Updated on May 4th, 2013 after an <a href="http://paulirish.com/2012/box-sizing-border-box-ftw/">insightful reading</a> about the use of <code>*</code> in CSS and its performance impact (the performance paragraph).
+</p>
 
-It's often improperly used with CSS resets or, without knowing it, in JS selectors. This is the worst thing the selector engine could have to deal with, as it should check against all the DOM elements.
+Whether it is with CSS or JS, `*` could be the bugbear of selection performance.
+
+Improperly used with CSS or, without knowing it, in JS selectors, this is the worst thing the selector engine could have to deal with, as it should check against all the DOM elements.
 
 **In CSS**, ask yourself: do I really need to point out all the elements, whatever they are? "No" would probably be the answer.
 
@@ -196,6 +210,17 @@ This, is a bad idea:
 {% endhighlight %}
 
 When you read *"within `.nav--block` elements, all the elements"*, the selector engine read *"all the elements, then those who have `.nav--block` as a parent"*. From the right to the left!
+
+However, this won't lead to performance leak and shouldn't be a concern excepted if you try to improve your [Page Speed](https://developers.google.com/speed/pagespeed) score beyond 90 :
+
+{% highlight css %}
+/* apply a natural box layout model to all elements */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+{% endhighlight %}
 
 **In JS**, if you don't pay attention you'll make it implicit by default. Plus, there should be alternative functions to achieve what you want to do.
 
