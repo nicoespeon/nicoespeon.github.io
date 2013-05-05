@@ -128,7 +128,7 @@ The other side of the coin is that it should attach data to a DOM element while 
 // When you click on a link, it shows its index
 $("a").each(function(i) {
     $(this).on('click', {index:i}, function(e) {
-        alert('Mon index est ' + e.data.index);
+        alert('My index is ' + e.data.index);
     });
 });
 {% endhighlight %}
