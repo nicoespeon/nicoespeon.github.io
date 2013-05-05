@@ -346,5 +346,7 @@ header>img,header>nav{line-height:80px;}
 .highlight .vg{color:#008080;}
 .highlight .vi{color:#008080;}
 .highlight .il{color:#009999;}
+.highlight .lineno{margin-right:16px;color:#dd1144;font-family:'Roboto',sans-serif;}
+.highlight .lineno::after{content:".";}
 .text-justify{text-align:justify;}
 .text-underline{text-decoration:underline;}
