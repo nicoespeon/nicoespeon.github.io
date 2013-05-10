@@ -501,7 +501,7 @@ Voici une série de liens auxquels je vous suggère de jeter un oeil si vous sou
 
 Notre petite plongée au coeur de l'OOCSS s'achève ici.
 
-Vous remarquerez que la très grande majorité des articles/sujets portant sur ces pratiques avancées de CSS sont en anglais, ce qui peut s'expliquer notamment par le fait que le sujet est encore récent (2009 pour les prémices, en pleine popularisation depuis le développement des frameworks CSS). Ce fut d'ailleurs la raison pour laquelle j'ai souhaité apporter ma pière à l'édifice en rédigeant cet article en français.
+Vous remarquerez que la très grande majorité des articles/sujets portant sur ces pratiques avancées de CSS sont en anglais, ce qui peut s'expliquer notamment par le fait que le sujet est encore récent (2009 pour les prémices, en pleine popularisation depuis le développement des frameworks CSS). Ce fut d'ailleurs la raison pour laquelle j'ai souhaité apporter ma pierre à l'édifice en rédigeant cet article en français.
 
 J'espère que le sujet aura pu vous intéresser, vous faire réfléchir sur vos pratiques CSS, voire même vous intéresser. Si vous avez des questions, des remarques, des suggestions ou même des idées à partager avec moi, n'hésitez pas à me laisser quelques commentaires ci-dessous =)
 
