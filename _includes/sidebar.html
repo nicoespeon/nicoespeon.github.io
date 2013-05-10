@@ -9,14 +9,22 @@
 {% assign navUrl = '' %}
 {% assign delimiter = '/' %}
 {% capture fullUrl %}{{ page.url | replace: delimiter, ' ' }}{% endcapture %}
-{% capture firstPart %}{{ fullUrl | truncatewords: 1 | remove: '...' }}{% endcapture %}
+{% capture firstPart %}{{ fullUrl | truncatewords: 2 | remove: '...' }}{% endcapture %}
 {% capture secondPart %}{{ fullUrl | replace: firstPart, '' | remove: ' ' }}{% endcapture %}
 
 {% comment %}S'il ne s'agit pas d'un post, on assigne la page actuelle{% endcomment %}
 {% if secondPart contains '.html' or firstPart contains '.html' %}
     {% if secondPart == '' %}
-        {% assign navUrl = firstPart %}
+        {% comment %}Correspond à la page d'accueil, on redécoupe{% endcomment %}
+        {% capture firstPart %}{{ fullUrl | truncatewords: 1 | remove: '...' }}{% endcapture %}
+        {% capture secondPart %}{{ fullUrl | replace: firstPart, '' | remove: ' ' }}{% endcapture %}
+        {% if secondPart == '' %}
+            {% assign navUrl = firstPart %}
+        {% else %}
+            {% assign navUrl = secondPart %}
+        {% endif %}
     {% else %}
+        {% comment %}Correspond à une page définie, on affecte{% endcomment %}
         {% assign navUrl = secondPart %}
     {% endif %}
 {% endif %}
