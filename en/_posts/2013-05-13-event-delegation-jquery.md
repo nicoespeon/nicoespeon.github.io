@@ -7,7 +7,7 @@ comments: true
 tags: [javascript, performance, jquery, events]
 
 title: Event delegation in jQuery
-description: A few reminder about event listeners and the event delegation bests practices in jQuery.
+description: A few reminder about event listeners and the event delegation best practices in jQuery.
 ---
 
 *NB - This is the english version for [FR - Déléguer les événements en jQuery]({% post_url 2013-05-13-deleguer-evenements-jquery %})*
