@@ -2,90 +2,90 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://nicoespeon.com/en/2013/04/building-a-multinlingual-jekyll-blog</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/faire-son-blog-avec-jekyll</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/samuser-avec-les-interactive-playground</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/decouvrez-inuitcss</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/optimiser-selecteurs-css-vs-js</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/optimize-selectors-css-vs-js</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/jquery-data-and-performance</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/jquery-data-et-performance</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/plongee-au-coeur-de-oocss</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/deleguer-evenements-jquery</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/event-delegation-jquery</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/tombez-pour-smacss</loc>
-        <lastmod>2013-05-15T22:57:46-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/about.html</loc>
-        <lastmod>2013-05-13T02:20:27-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/archive/</loc>
-        <lastmod>2013-05-15T22:57:46-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/about.html</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/</loc>
-        <lastmod>2013-05-15T22:57:46-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/prestations.html</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/projects.html</loc>
-        <lastmod>2013-05-14T03:19:55-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/worth-reading.html</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/</loc>
-        <lastmod>2013-05-15T22:57:46-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/projects.html</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/worth-reading.html</loc>
-        <lastmod>2013-05-13T02:20:28-07:00</lastmod>
+        <lastmod>2013-05-16T16:36:04-07:00</lastmod>
     </url>
 </urlset>
