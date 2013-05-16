@@ -20,6 +20,9 @@
         {% capture secondPart %}{{ fullUrl | replace: firstPart, '' | remove: ' ' }}{% endcapture %}
         {% if secondPart == '' %}
             {% assign navUrl = firstPart %}
+        {% elsif secondPart == 'prestations.html' %}
+            {% comment %}Page particulière, pas d'équivalent EN{% endcomment %}
+            {% assign navUrl = 'index.html' %}
         {% else %}
             {% assign navUrl = secondPart %}
         {% endif %}
