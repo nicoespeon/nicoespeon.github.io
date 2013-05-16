@@ -2,95 +2,68 @@
     $VARS
 \*------------------------------------*/
 /**
- * Set up project-specific variables here which are then used throughout your
- * build. These variables are automatically picked up by inuit.css so you should
- * never need to modify any framework code.
+ * Any variables you find set in inuit.css’ `defaults.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `@base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
  *
  * In the LESS version of inuit.css, these value are measured in pixels but
  * should be unitless when set below.
  */
 
 
+
+
+/*------------------------------------*\
+    $BASE
+\*------------------------------------*/
 /**
- * Debug mode will visually highlight any potential markup/accessibility quirks
- * in the browser. Set to `true` or `false`.
+ * Base font-family.
  */
-@debug-mode:        false;
-
-
-/**
- * Do you want all elements to adopt `box-sizing:border-box;` as per
- * paulirish.com/2012/box-sizing-border-box-ftw ?
- */
-@global-border-box: true;
-
+@base-font-family:  e(%("'%s', %s", 'Roboto', sans-serif));
 
 /**
- * Base stuff
+ * Default colour for objects’ borders etc.
  */
-@base-font-size:    16;
-@base-line-height:  24;
-
-/**
- * How big would you like round corners to be by default?
- */
-@brand-round:        4;
+@base-ui-color:     #333;
 
 
-/**
- * Responsiveness?
- * Tell inuit.css when breakpoints start, in pixels.
- */
-@responsive:        true;
-@lap-start:         481;
-@desk-start:        1024;
 
 
-/**
- * Font-sizes (in pixels). Refer to relevant sections for their implementations.
- */
-@giga-size:         96;
-@mega-size:         72;
-@kilo-size:         48;
-
-@h1-size:           36; // .alpha
-@h2-size:           30; // .beta
-@h3-size:           24; // .gamma
-@h4-size:           20; // .delta
-@h5-size:           16; // .epsilon
-@h6-size:           14; // .zeta
-
-@milli-size:        12;
-@micro-size:        10;
-
-
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
 /**
  * Brand stuff
  */
 @brand-color:       #F44;
-@brand-face:        "Snippet", sans-serif;
+@brand-face:        Snippet, sans-serif;
 
 
+
+
+/*------------------------------------*\
+    $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
 /**
- * Main content
+ * Which objects and abstractions would you like to use?
  */
-@main-color:        #333;
+@use-grids:         true;
+@use-nav:           true;
+@use-media:         true;
+@use-island:        true;
+@use-block-list:    true;
+@use-split:         true;
 
 
+
+
+/*------------------------------------*\
+    $CUSTOM
+\*------------------------------------*/
 /**
- * Gravatar stuff
+ * Place any of your own variables that sit on top of inuit.css here.
  */
 @gravatar-height:   80px;
-
-
-/**
- * inuit.css will work these next ones out for you.
- *
- * Assign our `$base-line-height` to a new spacing var for more transparency.
- */
-@base-spacing-unit: @base-line-height;
-@half-spacing-unit: @base-spacing-unit / 2;
-@line-height-ratio: @base-line-height/@base-font-size;
-
-@palm-end:@lap-start*1-1;
-@lap-end:@desk-start*1-1;
