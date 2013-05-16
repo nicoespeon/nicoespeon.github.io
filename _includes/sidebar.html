@@ -31,7 +31,7 @@
 
 <!-- Lang navigation -->
 <nav role="navigation">
-    <ul class="nav nav--stacked text-center">
+    <ul class="nav nav--stacked text--center">
         {% for link in site.authorized_locales %}
             <li {% if link == locale %}class="current"{% endif %}>
                 {% comment %}On construit l'URL avec la langue et la page actuelle{% endcomment %}
@@ -44,11 +44,11 @@
 </nav>
 
 <!-- About -->
-<aside class="text-justify">
+<aside class="text--justify">
     {{ site.locales[locale].about_message }}
 </aside>
 
 <!-- Tweets -->
-<aside class="text-center hide--portable">
+<aside class="text--center hide--portable">
     <a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a>
 </aside>
