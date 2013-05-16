@@ -45,7 +45,7 @@ Les problèmes sont alors présents et de plus en plus évidents à mesure que l
 
 Bref, c'est le bordel dans votre CSS !
 
-<p class="text-center">
+<p class="text--center">
     <img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg">
 </p>
 
@@ -55,7 +55,7 @@ Ce n'est pas un framework au sens rigide du terme, mais des bonnes pratiques pou
 
 La philosophie **SMACSS** repose sur ces 3 grands principes que je vais détailler par la suite :
 
-<p class="text-center">
+<p class="text--center">
     <img src="/assets/img/css/smacss-principles.jpg" alt="Les principes de SMACSS" title="Les principes de SMACSS"><br>
     <em>Les 3 grands principes de SMACSS</em>
 </p>
@@ -125,7 +125,7 @@ Généralement, il s'agit de sélecteurs simples, descendants ou d'enfants, voir
 
 **Vous ne devez pas utiliser `!important` dans cette catégorie.**
 
-<p class="text-center">
+<p class="text--center">
     <img src="/assets/img/css/smacss-layout.jpg" alt="La couche layout" title="La couche layout en SMACSS"><br>
     <em>Découpage du site en sections majeures pour le layout</em>
 </p>
@@ -167,7 +167,7 @@ Partir sur une structure modulaire est une bonne pratique à appliquer pour cré
 
 **Vous ne devez pas utiliser d'ID ou `!important` dans cette catégorie.**
 
-<p class="text-center">
+<p class="text--center">
     <img src="/assets/img/css/smacss-module.jpg" alt="La couche module" title="La couche module en SMACSS"><br>
     <em>Mise en lumière des modules de la page</em>
 </p>
@@ -230,7 +230,7 @@ Généralement, une règle qui se trouve dans cette catégorie correspond à une
 
 En effet, ce genre de règles déterminent **un état final** du design, qui doit s'appliquer quoiqu'il advienne. Si votre code est propre, vous ne devriez pas avoir deux états s'appliquant sur le même élément et modifiant les mêmes attributs (sinon, vous avez un petit soucis de logique).
 
-<p class="text-center">
+<p class="text--center">
     <img src="/assets/img/css/smacss-state.jpg" alt="La couche state" title="La couche state en SMACSS"><br>
     <em>Exemple des différents états possibles d'un bouton</em>
 </p>
@@ -271,7 +271,7 @@ $('form#update-quantity').find('input').change(function() {
 });
 {% endhighlight %}
 
-<p class="hide--palm text-center">
+<p class="hide--palm text--center">
     <iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe><br>
     <em>Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ</em>
 </p>
@@ -638,7 +638,7 @@ Voilà pour cette présentation de la philosophie SMACSS !
 
 Bien évidemment, je vous suggère d'aller faire un tour du côté du site officiel :
 
-<p class="text-center">
+<p class="text--center">
     <a href="http://smacss.com">
         <img src="/assets/img/css/get-smacked.jpg" alt="Get Smacked" title="Get Smacked">
     </a>
