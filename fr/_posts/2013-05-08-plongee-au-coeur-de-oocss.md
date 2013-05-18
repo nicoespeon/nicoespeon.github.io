@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [css, oocss]
+icon: css
 
 title: Plongée au coeur de l'OOCSS
 description: OOCSS - qu'est-ce-que c'est, pourquoi c'est bien et comment ça marche.

@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [javascript, performance, jquery, events]
+icon: jquery
 
 title: Déléguer les événements en jQuery
 description: Un petit rappel sur les écouteurs d'événements et les bonnes pratiques de délégations en jQuery.

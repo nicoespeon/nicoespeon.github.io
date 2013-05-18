@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [css, smacss, organisation]
+icon: css
 
 title: Tombez pour SMACSS
 description: Petit tour d'horizon sur ces guidelines qui feront de vous un bûcheron du CSS, un vrai. Timber !
