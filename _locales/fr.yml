@@ -44,18 +44,18 @@ fr:
       - Décembre
     abbr_month_names:
       - ~
-      - jan.
-      - fév.
-      - mar.
-      - avr.
-      - mai
-      - juin
-      - juil.
-      - août
-      - sept.
-      - oct.
-      - nov.
-      - déc.
+      - Jan
+      - Fév
+      - Mar
+      - Avr
+      - Mai
+      - Juin
+      - Juil
+      - Août
+      - Sept
+      - Oct
+      - Nov
+      - Déc
     order:
       - :day
       - :month
