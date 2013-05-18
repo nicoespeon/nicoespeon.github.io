@@ -404,8 +404,5 @@ header>img,header>nav{line-height:80px;}
 .img--circle{-webkit-border-radius:500px;-moz-border-radius:500px;border-radius:500px;}
 .island,.islet{border-left:2px solid #ff4444;}
 .nav--main>li{padding-right:7%;}
-.pagination{text-align:center;}
-.pagination__prev{margin-right:10%;}
-.pagination__next{margin-left:10%;}
 .split>dd,.split>li{margin-top:24px;margin-bottom:24px;}
 .split__title{margin-right:24px;}
