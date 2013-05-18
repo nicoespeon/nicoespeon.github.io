@@ -1,0 +1,291 @@
+/*------------------------------------*\
+    $MOD-TIMELINE
+\*------------------------------------*/
+/**
+ * Module rule define the styling of discrete components of the page.
+ * See http://smacss.com/book/type-module
+ *
+ * This module is styling timelines
+ *
+ * Courtesy of the inspirational Codrops article:
+ * http://tympanus.net/codrops/2013/05/02/vertical-timeline/
+ */
+
+.timeline {
+    margin: 30px 0 0 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        background: lighten(@brand-color, 20%);
+        left: 20%;
+        margin-left: -10px;
+    }
+
+    & > li {
+        position: relative;
+    }
+}
+
+/* The date/time */
+.timeline__time {
+    display: block;
+    width: 25%;
+    padding-right: 100px;
+    position: absolute;
+
+    & span {
+        display: block;
+        text-align: right;
+
+        &:last-child {
+            font-size: 2em;
+            color: @brand-color;
+        }
+    }
+}
+
+/* Right content */
+.timeline__label {
+    display: block;
+    margin: 0 0 15px 25%;
+    background: @brand-color;
+    color: #fff;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 1.4;
+    position: relative;
+    border-radius: 5px;
+
+    &:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: @brand-color;
+        border-width: 10px;
+        top: 10px;
+    }
+
+    & h2 {
+        margin-top: 0px;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        color: #FFF;
+        font-family: @base-font-family;
+    }
+
+    &:hover {
+        background: darken(@brand-color, 20%);
+        color: #FFF;
+
+        &:after {
+            border-right-color: darken(@brand-color, 20%);
+        }
+    }
+}
+
+/* The icons */
+.timeline__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4em;
+    line-height: 40px;
+    position: absolute;
+    color: #fff;
+    background: @brand-color;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px lighten(@brand-color, 20%);
+    text-align: center;
+    left: 20%;
+    top: 0;
+    margin: 0 0 0 -25px;
+}
+
+.timeline__next {
+    width: 15px;
+    border: solid transparent;
+    border-top-color: lighten(@brand-color, 20%);
+    border-width: 15px;
+    position: absolute;
+    bottom: -30px;
+    left: 20%;
+    margin: 0 0 15px -20px;
+
+    & > a {
+        position: absolute;
+        top: -20px;
+        left: 40px;
+        width: 200px;
+        font-weight: bold;
+        color: lighten(@brand-color, 20%);
+
+        &:hover {
+            color: @brand-color;
+        }
+    }
+}
+
+.timeline__prev {
+    width: 15px;
+    border: solid transparent;
+    border-bottom-color: lighten(@brand-color, 20%);
+    border-width: 15px;
+    position: absolute;
+    top: -30px;
+    left: 20%;
+    margin: 0 0 15px -20px;
+
+    & > a {
+        position: absolute;
+        bottom: -20px;
+        left: 40px;
+        width: 200px;
+        font-weight: bold;
+        color: lighten(@brand-color, 20%);
+
+        &:hover {
+            color: @brand-color;
+        }
+    }
+}
+
+
+.timeline--striped > li:nth-child(odd) {
+    & .timeline__label {
+        background: lighten(@brand-color, 10%);
+
+        &:after {
+            border-right-color: lighten(@brand-color, 10%);
+        }
+
+        &:hover {
+            background: darken(@brand-color, 20%);
+
+            &:after {
+                border-right-color: darken(@brand-color, 20%);
+            }
+        }
+    }
+
+    & .timeline__time span:last-child {
+        color: lighten(@brand-color, 10%);
+    }
+}
+
+
+/* Example Media Queries */
+@media only screen and (max-width:~"@{desk-start}px") {
+    .timeline {
+        &:before {
+            display: none;
+        }
+    }
+
+    .timeline--striped > li:nth-child(odd) .timeline__label {
+        &:after {
+            border-right-color: transparent;
+            border-bottom-color: lighten(@brand-color, 10%);
+        }
+
+        &:hover:after {
+            border-right-color: transparent;
+            border-bottom-color: darken(@brand-color, 20%);
+        }
+    }
+
+    .timeline__time {
+        width: 100%;
+        position: relative;
+        padding: 0 0 20px 0;
+
+        & span {
+            text-align: left;
+        }
+    }
+
+    .timeline__label {
+        margin: 0 0 30px 0;
+        padding: 1em;
+        font-weight: 400;
+        font-size: 95%;
+
+        &:after {
+            right: auto;
+            left: 20px;
+            border-right-color: transparent;
+            border-bottom-color: @brand-color;
+            top: -20px;
+        }
+
+        &:hover:after {
+            border-right-color: transparent;
+            border-bottom-color: darken(@brand-color, 20%);
+        }
+    }
+
+    .timeline__icon {
+        position: relative;
+        float: right;
+        left: auto;
+        margin: -55px 5px 0 0px;
+    }
+
+    .timeline__next {
+        width: 100%;
+        border-top-color: transparent;
+        border-width: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        text-align: center;
+
+        & > a {
+            position: relative;
+            top:  0;
+            left: 0;
+            width: 100%;
+
+            &:before {
+                font-family: "nicoico";
+                content: "\e022";
+                margin-right: @base-font-size*1px;
+            }
+        }
+    }
+
+    .timeline__prev {
+        width: 100%;
+        border-bottom-color: transparent;
+        border-width: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        text-align: center;
+
+        & > a {
+            position: relative;
+            top:  0;
+            left: 0;
+            width: 100%;
+
+            &:before {
+                font-family: "nicoico";
+                content: "\e000";
+                margin-right: @base-font-size*1px;
+            }
+        }
+    }
+}
