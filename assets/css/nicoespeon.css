@@ -398,9 +398,10 @@ header>img,header>nav{line-height:80px;}
 .icon-python:before{content:"\f071";}
 .icon-codeigniter:before{content:"\f077";}
 .icon-point-left:before{content:"\e000";}
-.icon-en,.icon-fr{font-family:'nicoico';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
+.icon-en,.icon-fr,.icon-css{font-family:'nicoico';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;}
 .icon-en:before{content:"\e028";}
 .icon-fr:before{content:"\e029";}
+.icon-css:before{content:"\f0b4";}
 .img--circle{-webkit-border-radius:500px;-moz-border-radius:500px;border-radius:500px;}
 .island,.islet{border-left:2px solid #ff4444;}
 .nav--main>li{padding-right:7%;}
