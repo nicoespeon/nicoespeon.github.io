@@ -6,8 +6,25 @@
  * See http://smacss.com/book/type-layout
  */
 
+
 /**
- * Main container (top level)
+ * Top level block of the website
+ */
+#site {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #FFF;
+
+    -webkit-box-shadow: inset 0 -1px 5px #999;
+       -moz-box-shadow: inset 0 -1px 5px #999;
+            box-shadow: inset 0 -1px 5px #999;
+
+    color: @base-ui-color;
+}
+
+
+/**
+ * Main container of the website content (top level)
  */
 .container {
     margin-right: auto;
@@ -15,6 +32,7 @@
     padding: 0 20px;
     max-width: 1050px;
 }
+
 
 /**
  * Header
@@ -35,20 +53,6 @@ header {
     }
 }
 
-/**
- * Main content of the website (top block)
- */
-#main-content {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #FFF;
-
-    -webkit-box-shadow: inset 0 -1px 5px #999;
-       -moz-box-shadow: inset 0 -1px 5px #999;
-            box-shadow: inset 0 -1px 5px #999;
-
-    color: @base-ui-color;
-}
 
 /**
  * Distinct section of the page
@@ -60,6 +64,7 @@ header {
         padding-bottom: @base-spacing-unit*1px;
     }
 }
+
 
 /**
  * Footer
