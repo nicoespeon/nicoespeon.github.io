@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [css, javascript, performance]
+icon: css
 
 title: Optimize selectors, CSS vs. JS
 description: Short round up of best practices for selectors use in CSS and Javascript. What is sauce for the goose is not necessarily sauce for the gander.

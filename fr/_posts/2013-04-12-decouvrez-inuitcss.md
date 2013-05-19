@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [inuit.css, framework]
+icon: css
 
 title: Lassés de Bootstrap ? Découvrez inuit.css !
 description: inuit.css est un framework CSS extensible, construit sur un ensemble de bonnes pratiques CSS et qui n'impose pas de design prédéfini.

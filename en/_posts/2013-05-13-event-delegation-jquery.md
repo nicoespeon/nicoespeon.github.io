@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [javascript, performance, jquery, events]
+icon: jquery
 
 title: Event delegation in jQuery
 description: A few reminder about event listeners and the event delegation best practices in jQuery.

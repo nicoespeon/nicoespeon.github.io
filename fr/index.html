@@ -10,40 +10,33 @@ description: Pensées d'un développeur en freelance et chef de projet en deveni
 </p>
 
 <section>
-    <ul class="block-list">
+    <ul class="timeline timeline--striped">
+        {% if paginator.previous_page %}
+            <li>
+                <a class="timeline__prev" href="/fr/{% if paginator.previous_page != 1 %}page{{paginator.previous_page}}{% endif %}">
+                    Plus récents
+                </a>
+            </li>
+        {% endif %}
+
         {% for post in paginator.posts %}
         <li>
-            <h2>
-                <a href="{{ post.url }}">{{ post.title }}</a><br>
-                <span class="zeta">({{ post.date | localize: "%d %B, %Y" }})</span>
-            </h2>
-            <p>{{ post.description }}</p>
+            <time class="timeline__time" datetime='{{ post.date | date: "%Y-%m-%d" }}'>
+                <span class="muted">{{ post.date | date: "%Y" }}</span>
+                <span>{{ post.date | localize: "%d %b" }}</span>
+            </time>
+            <div class="timeline__icon {% if post.icon == undefined %}icon-embed{% else %}icon-{{ post.icon }}{% endif %}"></div>
+            <a class="timeline__label" href="{{ post.url }}">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+            </a>
         </li>
         {% endfor %}
+
+        {% if paginator.next_page %}
+            <li class="timeline__next">
+                <a href="/fr/page{{paginator.next_page}}">Plus anciens</a>
+            </li>
+        {% endif %}
     </ul>
 </section>
-
-{% if paginator.previous_page or paginator.next_page %}
-<!-- Pagination links -->
-<ol class="nav nav--block pagination">
-    <li class="pagination__prev">
-        {% if paginator.previous_page %}
-            {% if paginator.previous_page == 1 %}
-                <a href="/fr">&lt; Plus récents</a>
-            {% else %}
-                <a href="/fr/page{{paginator.previous_page}}">&lt; Plus récents</a>
-            {% endif %}
-        {% else %}
-            &lt; Plus récents
-        {% endif %}
-    </li>
-
-    <li class="pagination__next">
-        {% if paginator.next_page %}
-            <a href="/fr/page{{paginator.next_page}}">Plus anciens &gt;</a>
-        {% else %}
-            Plus anciens &gt;
-        {% endif %}
-    </li>
-</ol>
-{% endif %}

@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [javascript, jquery, performance, html5]
+icon: jquery
 
 title: jQuery, data et performance
 description: Bonne pratique et manipulation des données en jQuery, sans colorants ni conservateurs.

@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [css, javascript, performance]
+icon: css
 
 title: Optimiser ses sélecteurs, CSS vs. JS
 description: Petit mémo de bonnes pratiques quant à l'utilisation de sélecteurs en CSS et en Javascript. Ce qui vaut pour l'un ne l'est pas nécessairement pour l'autre.
