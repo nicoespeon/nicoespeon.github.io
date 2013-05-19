@@ -22,7 +22,7 @@
 header {
     > img,
     > nav {
-        line-height: @gravatar-height;
+        line-height: @gravatar-height*1px;
     }
 }
 
@@ -30,7 +30,7 @@ header {
 @media only screen and (max-width:~"@{lap-end}px") {
     header {
         > nav {
-            line-height: (@gravatar-height/2);
+            line-height: (@gravatar-height/2)*1px;
         }
     }
 }
