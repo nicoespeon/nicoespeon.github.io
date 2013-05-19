@@ -16,3 +16,21 @@
         padding-right: 7%;
     }
 }
+
+/**
+ * Stacked navs should re-organized when it comes to one-whole
+ */
+@media only screen and (max-width:~"@{lap-end}px") {
+    .nav--stacked {
+        margin-top: @base-spacing-unit*1px;
+
+        > li {
+            padding: 0 5%;
+
+            &,
+            > a {
+                display: inline-block;
+            }
+        }
+    }
+}
