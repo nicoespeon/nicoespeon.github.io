@@ -51,13 +51,13 @@ header {
 }
 
 /**
- * Sidebar
+ * Distinct section of the page
+ * Draw a clear line at the bottom when it comes to one-whole
  */
-// Adapt sidebar to laptops (when it gets to one-whole)
 @media only screen and (max-width:~"@{lap-end}px") {
-    #sidebar {
-        border-top: 1px dashed #DDD;
-        padding-top: 20px;
+    .section {
+        border-bottom: 1px dashed lighten(@base-ui-color, 60%);
+        padding-bottom: @base-spacing-unit*1px;
     }
 }
 
