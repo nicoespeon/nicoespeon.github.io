@@ -272,7 +272,7 @@ $('form#update-quantity').find('input').change(function() {
 });
 {% endhighlight %}
 
-<p class="hide--palm text--center">
+<p class="visuallyhidden--palm text--center">
     <iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe><br>
     <em>Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ</em>
 </p>

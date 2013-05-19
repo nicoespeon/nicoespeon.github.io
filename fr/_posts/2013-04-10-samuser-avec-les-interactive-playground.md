@@ -39,7 +39,7 @@ Particulièrement abouti, il permet d'interpréter directement les Gist, ce qui 
 
 Il dispose également d'un certain nombre de features notables comme [JSHint](http://jshint.com/) (un linter qui vérifie que votre Javascript ne comporte pas d'erreur) ou encore la possibilité d'insérer le JS/CSS à un endroit spécifique du HTML avec `%code%`/`%css`.
 
-<p class="hide--palm">
+<p class="visuallyhidden--palm">
     <a class="jsbin-embed" href="http://jsbin.com/uduvaf/5/embed?live">Exemple d'un JSBin intégré</a>
 </p>
 
@@ -63,7 +63,7 @@ Fait notable également : le HTML est épuré, il est inutile de renseigner les 
     <a href="https://twitter.com/csswizardry">Harry Roberts</a> utilise d'ailleurs jsFiddle pour présenter les fonctionnalités d'<a href="http://jsfiddle.net/user/inuitcss/fiddles/"><em>inuit.css</em></a>, ce qui permet de se faire rapidement une idée de comment fonctionne le framework et de ses capacités sans même avoir à le télécharger.
 </p>
 
-<p class="hide--palm">
+<p class="visuallyhidden--palm">
     <iframe width="100%" height="300" src="http://jsfiddle.net/espeon/stVTF/embedded/" allowfullscreen="allowfullscreen" frameborder="0">Exemple d'un jsFiddle intégré</iframe>
 </p>
 
@@ -85,7 +85,7 @@ CodePen propose un certain nombre de features intéressantes, y compris l'usage 
     En revanche <strong>il faut être connecté afin de pouvoir intégrer les Pens</strong>, ce qui ne nécessite pas forcément de créer un compte si l'on dispose d'un compte Github. De nombreuses fonctionnalités de CodePen vont également bien plus loin que les précédents projets mais sont réservées à la version PRO (<em>business is business</em>, ce qui est tout à fait compréhensible en soi).
 </p>
 
-<div class="hide--palm">
+<div class="visuallyhidden--palm">
     <pre class="codepen" data-height="300" data-type="result" data-href="geycm" data-user="nicoespeon" data-safe="true"><a href="http://codepen.io/nicoespeon/pen/geycm">Exemple d'un CodePen intégré</a></pre>
 </div>
 
@@ -112,7 +112,7 @@ Sous son apparence design, dabblet offre également tout un panel de fonctionnal
     A noter cependant que, sous la demande, dabblet expérimente également la possibilité d'intégrer du Javascript. Mais il y a fort à parier que ce sera juste un possibilité offerte et non pas le fer de lance de cet environnement, bien au contraire !
 </p>
 
-<p class="hide--palm">
+<p class="visuallyhidden--palm">
     <iframe width="100%" height="400" src="http://dabblet.com/gist/5360845" allowfullscreen="allowfullscreen" frameborder="0">Exemple d'un dabblet intégré</iframe>
 </p>
 
