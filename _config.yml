@@ -26,7 +26,7 @@ locales:
 
         lang_message: "English version"
 
-        about_message: "<p>My name is <span class='brand-face'>Nicolas</span> and I'm a french IT business student, doing some freelance web development aside.</p><p>I <a href='/archive'>write</a> articles about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://delicious.com/nicoespeon'>tag</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p>"
+        about_message: "<p>My name is <span class='brand-face'>Nicolas</span> and I'm a french IT business student, doing some freelance web development aside.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://delicious.com/nicoespeon'>tag</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p>"
 
         footer_message: "The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>."
     fr:
