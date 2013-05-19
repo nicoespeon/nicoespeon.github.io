@@ -12,12 +12,10 @@ description: Freelance web-developer and project manager thoughts. OOCSS, Backbo
 <section>
     <ul class="timeline timeline--striped">
         {% if paginator.previous_page %}
-            <li class="timeline__prev">
-                {% if paginator.previous_page == 1 %}
-                    <a href="/">Recent posts</a>
-                {% else %}
-                    <a href="/page{{paginator.previous_page}}">Recent posts</a>
-                {% endif %}
+            <li>
+                <a class="timeline__prev" href="/{% if paginator.previous_page != 1 %}page{{paginator.previous_page}}{% endif %}">
+                    Recent posts
+                </a>
             </li>
         {% endif %}
 

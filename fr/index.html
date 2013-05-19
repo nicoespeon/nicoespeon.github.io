@@ -12,12 +12,10 @@ description: Pensées d'un développeur en freelance et chef de projet en deveni
 <section>
     <ul class="timeline timeline--striped">
         {% if paginator.previous_page %}
-            <li class="timeline__prev">
-                {% if paginator.previous_page == 1 %}
-                    <a href="/fr">Plus récents</a>
-                {% else %}
-                    <a href="/fr/page{{paginator.previous_page}}">Plus récents</a>
-                {% endif %}
+            <li>
+                <a class="timeline__prev" href="/fr/{% if paginator.previous_page != 1 %}page{{paginator.previous_page}}{% endif %}">
+                    Plus récents
+                </a>
             </li>
         {% endif %}
 
