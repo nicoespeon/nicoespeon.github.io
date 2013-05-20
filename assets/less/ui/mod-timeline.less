@@ -293,6 +293,78 @@
 
 
 /**
+ * Reverse the timeline display
+ */
+.timeline--rev {
+    &:before {
+        left: auto;
+        right: @timeline-time-width;
+        margin-left: 0;
+        margin-right: -(@timeline-fixed-space+@timeline-line-width)/2*1px;
+    }
+
+    .timeline__time {
+        left: 100%-@timeline-time-width;
+        padding-right: 0;
+        padding-left: @timeline-fixed-space*1px;
+
+        span {
+            text-align: left;
+        }
+    }
+
+    .timeline__icon {
+        left: auto;
+        right: @timeline-time-width;
+        margin: 0 -(@timeline-fixed-space+@timeline-icon-width)/2*1px 0 0;
+    }
+
+    .timeline__label {
+        margin: 0 @timeline-time-width @base-spacing-unit*1px 0;
+
+        &:after {
+            right: auto;
+            left: 100%;
+
+            border-right-color: transparent;
+            border-left-color: @brand-color;
+        }
+
+        &:hover:after {
+            border-right-color: transparent;
+            border-left-color: darken(@brand-color, 20%);
+        }
+    }
+
+    .timeline__prev, .timeline__next {
+        left: auto;
+        right: @timeline-time-width;
+
+        text-align: right;
+
+        &:after {
+            left: auto;
+            right: -(@timeline-fixed-space+@timeline-arrow-width)/2*1px;
+        }
+    }
+
+    &.timeline--striped > li:nth-child(odd) {
+        .timeline__label {
+            &:after {
+                border-right-color: transparent;
+                border-left-color: lighten(@brand-color, 10%);
+            }
+
+            &:hover:after {
+                border-right-color: transparent;
+                border-left-color: darken(@brand-color, 20%);
+            }
+        }
+    }
+}
+
+
+/**
  * Timeline responsiveness
  * Make it display differently when the screen is not large
  * enough to render the line properly
@@ -341,6 +413,7 @@
     .timeline__prev, .timeline__next {
         top: 0;
         left: 0;
+        right: 0;
         bottom: 0;
         margin-bottom: 0;
 
@@ -375,6 +448,54 @@
         &:hover:after {
             border-right-color: transparent;
             border-bottom-color: darken(@brand-color, 20%);
+        }
+    }
+
+    .timeline--rev {
+        .timeline__time {
+            left: 0;
+
+            span {
+                text-align: right;
+            }
+        }
+
+        .timeline__icon {
+            right: auto;
+            float: left;
+            margin: -(@timeline-icon-width+@timeline-line-width+@base-spacing-unit/2)*1px 0 0 5px;
+        }
+
+        .timeline__label {
+            margin: 0 0 @base-spacing-unit*1px 0;
+
+            &:after {
+                left: auto;
+                right: 20px;
+
+                border-left-color: transparent;
+            }
+
+            &:hover:after {
+                border-left-color: transparent;
+            }
+        }
+
+        .timeline__prev, .timeline__next {
+            left: 0;
+            right: 0;
+
+            text-align: center;
+        }
+
+        &.timeline--striped > li:nth-child(odd) .timeline__label {
+            &:after {
+                border-left-color: transparent;
+            }
+
+            &:hover:after {
+                border-left-color: transparent;
+            }
         }
     }
 }
