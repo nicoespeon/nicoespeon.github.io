@@ -17,6 +17,7 @@
 // @timeline-icon-width: 40;
 // @timeline-line-width: 10;
 // @timeline-text-color: #FFF;
+// @timeline-color: @brand-color;
 
 /**
  * The timeline object displays a list of data, usually
@@ -99,7 +100,7 @@
         margin-left: -(@timeline-fixed-space+@timeline-line-width)/2*1px;
         width: @timeline-line-width*1px;
 
-        background: lighten(@brand-color, 20%);
+        background: lighten(@timeline-color, 20%);
         content: ' ';
     }
 
@@ -125,7 +126,7 @@
         text-align: right;
 
         &:last-child {
-            color: @brand-color;
+            color: lighten(@timeline-color, 10%);
             font-size: 2em;
         }
     }
@@ -147,8 +148,8 @@
 
     border-radius: 50%;
 
-    background: @brand-color;
-    box-shadow: 0 0 0 @timeline-line-width*1px lighten(@brand-color, 20%);
+    background: @timeline-color;
+    box-shadow: 0 0 0 @timeline-line-width*1px lighten(@timeline-color, 20%);
     color: @timeline-text-color;
     text-align: center;
     font-size: (@timeline-icon-width/@base-font-size)/2*1em;
@@ -167,7 +168,7 @@
 
     border-radius: 5px;
 
-    background: @brand-color;
+    background: lighten(@timeline-color, 10%);
     color: @timeline-text-color;
 
     &:after {
@@ -179,7 +180,7 @@
 
         border: solid transparent;
         border-width: @timeline-line-width*1px;
-        border-right-color: @brand-color;
+        border-right-color: lighten(@timeline-color, 10%);
 
         content: ' ';
         pointer-events: none;
@@ -196,11 +197,11 @@
     }
 
     &:hover {
-        background: darken(@brand-color, 20%);
+        background: @timeline-color;
         color: @timeline-text-color;
 
         &:after {
-            border-right-color: darken(@brand-color, 20%);
+            border-right-color: @timeline-color;
         }
     }
 }
@@ -227,7 +228,7 @@
     margin-bottom: @base-spacing-unit*1px;
     width: 100%;
 
-    color: lighten(@brand-color, 20%);
+    color: lighten(@timeline-color, 20%);
     font-weight: bold;
 
     &:after {
@@ -241,7 +242,7 @@
     }
 
     &:hover {
-        color: @brand-color;
+        color: @timeline-color;
     }
 }
 
@@ -251,7 +252,7 @@
     &:after {
         bottom: 0;
 
-        border-bottom-color: lighten(@brand-color, 20%);
+        border-bottom-color: lighten(@timeline-color, 20%);
     }
 }
 
@@ -261,7 +262,7 @@
     &:after {
         top: 0;
 
-        border-top-color: lighten(@brand-color, 20%);
+        border-top-color: lighten(@timeline-color, 20%);
     }
 }
 
@@ -271,23 +272,23 @@
  */
 .timeline--striped > li:nth-child(odd) {
     .timeline__label {
-        background: lighten(@brand-color, 10%);
+        background: lighten(@timeline-color, 20%);
 
         &:after {
-            border-right-color: lighten(@brand-color, 10%);
+            border-right-color: lighten(@timeline-color, 20%);
         }
 
         &:hover {
-            background: darken(@brand-color, 20%);
+            background: @timeline-color;
 
             &:after {
-                border-right-color: darken(@brand-color, 20%);
+                border-right-color: @timeline-color;
             }
         }
     }
 
     .timeline__time span:last-child {
-        color: lighten(@brand-color, 10%);
+        color: lighten(@timeline-color, 20%);
     }
 }
 
@@ -327,12 +328,12 @@
             left: 100%;
 
             border-right-color: transparent;
-            border-left-color: @brand-color;
+            border-left-color: lighten(@timeline-color, 10%);
         }
 
         &:hover:after {
             border-right-color: transparent;
-            border-left-color: darken(@brand-color, 20%);
+            border-left-color: @timeline-color;
         }
     }
 
@@ -352,12 +353,12 @@
         .timeline__label {
             &:after {
                 border-right-color: transparent;
-                border-left-color: lighten(@brand-color, 10%);
+                border-left-color: lighten(@timeline-color, 20%);
             }
 
             &:hover:after {
                 border-right-color: transparent;
-                border-left-color: darken(@brand-color, 20%);
+                border-left-color: @timeline-color;
             }
         }
     }
@@ -401,12 +402,12 @@
             left: 20px;
 
             border-right-color: transparent;
-            border-bottom-color: @brand-color;
+            border-bottom-color: lighten(@timeline-color, 10%);
         }
 
         &:hover:after {
             border-right-color: transparent;
-            border-bottom-color: darken(@brand-color, 20%);
+            border-bottom-color: @timeline-color;
         }
     }
 
@@ -442,12 +443,12 @@
     .timeline--striped > li:nth-child(odd) .timeline__label {
         &:after {
             border-right-color: transparent;
-            border-bottom-color: lighten(@brand-color, 10%);
+            border-bottom-color: lighten(@timeline-color, 20%);
         }
 
         &:hover:after {
             border-right-color: transparent;
-            border-bottom-color: darken(@brand-color, 20%);
+            border-bottom-color: @timeline-color;
         }
     }
 
