@@ -27,7 +27,7 @@ De plus, elle rendent le code plus flexible et robuste en permettant de créer d
 {% highlight javascript %}
 (function(window, $) {
     // votre code JS
-})(window jQuery);
+})(window, jQuery);
 {% endhighlight %}
 
 
