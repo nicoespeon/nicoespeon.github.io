@@ -1,5 +1,7 @@
-APPLICATION = ./assets/css/nicoespeon.css
-APPLICATION_LESS = ./assets/less/nicoespeon.less
+MAIN = ./assets/css/nicoespeon.css
+MAIN_LESS = ./assets/less/nicoespeon.less
+PRINT = ./assets/css/nicoespeon-print.css
+PRINT_LESS = ./assets/less/nicoespeon-print.less
 DATE = $(shell date +%I:%M\ %p)
 CHECK = \033[32m✔\033[39m
 HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
@@ -12,8 +14,10 @@ build:
 	@echo "\n${HR}"
 	@echo "Building front-end..."
 	@echo "${HR}\n"
-	@lessc --compress ${APPLICATION_LESS} ${APPLICATION}
-	@echo "Compiling LESS...                ${CHECK} Done"
+	@lessc --compress ${MAIN_LESS} ${MAIN}
+	@echo "Compiling MAIN LESS...                 ${CHECK} Done"
+	@lessc --compress ${PRINT_LESS} ${PRINT}
+	@echo "Compiling PRINT LESS...                ${CHECK} Done"
 	@echo "\n${HR}"
 	@echo "Build successfully completed at ${DATE}."
 	@echo "${HR}\n"

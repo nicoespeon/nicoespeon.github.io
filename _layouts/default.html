@@ -26,12 +26,13 @@
 
     <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'>
     <link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print">
 </head>
 <body>
     <div id="site">
         <div class="container">
             <div class="grid">
-                <div class="grid__item seven-tenths portable-one-whole">
+                <div class="grid__item seven-tenths portable-one-whole" role="main">
                     <header class="media" role="banner">
                         <!-- Brand logo -->
                         <img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80" />
@@ -51,10 +52,8 @@
                     {{ content }}
                 </div>
 
-                <div class="grid__item three-tenths portable-one-whole">
-                    <div role="complementary">
-                        {% include sidebar.html %}
-                    </div>
+                <div class="grid__item three-tenths portable-one-whole" role="complementary">
+                    {% include sidebar.html %}
                 </div>
             </div>
         </div><!-- /container -->
