@@ -36,7 +36,7 @@ deploy:
 	@echo  "Generating files...                ${CHECK} Done"
 	@git   checkout master
 	@echo  "Switch to master...                ${CHECK} Done"
-	@sudo  cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile 
+	@sudo  cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile
 	@echo  "Updating files...                  ${CHECK} Done"
 	@git   add . && git commit -m "Regenerate files (jekyll deployment)"
 	@echo  "Committing files...                ${CHECK} Done"
