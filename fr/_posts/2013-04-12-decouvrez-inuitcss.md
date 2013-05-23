@@ -58,9 +58,11 @@ L'idée est [d'en faire un module](http://inuitcss.com/2013/03/inuit-css-v5.0/) 
 
 Pour un nouveau projet, clonez simplement le dépôt de la manière suivante :
 
-    $ git clone --recursive git@github.com:csswizardry/inuit.css-web-template.git your-project-folder
-    $ cd your-project-folder
-    $ ./go
+{% highlight console %}
+$ git clone --recursive git@github.com:csswizardry/inuit.css-web-template.git your-project-folder
+$ cd your-project-folder
+$ ./go
+{% endhighlight %}
 
 [Le script `go`](https://github.com/csswizardry/inuit.css-web-template/blob/master/go) intalle la dernière version de `inuit.css`.
 
@@ -68,7 +70,9 @@ Pour un nouveau projet, clonez simplement le dépôt de la manière suivante :
     <strong>Astuce</strong> - Si vous souhaitez incorporer le framework dans un projet existant :
 </p>
 
-    $ git submodule add git://github.com/csswizardry/inuit.css.git your-project-folder/inuit.css
+{% highlight console %}
+$ git submodule add git://github.com/csswizardry/inuit.css.git your-project-folder/inuit.css
+{% endhighlight %}
 
 <p class="islet">
     Il vous faudra ensuite organiser vos fichiers selon vos besoin, en vous inspirant de l'architecture du dossier <code>css/</code> du <a href="https://github.com/csswizardry/inuit.css-web-template/tree/master/css">template web</a>.
@@ -76,11 +80,13 @@ Pour un nouveau projet, clonez simplement le dépôt de la manière suivante :
 
 Pour mettre à jour le coeur du framework, il suffira de mettre à jour le sous-module Git :
 
-    $ git submodule update
+{% highlight console %}
+$ git submodule update
+{% endhighlight %}
 
 #### Méthode 2 - Sans Git
 
-Téléchargez le [template web](https://github.com/csswizardry/inuit.css-web-template/) puis téléchargez [le coeur du framework]() et placez ce dernier dans le dossier `css/` du template web. Placez le tout dans `your-project-folder`.
+Téléchargez le [template web](https://github.com/csswizardry/inuit.css-web-template/) puis téléchargez [le coeur du framework](https://github.com/csswizardry/inuit.css) et placez ce dernier dans le dossier `css/` du template web. Placez le tout dans `your-project-folder`.
 
 Pour mettre à jour le coeur du framework, il vous suffira de remplacer le dossier `inuit.css` par la version la plus récente.
 
@@ -90,17 +96,17 @@ Idéalement, créez également un dossier `ui/` en parallèle de `inuit.css/` po
 
 {% highlight text %}
 .
-|-- inuit.css/           # Coeur du framework - ne pas toucher
-|   |-- generic/         # Eléments bas niveau (clearfix, reset, ...)
-|   |-- base/            # Eléments standards (tables, forms, ...)
-|   |-- objects/         # Eléments modulaires (grid, nav, ...)
-|   |-- _defaults.scss   # Variables par défaut
-|   |-- _inuit.scss      # Fichier principal du coeur
+|-- inuit.css/         # Coeur du framework - ne pas toucher
+|   |-- generic/       # Eléments standards (clearfix, reset)
+|   |-- base/          # Eléments de base (tables, forms, ...)
+|   |-- objects/       # Eléments modulaires (grid, nav, ...)
+|   |-- _defaults.scss # Variables par défaut
+|   |-- _inuit.scss    # Fichier principal du coeur
 |
-|-- ui/                  # Dossier contenant vos fichiers Sass
-|-- _vars.scss           # Variables configurables
-|-- _style.scss          # Fichier principal de votre CSS
-|-- watch                # Script pour compiler vos changements
+|-- ui/                # Dossier contenant vos fichiers Sass
+|-- _vars.scss         # Variables configurables
+|-- _style.scss        # Fichier principal de votre CSS
+|-- watch              # Script pour compiler vos changements
 {% endhighlight%}
 
 Le dossier `inuit.css/` contient le coeur du framework. Le truc, **c'est de ne rien toucher à ce qui se trouve en dessous**. De cette manière, le framework peut être mis à jour sans perturber les configurations de votre projet, ce qui n'était pas le cas dans les versions précédentes de inuit.css. Comme le framework n'impacte pas le design des éléments, le fait de considérer `inuit.css/` comme un module que l'on peut mettre à jour est assez pertinent.
@@ -110,7 +116,7 @@ Le dossier `ui/` contient idéalement vos fichiers de style à vous. C'est vous 
 Le fichier `_vars.scss` doit contenir les variables du framework que vous souhaitez personnaliser. Vous avez la liste des variables par défaut dans `inuit.css/_defaults.scss`. Le process conseillé est donc le suivant :
 
 1. recopiez la variable par défaut dans `_vars.scss`
-2. changez `@var: defaultvalue!default;` par `@var: newvalue;`
+2. changez `$var: defaultvalue!default;` par `$var: newvalue;`
 3. rien d'autre
 
 Vous avez également dans ce fichier l'ensemble des objets du frameworks contenus dans le dossier `objects/`. Vous pouvez les activer selon vos besoins, le framework est **modulaire** !
@@ -119,11 +125,15 @@ Le fichier `_style.scss` importe les fichiers Sass pour la compilation du CSS. C
 
 Le script `watch` permet à Sass de compiler votre code à la volée lorsque vous faîtes des mises à jour. C'est pas impératif, ça dépend de votre workflow personnel... C'est vous qui voyez ! Le script est personnalisable et lance la commande suivante :
 
-    $ sass --watch style.scss:style.min.css --style compressed
+{% highlight console %}
+$ sass --watch style.scss:style.min.css --style compressed
+{% endhighlight %}
 
 Pour le lancer, inutile de mémoriser la commande précédente, exécutez simplement :
 
-    $ ./watch
+{% highlight console %}
+$ ./watch
+{% endhighlight %}
 
 En définitive, vous disposez d'un fichier CSS unique, compressé et optimisé, qu'il ne vous reste plus qu'à incorporer dans votre HTML :
 
@@ -145,6 +155,10 @@ Nous tâchons cependant de faire évoluer la version LESS avec l'optique d'offri
 
 <p class="islet">
     <strong>Edit du 15/04</strong> - La version correspond à présent à la <code>v4.5</code> et la <code>v5.0.0</code> est en chemin !
+</p>
+
+<p class="islet">
+    <strong>Edit du 23/05</strong> - La version actuelle correspond à la <code>v5.0.0</code> qui comporte <a href="https://github.com/nicoespeon/inuit.css-web-template">le template web</a> ainsi donc que <a href="https://github.com/peterwilsoncc/inuit.css">le coeur du framework</a> (même principe, mais en LESS).
 </p>
 
 ---
