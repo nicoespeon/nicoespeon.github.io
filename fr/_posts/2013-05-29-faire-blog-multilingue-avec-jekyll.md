@@ -112,7 +112,7 @@ Au revoir pagination par catégorie et filtre i18n.
 
 ... et Google votre meilleur ami.
 
-[J'ai pu trouvé l'inspiration](http://charliepark.org/jekyll-with-plugins/) pour redéfinir mon workflow git et contourner ce nouveau problème en ce qui me concerne. C'est ce que je vous propose très concrètement ci-dessous.
+[J'ai pu trouver l'inspiration](http://charliepark.org/jekyll-with-plugins/) pour redéfinir mon workflow git et contourner ce nouveau problème en ce qui me concerne. C'est ce que je vous propose très concrètement ci-dessous.
 
 #### Un petit retour sur le workflow et les branches
 
