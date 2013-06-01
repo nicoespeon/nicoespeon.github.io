@@ -66,10 +66,10 @@ Bref, autant de signes de non-maturité qui risquent, à la longue, de lui compl
 
 Finalement, **le soucis de ce code réside dans la relation 1:1** que le CSS entretient avec le nombre de blocs, de pages et de modules du site. A mesure que le site grossit, le CSS grossit tout autant. Ca demande du temps de développement, donc de l'argent... On a vu mieux en terme de [ROI](http://fr.wikipedia.org/wiki/Retour_sur_investissement) !
 
-<p class="text--center">
-    <img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg"><br>
-    <em>Librement inspiré par <a href="https://speakerdeck.com/snookca/your">Jonathan Snoovvk</a> =)</em>
-</p>
+<div class="illustration">
+    <img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg">
+    Librement inspiré par <a href="https://speakerdeck.com/snookca/your">Jonathan Snoovvk</a> =)
+</div>
 
 L'**Object Oriented CSS (OOCSS)** vient apporter sa solution à tous ces problèmes. Il ne s'agit pas d'un pré-processeur, ni même d'un nouveau langage, mais plutôt d'une *philosphie de code*. C'est un ensemble de bonnes pratiques, de règles et de conseils.
 
@@ -398,9 +398,9 @@ Vous noterez qu'en faisant cela je me préserve de tomber dans la mauvaise prati
 
 L'exemple le plus célèbre pour illustrer l'OOCSS est bien entendu le **media object** créé par [Nicolas Sullivan](http://www.stubbornella.org/) et qui [permet d'économiser des centaines de lignes de code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/).
 
-<p class="text--center">
+<div class="illustration">
     <img alt="The Media Object" title="Media Object, an example of objects extension" src="/assets/img/css/media-object.jpg">
-</p>
+</div>
 
 Il s'agit ni plus ni moins de l'objet abstrait pour représenter un *media object* (une image, une vidéo) à côté d'un *media body* (texte typiquement), à gauche comme à droite.
 
@@ -506,9 +506,9 @@ Vous remarquerez que la très grande majorité des articles/sujets portant sur c
 
 J'espère que le sujet aura pu vous intéresser, vous faire réfléchir sur vos pratiques CSS, voire même vous intéresser. Si vous avez des questions, des remarques, des suggestions ou même des idées à partager avec moi, n'hésitez pas à me laisser quelques commentaires ci-dessous =)
 
-<p class="text--center">
-    <img alt="After OOCSS" title="Code smells better with OOCSS" src="/assets/img/css/after-oocss.jpg"><br>
-    <em>Vous aussi, adoptez le "Oh Oh" CSS</em>
-</p>
+<div class="illustration">
+    <img alt="After OOCSS" title="Code smells better with OOCSS" src="/assets/img/css/after-oocss.jpg">
+    Vous aussi, adoptez le "Oh Oh" CSS
+</div>
 
 Plop !

@@ -46,9 +46,9 @@ Les problèmes sont alors présents et de plus en plus évidents à mesure que l
 
 Bref, c'est le bordel dans votre CSS !
 
-<p class="text--center">
+<div class="illustration">
     <img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg">
-</p>
+</div>
 
 La méthode **Scalable and Modular Architecture for CSS (SMACSS)** a pour but de venir organiser tout ça selon un ensemble de lignes de conduite assez simples à appréhender.
 
@@ -56,10 +56,10 @@ Ce n'est pas un framework au sens rigide du terme, mais des bonnes pratiques pou
 
 La philosophie **SMACSS** repose sur ces 3 grands principes que je vais détailler par la suite :
 
-<p class="text--center">
-    <img src="/assets/img/css/smacss-principles.jpg" alt="Les principes de SMACSS" title="Les principes de SMACSS"><br>
-    <em>Les 3 grands principes de SMACSS</em>
-</p>
+<div class="illustration">
+    <img src="/assets/img/css/smacss-principles.jpg" alt="Les principes de SMACSS" title="Les principes de SMACSS">
+    Les 3 grands principes de SMACSS
+</div>
 
 
 ## Catégoriser son CSS
@@ -126,10 +126,10 @@ Généralement, il s'agit de sélecteurs simples, descendants ou d'enfants, voir
 
 **Vous ne devez pas utiliser `!important` dans cette catégorie.**
 
-<p class="text--center">
-    <img src="/assets/img/css/smacss-layout.jpg" alt="La couche layout" title="La couche layout en SMACSS"><br>
-    <em>Découpage du site en sections majeures pour le layout</em>
-</p>
+<div class="illustration">
+    <img src="/assets/img/css/smacss-layout.jpg" alt="La couche layout" title="La couche layout en SMACSS">
+    Découpage du site en sections majeures pour le layout
+</div>
 
 {% highlight css %}
 /* Exemple des styles layout de ce blog */
@@ -168,10 +168,10 @@ Partir sur une structure modulaire est une bonne pratique à appliquer pour cré
 
 **Vous ne devez pas utiliser d'ID ou `!important` dans cette catégorie.**
 
-<p class="text--center">
-    <img src="/assets/img/css/smacss-module.jpg" alt="La couche module" title="La couche module en SMACSS"><br>
-    <em>Mise en lumière des modules de la page</em>
-</p>
+<div class="illustration">
+    <img src="/assets/img/css/smacss-module.jpg" alt="La couche module" title="La couche module en SMACSS">
+    Mise en lumière des modules de la page
+</div>
 
 {% highlight css %}
 /* Exemple des styles du module block-list de ce blog */
@@ -231,10 +231,10 @@ Généralement, une règle qui se trouve dans cette catégorie correspond à une
 
 En effet, ce genre de règles déterminent **un état final** du design, qui doit s'appliquer quoiqu'il advienne. Si votre code est propre, vous ne devriez pas avoir deux états s'appliquant sur le même élément et modifiant les mêmes attributs (sinon, vous avez un petit soucis de logique).
 
-<p class="text--center">
-    <img src="/assets/img/css/smacss-state.jpg" alt="La couche state" title="La couche state en SMACSS"><br>
-    <em>Exemple des différents états possibles d'un bouton</em>
-</p>
+<div class="illustration">
+    <img src="/assets/img/css/smacss-state.jpg" alt="La couche state" title="La couche state en SMACSS">
+    Exemple des différents états possibles d'un bouton
+</div>
 
 {% highlight css %}
 /* Exemple des styles state d'un projet */
@@ -272,10 +272,10 @@ $('form#update-quantity').find('input').change(function() {
 });
 {% endhighlight %}
 
-<p class="visuallyhidden--palm text--center">
-    <iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe><br>
-    <em>Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ</em>
-</p>
+<div class="illustration visuallyhidden--palm">
+    <iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe>
+    Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ
+</div>
 
 #### Theme
 
@@ -380,32 +380,32 @@ Voici quelques pistes :
 
 - pour les *modules*, il est judicieux que les classes partagent la même racine correspondant au module en question. Des projets comme *Bootstrap* [adoptent d'ailleurs cette convention](https://github.com/twitter/bootstrap/blob/master/less/buttons.less).
 
-        {% highlight css %}
-        .btn {}
-        .btn-search {}
-        .btn-small {}
-        .btn-large {}
-        /* ... */
-        {% endhighlight %}
+{% highlight css %}
+.btn {}
+.btn-search {}
+.btn-small {}
+.btn-large {}
+/* ... */
+{% endhighlight %}
 
 - pour *state*, il s'agit d'un état logique dans lequel se trouve un élément. Ainsi, il n'est pas bête que chaque classe transmettent cette intention avec `.is-` par exemple :
 
-        {% highlight css %}
-        .is-loading {}
-        .is-collapsed {}
+{% highlight css %}
+.is-loading {}
+.is-collapsed {}
 
-        /* et pour les états relatifs à un module... */
-        .is-btn-active {}
-        .is-btn-disabled {}
-        {% endhighlight %}
+/* et pour les états relatifs à un module... */
+.is-btn-active {}
+.is-btn-disabled {}
+{% endhighlight %}
 
 - pour les *themes* donc, il est envisageable de créer une sorte de namespace explicite, notamment s'il est possible de switcher entre les différents thèmes proposés :
 
-        {% highlight css %}
-        .theme-ocean {}
-        .theme-silver {}
-        /* ... */
-        {% endhighlight %}
+{% highlight css %}
+.theme-ocean {}
+.theme-silver {}
+/* ... */
+{% endhighlight %}
 
 
 ## Découpler le HTML du CSS
@@ -639,11 +639,10 @@ Voilà pour cette présentation de la philosophie SMACSS !
 
 Bien évidemment, je vous suggère d'aller faire un tour du côté du site officiel :
 
-<p class="text--center">
-    <a href="http://smacss.com">
-        <img src="/assets/img/css/get-smacked.jpg" alt="Get Smacked" title="Get Smacked">
-    </a>
-</p>
+<a href="http://smacss.com" class="illustration">
+    <img src="/assets/img/css/get-smacked.jpg" alt="Get Smacked" title="Get Smacked">
+</a>
+
 
 Vous y trouverez l'essentiel du livre gratuitement. Vous pourrez également vous procurer le bouquin pour $15-20 si le cœur vous en dit (et disposer de conseils plus avancées sur la question).
 
