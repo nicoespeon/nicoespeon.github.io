@@ -10,7 +10,24 @@ title: Faire un blog multilingue avec Jekyll
 description: Un petit état des lieux des choses à savoir et des astuces que je peux vous donner pour réaliser un blog multilingue avec Jekyll.
 ---
 
-## <span class="icon-reliability"></span> Petit retour sur Jekyll
+## <span class="icon-info"></span> Note sur la compatibilité
+
+Ce qui suit se base sur l'utilisation de Jekyll `v0.12.1`.
+
+Veuillez noter que des changements majeurs sont survenus lors du passage à la `v1.0.0`, rendant certaines de ces astuces non compatibles (je pense surtout aux plugins). Je rédigerai un nouvel article lorsque je mettrais à jour mon propre Jekyll à une version v1.0+.
+
+Si vous le souhaitez, vous pouvez toujours installer une ancienne version de Jekyll avec la commande suivante :
+
+{% highlight bash %}
+# Installe l'ancienne version de jekyll
+$ sudo gem install jekyll --version 0.12.1
+
+# Désinstalle la version actuelle si vous l'avez téléchargée
+$ sudo gem uninstall jekyll --version <your current version>
+{% endhighlight %}
+
+
+## Petit retour sur Jekyll
 
 J'ai commencé ce blog avec [un article présentant Jekyll]({% post_url 2013-04-07-faire-son-blog-avec-jekyll %}) et ce qui m'avait amené à ce choix.
 
