@@ -44,7 +44,7 @@ Simplement, Jekyll est adapté pour du blogging... mais du blogging en anglais (
 Bien entendu, c'est tout à fait possible si l'on sait ruser et mettre un peu les mains dans le cambouis. Je me propose donc ici de vous expliquer les quelques étapes dont vous aurez besoin si vous souhaitez pouvoir blogger dans 2 langues, ou plus.
 
 
-## <span class="icon-bubbles"></span> Do you parler Français ?
+## Do you parler Français ?
 
 Le meilleur exemple de la nature *english oriented* de Jekyll est certainement [le filtre Liquid `date`](http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012). Ce dernier permet de retourner très simplement la date de publication d'un post, par exemple, mais dans le format anglais ! Certes, si vous vous contentez des chiffres ça passera sans problème. En revanche ça risque de faire tâche d'avoir des `19 April, 2013` qui trainent un peu partout sur votre blog francophone.
 
@@ -115,7 +115,7 @@ J'ai modifié le plugin original afin de définir l'anglais comme catégorie par
 J'ai du ajouter un fichier [\_locales/fr.yml](https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_locales/fr.yml) afin de créer la fonction `localize`. Elle fonctionne de la même manière que `date` mais renvoie le format français de la date.
 
 
-## <span class="icon-github-2"></span> Le point Github
+## Le point Github
 
 Les plugins sont installés, les templates sont élaborés, le design est mis en place, le git flow est prêt ainsi que le dépôt sur Github... *Pushons joyeusement !*
 
@@ -181,7 +181,7 @@ Pour ma part, j'ai 2 solutions à vous proposer pour vous permettre de déployer
 2. Vous pouvez aller jeter un oeil à [git publish](https://github.com/prost87/git-publish-pages) qui est un script que vous pouvez rajouter à Git et qui vous permettra de déployer des sites Jekyll avec ce workflow justement (quand on vous dit que d'autres y ont pensé avant vous).
 
 
-## <span class="icon-point-right"></span> Et voilà !
+## Et voilà !
 
 Nous y voilà, cela devrait fonctionner parfaitement à présent. Avec ces petits conseils vous devriez être en mesure de faire votre blog Jekyll, hébergé sur Github et multilingue *\o/*
 
