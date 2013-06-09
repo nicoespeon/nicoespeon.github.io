@@ -5,7 +5,7 @@ published: true
 comments: true
 
 tags: [less, sass]
-icon: lab
+icon: css
 
 title: Convertir un projet SASS en LESS
 description: Similitudes, différences et équivalences de ces deux pré-processeurs CSS.
