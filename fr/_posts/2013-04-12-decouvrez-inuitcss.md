@@ -32,6 +32,7 @@ Je suis donc tombé sur [inuit.css](http://inuitcss.com), à peu près par hasar
 
 En guise d'overview, je ne peux que vous conseiller d'aller faire joujou sur [les fiddles d'inuit.css](http://jsfiddle.net/user/inuitcss/fiddles/) !
 
+
 ## Philosophie
 
 inuit.css a été créé [en Avril 2011](http://csswizardry.com/2011/06/what-is-inuit-css/) par [Harry Roberts](http://csswizardry.com/about/) (c'est un anglais !).
@@ -46,13 +47,14 @@ Il est parti du principe qu'un framework CSS devait apporter une logique et un l
 
 **inuit.css est un framework OOCSS**. C'est à dire que l'ensemble des composants du framework sont des objets indépendants, combinables et réutilisables. De plus, le framework tire partie des avantages de cette philosophie, ce qui le rend extensible à souhait sans crise de nerf à l'horizon. Je ferais un article sur les principes OOCSS, en attendant je peux vous conseiller [les slides de Nicole Sullivan sur la question](http://fr.slideshare.net/stubbornella/the-cascade-grids-headings-and-selectors-from-an-oocss-perspective-ajax-experience-2009).
 
+
 ## Installation
 
 <p class="islet"><strong>Pré-requis</strong> - avoir <a href="http://sass-lang.com/tutorial.html">installé Sass</a> au préalable pour pouvoir compiler le code.</p>
 
 A l'heure actuelle, **inuit.css** est passé à la version **v5.0**, ce qui change considérablement la manière de l'implémenter par rapport aux versions précédentes.
 
-L'idée est [d'en faire un module](http://inuitcss.com/2013/03/inuit-css-v5.0/) dont le coeur peut être mis à jour sans perturber le projet dans lequel il est implémenté. Toutes les configurations propres au projet ont donc été exportées en dehors du coeur, qui peut être mis à jour sans aucun problème.
+L'idée était [d'en faire un module](http://inuitcss.com/2013/03/inuit-css-v5.0/) dont le coeur peut être mis à jour sans perturber le projet dans lequel il est implémenté. Toutes les configurations propres au projet ont donc été exportées en dehors du coeur, qui peut être mis à jour sans aucun problème.
 
 #### Méthode 1 - Avec Git
 
@@ -64,7 +66,7 @@ $ cd your-project-folder
 $ ./go
 {% endhighlight %}
 
-[Le script `go`](https://github.com/csswizardry/inuit.css-web-template/blob/master/go) intalle la dernière version de `inuit.css`.
+[Le script `go`](https://github.com/csswizardry/inuit.css-web-template/blob/master/go) installe la dernière version de `inuit.css`.
 
 <p class="islet">
     <strong>Astuce</strong> - Si vous souhaitez incorporer le framework dans un projet existant :
@@ -89,6 +91,7 @@ $ git submodule update
 Téléchargez le [template web](https://github.com/csswizardry/inuit.css-web-template/) puis téléchargez [le coeur du framework](https://github.com/csswizardry/inuit.css) et placez ce dernier dans le dossier `css/` du template web. Placez le tout dans `your-project-folder`.
 
 Pour mettre à jour le coeur du framework, il vous suffira de remplacer le dossier `inuit.css` par la version la plus récente.
+
 
 ## Architecture et fonctionnement
 
@@ -141,9 +144,10 @@ En définitive, vous disposez d'un fichier CSS unique, compressé et optimisé, 
 <link rel="stylesheet" href="/your-css-folder/style.min.css">
 {% endhighlight %}
 
+
 ## Une version LESS ? Oui Môsieur !
 
-Pour ceux qui, comme moi, utilisent [LESS](http://lesscss.org/) plutôt que Sass, il existe [une version LESS de inuit.css](https://github.com/peterwilsoncc/inuit.css) entretenue par [Peter Wilson](http://twitter.com/pwcc). Pour info, [je contribue également au projet](https://github.com/nicoespeon/inuit.css) (mais je vous suggère de forker la version de Peter puisqu'elle fait office de référence).
+Pour ceux qui, comme moi, utilisent [LESS](http://lesscss.org/) plutôt que Sass, il existe [une version LESS de inuit.css](https://github.com/peterwilsoncc/inuit.css) entretenue par [Peter Wilson](http://twitter.com/pwcc) et moi-même.
 
 <p class="islet">
     LESS est en effet une alternative plausible, même si moins puissante, à Sass. Ce pré-processeur est plus abordable dans un premier temps selon moi. Aussi, il fonctionne avec Javascript et non Ruby (les goûts et les couleurs me direz vous...).

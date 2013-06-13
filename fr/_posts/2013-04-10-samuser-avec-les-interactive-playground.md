@@ -8,6 +8,7 @@ jsbin: true
 codepen: true
 
 tags: [dabblet, jsFiddle, JSBin, CodePen]
+icon: lab
 
 title: S'amuser avec les interactive playground
 description: JSBin, jsFiddle, dabblet, ... Si ces noms ne vous parlent pas, alors peut-être devriez-vous jeter un œil par ici et découvrir le principe de ces "terrains de jeu interactifs".
@@ -26,6 +27,7 @@ La plupart permettent également de sauvegarder le code et de le partager, ce qu
 - **enseignement par mise en pratique** utilisé par des sites tels que [CodeSchool](http://www.codeschool.com), produisant de véritables TP-live pour mettre en pratique ce qui vient d'être vu.
 
 Voici donc, après cette petite mise en jambes, une petite présentation non-exhaustive des web playgrounds que je connais et que j'affectionne.
+
 
 ## JSBin
 
@@ -51,6 +53,7 @@ Il dispose également d'un certain nombre de features notables comme [JSHint](ht
 - Particulièrement riche en fonctionnalités (JSHint, Ajax, templates, ZenCoding, ...)
 - Les JSBin peuvent être intégrés et modifiés directement dans des sites web
 
+
 ## jsFiddle
 
 [jsFiddle](http://jsfiddle.net) fonctionne peu ou prou selon le même principe, avec une interface à l'ergonomie quelque peu différente.
@@ -75,6 +78,7 @@ Fait notable également : le HTML est épuré, il est inutile de renseigner les 
 - Possibilités d'utiliser des pré-processeurs CSS/JS
 - Les fiddles peuvent être intégrés directement dans des sites web, mais pas modifiés
 
+
 ## CodePen
 
 [Codepen](http://codepen.io) est une autre version assez populaire, avec un style quelque peu différent et une stratégie économique établie. En effet, CodePen propose [une version PRO](http://codepen.io/pro/) permettant par exemple de dispenser un cours en temps réel, ou bien de coder à plusieurs collaborateurs, simultanément, en live.
@@ -98,6 +102,7 @@ CodePen propose un certain nombre de features intéressantes, y compris l'usage 
 - Possibilités d'utiliser des pré-processeurs CSS/JS/HTML
 - Les Pens peuvent être intégrés directement dans des sites web, mais pas modifiés
 
+
 ## dabblet
 
 [dabblet](http://dabblet.com/) est un peu particulier dans le genre. En effet, **ce dernier s'oriente** non pas sur le Javascript (fer de lance de JSBin et jsFiddle, rien que par le nom) mais **sur le CSS**.
@@ -116,13 +121,14 @@ Sous son apparence design, dabblet offre également tout un panel de fonctionnal
     <iframe width="100%" height="400" src="http://dabblet.com/gist/5360845" allowfullscreen="allowfullscreen" frameborder="0">Exemple d'un dabblet intégré</iframe>
 </p>
 
-#### Points forts :
+#### Points forts
 
 - Pas nécessaire d'être enregistré pour l'utiliser
 - Visualisation du rendu en temps réel
 - Synchronisation totale avec les Gists (connecté sous Github)
 - Inline previewers et utilisation native de -prefix-free pour le développement CSS
 - Les dabblet peuvent être intégrés et modifiés directement dans des sites web
+
 
 ## Le problème, c'est le choix
 
