@@ -396,7 +396,7 @@ Vous noterez qu'en faisant cela je me préserve de tomber dans la mauvaise prati
 
 #### Le media object
 
-L'exemple le plus célèbre pour illustrer l'OOCSS est bien entendu le **media object** créé par [Nicolas Sullivan](http://www.stubbornella.org/) et qui [permet d'économiser des centaines de lignes de code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/).
+L'exemple le plus célèbre pour illustrer l'OOCSS est bien entendu le **media object** créé par [Nicole Sullivan](http://www.stubbornella.org/) et qui [permet d'économiser des centaines de lignes de code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/).
 
 <div class="illustration">
     <img alt="The Media Object" title="Media Object, an example of objects extension" src="/assets/img/css/media-object.jpg">
@@ -431,7 +431,7 @@ Voici basiquement en quoi le module consiste :
 
 Ces quelques lignes de CSS, réutilisables à souhait, génère un gain de temps et de performance considérable sur l'ensemble d'un projet.
 
-Je ne saurais que trop vous conseiller de jeter un oeil au court article de Nicolas que je vous ai indiqué précédemment. D'ailleurs [je le remet](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/), vous n'aurez pas d'excuse !
+Je ne saurais que trop vous conseiller de jeter un oeil au court article de Nicole que je vous ai indiqué précédemment. D'ailleurs [je le remet](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/), vous n'aurez pas d'excuse !
 
 Notez par exemple que [Bootstrap l'a implémenté](https://github.com/twitter/bootstrap/blob/master/less/media.less), de même que [inuit.css](https://github.com/csswizardry/inuit.css/blob/master/objects/_media.scss) ce qui n'est pas étonnant sachant que ces deux frameworks se basent sur le concept de l'OOCSS.
 
@@ -504,7 +504,7 @@ Notre petite plongée au coeur de l'OOCSS s'achève ici.
 
 Vous remarquerez que la très grande majorité des articles/sujets portant sur ces pratiques avancées de CSS sont en anglais, ce qui peut s'expliquer notamment par le fait que le sujet est encore récent (2009 pour les prémices, en pleine popularisation depuis le développement des frameworks CSS). Ce fut d'ailleurs la raison pour laquelle j'ai souhaité apporter ma pierre à l'édifice en rédigeant cet article en français.
 
-J'espère que le sujet aura pu vous intéresser, vous faire réfléchir sur vos pratiques CSS, voire même vous intéresser. Si vous avez des questions, des remarques, des suggestions ou même des idées à partager avec moi, n'hésitez pas à me laisser quelques commentaires ci-dessous =)
+J'espère que le sujet aura pu vous faire réfléchir sur vos pratiques CSS, voire même vous intéresser. Si vous avez des questions, des remarques, des suggestions ou même des idées à partager avec moi, n'hésitez pas à me laisser quelques commentaires ci-dessous =)
 
 <div class="illustration">
     <img alt="After OOCSS" title="Code smells better with OOCSS" src="/assets/img/css/after-oocss.jpg">
