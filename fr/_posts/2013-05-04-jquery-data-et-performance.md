@@ -11,8 +11,6 @@ title: jQuery, data et performance
 description: Bonne pratique et manipulation des données en jQuery, sans colorants ni conservateurs.
 ---
 
-*NB - C'est la version française de l'article [EN - jQuery, data and performance]({% post_url 2013-05-04-jquery-data-and-performance %})*
-
 ## TL;DR
 
 jQuery simplifie la manipulation des données rattachées aux éléments.

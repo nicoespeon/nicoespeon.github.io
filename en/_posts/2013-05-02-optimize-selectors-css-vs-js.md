@@ -11,8 +11,6 @@ title: Optimize selectors, CSS vs. JS
 description: Short round up of best practices for selectors use in CSS and Javascript. What is sauce for the goose is not necessarily sauce for the gander.
 ---
 
-*NB - This is the english version for [FR - Optimiser ses sélecteurs, CSS vs. JS]({% post_url 2013-05-02-optimiser-selecteurs-css-vs-js %})*
-
 ## TL;DR
 
 Selectors are interpreted **from right to left**.

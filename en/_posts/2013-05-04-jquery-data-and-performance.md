@@ -11,8 +11,6 @@ title: jQuery, data and performance
 description: Best practice and data manipulation with jQuery, no added colourings or preservatives.
 ---
 
-*NB - This is the english version for [FR - jQuery, data et performance]({% post_url 2013-05-04-jquery-data-et-performance %})*
-
 ## TL;DR
 
 jQuery makes elements-related data manipulation easy.

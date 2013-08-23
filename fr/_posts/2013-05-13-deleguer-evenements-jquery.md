@@ -11,8 +11,6 @@ title: Déléguer les événements en jQuery
 description: Un petit rappel sur les écouteurs d'événements et les bonnes pratiques de délégations en jQuery.
 ---
 
-*NB - C'est la version française de l'article [EN - Event delegation in jQuery]({% post_url 2013-05-13-event-delegation-jquery %})*
-
 ## TL;DR
 
 Jusqu'à **jQuery 1.7** on faisait la distinction entre `$.fn.bind`, `$.fn.live` et `$.fn.delegate` afin de créer des écouteurs d'événements.

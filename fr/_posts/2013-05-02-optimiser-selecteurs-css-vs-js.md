@@ -11,8 +11,6 @@ title: Optimiser ses sélecteurs, CSS vs. JS
 description: Petit mémo de bonnes pratiques quant à l'utilisation de sélecteurs en CSS et en Javascript. Ce qui vaut pour l'un ne l'est pas nécessairement pour l'autre.
 ---
 
-*NB - C'est la version française de l'article [EN - Optimize selectors, CSS vs. JS]({% post_url 2013-05-02-optimize-selectors-css-vs-js %})*
-
 ## TL;DR
 
 Les sélecteurs sont interprétés **de la droite vers la gauche**.

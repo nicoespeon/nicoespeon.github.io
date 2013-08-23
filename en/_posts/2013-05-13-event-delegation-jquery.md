@@ -11,8 +11,6 @@ title: Event delegation in jQuery
 description: A few reminder about event listeners and the event delegation best practices in jQuery.
 ---
 
-*NB - This is the english version for [FR - Déléguer les événements en jQuery]({% post_url 2013-05-13-deleguer-evenements-jquery %})*
-
 ## TL;DR
 
 Before **jQuery 1.7** we used to distinguish `$.fn.bind` from `$.fn.live` and `$.fn.delegate` to create events listeners.
@@ -163,6 +161,6 @@ No hot news but such a big deal in this article. That was a point worth noting y
 
 I realized very few time ago that I always used shorthand functions, dealing with a bunch of DOM elements sometimes, when I could have used more efficient methods. **When you've to deal with more than one element, think about the `$.fn.on` method!**
 
-I Hope this have you learn something or refresh your mind on that point. If so, don't hesitate to leave me comment below ;-)
+I hope this have you learn something or refresh your mind on that point. If so, don't hesitate to leave me comment below ;-)
 
 Plop!
