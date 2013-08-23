@@ -71,6 +71,26 @@
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+    <script>
+        $(function() {
+            // This JS code is still small so its better to keep it inline.
+            //
+            // Only apply if we are beyond the desk CSS breakpoint on load
+            if($(window).width() >= 1024) {
+
+                // Then hide every label description of the timeline
+                $("ul#timeline").find("a.timeline__label").each(function() {
+                    $(this).find("p").hide();
+                });
+
+                // And delegate the visibility effect on hover for each label description
+                $("ul#timeline").on("mouseenter mouseleave", "a.timeline__label", function() {
+                    $(this).find("p").stop().toggle("slow");
+                });
+            }
+        });
+    </script>
+
     <!-- Twitter API -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
