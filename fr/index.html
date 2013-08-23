@@ -10,7 +10,7 @@ description: Pensées d'un développeur en freelance et chef de projet en deveni
 </p>
 
 <section class="section">
-    <ul class="timeline timeline--striped timeline--rev">
+    <ul id="timeline" class="timeline timeline--rev">
         {% if paginator.previous_page %}
             <li>
                 <a class="timeline__prev" href="/fr/{% if paginator.previous_page != 1 %}page{{paginator.previous_page}}{% endif %}">
