@@ -46,7 +46,7 @@ On distingue les branches principales, fixes et immuables :
 
 - `master` est la branche où tout est stable. Chaque commit correspond à une version stable du projet (*release*) qui peut être déployée en production et taguée en conséquence (*vX.Y.Z*).
 
-- `develop` est la branche sur laquelle s'effectue le développement proprement dit. On y prépare les changements en vue de la prochaine release dans **master**.
+- `develop` est la branche sur laquelle s'effectue le développement proprement dit. On y prépare les changements en vue de la prochaine release dans `master`.
 
 Puis les branches secondaires qui se font et se défont avec le temps :
 
@@ -79,7 +79,7 @@ Enfin, pour les utilisateurs de *SourceTree*, sachez que ce workflow est [native
 
 ## Le GitHub flow
 
-[Scott Chacon](https://twitter.com/chacon) qui l'a présenté dans un post le 31 Août 2011. Il s'agit d'une version allégée du précédent et découle, en quelque sorte, du bon sens.
+[Scott Chacon](https://twitter.com/chacon) l'a présenté dans un post le 31 Août 2011. Il s'agit d'une version allégée du précédent et découle, en quelque sorte, du bon sens.
 
 A noter que je garde ici la référence à GitHub par rapport au superbe post de Scott mais Atlassian (Bitbucket) le présente, par exemple, comme [le workflow *feature branch*](https://www.atlassian.com/git/workflows#!workflow-feature-branch).
 
