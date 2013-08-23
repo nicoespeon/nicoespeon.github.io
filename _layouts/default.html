@@ -73,17 +73,23 @@
 
     <script>
         $(function() {
-            // This JS code is still small so its better to keep it inline.
-            //
-            // Only apply if we are beyond the desk CSS breakpoint on load
+            /**
+             * This JS code is still small so its better to keep it inline.
+             *
+             * Only apply if we are beyond the desk CSS breakpoint on load
+             */
             if($(window).width() >= 1024) {
 
-                // Then hide every label description of the timeline
+                /**
+                 * Then hide every label description of the timeline
+                 */
                 $("ul#timeline").find("a.timeline__label").each(function() {
                     $(this).find("p").hide();
                 });
 
-                // And delegate the visibility effect on hover for each label description
+                /**
+                 * And delegate the visibility effect on hover for each label description
+                 */
                 $("ul#timeline").on("mouseenter mouseleave", "a.timeline__label", function() {
                     $(this).find("p").stop().toggle("slow");
                 });
