@@ -150,7 +150,7 @@
 
     background: @timeline-color;
     box-shadow: 0 0 0 @timeline-line-width*1px lighten(@timeline-color, 20%);
-    color: @timeline-text-color;
+    color: #FFF;
     text-align: center;
     font-size: (@timeline-icon-width/@base-font-size)/2*1em;
     line-height: @timeline-icon-width*1px;
@@ -164,45 +164,15 @@
     position: relative;
     display: block;
     margin: 0 0 @base-spacing-unit*1px @timeline-time-width;
-    padding: 1em 2em;
+    padding: 1em 0.5em;
 
-    border-radius: 5px;
+    border-top: 3px lighten(@timeline-color, 10%) solid;
 
-    background: lighten(@timeline-color, 10%);
     color: @timeline-text-color;
 
-    &:after {
-        position: absolute;
-        top: 10px;
-        right: 100%;
-        width: 0;
-        height: 0;
-
-        border: solid transparent;
-        border-width: @timeline-line-width*1px;
-        border-right-color: lighten(@timeline-color, 10%);
-
-        content: ' ';
-        pointer-events: none;
-    }
-
-    h2 {
-        margin-top: 0;
-        padding: 0 0 @base-spacing-unit*1px 0;
-
-        border-bottom: 1px solid rgba(255,255,255,0.4);
-
-        color: @timeline-text-color;
-        font-family: @base-font-family;
-    }
-
     &:hover {
-        background: @timeline-color;
-        color: @timeline-text-color;
-
-        &:after {
-            border-right-color: @timeline-color;
-        }
+        background: darken(#FFF, 5%);
+        color: lighten(@timeline-text-color, 10%);
     }
 }
 
@@ -272,18 +242,10 @@
  */
 .timeline--striped > li:nth-child(odd) {
     .timeline__label {
-        background: lighten(@timeline-color, 20%);
-
-        &:after {
-            border-right-color: lighten(@timeline-color, 20%);
-        }
+        background: #DDD;
 
         &:hover {
             background: @timeline-color;
-
-            &:after {
-                border-right-color: @timeline-color;
-            }
         }
     }
 

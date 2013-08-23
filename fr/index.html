@@ -27,8 +27,8 @@ description: Pensées d'un développeur en freelance et chef de projet en deveni
             </time>
             <div class="timeline__icon {% if post.icon == undefined %}icon-embed{% else %}icon-{{ post.icon }}{% endif %}"></div>
             <a class="timeline__label" href="{{ post.url }}">
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.description }}</p>
+                <h1>{{ post.title }}</h1>
+                <p class="brand-face">{{ post.description }}</p>
             </a>
         </li>
         {% endfor %}
