@@ -7,14 +7,14 @@ comments: true
 tags: [javascript, jquery]
 
 title: Bien isoler ses variables en Javascript
-description: Une histoire de fonctions anonymes et auto-exécutantes... Parce-qu'on n'y pense pas assez, et que c'est bien pratique quand même !
+description: Une histoire de fonctions anonymes et auto-exécutantes (IIFE)... Parce-qu'on n'y pense pas assez, et que c'est bien pratique quand même !
 ---
 
 ## TL;DR
 
 Ne pas se préoccuper de la portée des variables en Javascript, c'est aller au-devant de graves déconvenues. Il est important **d'isoler l'environnement de son script** afin de ne pas modifier involontairement des variables globales lors de son exécution.
 
-Les **fonctions anonymes auto-exécutantes** permettent donc d'isoler le code sans perturber son exécution :
+Les **fonctions anonymes auto-exécutantes** (ou [IIFE](http://en.wikipedia.org/wiki/Immediately-invoked_function_expression), selon) permettent donc d'isoler le code sans perturber son exécution :
 
 {% highlight javascript %}
 (function() {
@@ -191,6 +191,25 @@ Une bonne pratique, qui est également utilisée [dans le code source de *jQuery
 
     // Notre dernière variable est donc un alias pour `undefined`
 })(window, jQuery);
+{% endhighlight %}
+
+#### Astuce bis : Accéder au variables, en dehors
+
+*Merci [@fabien0102](https://twitter.com/fabien0102) pour m'avoir fait remarquer qu'il manquait ce point de détail.*
+
+Isoler son code, c'est bien. Mais parfois, on développe un plugin/une librairie et on aimerait bien pouvoir accéder à notre objet de l'extérieur, histoire de pouvoir s'en servir.
+
+Il existe probablement différentes alternatives, mais en voici une toute simple : il suffit d'attacher notre variable à `window`, et ça marche.
+
+{% highlight javascript %}
+(function(window, undefined) {
+    // Crée une variable gobgob et l'attache à window
+    var gobgob = "Hey !";
+    window.gobgob = gobgob;
+})(window);
+
+// Renvoie "Hey !"
+console.log(gobgob);
 {% endhighlight %}
 
 
