@@ -285,7 +285,7 @@ Chaque pré-processeur apporte son lot d'opérations mathématiques, très utile
 
 Les syntaxes sont similaires et assez intuitives (des histoires de `+`, de `-`, etc.). Une bonne pratique consiste à isoler les opérations entre parenthèses afin d'éviter les confusions et potentiels conflits.
 
-Cependant, il faut savoir que LESS considère la première unité spécifiée dans le calcul, ce qui peut conduire à des abérations (SASS lui ne compilera pas et vous sortira un joli warning) :
+Cependant, il faut savoir que LESS considère la première unité spécifiée dans le calcul, ce qui peut conduire à des aberrations (SASS lui ne compilera pas et vous sortira un joli warning) :
 
 {% highlight css %}
 .container {
