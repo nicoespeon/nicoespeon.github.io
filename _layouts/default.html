@@ -27,6 +27,11 @@
     <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'>
     <link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen">
     <link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print">
+
+    {% if page.gitgraph %}
+    <!-- Gitgraph.js -->
+    <link rel="stylesheet" href="/assets/css/gitgraph.css" media="all">
+    {% endif %}
 </head>
 <body>
     <div id="site">
@@ -116,6 +121,12 @@
     {% if page.codepen %}
     <!-- CodePen -->
     <script async src="http://codepen.io/assets/embed/ei.js"></script>
+    {% endif %}
+
+    {% if page.gitgraph %}
+    <!-- Gitgraph.js -->
+    <script src="/assets/scripts/gitgraph.min.js"></script>
+    <script src="/assets/scripts/{{ page.script }}.js"></script>
     {% endif %}
 </body>
 </html>
