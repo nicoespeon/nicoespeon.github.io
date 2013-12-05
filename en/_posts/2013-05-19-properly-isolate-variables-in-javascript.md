@@ -72,21 +72,15 @@ console.log(gobgob);
 console.log(gubgub);
 {% endhighlight %}
 
-What we want is variables of our script don't override any other variables which would eventually exists!
+We don't want our script variables override any other variables which would eventually exists!
 
 {% highlight javascript %}
 var gobgob = "Hey!";
 
-function myFonction() {
-    var gobgob = "Ho!"
-    console.log(gobgob);
-}
-
-// Outputs "Ho!"
-myFonction();
-
-// Outputs "Ho!" -> problem!
-console.log(gobgob);
+// (...)
+// Somewhere else far far away in your JavaScript...
+// ... a wild override of an existing (and forgetted) variable appears!
+var gobgob = "Ho!";
 {% endhighlight %}
 
 
@@ -114,13 +108,10 @@ var gobgob = "Hey!";
 
 // We wrap our script properly
 (function() {
-    function myFonction() {
-        var gobgob = "Ho!"
-        console.log(gobgob);
-    }
+    var gobgob = "Ho!";
 
     // Outputs "Ho!"
-    myFonction();
+    console.log(gobgob);
 })();
 
 // Outputs "Hey!" -> bingo !

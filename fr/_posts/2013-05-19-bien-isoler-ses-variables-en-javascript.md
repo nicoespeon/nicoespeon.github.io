@@ -77,18 +77,12 @@ console.log(gubgub);
 Ce que nous souhaitons, c'est faire en sorte que les variables de notre script ne viennent pas modifier d'éventuelles variables qui existeraient déjà ailleurs !
 
 {% highlight javascript %}
-var gobgob = "Hey !";
+var gobgob = "Hey!";
 
-function maFonction() {
-    var gobgob = "Ho !"
-    console.log(gobgob);
-}
-
-// Renvoie "Ho !"
-maFonction();
-
-// Renvoie "Ho !" -> problème !
-console.log(gobgob);
+// (...)
+// Quelque part, bien loin dans votre JavaScript...
+// ... une surchage sauvage d'une variable existante (et oubliée) apparaît !
+var gobgob = "Ho!";
 {% endhighlight %}
 
 
@@ -116,13 +110,10 @@ var gobgob = "Hey !";
 
 // On enveloppe notre script comme il faut
 (function() {
-    function maFonction() {
-        var gobgob = "Ho !"
-        console.log(gobgob);
-    }
+    var gobgob = "Ho!";
 
-    // Renvoie "Ho !"
-    maFonction();
+    // Renvoie "Ho!"
+    console.log(gobgob);
 })();
 
 // Renvoie "Hey !" -> bingo !
