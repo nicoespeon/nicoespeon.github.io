@@ -23,18 +23,12 @@
 
 <span class='c1'>// Renvoie &quot;Ho !&quot;</span>
 <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gubgub</span><span class='p'>);</span>
-</code></pre></div><p>Ce que nous souhaitons, c&#8217;est faire en sorte que les variables de notre script ne viennent pas modifier d&#8217;éventuelles variables qui existeraient déjà ailleurs !</p><div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Hey !&quot;</span><span class='p'>;</span>
+</code></pre></div><p>Ce que nous souhaitons, c&#8217;est faire en sorte que les variables de notre script ne viennent pas modifier d&#8217;éventuelles variables qui existeraient déjà ailleurs !</p><div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Hey!&quot;</span><span class='p'>;</span>
 
-<span class='kd'>function</span> <span class='nx'>maFonction</span><span class='p'>()</span> <span class='p'>{</span>
-    <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho !&quot;</span>
-    <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
-<span class='p'>}</span>
-
-<span class='c1'>// Renvoie &quot;Ho !&quot;</span>
-<span class='nx'>maFonction</span><span class='p'>();</span>
-
-<span class='c1'>// Renvoie &quot;Ho !&quot; -&gt; problème !</span>
-<span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
+<span class='c1'>// (...)</span>
+<span class='c1'>// Quelque part, bien loin dans votre JavaScript...</span>
+<span class='c1'>// ... une surchage sauvage d&#39;une variable existante (et oubliée) apparaît !</span>
+<span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span><span class='p'>;</span>
 </code></pre></div><h2 id='sortez_couverts_'>Sortez couverts !</h2><p>Pour résoudre nos soucis, il s&#8217;agit donc <strong>d&#8217;isoler les variables</strong> afin de limiter leur portée au seul endroit qui nous intéresse et ne pas venir redéfinir par mégarde des variables ou polluer l&#8217;environnement (écologie toussa toussa) avec des variables globales qui n&#8217;ont pas lieu d&#8217;être.</p><p>Pour cela, il s&#8217;agit d&#8217;envelopper notre code Javascript dans ce que l&#8217;on appelle basiquement une <strong>fonction anonyme auto-exécutante</strong> :</p><div class='highlight'><pre><code class='javascript'><span class='p'>(</span><span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
     <span class='c1'>// votre code JS</span>
 <span class='p'>})();</span>
@@ -42,13 +36,10 @@
 
 <span class='c1'>// On enveloppe notre script comme il faut</span>
 <span class='p'>(</span><span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
-    <span class='kd'>function</span> <span class='nx'>maFonction</span><span class='p'>()</span> <span class='p'>{</span>
-        <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho !&quot;</span>
-        <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
-    <span class='p'>}</span>
+    <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span><span class='p'>;</span>
 
-    <span class='c1'>// Renvoie &quot;Ho !&quot;</span>
-    <span class='nx'>maFonction</span><span class='p'>();</span>
+    <span class='c1'>// Renvoie &quot;Ho!&quot;</span>
+    <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
 <span class='p'>})();</span>
 
 <span class='c1'>// Renvoie &quot;Hey !&quot; -&gt; bingo !</span>

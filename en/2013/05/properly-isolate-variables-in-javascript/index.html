@@ -23,18 +23,12 @@
 
 <span class='c1'>// Outputs &quot;Ho!&quot;</span>
 <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gubgub</span><span class='p'>);</span>
-</code></pre></div><p>What we want is variables of our script don&#8217;t override any other variables which would eventually exists!</p><div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Hey!&quot;</span><span class='p'>;</span>
+</code></pre></div><p>We don&#8217;t want our script variables override any other variables which would eventually exists!</p><div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Hey!&quot;</span><span class='p'>;</span>
 
-<span class='kd'>function</span> <span class='nx'>myFonction</span><span class='p'>()</span> <span class='p'>{</span>
-    <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span>
-    <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
-<span class='p'>}</span>
-
-<span class='c1'>// Outputs &quot;Ho!&quot;</span>
-<span class='nx'>myFonction</span><span class='p'>();</span>
-
-<span class='c1'>// Outputs &quot;Ho!&quot; -&gt; problem!</span>
-<span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
+<span class='c1'>// (...)</span>
+<span class='c1'>// Somewhere else far far away in your JavaScript...</span>
+<span class='c1'>// ... a wild override of an existing (and forgetted) variable appears!</span>
+<span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span><span class='p'>;</span>
 </code></pre></div><h2 id='dont_forget_the_love_glove'>Don&#8217;t forget the love glove!</h2><p>To resolve our problem, we just need to <strong>isolate variables</strong> so we limit their scope to the code we decided to.</p><p>To do so, we wrap our JavaScript code into what we called an IIFE - or a <strong>self-executing anonymous function</strong> apparently - :</p><div class='highlight'><pre><code class='javascript'><span class='p'>(</span><span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
     <span class='c1'>// your JS code</span>
 <span class='p'>})();</span>
@@ -42,13 +36,10 @@
 
 <span class='c1'>// We wrap our script properly</span>
 <span class='p'>(</span><span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
-    <span class='kd'>function</span> <span class='nx'>myFonction</span><span class='p'>()</span> <span class='p'>{</span>
-        <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span>
-        <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
-    <span class='p'>}</span>
+    <span class='kd'>var</span> <span class='nx'>gobgob</span> <span class='o'>=</span> <span class='s2'>&quot;Ho!&quot;</span><span class='p'>;</span>
 
     <span class='c1'>// Outputs &quot;Ho!&quot;</span>
-    <span class='nx'>myFonction</span><span class='p'>();</span>
+    <span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>gobgob</span><span class='p'>);</span>
 <span class='p'>})();</span>
 
 <span class='c1'>// Outputs &quot;Hey!&quot; -&gt; bingo !</span>
