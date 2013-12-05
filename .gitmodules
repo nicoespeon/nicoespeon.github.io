@@ -1,0 +1,3 @@
+[submodule "assets/less/inuit.css"]
+	path = assets/less/inuit.css
+	url = git@github.com:nicoespeon/inuit.css.git
