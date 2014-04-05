@@ -39,7 +39,7 @@
             <li {% if link == locale %}class="current"{% endif %}>
                 {% comment %}On construit l'URL avec la langue et la page actuelle{% endcomment %}
                 <a href="{% if link != site.default_locale %}/{{ link }}{% endif %}/{{ navUrl }}">
-                    {{ site.locales[link].lang_message }}
+                    {{ site.data.locales[link].lang_message }}
                 </a>
             </li>
         {% endfor %}
@@ -48,13 +48,13 @@
 
 <!-- About -->
 <aside class="text--justify">
-    {{ site.locales[locale].about_message }}
+    {{ site.data.locales[locale].about_message }}
 </aside>
 
 <!-- RSS -->
 <aside>
     <p class="text--center">
-        <a href="{{ site.url }}/feed.xml"><i class="icon-connection"></i>&nbsp;{{ site.locales[locale].rss_message }}</a>
+        <a href="{{ site.url }}/feed.xml"><i class="icon-connection"></i>&nbsp;{{ site.data.locales[locale].rss_message }}</a>
     </p>
 </aside>
 

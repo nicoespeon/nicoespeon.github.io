@@ -1,55 +1,18 @@
-auto:       true
-server:     true
-pygments:   true
-paginate:   7
-permalink:  /:categories/:year/:month/:title
-exclude:    less/, "nicoespeon.sublime-project", "nicoespeon.sublime-workspace"
+exclude:   [ "less", "gitignore", "nicoespeon.sublime-project", "nicoespeon.sublime-workspace" ]
 
-name: @nicoespeon's blog
-description: "Freelance web-developer and project manager thoughts. OOCSS, Backbone.js, front-end performance and a bit of PHP back-end frameworks."
+highlighter: pygments
+
+permalink:  /:categories/:year/:month/:title
+paginate: 7
+paginate_path: "/page:num"
+paginate_per_category: true
+default_category: "en"
+
+safe: false
 url: http://nicoespeon.com
 
-default_locale:     en
-authorized_locales: [en, fr]
+name: "@nicoespeon's blog"
+description: "Freelance web-developer and project manager thoughts. OOCSS, Backbone.js, front-end performance and a bit of PHP back-end frameworks."
+default_locale:     "en"
+authorized_locales: ["en", "fr"]
 
-locales:
-    en:
-        nav:
-        - text:         "Home"
-          url:          "/index.html"
-          class:        "home"
-        - text:         "About"
-          url:          "/about.html"
-          class:        "about"
-        - text:         "Projects"
-          url:          "/projects.html"
-          class:        "projects"
-        - text:         "Worth Reading"
-          url:          "/worth-reading.html"
-          class:        "worth-reading"
-        lang_message:   "English version"
-        about_message:  "<p>My name is <span class='brand-face'>Nicolas</span> and I'm a french IT business student, doing some freelance web development aside.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://delicious.com/nicoespeon'>tag</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p>"
-        footer_message: "The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>."
-        rss_message:    "Stay tuned"
-
-    fr:
-        nav:
-        - text:         "Accueil"
-          url:          "/fr/index.html"
-          class:        "home"
-        - text:         "À propos"
-          url:          "/fr/about.html"
-          class:        "about"
-        - text:         "Projets"
-          url:          "/fr/projects.html"
-          class:        "projects"
-        - text:         "A Lire"
-          url:          "/fr/worth-reading.html"
-          class:        "worth-reading"
-        - text:         "Prestations"
-          url:          "/fr/prestations.html"
-          class:        "prestations"
-        lang_message:   "Version française"
-        about_message:  "<p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis étudiant d'une école de commerce orientée IT, développeur web en freelance à mes heures.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://delicious.com/nicoespeon'>tague</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p>"
-        footer_message: "Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>."
-        rss_message:  "Restez connectés"
