@@ -42,7 +42,7 @@ deploy:
 	@echo "Committing files...                ${CHECK} Done"
 	@git checkout develop && sudo git clean -f -d
 	@echo "Switch back to develop...          ${CHECK} Done"
-	@mkdir _site/ && sudo  jekyll build
+	@mkdir _site/ && jekyll build
 	@echo "Re-generating files...             ${CHECK} Done"
 	@echo "You can run back jekyll server now to follow changes"
 	@echo "\n${HR}"
