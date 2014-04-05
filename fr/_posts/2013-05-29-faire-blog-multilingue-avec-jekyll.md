@@ -14,6 +14,8 @@ description: Un petit état des lieux des choses à savoir et des astuces que je
 
 Ce qui suit se base sur l'utilisation de Jekyll `v0.12.1`.
 
+Pour Jekyll `v1.5`, allez jeter un oeil à [celui d'Avril 2014]({% post_url 2014-04-05-blog-multilingue-avec-jekyll-1-5 %}).
+
 Veuillez noter que des changements majeurs sont survenus lors du passage à la `v1.0.0`, rendant certaines de ces astuces non compatibles (je pense surtout aux plugins). Je rédigerai un nouvel article lorsque je mettrais à jour mon propre Jekyll à une version v1.0+.
 
 Si vous le souhaitez, vous pouvez toujours installer une ancienne version de Jekyll avec la commande suivante :

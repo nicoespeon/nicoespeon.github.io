@@ -14,6 +14,8 @@ description: As a first post, what about sharing the way I managed to build this
 
 Which follows consider the use of Jekyll `v0.12.1`.
 
+Looking for Jekyll `v1.5`? Go have a look [to the one of April 2014]({% post_url 2014-04-05-multilingual-blog-with-jekyll-1-5 %}).
+
 Please note that some major changes happened in Jekyll `v1.0.0` which made some of the following tricks not working anymore (I'm thinking about plugins). I'll write a new post when upgrade my own Jekyll to v1.0+.
 
 If you wish, you can still install the old Jekyll version with the following command:
