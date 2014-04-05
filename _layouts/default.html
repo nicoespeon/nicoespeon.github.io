@@ -85,17 +85,19 @@
              */
             if($(window).width() >= 1024) {
 
+                var $timeline = $("ul#timeline");
+
                 /**
                  * Then hide every label description of the timeline
                  */
-                $("ul#timeline").find("a.timeline__label").each(function() {
+                $timeline.find("a.timeline__label").each(function() {
                     $(this).find("p").hide();
                 });
 
                 /**
                  * And delegate the visibility effect on hover for each label description
                  */
-                $("ul#timeline").on("mouseenter mouseleave", "a.timeline__label", function() {
+                $timeline.on("mouseenter mouseleave", "a.timeline__label", function() {
                     $(this).find("p").stop().toggle("slow");
                 });
             }
