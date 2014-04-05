@@ -29,23 +29,23 @@ build:
 #
 
 deploy:
-	@echo  "\n${HR}"
-	@echo  "Deploying website..."
-	@echo  "${HR}\n"
-	@sudo  jekyll --no-server --no-auto
-	@echo  "Generating files...                ${CHECK} Done"
-	@git   checkout master
-	@echo  "Switch to master...                ${CHECK} Done"
-	@sudo  cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile assets/less/
-	@echo  "Updating files...                  ${CHECK} Done"
-	@git   add . && git commit -m "Regenerate files (jekyll deployment)"
-	@echo  "Committing files...                ${CHECK} Done"
-	@git   checkout develop && sudo git clean -f -d
-	@echo  "Switch back to develop...          ${CHECK} Done"
-	@mkdir _site/ && sudo  jekyll --no-server --no-auto
-	@echo  "Re-generating files...             ${CHECK} Done"
-	@echo  "You can run back jekyll server now to follow changes"
-	@echo  "\n${HR}"
+	@echo "\n${HR}"
+	@echo "Deploying website..."
+	@echo "${HR}\n"
+	@jekyll build
+	@echo "Generating files...                ${CHECK} Done"
+	@git checkout master
+	@echo "Switch to master...                ${CHECK} Done"
+	@sudo cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile assets/less/
+	@echo "Updating files...                  ${CHECK} Done"
+	@git add . && git commit -m "Regenerate files (jekyll deployment)"
+	@echo "Committing files...                ${CHECK} Done"
+	@git checkout develop && sudo git clean -f -d
+	@echo "Switch back to develop...          ${CHECK} Done"
+	@mkdir _site/ && sudo  jekyll build
+	@echo "Re-generating files...             ${CHECK} Done"
+	@echo "You can run back jekyll server now to follow changes"
+	@echo "\n${HR}"
 	@echo "Deployed successfully completed at ${DATE}."
 	@echo "${HR}\n"
 	@echo "Script by @nicoespeon"
