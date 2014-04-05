@@ -38,7 +38,7 @@ deploy:
 	@echo "Switch to master...                ${CHECK} Done"
 	@sudo cp -r _site/* . && sudo rm -rf _site/ en/_posts/ fr/_posts/ Makefile assets/less/ _data/ _plugins/ .idea/
 	@echo "Updating files...                  ${CHECK} Done"
-	@git add . && git commit -m "Regenerate files (jekyll deployment)"
+	@git add --all . && git commit -m "Regenerate files (jekyll deployment)"
 	@echo "Committing files...                ${CHECK} Done"
 	@git checkout develop && sudo git clean -f -d
 	@echo "Switch back to develop...          ${CHECK} Done"
