@@ -46,18 +46,14 @@
       <div class="grid__item seven-tenths portable-one-whole" role="main">
         <header class="media" role="banner">
           <!-- Brand logo -->
-          <img
-              src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b"
-              class="media__img img--circle" alt="My avatar" width="80"
-              height="80"/>
+          <img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/>
 
           <!-- Main navigation -->
           <nav class="media__body" role="navigation">
             <ul class="nav nav--main">
               {% for link in site.data.locales[locale].nav %}
-              <li
-              {% if page.url == link.url %} class="current"{% endif %}>
-              <a href="{{ link.url }}">{{ link.text }}</a>
+              <li{% if page.url == link.url %} class="current"{% endif %}>
+                <a href="{{ link.url }}">{{ link.text }}</a>
               </li>
               {% endfor %}
             </ul>
@@ -82,16 +78,14 @@
 <footer role="contentinfo">
   <div class="container">
     <p>
-      &copy; {{ site.time | date: "%Y" }} - <a
-        href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>
+      &copy; {{ site.time | date: "%Y" }} - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>
              {{ site.data.locales[locale].footer_message }}
     </p>
   </div>
 </footer>
 
 <!-- jQuery -->
-<script
-    src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script>
   $( function () {
