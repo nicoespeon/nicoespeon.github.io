@@ -6,8 +6,6 @@ LOCALE = :fr # set your locale
 module Jekyll
   module I18nFilter
 
-    I18n.enforce_available_locales = true
-
     # Example:
     #   {{ post.date | localize: "%d.%m.%Y" }}
     #   {{ post.date | localize: ":short" }}
