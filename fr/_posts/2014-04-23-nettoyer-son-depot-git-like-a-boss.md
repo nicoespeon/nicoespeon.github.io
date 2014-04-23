@@ -80,7 +80,7 @@ Le `-f` n'est donc pas obligatoire mais si le backup ne peut pas être créé, g
 
 Cette option va vous permettre de passer en revue chacun de vos commits et d'y exécuter la commande que vous aurez passé en paramètre.
 
-Pour ma part, j'ai utilisé `rm -rf *.mp3` pour m'assurer de bien supprimer l'ensemble des fichiers MP3s qui pouvaient être versionnés. Dans un tel cas, il faut s'assurer de forcer la commande (d'où le `-rf`) car le nettoyage s'arrête s'il y a une erreur (là encore, git vous le dira quoiqu'il en soit).
+Pour ma part, j'ai utilisé `rm -rf *.mp3` pour m'assurer de bien supprimer l'ensemble des fichiers MP3s qui pouvaient être versionnés. Dans un tel cas, il faut s'assurer de forcer la commande (d'où le `-rf`) car le nettoyage s'arrête s'il y a une erreur à base de *fichier-mp3-non-trouvé-dans-ce-commit*.
 
 ### `--prune-empty`
 
@@ -88,7 +88,7 @@ On s'assure de bien supprimer les commits qui seraient éventuellement vides, un
 
 ### `-- --all`
 
-Le premier `--` permet de distinguer `--all` comme une commande supplémentaire, et non pas un paramètre de `--prune-empty`. Et donc cela permet de dire à git de réaliser son opération sur toutes les branches de l'historique.
+Le premier `--` permet de distinguer `--all` comme une options supplémentaire, et non pas un paramètre de `--prune-empty`. Et donc cela permet de dire à git de réaliser son opération sur toutes les branches de l'historique.
 
 ## Le mot de la fin
 
@@ -98,6 +98,6 @@ le plus simple reste pour les autres de re-cloner le nouveau dépôt tout propre
 
 Et si vous craigniez que votre manipulation ne fonctionne pas comme prévu, clonez simplement le dépôt quelque part avant de faire votre tambouille et vous pourrez toujours le récupérer si jamais ça ne se passe pas bien.
 
-<p class="islet"><strong>Note</strong> - Une bonne idée serait de faire ce genre d'opérations dans un branche à part. Si le résultat est convaicant, alors il n'y aura plus qu'à faire un reset hard de `master` sur cette branche.</p>
+<p class="islet"><strong>Note</strong> - Une bonne idée serait de faire ce genre d'opérations dans un branche à part. Si le résultat est convaincant, alors il n'y aura plus qu'à faire un reset hard de `master` sur cette branche.</p>
 
 Voilà, en espérant que ça puisse vous dépanner... mais que vous n'ayez pas à vous en servir trop souvent !
