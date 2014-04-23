@@ -42,7 +42,7 @@ Let's say I would like to **remove every MP3 files committed by mistake** from a
 To do so, I mystically wave my hand in the air and write the following incantation with the other:
 
 {% highlight bash %}
-git filter-branch -f --tree-filter "rm -f *.mp3" --prune-empty -- --all
+git filter-branch -f --tree-filter "rm -rf *.mp3" --prune-empty -- --all
 {% endhighlight %}
 
 Which would transform this history:
@@ -78,6 +78,8 @@ It's not mandatory then, but if the backup can't be created, git will tell you t
 This option will check every commit of your tree and execute the given shell command.
 
 I previously used `rm -rf *.mp3` to ensure there will not be any MP3 file surviving this operation. In this case, I needed to ensure the command is forced -this is for the `-rf` part- so the cleaning won't stop if there is an error because of *no-mp3-file-in-this-commit* reason.
+
+<p class="islet"><strong>Note</strong> - In case you don't want to actually delete these files but just remove them from the git history, prefer to perform a <code>--index-filter "git rm -rf --cached --ignored-unmatch *.mp3"</code> instead.</p>
 
 ### `--prune-empty`
 

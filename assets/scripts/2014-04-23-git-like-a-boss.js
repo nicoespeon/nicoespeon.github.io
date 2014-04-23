@@ -52,7 +52,7 @@ $( function () {
 
   var develop = master.branch( "develop" );
   develop.commit( "Start another feature here." );
-  develop.commit( "Add some JS files" ).commit( "Update some tests" );
+  develop.commit( "Add some JS files" ).commit( "Update some tests + add more mp3 files" );
 
   master.commit( "Hotfix this typo!" );
 
