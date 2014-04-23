@@ -6,16 +6,15 @@
 {% endunless %}
 
 <!DOCTYPE html>
-<html lang="{{ locale }}">
+<html lang="{{ locale }}" xmlns:og="http://ogp.me/ns#">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
   <meta name="description" content="{{ page.description }}">
-  <meta property="og:title" content="{{ page.title }} | @nicoespeon"/>
-  <meta property="og:type" content="article"/>
-  <meta property="og:description" content="{{ page.description }}"/>
-  <meta property="og:image"
-        content="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b"/>
+  <meta property="og:title" content="{{ page.title }} | @nicoespeon" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:image" content="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" />
 
   <title>{{ page.title }} | @nicoespeon</title>
 
