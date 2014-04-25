@@ -58,7 +58,7 @@ De me retrouver avec un dépôt propre comme un sous neuf :
   <canvas id="clean-repo"></canvas>
 </div>
 
-Les dates de commit sont conservées, les auteurs aussi, ce qui ne serait pas le cas avec un rebase classique. Toutefois, l'historique est **bel et bien ré-écrit** : les SHA1 des commits ont changé.
+Les dates de commit sont conservées, les auteurs aussi, ce qui ne serait pas le cas avec un rebase classique. Toutefois, l'historique est **bel et bien ré-écrit** : les SHA1 des commits qui ont été modifiés sont différents.
 
 ## C'est sorcellerie !?
 

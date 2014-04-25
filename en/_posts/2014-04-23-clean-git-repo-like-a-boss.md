@@ -57,7 +57,7 @@ Into this clean and shiny one:
   <canvas id="clean-repo"></canvas>
 </div>
 
-Dates and authors are still there, which wouldn't have been true with a classic rebase. Still, the history **has been rewritten**: SHA1 are different.
+Dates and authors are still there, which wouldn't have been true with a classic rebase. Still, the history **has been rewritten**: SHA1 of commits which have been rewritten are different.
 
 ## It's a kind of magic
 
