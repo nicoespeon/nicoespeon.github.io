@@ -2,154 +2,154 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://nicoespeon.com/en/2013/04/building-a-multinlingual-jekyll-blog</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/faire-son-blog-avec-jekyll</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/04/play-around-with-interactive-playgrounds</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/samuser-avec-les-interactive-playground</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/04/decouvrez-inuitcss</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/04/discover-inuitcss</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/optimiser-selecteurs-css-vs-js</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/optimize-selectors-css-vs-js</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/jquery-data-and-performance</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/jquery-data-et-performance</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/dive-into-oocss</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/plongee-au-coeur-de-oocss</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/deleguer-evenements-jquery</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/event-delegation-jquery</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/tombez-pour-smacss</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/bien-isoler-ses-variables-en-javascript</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/05/properly-isolate-variables-in-javascript</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/05/faire-blog-multilingue-avec-jekyll</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/06/convertir-projet-sass-en-less</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/06/convert-sass-project-into-less</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/08/quel-git-workflow-pour-mon-projet</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/08/which-git-workflow-for-my-project</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2013/11/gitgraphjs</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2013/11/gitgraphjs</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2014/04/blog-multilingue-avec-jekyll-1-5</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2014/04/multilingual-blog-with-jekyll-1-5</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/en/2014/04/clean-git-repo-like-a-boss</loc>
-        <lastmod>2014-04-23T14:35:08+02:00</lastmod>
+        <lastmod>2014-04-25T09:32:28+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/2014/04/nettoyer-son-depot-git-like-a-boss</loc>
-        <lastmod>2014-04-23T14:35:02+02:00</lastmod>
+        <lastmod>2014-04-25T09:32:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/about.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/archive/</loc>
-        <lastmod>2014-04-23T14:35:08+02:00</lastmod>
+        <lastmod>2014-04-25T09:32:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/feed.xml</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/about.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/</loc>
-        <lastmod>2014-04-23T14:35:08+02:00</lastmod>
+        <lastmod>2014-04-25T09:32:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/projects.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/fr/worth-reading.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/</loc>
-        <lastmod>2014-04-23T14:35:08+02:00</lastmod>
+        <lastmod>2014-04-25T09:32:46+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/projects.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
     <url>
         <loc>http://nicoespeon.com/worth-reading.html</loc>
-        <lastmod>2014-04-23T12:28:08+02:00</lastmod>
+        <lastmod>2014-04-23T14:36:19+02:00</lastmod>
     </url>
 </urlset>
