@@ -462,7 +462,7 @@ Voici cependant quelques points qu'il convient de noter :
 
 - **Il est tout à fait possible d'utiliser des ID** dans le HTML, pour le Javascript notamment. De plus, les identifiants pourraient également se révéler intéressants en guise de *namespace* pour un module particulier que l'on partagerait, afin de ne pas causer de conflit potentiel.
 
-- Une des réticences à l'encontre de l'OOCSS rélève du fait que le HTML se retrouve "polluer" par un nombre conséquent de classes, ce qui fait rechigner les puristes. Il s'agit d'une appréciation personnelle de ce qu'est le juste milieu et cela se fait dans le choix de niveau d'abstraction. Cela étant, **l'OOCSS n'impacte en rien la sémantique du HTML**.
+- Une des réticences à l'encontre de l'OOCSS rélève du fait que le HTML se retrouve "pollué" par un nombre conséquent de classes, ce qui fait rechigner les puristes. Il s'agit d'une appréciation personnelle de ce qu'est le juste milieu et cela se fait dans le choix de niveau d'abstraction. Cela étant, **l'OOCSS n'impacte en rien la sémantique du HTML**.
 
 - Les principes de l'OOCSS font des miracles du côté des gros projets où le jeu vaut vraiment la chandelle. Pour des petits projets (le site vitrine d'une association par exemple), *it's up to you!* Cependant, **la philosophie s'adpate quelque soit la taille du projet** et ne demande pas plus de temps à être mise en place qu'un développement ordinaire une fois que vous commencez à vous faire la main dessus. Au contraire, les modules que vous avez créé pour tel ou tel autre projet peuvent tout autant vous resservir tels quels, il n'y a qu'à les rhabiller.
 
