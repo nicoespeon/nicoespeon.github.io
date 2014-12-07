@@ -5,7 +5,6 @@ published: true
 comments: true
 
 tags: [javascript, backbone.js, privacy]
-icon: braces
 
 title: Fonctions privées avec Backbone.js
 description: Pourquoi et comment faire des fonctions privées. Et concrètement, comment implémenter ça tout en utilisant Backbone.js.

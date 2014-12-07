@@ -5,7 +5,6 @@ published: true
 comments: true
 
 tags: [javascript, backbone.js, privacy]
-icon: braces
 
 title: Private methods with Backbone.js
 description: Why and how to create private methods. How to concretely implement that while using Backbone.js.
@@ -206,7 +205,7 @@ Previous example is not a such a big deal, but here's what it could looks like i
 
 {% highlight javascript %}
 var MyModule = (function () {
-  // alternative syntax for `var _createViewInstance = function() { … }`.
+  // alt. syntax for `var _createViewInstance = function() { … }`.
   // we refactor here some repetitive tasks of the module.
   function _createViewInstance ( View, $parent ) {
     if ( !View ) throw new Error( "No View constructor provided" );
