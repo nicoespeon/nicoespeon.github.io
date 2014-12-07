@@ -83,7 +83,7 @@ MyModule.touchThis(); // returns "Hey!" "I just met you!"
 
 ## Private methods… for what?
 
-That's a legitimate question. I personnally found 2 advantages of a private method:
+That's a legitimate question. I personally found 2 advantages of a private method:
 
 - it **simplifies the public interface** hiding technical details of the implementation
 - it **doesn't have to be unit tested**
@@ -92,11 +92,11 @@ The first point is generally obvious. The second one arises from the first point
 
 ## Unit tests and private methods
 
-To test our module, we instanciate it, then take every single method and check the output for a given input (variable + context). We *unitly* test exposed method, taking care to make the input vary to test every use case and get a good test coverage.
+To test our module, we instantiate it, then take every single method and check the output for a given input (variable + context). We *unitly* test the exposed method, taking care to make the input vary to test every use case and get a good test coverage.
 
 We can remind the **Test Driven Development** (TDD) process:
 
-- first write the test with required use cases for our functionnality
+- first write the test with required use cases for our functionality
 - then code the method, pass tests
 - refactor code to clean the whole thing. As long as tests pass, you didn't break anything.
 
@@ -152,7 +152,7 @@ However, it's a common practice that this convention is used to try to **define*
   This is a hot point, with a lot of debates. On my own experience, this is generally something which appears when you don't really know how to really set up privacy. Everything is public then, but you tell some methods are <em>private by intention</em>.
 </p>
 
-It's relatively easy to introduce privacy with the *module pattern* in fact. Then, my advice would be to consider everything that is exposed as public. If you actually want a method to be private, let's make it actually private and use the `_` prefix for code readibility.
+It's relatively easy to introduce privacy with the *module pattern* in fact. Then, my advice would be to consider everything that is exposed as public. If you actually want a method to be private, let's make it actually private and use the `_` prefix for code readability.
 
 That said, projects should define and follow convention that fit their need.
 
@@ -162,7 +162,7 @@ That's true. As long as it is not reachable, **a private method can't be inherit
 
 Here again, scepticism is not really caused because of the nature of private methods, but because of a clumsy interpretation / implementation of these.
 
-A note on performance: there will be as much private methods as instances of the module, which is technically *less perfomant*. But, [having look the actual impact](http://jsperf.com/public-vs-private-methods), I think this remark belongs to premature optimization for my current use of privacy.
+A note on performance: there will be as much private methods as instances of the module, which is technically *less performant*. But, [having look the actual impact](http://jsperf.com/public-vs-private-methods), I think this remark belongs to premature optimization for my current use of privacy.
 
 ### How do I access public methods from private ones?
 
