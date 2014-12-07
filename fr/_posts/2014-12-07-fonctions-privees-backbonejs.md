@@ -102,26 +102,26 @@ On peut d'ailleurs résumer la pratique du **Test Driven Development** (TDD) :
 
 L'étape de *refactor* vient en dernier car l'objectif est de produire un code qui fonctionne, puis de faire des optimisations.
 
-Pour revenir à la question des méthodes privées : elles ne sont pas exposées, donc *techniquement*, elles ne sont pas testées unitairement. Pas directement en fait.
+Pour revenir à la question des méthodes privées : elles ne sont pas exposées, donc *techniquement* elles ne sont pas testées unitairement. Pas directement en fait.
 
-En fait, ce point laisse perplexe selon la manière dont on considère et utilise la notion de fonction privée. Je dirais qu'il y a 2 façons de voir les choses :
+## Quelques considérations sur les fonctions privées
+
+Le point sur les tests unitaires peut laisser perplexe selon la manière dont on considère et utilise la notion de fonction privée. Je dirais qu'il y a 2 façons de voir les choses :
 
 1. je code tout en privé et j'expose que ce qui doit l'être *in fine*
 1. les fonctions privées sont le fruit du refactor de mes fonctions publiques
 
-## Quelques considérations sur les fonctions privées
-
 ### Comment choisir entre privé et public ?
 
-Personnellement, si on considère que l'on fait du TDD… on développe l'interface publique **avant** (puisque c'est ce que testent les tests).
+Si on considère que l'on fait du TDD… on développe l'interface publique **avant** (puisque c'est ce que testent les tests).
 
-Je code mes tests (qui ne passent pas), puis mon interface publique : les méthodes publiques ou les *event handlers* (petit point là-dessus plus bas, pour ceux qui s'interrogent). Rien de privé chez moi à ce stade.
+Personnellement, je code mes tests (qui ne passent pas), puis mon interface publique : les méthodes publiques ou les *event handlers* (petit point là-dessus plus bas, pour ceux qui s'interrogent). Rien de privé chez moi à ce stade.
 
 Les fonctions privées proviennent de l'étape de refactor, finalement. Et puis si je n'ai pas le temps de nettoyer, au moins ça marche.
 
 Finalement, **les tests unitaires testent l'interface publique**.
 
-Les méthodes privées sont testées à travers les méthodes publiques. On peut se dire que tester le détail de l'implémentation technique serait judicieux pour mieux debugguer, mais c'est un coût d'implémentation et de maintenance conséquent. Je peux alors modifier / refactor mes méthodes privées autant que je veux, tant que mon module fonctionne.
+Les méthodes privées sont testées à travers les méthodes publiques. On peut se dire que tester le détail de l'implémentation technique serait judicieux pour mieux debugguer, mais c'est un coût d'implémentation et de maintenance conséquent. À l'inverse, je peux ici modifier / refactor mes méthodes privées autant que je veux tant que mon module fonctionne.
 
 À choisir : autant tester plus de scénarios sur l'interface publique. La coverage indiquera si oui ou non on teste les méthodes privées en passant.
 
@@ -174,8 +174,6 @@ En fait, si ma fonction privée provient d'un refactor de ma méthode publique, 
 J'envisage donc la méthode privée comme un "helper" personnel du module, dont il se sert pour faire son travail. Toutes les variables dont la méthode a besoin lui son donc passées en paramètre.
 
 Ainsi, on peut simplement envisager de passer le contexte de l'interface publique à la méthode privée :
-
-Comme ceci :
 
 {% highlight javascript %}
 var MyModule = (function () {
