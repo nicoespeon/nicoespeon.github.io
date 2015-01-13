@@ -202,6 +202,11 @@ Ce qui donnera :
 MyModule.addSomeCats(); // affiche "2"
 {% endhighlight %}
 
+<p class="islet">
+  Dans cet exemple, le contexte est passé en paramètre.<br>
+  En pratique, il est possible d'utiliser <code>this</code> dans la méthode <code>_addSomeCats</code> et de l'appeller en lui passant le contexte avec <code>.call()</code> ainsi : <code>_addSomeCats.call( this );</code>.
+</p>
+
 L'exemple précédent ne présente pas un grand intérêt, mais concrètement cela peut se présenter de la manière suivante dans un projet :
 
 {% highlight javascript %}

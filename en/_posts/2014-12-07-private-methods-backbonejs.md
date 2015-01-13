@@ -114,7 +114,7 @@ The TDD point can leave you suspicious depending on the manner you consider and 
 
 Considering you're doing TDD… you develop the public interface **first** — that's what you're testing after all —.
 
-Personnally, I code my (failing) tests, then my public interface: public methods or *event handlers* — we'll talk about that few lines below —. Nothing private with my code at this point.
+Personally, I code my (failing) tests, then my public interface: public methods or *event handlers* — we'll talk about that few lines below —. Nothing private with my code at this point.
 
 Private methods appears during refactor step, at last. And if I don't have time for that the code is working, at least.
 
@@ -200,6 +200,11 @@ Will give you:
 {% highlight javascript %}
 MyModule.addSomeCats(); // returns "2"
 {% endhighlight %}
+
+<p class="islet">
+  In this example, I'm passing the context as a parameter.<br>
+  Actually, it's possible to use <code>this</code> in the <code>_addSomeCats</code> method and then call it with the context bound, thanks to <code>.call()</code> this way: <code>_addSomeCats.call( this );</code>.
+</p>
 
 Previous example is not a such a big deal, but here's what it could looks like in an actual project:
 
