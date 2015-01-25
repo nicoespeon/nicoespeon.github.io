@@ -8,6 +8,7 @@ gitgraph: true
 script: 2013-10-28-gitgraphjs
 
 tags: [javascript, project]
+icon: lab
 
 title: Gitgraph.js
 description: A JavaScript library, git trees, workflows modelisation... and a bit of Georges Michael.
@@ -229,4 +230,3 @@ I was afraid you wouldn't ask. Thereupon I leave you with some Georges Michael t
 <p class="text--center">
   <iframe width="560" height="315" src="http://www.youtube.com/embed/GaoLU6zKaws?rel=0" frameborder="0" allowfullscreen="true">&nbsp;</iframe>
 </p>
-

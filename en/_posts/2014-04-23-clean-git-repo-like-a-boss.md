@@ -8,7 +8,7 @@ gitgraph: true
 script: 2014-04-23-git-like-a-boss
 
 tags: [git]
-icon: braces
+icon: github-3
 
 title: Clean your git repo, like a boss
 description: How to properly rebase your repo, removing what should never have been in there without broking your history.

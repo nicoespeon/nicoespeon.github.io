@@ -8,7 +8,7 @@ gitgraph: true
 script: 2014-04-23-git-like-a-boss
 
 tags: [git]
-icon: braces
+icon: github-3
 
 title: Nettoyer son dépôt git, like a boss
 description: Ou comment rebase proprement son dépôt pour retirer ce qui n'aurait jamais du y être commit, tout en conservant l'historique (si si, c'est possible).

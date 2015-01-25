@@ -8,6 +8,7 @@ gitgraph: true
 script: 2013-10-28-gitgraphjs
 
 tags: [javascript, project]
+icon: lab
 
 title: Gitgraph.js
 description: Une bibliothèque JavaScript, des arbres git, des modélisations de workflows... et un peu de Georges Michael.
@@ -229,4 +230,3 @@ Ma foi il n'y a qu'à demander, sur ce je vous laisse sur un petit air de George
 <p class="text--center">
   <iframe width="560" height="315" src="http://www.youtube.com/embed/GaoLU6zKaws?rel=0" frameborder="0" allowfullscreen="true">&nbsp;</iframe>
 </p>
-
