@@ -6,16 +6,18 @@ description: Pensées d'un développeur web et chef de projet à ses heures. Qui
 
 # Qui suis-je ?
 
-Je m'appelle **Nicolas Carlo**. Je suis étudiant (bientôt diplômé \o/) dans une école de commerce orientée IT à Paris.
+Je m'appelle **Nicolas Carlo**. Je suis diplômé de [Télécom École de Management](http://telecom-em.eu), une école de commerce orientée IT sur Paris.
 Certains me connaissent sous le nom **espeon**, notamment sur le web où j'utilise ce pseudo.
 
 Je suis également un développeur web et chef de projet à mes heures.
 
-J'ai rejoint la start-up [Metidia](http://www.metidia.com) où je m'occupe de la partie technique avec [Fabien Bernard](http://twitter.com/fabien0102).
+J'ai rejoint la start-up [Metidia](http://www.metidia.com) en tant qu'associé où je m'occupe de la partie technique avec [Fabien Bernard](http://twitter.com/fabien0102).
 
 Je fais du développement back-end en Node.js, PHP/MySQL et un peu de Ruby on Rails. J'ai joué avec des frameworks tels que *Zend Framework 2* ou *CodeIgniter*. Je suis également **certifié MongoDB** pour avoir passé avec succès l'examen *M101JS: MongoDB for Node.js Developers*.
 
 Mais **j'affectionne particulièrement le développement front-end**, me tenant toujours informé des dernières nouveautés sur le HTML, le CSS et le JavaScript. J'aime élaborer des applications en *Backbone.js* et développer mes connaissances sur les performances front-end ou la maintenabilité du CSS (OOCSS, SMACSS, BEM, ... ce genre de chose).
+
+Enfin, je co-organise le meetup [Backbone.js Paris](http://www.meetup.com/backbone-paris/) et j'y donne parfois des talks. N'hésitez pas à me contacter pour proposer des talks ou sponsoriser une rencontre !
 
 
 # Comment me contacter ?
