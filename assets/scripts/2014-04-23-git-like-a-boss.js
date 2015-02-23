@@ -52,7 +52,7 @@ $( function () {
     sha1: "3bcb329",
     message: "He doesn't like George Michael! Boooo!"
   } );
-  develop.merge( master, "Feature over!" );
+  develop.merge( master );
 
   master.commit( {
     sha1: "aa1b2e1",
@@ -102,7 +102,7 @@ $( function () {
     sha1: "3bcb329",
     message: "He doesn't like George Michael! Boooo!"
   } );
-  develop.merge( master, "Feature over!" );
+  develop.merge( master );
 
   master.commit( {
     sha1: "aa1b2e1",
