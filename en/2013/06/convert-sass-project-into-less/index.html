@@ -53,7 +53,7 @@
 <span class='k'>@import</span> <span class='s2'>&quot;ui/mod-helper&quot;</span><span class='p'>;</span>
 
 <span class='c'>/* etc. */</span>
-</code></pre></div><p>You’ll note here that it’s pointless to add the extension, whatever preprocessor you use.</p><p class='islet'><strong>Beware</strong> - All likeness taken after, the <code>@import</code> command of preprocessors has nothing to do with CSS one. Indeed, preprocessors will import your files when you compile them to output a unique CSS file that will be used in production. But CSS import will load many files by the browser.<br /><br />Please note that the use of <code>@import</code> is <a href='http://browserdiet.com/#prefer-link-over-import'>not a very good CSS practice</a>, try to avoid it.</p><h2 id="what_is_an_equivalent_in_less">What is an equivalent in LESS</h2><p>In such a case, you mainly have to know the syntax and specificities of each language as fundamentals principles are the same. Let’s see what you’ve got</p><h4 id="variables">Variables</h4><p>SASS and LESS both allow you to create variables, which is basically the Holy Grail in CSS!</p><p>The concept is very straight forward. The only difference here is that SASS uses <code>$</code> while LESS uses <code>@</code>.</p><div class='highlight'><pre><code class='css'><span class='c'>/* With SASS */</span>
+</code></pre></div><p>You’ll note here that it’s pointless to add the extension, whatever preprocessor you use.</p><p class='islet'><strong>Beware</strong> - All likeness taken after, the <code>@import</code> command of preprocessors has nothing to do with CSS one. Indeed, preprocessors will import your files when you compile them to output a unique CSS file that will be used in production. But CSS import will load many files by the browser.<br /><br />Please note that the use of <code>@import</code> is <a href='http://browserdiet.com/#prefer-link-over-import'>not a very good CSS practice</a>, try to avoid it.</p><h2 id="what_has_an_equivalent_in_less">What has an equivalent in LESS</h2><p>In such a case, you mainly have to know the syntax and specificities of each language as fundamentals principles are the same. Let’s see what you’ve got</p><h4 id="variables">Variables</h4><p>SASS and LESS both allow you to create variables, which is basically the Holy Grail in CSS!</p><p>The concept is very straight forward. The only difference here is that SASS uses <code>$</code> while LESS uses <code>@</code>.</p><div class='highlight'><pre><code class='css'><span class='c'>/* With SASS */</span>
 <span class='err'>$</span><span class='nt'>color</span><span class='o'>:</span> <span class='nf'>#BADA55</span><span class='o'>;</span>
 
 <span class='nc'>.header</span> <span class='p'>{</span>
@@ -224,7 +224,7 @@ $index: 5;
 <span class='nc'>.serious-error</span><span class='nd'>:extend</span><span class='o'>(</span><span class='nc'>.error</span><span class='o'>)</span> <span class='p'>{</span>
     <span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
 <span class='p'>}</span>
-</code></pre></div><h2 id="what_couldnt_be_reproduced_in_less">What couldn’t be reproduced in LESS</h2><p>Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.</p><h4 id="_variables"><code>!default</code> variables</h4><p>With SASSyou can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.</p><div class='highlight'><pre><code class='sass'><span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>14</span><span class='kt'>px</span><span class='err'>;</span>
+</code></pre></div><h4 id="_variables"><code>!default</code> variables</h4><p>With SASS you can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.</p><div class='highlight'><pre><code class='sass'><span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>14</span><span class='kt'>px</span><span class='err'>;</span>
 <span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>16</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
 <span class='na'>$base-spacing-unit</span><span class='o'>:</span> <span class='mi'>24</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
 
@@ -247,18 +247,31 @@ $index: 5;
 |-- ui/
 |-- _vars.scss          # Specific variables
 |-- main.scss           # Setup file for the project
-</code></pre></div><p>So he can override variables in <code>_vars.scss</code> and organise <code>main.scss</code> as follows:</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
+</code></pre></div><p>So he can override variables in <code>_vars.scss</code> and organize <code>main.scss</code> as follows:</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
 <span class='c'> * Setup</span>
 <span class='c'> */</span>
 <span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
 <span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-</code></pre></div><p>Without touching anything from the inuit.css core he is able to configure it entirely.</p><p><strong>This feature does’nt exist (yet) in LESS, d’oh!</strong></p><p>So here is the problem: how to define defaults while having developers to be able to override them without touching the framework core?</p><p>The solution I found was to keep the same architecture and include the <code>defaults.less</code> file <strong>before</strong> <code>vars.less</code>. The <code>defaults.less</code> <strong>isn’t anymore directly included by the framework core</strong> but in the <code>main.less</code> of the project:</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
+</code></pre></div><p>Without touching anything from the inuit.css core he is able to configure it entirely.</p><p><strong>The fact is, you ain’t gonna need this with LESS.</strong></p><p>Thanks <a href="https://twitter.com/KB1RMA">Chris Snyder</a> for pointing this out!</p><p>For a long time I thought LESS didn’t provide the ability to do the same, and I’ve had to find hacks to this problem.</p><p>Actually, variables work differently in LESS since the pre-processor uses <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. That means variables can be used <strong>before</strong> being described.</p><p>Hence, you can perfectly override variables later in your codebase. Which is the equivalent of having default variables:</p><div class='highlight'><pre><code class='css'><span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>14px</span><span class='p'>;</span>
+<span class='k'>@base-spacing-unit</span><span class='o'>:</span> <span class='nt'>24px</span><span class='p'>;</span>
+
+<span class='nc'>.container</span> <span class='p'>{</span>
+    <span class='k'>font-size</span><span class='o'>:</span>        <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='k'>font-size</span><span class='p'>;</span>
+    <span class='k'>margin-bottom</span><span class='o'>:</span>    <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='n'>spacing</span><span class='o'>-</span><span class='n'>unit</span><span class='p'>;</span>
+<span class='p'>}</span>
+
+<span class='c'>/* … later in your code */</span>
+<span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>16px</span><span class='p'>;</span>
+</code></pre></div><p>Will produce the same result:</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
+    <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>16px</span><span class='p'>;</span>
+    <span class='k'>margin-bottom</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div><p>Hence, we could do the same with inuit.css and use proper (default) variables in the framework while giving the capacity to developers to override them after.</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
 <span class='c'> * Setup</span>
 <span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/defaults&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
 <span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-</code></pre></div><h4 id="block_of_content_within_a_mixin">Block of content within a mixin</h4><p>If you are using SASS, you can pass a whole block of content into a mixin thanks to the <code>@content</code> variable. Concretely, this:</p><div class='highlight'><pre><code class='text'>@mixin apply-to-ie6-only {
+<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
+</code></pre></div><h2 id="what_couldnt_be_reproduced_in_less">What couldn’t be reproduced in LESS</h2><p>Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.</p><h4 id="block_of_content_within_a_mixin">Block of content within a mixin</h4><p>If you are using SASS, you can pass a whole block of content into a mixin thanks to the <code>@content</code> variable. Concretely, this:</p><div class='highlight'><pre><code class='text'>@mixin apply-to-ie6-only {
     *html {
         @content;
     }

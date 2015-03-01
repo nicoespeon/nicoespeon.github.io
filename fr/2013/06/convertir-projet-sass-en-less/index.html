@@ -224,7 +224,7 @@ $index: 5;
 <span class='nc'>.serious-error</span><span class='nd'>:extend</span><span class='o'>(</span><span class='nc'>.error</span><span class='o'>)</span> <span class='p'>{</span>
     <span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
 <span class='p'>}</span>
-</code></pre></div><h2 id="ce_qui_ne_peut_tre_reproduit_en_less">Ce qui ne peut être reproduit en LESS</h2><p>Voici donc une liste non exhaustive de ce dont SASS est capable sans qu’il n’existe de véritable alternative en LESS (éventuellement des ruses de sioux).</p><h4 id="variables_">Variables <code>!default</code></h4><p>Avec SASS, il est possible de donner une valeur par défaut aux variables, a posteriori. Cela signifie que la valeur sera affectée si et seulement si la variable n’est pas déjà définie.</p><div class='highlight'><pre><code class='sass'><span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>14</span><span class='kt'>px</span><span class='err'>;</span>
+</code></pre></div><h4 id="variables_">Variables <code>!default</code></h4><p>Avec SASS, il est possible de donner une valeur par défaut aux variables, a posteriori. Cela signifie que la valeur sera affectée si et seulement si la variable n’est pas déjà définie.</p><div class='highlight'><pre><code class='sass'><span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>14</span><span class='kt'>px</span><span class='err'>;</span>
 <span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>16</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
 <span class='na'>$base-spacing-unit</span><span class='o'>:</span> <span class='mi'>24</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
 
@@ -252,13 +252,26 @@ $index: 5;
 <span class='c'> */</span>
 <span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
 <span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-</code></pre></div><p>Sans toucher au code de inuit.css, il est donc capable de le configurer entièrement.</p><p><strong>Cette fonctionnalité n’existe pas (encore) en LESS malheureusement.</strong></p><p>Le problème se pose alors : comment définir des variables par défaut tout en permettant au développeur de les surcharger sans toucher au coeur du framework ?</p><p>La solution trouvée consiste à garder la même architecture et inclure le fichier <code>defaults.less</code> avant <code>vars.less</code>. Le fichier <code>defaults.less</code> <strong>n’est donc plus inclus directement par le coeur du framework</strong>, mais dans le <code>main.less</code> du projet :</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
+</code></pre></div><p>Sans toucher au code de inuit.css, il est donc capable de le configurer entièrement.</p><p><strong>En vérité, vous n’avez pas besoin de cette fonctionnalité en LESS.</strong></p><p>Merci <a href="https://twitter.com/KB1RMA">Chris Snyder</a> de m’avoir fait remarqué ce point !</p><p>Pendant un bon moment je pensais que LESS ne proposait pas d’équivalent aux variables par défaut de SASS, et qu’il fallait trouver d’habiles hacks pour contourner le problème.</p><p>En réalité, les variables fonctionnent différement avec LESS car le pré-processeur fait du <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. Ce qui signifie que les variables peuvent être utilisées <strong>avant</strong> d’être définies.</p><p>Ainsi, vous pouvez parfaitement surcharger les variables plus tard dans votre code. Ce qui est équivalent à avoir des variables par défaut :</p><div class='highlight'><pre><code class='css'><span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>14px</span><span class='p'>;</span>
+<span class='k'>@base-spacing-unit</span><span class='o'>:</span> <span class='nt'>24px</span><span class='p'>;</span>
+
+<span class='nc'>.container</span> <span class='p'>{</span>
+    <span class='k'>font-size</span><span class='o'>:</span>        <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='k'>font-size</span><span class='p'>;</span>
+    <span class='k'>margin-bottom</span><span class='o'>:</span>    <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='n'>spacing</span><span class='o'>-</span><span class='n'>unit</span><span class='p'>;</span>
+<span class='p'>}</span>
+
+<span class='c'>/* … plus loin dans votre code */</span>
+<span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>16px</span><span class='p'>;</span>
+</code></pre></div><p>Donnera le même résultat :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
+    <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>16px</span><span class='p'>;</span>
+    <span class='k'>margin-bottom</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div><p>De cette façon, nous pouvons faire la même chose avec inuit.css et tranquillement utiliser des variables (par défaut) dans le framework tout en laissant la possibilité aux développeurs de les surcharger ensuite.</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
 <span class='c'> * Setup</span>
 <span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/defaults&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
 <span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-</code></pre></div><h4 id="bloc_de_contenu_dans_un_mixin">Bloc de contenu dans un mixin</h4><p>Avec SASS il est possible de passer tout un bloc de contenu au sein d’un mixin avec la variable <code>@content</code>. Concrètement, ceci :</p><div class='highlight'><pre><code class='text'>@mixin apply-to-ie6-only {
+<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
+</code></pre></div><h2 id="ce_qui_ne_peut_tre_reproduit_en_less">Ce qui ne peut être reproduit en LESS</h2><p>Voici donc une liste non exhaustive de ce dont SASS est capable sans qu’il n’existe de véritable alternative en LESS (éventuellement des ruses de sioux).</p><h4 id="bloc_de_contenu_dans_un_mixin">Bloc de contenu dans un mixin</h4><p>Avec SASS il est possible de passer tout un bloc de contenu au sein d’un mixin avec la variable <code>@content</code>. Concrètement, ceci :</p><div class='highlight'><pre><code class='text'>@mixin apply-to-ie6-only {
     *html {
         @content;
     }
