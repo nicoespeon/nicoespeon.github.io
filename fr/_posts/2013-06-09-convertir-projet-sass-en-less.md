@@ -506,10 +506,6 @@ Cela étant, vous noterez que SASS gère intelligemment l'extension en synthéti
 {% endhighlight %}
 
 
-## Ce qui ne peut être reproduit en LESS
-
-Voici donc une liste non exhaustive de ce dont SASS est capable sans qu'il n'existe de véritable alternative en LESS (éventuellement des ruses de sioux).
-
 #### Variables `!default`
 
 Avec SASS, il est possible de donner une valeur par défaut aux variables, a posteriori. Cela signifie que la valeur sera affectée si et seulement si la variable n'est pas déjà définie.
@@ -564,20 +560,52 @@ Il lui suffit de surcharger éventuellement des variables dans `_vars.scss` et d
 
 Sans toucher au code de inuit.css, il est donc capable de le configurer entièrement.
 
-**Cette fonctionnalité n'existe pas (encore) en LESS malheureusement.**
+**En vérité, vous n'avez pas besoin de cette fonctionnalité en LESS.**
 
-Le problème se pose alors : comment définir des variables par défaut tout en permettant au développeur de les surcharger sans toucher au coeur du framework ?
+Merci [Chris Snyder](https://twitter.com/KB1RMA) de m'avoir fait remarqué ce point !
 
-La solution trouvée consiste à garder la même architecture et inclure le fichier `defaults.less` avant `vars.less`. Le fichier `defaults.less` **n'est donc plus inclus directement par le coeur du framework**, mais dans le `main.less` du projet :
+Pendant un bon moment je pensais que LESS ne proposait pas d'équivalent aux variables par défaut de SASS, et qu'il fallait trouver d'habiles hacks pour contourner le problème.
+
+En réalité, les variables fonctionnent différement avec LESS car le pré-processeur fait du [lazy loading](http://lesscss.org/features/#variables-feature-lazy-loading). Ce qui signifie que les variables peuvent être utilisées **avant** d'être définies.
+
+Ainsi, vous pouvez parfaitement surcharger les variables plus tard dans votre code. Ce qui est équivalent à avoir des variables par défaut :
+
+{% highlight css %}
+@base-font-size:    14px;
+@base-spacing-unit: 24px;
+
+.container {
+    font-size:        @base-font-size;
+    margin-bottom:    @base-spacing-unit;
+}
+
+/* … plus loin dans votre code */
+@base-font-size:    16px;
+{% endhighlight %}
+
+Donnera le même résultat :
+
+{% highlight css %}
+.container {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+{% endhighlight %}
+
+De cette façon, nous pouvons faire la même chose avec inuit.css et tranquillement utiliser des variables (par défaut) dans le framework tout en laissant la possibilité aux développeurs de les surcharger ensuite.
 
 {% highlight css %}
 /**
  * Setup
  */
-@import "inuit.css/defaults";
-@import "vars";
 @import "inuit.css/inuit";
+@import "vars";
 {% endhighlight %}
+
+
+## Ce qui ne peut être reproduit en LESS
+
+Voici donc une liste non exhaustive de ce dont SASS est capable sans qu'il n'existe de véritable alternative en LESS (éventuellement des ruses de sioux).
 
 #### Bloc de contenu dans un mixin
 

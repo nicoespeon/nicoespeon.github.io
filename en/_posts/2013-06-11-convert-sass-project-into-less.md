@@ -154,7 +154,7 @@ You'll note here that it's pointless to add the extension, whatever preprocessor
 </p>
 
 
-## What is an equivalent in LESS
+## What has an equivalent in LESS
 
 In such a case, you mainly have to know the syntax and specificities of each language as fundamentals principles are the same. Let's see what you've got...
 
@@ -504,13 +504,9 @@ That said, you'll note that SASS is extending smartly selectors - `.error, serio
 {% endhighlight %}
 
 
-## What couldn't be reproduced in LESS
-
-Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.
-
 #### `!default` variables
 
-With SASSyou can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.
+With SASS you can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.
 
 {% highlight sass %}
 $base-font-size:    14px;
@@ -550,7 +546,7 @@ To override a variable, he just needs to define it in its own configuration file
 |-- main.scss           # Setup file for the project
 {% endhighlight %}
 
-So he can override variables in `_vars.scss` and organise `main.scss` as follows:
+So he can override variables in `_vars.scss` and organize `main.scss` as follows:
 
 {% highlight css %}
 /**
@@ -562,20 +558,52 @@ So he can override variables in `_vars.scss` and organise `main.scss` as follows
 
 Without touching anything from the inuit.css core he is able to configure it entirely.
 
-**This feature does'nt exist (yet) in LESS, d'oh!**
+**The fact is, you ain't gonna need this with LESS.**
 
-So here is the problem: how to define defaults while having developers to be able to override them without touching the framework core?
+Thanks [Chris Snyder](https://twitter.com/KB1RMA) for pointing this out!
 
-The solution I found was to keep the same architecture and include the `defaults.less` file **before** `vars.less`. The `defaults.less` **isn't anymore directly included by the framework core** but in the `main.less` of the project:
+For a long time I thought LESS didn't provide the ability to do the same, and I've had to find hacks to this problem.
+
+Actually, variables work differently in LESS since the pre-processor uses [lazy loading](http://lesscss.org/features/#variables-feature-lazy-loading). That means variables can be used **before** being described.
+
+Hence, you can perfectly override variables later in your codebase. Which is the equivalent of having default variables:
+
+{% highlight css %}
+@base-font-size:    14px;
+@base-spacing-unit: 24px;
+
+.container {
+    font-size:        @base-font-size;
+    margin-bottom:    @base-spacing-unit;
+}
+
+/* … later in your code */
+@base-font-size:    16px;
+{% endhighlight %}
+
+Will produce the same result:
+
+{% highlight css %}
+.container {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+{% endhighlight %}
+
+Hence, we could do the same with inuit.css and use proper (default) variables in the framework while giving the capacity to developers to override them after.
 
 {% highlight css %}
 /**
  * Setup
  */
-@import "inuit.css/defaults";
-@import "vars";
 @import "inuit.css/inuit";
+@import "vars";
 {% endhighlight %}
+
+
+## What couldn't be reproduced in LESS
+
+Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.
 
 #### Block of content within a mixin
 
