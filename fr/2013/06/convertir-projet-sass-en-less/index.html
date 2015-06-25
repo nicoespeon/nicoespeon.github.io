@@ -1,150 +1,150 @@
-<!DOCTYPE html><html lang="fr" xmlns:og="http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Similitudes, différences et équivalences de ces deux pré-processeurs CSS."><meta property="og:title" content="Convertir un projet SASS en LESS | @nicoespeon" /><meta property="og:type" content="article" /><meta property="og:description" content="Similitudes, différences et équivalences de ces deux pré-processeurs CSS." /><meta property="og:image" content="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" /><title>Convertir un projet SASS en LESS | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/fr/index.html">Accueil</a></li><li><a href="/fr/about.html">À propos</a></li><li><a href="/fr/projects.html">Projets</a></li><li><a href="/fr/worth-reading.html">A Lire</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Convertir un projet SASS en LESS</h1><div class="media"><a href="https://twitter.com/share" class="twitter-share-button media__img--rev" data-text="Convertir un projet SASS en LESS |" data-via="nicoespeon">Tweeter</a><div class="media__body brand-face zeta">(09 Juin, 2013)</div></div><p class="islet">Similitudes, différences et équivalences de ces deux pré-processeurs CSS.</p><h2 id="les_gots_et_les_couleurs">Les goûts et les couleurs</h2><p><a href="http://lesscss.org/">LESS</a> et <a href="http://sass-lang.com/">SASS</a> sont aujourd’hui <a href="http://css-tricks.com/poll-results-popularity-of-css-preprocessors/">les deux pré-processeurs CSS les plus populaires</a>, et de loin.</p><p>Tous deux sont assez similaires et apportent au CSS les fonctionnalités dont rêvent basiquement tout développeur front-end, à savoir : variables, fonctions, opérations mathématiques, imbrication des sélecteurs, etc.</p><p>Cependant, leur nature diffère quelque peu :</p><ul><li>SASS est compilé en Ruby, il présente deux syntaxes différentes : <code>.sass</code> et <code>.scss</code>.<br /> La seconde, plus proche de celle du CSS, est la plus utilisée.</li><li>LESS est compilé en Javascript, il présente une syntaxe assez proche du CSS.</li></ul><p>D’une manière générale, on constate que <a href="http://css-tricks.com/sass-vs-less/">SASS est plus puissant que LESS</a> car il dispose notamment d’un certain nombre de fonctionnalités supplémentaires. Toutefois, les goûts et les couleurs étant ce qu’ils sont, LESS peut tout à fait suffir à vous contenter car il est bien suffisant et, selon moi, un peu plus facile à prendre en main au début (puis l’habitude fait le reste).</p><p>Personnellement, <strong>j’utilise LESS plutôt que SASS</strong> sur mes projets, par habitude probablement.<br /> Dans le même temps, j’ai tendance à utiliser le framework <a href="/fr/2013/04/decouvrez-inuitcss">inuit.css (plutôt que Bootstrap)</a> sur ces projets. Mais inuit.css, c’est du SASS !</p><p>Fort heureusement, je ne suis pas le seul à aimer LESS et <a href="http://twitter.com/pwcc">Peter Wilson</a> s’est efforcé de mettre en place la version LESS du framework. Emballé par l’idée, j’ai rejoint son projet et je maintient aujourd’hui <a href="https://github.com/peterwilsoncc/inuit.css">le port LESS officiel de inuit.css</a>.</p><p>Le principe consiste donc à <strong>traduire le framework SASS en LESS</strong>, ce qui conduit à 3 éventualités :</p><ol><li>Le code SASS est identique au code LESS, c’est le même principe</li><li>Le code SASS a un équivalent en LESS, il faut alors trouver l’alternative</li><li>Le code SASS n’a pas d’équivalent en LESS et il faut savoir ruser (ou fermer les yeux)</li></ol><p>Voici donc un petit tour sur ces cas de figures, d’après ce que j’ai pu en expérimenter.</p><h2 id="ce_qui_est_identique_en_less">Ce qui est identique en LESS</h2><p>Dans ce cas, c’est peinard : il n’y a pas grand chose à faire.</p><p>En effet, malgré leurs différences, SASS et LESS partagent quelques concepts fondamentaux.</p><h4 id="imbrication_nesting">Imbrication (nesting)</h4><p>L’un des principes phares du pré-processeur CSS : l’imbrication des sélecteurs.</p><p>Plutôt que de créer des sélecteurs à rallonge afin de spécifier l’héritage, il suffit d’imbriquer les sélecteurs les uns dans les autres. Ainsi, ceci :</p><div class='highlight'><pre><code class='css'><span class='nc'>.islet</span> <span class='p'>{</span>
-    <span class='k'>margin-top</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
+<!DOCTYPE html><html lang="fr" xmlns:og="http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Similitudes, différences et équivalences de ces deux pré-processeurs CSS."><meta property="og:title" content="Convertir un projet SASS en LESS | @nicoespeon" /><meta property="og:type" content="article" /><meta property="og:description" content="Similitudes, différences et équivalences de ces deux pré-processeurs CSS." /><meta property="og:image" content="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" /><title>Convertir un projet SASS en LESS | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/fr/index.html">Accueil</a></li><li><a href="/fr/about.html">À propos</a></li><li><a href="/fr/projects.html">Projets</a></li><li><a href="/fr/worth-reading.html">A Lire</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Convertir un projet SASS en LESS</h1><div class="media"><a href="https://twitter.com/share" class="twitter-share-button media__img--rev" data-text="Convertir un projet SASS en LESS |" data-via="nicoespeon">Tweeter</a><div class="media__body brand-face zeta">(09 Juin, 2013)</div></div><p class="islet">Similitudes, différences et équivalences de ces deux pré-processeurs CSS.</p><h2 id="toc_0">Les goûts et les couleurs</h2><p><a href="http://lesscss.org/">LESS</a> et <a href="http://sass-lang.com/">SASS</a> sont aujourd&#39;hui <a href="http://css-tricks.com/poll-results-popularity-of-css-preprocessors/">les deux pré-processeurs CSS les plus populaires</a>, et de loin.</p><p>Tous deux sont assez similaires et apportent au CSS les fonctionnalités dont rêvent basiquement tout développeur front-end, à savoir : variables, fonctions, opérations mathématiques, imbrication des sélecteurs, etc.</p><p>Cependant, leur nature diffère quelque peu :</p><ul><li>SASS est compilé en Ruby, il présente deux syntaxes différentes : <code>.sass</code> et <code>.scss</code>.<br>La seconde, plus proche de celle du CSS, est la plus utilisée.</li><li>LESS est compilé en Javascript, il présente une syntaxe assez proche du CSS.</li></ul><p>D&#39;une manière générale, on constate que <a href="http://css-tricks.com/sass-vs-less/">SASS est plus puissant que LESS</a> car il dispose notamment d&#39;un certain nombre de fonctionnalités supplémentaires. Toutefois, les goûts et les couleurs étant ce qu&#39;ils sont, LESS peut tout à fait suffir à vous contenter car il est bien suffisant et, selon moi, un peu plus facile à prendre en main au début (puis l&#39;habitude fait le reste).</p><p>Personnellement, <strong>j&#39;utilise LESS plutôt que SASS</strong> sur mes projets, par habitude probablement.<br>Dans le même temps, j&#39;ai tendance à utiliser le framework <a href="/fr/2013/04/decouvrez-inuitcss">inuit.css (plutôt que Bootstrap)</a> sur ces projets. Mais inuit.css, c&#39;est du SASS !</p><p>Fort heureusement, je ne suis pas le seul à aimer LESS et <a href="http://twitter.com/pwcc">Peter Wilson</a> s&#39;est efforcé de mettre en place la version LESS du framework. Emballé par l&#39;idée, j&#39;ai rejoint son projet et je maintient aujourd&#39;hui <a href="https://github.com/peterwilsoncc/inuit.css">le port LESS officiel de inuit.css</a>.</p><p>Le principe consiste donc à <strong>traduire le framework SASS en LESS</strong>, ce qui conduit à 3 éventualités :</p><ol><li>Le code SASS est identique au code LESS, c&#39;est le même principe</li><li>Le code SASS a un équivalent en LESS, il faut alors trouver l&#39;alternative</li><li>Le code SASS n&#39;a pas d&#39;équivalent en LESS et il faut savoir ruser (ou fermer les yeux)</li></ol><p>Voici donc un petit tour sur ces cas de figures, d&#39;après ce que j&#39;ai pu en expérimenter.</p><h2 id="toc_1">Ce qui est identique en LESS</h2><p>Dans ce cas, c&#39;est peinard : il n&#39;y a pas grand chose à faire.</p><p>En effet, malgré leurs différences, SASS et LESS partagent quelques concepts fondamentaux.</p><h4 id="toc_2">Imbrication (nesting)</h4><p>L&#39;un des principes phares du pré-processeur CSS : l&#39;imbrication des sélecteurs.</p><p>Plutôt que de créer des sélecteurs à rallonge afin de spécifier l&#39;héritage, il suffit d&#39;imbriquer les sélecteurs les uns dans les autres. Ainsi, ceci :</p><div class="highlight"><pre><code class="css"><span class="nc">.islet</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
 
-    <span class='n'>p</span> <span class='err'>{</span>
-        <span class='k'>color</span><span class='o'>:</span> <span class='m'>#BADA55</span><span class='p'>;</span>
-        <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span>
-    <span class='p'>}</span>
-<span class='err'>}</span>
-</code></pre></div><p>Produira le code suivant, dans les deux langages :</p><div class='highlight'><pre><code class='css'><span class='nc'>.islet</span> <span class='p'>{</span>
-    <span class='k'>margin-top</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-<span class='p'>}</span>
+    <span class="n">p</span> <span class="err">{</span>
+        <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
+        <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</code></pre></div><p>Produira le code suivant, dans les deux langages :</p><div class="highlight"><pre><code class="css"><span class="nc">.islet</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.islet</span> <span class='nt'>p</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='m'>#BADA55</span><span class='p'>;</span>
-    <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span>
-<span class='p'>}</span>
-</code></pre></div><p class='islet'><strong>Attention</strong> - Il arrive souvent que les développeurs, expérimentés ou non, s'emportent avec l'imbrication et en abusent plus que de raison, ce qui a tendance à alourdir inutilement le CSS, un vrai cauchemard !<br /><br />Gardez donc en tête la <a href='http://thesassway.com/beginner/the-inception-rule'>règle de l'inception</a> : <strong>ne jamais aller au delà de 4 niveau d'imbrication</strong>.</p><h4 id="commentaires_et_compilation">Commentaires et compilation</h4><p>Outre les fonctionnalités qu’ils apportent, les pré-processeurs permettent de disposer d’un code source clair et organisé, tout en produisant un seul fichier CSS compilé (et compressé) pour la production.</p><p>Dans cet état d’esprit, SASS et LESS proposent tous deux des commentaires alternatifs qui ne sont pas conservés lors de la compilation. Ainsi donc, ceci :</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
-<span class='c'> * The date/time</span>
-<span class='c'> */</span>
-<span class='nc'>.timeline__time</span> <span class='p'>{</span>
-    <span class='k'>position</span><span class='o'>:</span> <span class='k'>absolute</span><span class='p'>;</span>
-    <span class='k'>display</span><span class='o'>:</span> <span class='k'>block</span><span class='p'>;</span>
+<span class="nc">.islet</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span>
+<span class="p">}</span>
+</code></pre></div><p class="islet"><strong>Attention</strong> - Il arrive souvent que les développeurs, expérimentés ou non, s'emportent avec l'imbrication et en abusent plus que de raison, ce qui a tendance à alourdir inutilement le CSS, un vrai cauchemard !<br><br>Gardez donc en tête la <a href="http://thesassway.com/beginner/the-inception-rule">règle de l'inception</a> : <strong>ne jamais aller au delà de 4 niveau d'imbrication</strong>.</p><h4 id="toc_3">Commentaires et compilation</h4><p>Outre les fonctionnalités qu&#39;ils apportent, les pré-processeurs permettent de disposer d&#39;un code source clair et organisé, tout en produisant un seul fichier CSS compilé (et compressé) pour la production.</p><p>Dans cet état d&#39;esprit, SASS et LESS proposent tous deux des commentaires alternatifs qui ne sont pas conservés lors de la compilation. Ainsi donc, ceci :</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
+<span class="c"> * The date/time</span>
+<span class="c"> */</span>
+<span class="nc">.timeline__time</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
 
-    <span class='o'>//</span> <span class='n'>The</span> <span class='n'>actual</span> <span class='n'>inner</span> <span class='k'>width</span> <span class='n'>is</span> <span class='err'>`</span><span class='m'>25</span><span class='o'>%</span> <span class='o'>-</span> <span class='n'>x</span><span class='err'>`</span><span class='o'>,</span> <span class='err'>`</span><span class='n'>x</span><span class='err'>`</span> <span class='n'>is</span> <span class='n'>the</span> <span class='k'>padding</span>
-    <span class='k'>padding-right</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>200px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Produira le code suivant :</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
-<span class='c'> * The date/time</span>
-<span class='c'> */</span>
-<span class='nc'>.timeline__time</span> <span class='p'>{</span>
-    <span class='k'>position</span><span class='o'>:</span> <span class='k'>absolute</span><span class='p'>;</span>
-    <span class='k'>display</span><span class='o'>:</span> <span class='k'>block</span><span class='p'>;</span>
+    <span class="o">//</span> <span class="n">The</span> <span class="n">actual</span> <span class="n">inner</span> <span class="k">width</span> <span class="n">is</span> <span class="err">`</span><span class="m">25</span><span class="o">%</span> <span class="o">-</span> <span class="n">x</span><span class="err">`</span><span class="o">,</span> <span class="err">`</span><span class="n">x</span><span class="err">`</span> <span class="n">is</span> <span class="n">the</span> <span class="k">padding</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Produira le code suivant :</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
+<span class="c"> * The date/time</span>
+<span class="c"> */</span>
+<span class="nc">.timeline__time</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
 
-    <span class='k'>padding-right</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>200px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Ce qui peut être assez pratique pour placer des commentaires qui n’ont aucune pertinence dans le code compilé, mais ont un sens vis-à-vis du code source.</p><p>Notez cependant qu’un fichier compilé en production sera préférentiellement compressé de manière à ne pas inclure les commentaires CSS, à moins de les préserver explicitement (avec <code>/*! */</code> en utilisant <a href="http://yui.github.io/yuicompressor/css.html">YUI compressor</a>, par exemple).</p><h4 id="imports">Imports</h4><p>Les pré-processeurs permettent également d’importer très simplement d’autres fichiers grâce à <code>@import</code>, ce qui permet la mise en place d’une architecture claire et modulaire des fichiers sources. Oui, les pré-processeurs CSS sont les grands amis de l’OOCSS.</p><p>Une bonne pratique consiste donc à créer un fichier principal <code>main.less</code> / <code>_main.scss</code> dont le rôle est d’importer les fichiers dont vous aurez besoin pour produire le fichier final <code>main.css</code> :</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
-<span class='c'> * Setup</span>
-<span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/defaults&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Ce qui peut être assez pratique pour placer des commentaires qui n&#39;ont aucune pertinence dans le code compilé, mais ont un sens vis-à-vis du code source.</p><p>Notez cependant qu&#39;un fichier compilé en production sera préférentiellement compressé de manière à ne pas inclure les commentaires CSS, à moins de les préserver explicitement (avec <code>/*! */</code> en utilisant <a href="http://yui.github.io/yuicompressor/css.html">YUI compressor</a>, par exemple).</p><h4 id="toc_4">Imports</h4><p>Les pré-processeurs permettent également d&#39;importer très simplement d&#39;autres fichiers grâce à <code>@import</code>, ce qui permet la mise en place d&#39;une architecture claire et modulaire des fichiers sources. Oui, les pré-processeurs CSS sont les grands amis de l&#39;OOCSS.</p><p>Une bonne pratique consiste donc à créer un fichier principal <code>main.less</code> / <code>_main.scss</code> dont le rôle est d&#39;importer les fichiers dont vous aurez besoin pour produire le fichier final <code>main.css</code> :</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
+<span class="c"> * Setup</span>
+<span class="c"> */</span>
+<span class="k">@import</span> <span class="s2">&quot;inuit.css/defaults&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
 
 
-<span class='c'>/**</span>
-<span class='c'> * She’s all yours, cap’n... Begin importing your stuff here.</span>
-<span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;ui/base&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;ui/layout&quot;</span><span class='p'>;</span>
+<span class="c">/**</span>
+<span class="c"> * She’s all yours, cap’n... Begin importing your stuff here.</span>
+<span class="c"> */</span>
+<span class="k">@import</span> <span class="s2">&quot;ui/base&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;ui/layout&quot;</span><span class="p">;</span>
 
-<span class='k'>@import</span> <span class='s2'>&quot;ui/mod-block-list&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;ui/mod-helper&quot;</span><span class='p'>;</span>
+<span class="k">@import</span> <span class="s2">&quot;ui/mod-block-list&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;ui/mod-helper&quot;</span><span class="p">;</span>
 
-<span class='c'>/* etc. */</span>
-</code></pre></div><p>Vous noterez que préciser l’extension n’est pas utile, que ce soit en SASS ou en LESS.</p><p class='islet'><strong>Attention</strong> - Malgré toute ressemblance, la commande <code>@import</code> des pré-processeurs n'a rien à voir avec celle de CSS. En effet, le pré-processeur va importer vos fichiers lors de la compilation afin de produire un fichier CSS unique tandis que l'import en CSS fera télécharger plusieurs fichiers par le navigateur.<br /><br />Notez également que l'utilisation de <code>@import</code> est <a href='http://browserdiet.com/fr/#prefer-link-over-import'>une mauvaise pratique CSS</a>, à éviter donc.</p><h2 id="ce_qui_a_un_quivalent_en_less">Ce qui a un équivalent en LESS</h2><p>Dans ce cas, il s’agit surtout de connaître la syntaxe et les spécificités de chaque langage, les principes fondamentaux étant les mêmes. Voyons donc ce que nous avons</p><h4 id="variables">Variables</h4><p>SASS comme LESS donnent la possibilité de créer des variables. Et les variables en CSS, c’est quasiment le Saint Graal !</p><p>Le concept est assez simple à assimiler, la seule différence entre les deux c’est que SASS utilise des <code>$</code> tandis que LESS utilise des <code>@</code>. Les goûts et les couleurs</p><div class='highlight'><pre><code class='css'><span class='c'>/* En SASS */</span>
-<span class='err'>$</span><span class='nt'>color</span><span class='o'>:</span> <span class='nf'>#BADA55</span><span class='o'>;</span>
+<span class="c">/* etc. */</span>
+</code></pre></div><p>Vous noterez que préciser l&#39;extension n&#39;est pas utile, que ce soit en SASS ou en LESS.</p><p class="islet"><strong>Attention</strong> - Malgré toute ressemblance, la commande <code>@import</code> des pré-processeurs n'a rien à voir avec celle de CSS. En effet, le pré-processeur va importer vos fichiers lors de la compilation afin de produire un fichier CSS unique tandis que l'import en CSS fera télécharger plusieurs fichiers par le navigateur.<br><br>Notez également que l'utilisation de <code>@import</code> est <a href="http://browserdiet.com/fr/#prefer-link-over-import">une mauvaise pratique CSS</a>, à éviter donc.</p><h2 id="toc_5">Ce qui a un équivalent en LESS</h2><p>Dans ce cas, il s&#39;agit surtout de connaître la syntaxe et les spécificités de chaque langage, les principes fondamentaux étant les mêmes. Voyons donc ce que nous avons...</p><h4 id="toc_6">Variables</h4><p>SASS comme LESS donnent la possibilité de créer des variables. Et les variables en CSS, c&#39;est quasiment le Saint Graal !</p><p>Le concept est assez simple à assimiler, la seule différence entre les deux c&#39;est que SASS utilise des <code>$</code> tandis que LESS utilise des <code>@</code>. Les goûts et les couleurs...</p><div class="highlight"><pre><code class="css"><span class="c">/* En SASS */</span>
+<span class="err">$</span><span class="nt">color</span><span class="o">:</span> <span class="nf">#BADA55</span><span class="o">;</span>
 
-<span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='err'>$</span><span class='k'>color</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='css'><span class='c'>/* En LESS */</span>
-<span class='k'>@color</span><span class='o'>:</span> <span class='nf'>#BADA55</span><span class='p'>;</span>
+<span class="nc">.header</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="err">$</span><span class="k">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* En LESS */</span>
+<span class="k">@color</span><span class="o">:</span> <span class="nf">#BADA55</span><span class="p">;</span>
 
-<span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='o'>@</span><span class='k'>color</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Le rendu CSS :</p><div class='highlight'><pre><code class='css'><span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='m'>#BADA55</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><h4 id="mixins">Mixins</h4><p>SASS et LESS permettent de créer ce qu’on appelle des <strong>mixins</strong>.</p><p>Ce mot barbare signifie tout simplement qu’il est possible de créer des groupes de propriétés pouvant être inclus très simplement ailleurs.</p><p>Là encore, c’est surtout la syntaxe qui diffère, le principe est le même :</p><div class='highlight'><pre><code class='css'><span class='c'>/* En SASS */</span>
-<span class='k'>@mixin</span> <span class='nt'>bordered</span> <span class='p'>{</span>
-    <span class='nt'>border-top</span><span class='o'>:</span> <span class='nt'>dotted</span> <span class='nt'>1px</span> <span class='nt'>black</span><span class='o'>;</span>
-    <span class='nt'>border-bottom</span><span class='o'>:</span> <span class='nt'>solid</span> <span class='nt'>2px</span> <span class='nt'>black</span><span class='o'>;</span>
-<span class='p'>}</span>
+<span class="nc">.header</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="o">@</span><span class="k">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Le rendu CSS :</p><div class="highlight"><pre><code class="css"><span class="nc">.header</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="toc_7">Mixins</h4><p>SASS et LESS permettent de créer ce qu&#39;on appelle des <strong>mixins</strong>.</p><p>Ce mot barbare signifie tout simplement qu&#39;il est possible de créer des groupes de propriétés pouvant être inclus très simplement ailleurs.</p><p>Là encore, c&#39;est surtout la syntaxe qui diffère, le principe est le même :</p><div class="highlight"><pre><code class="css"><span class="c">/* En SASS */</span>
+<span class="k">@mixin</span> <span class="nt">bordered</span> <span class="p">{</span>
+    <span class="nt">border-top</span><span class="o">:</span> <span class="nt">dotted</span> <span class="nt">1px</span> <span class="nt">black</span><span class="o">;</span>
+    <span class="nt">border-bottom</span><span class="o">:</span> <span class="nt">solid</span> <span class="nt">2px</span> <span class="nt">black</span><span class="o">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='o'>@</span><span class='n'>include</span> <span class='n'>bordered</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='css'><span class='c'>/* En LESS */</span>
-<span class='nc'>.bordered</span><span class='o'>()</span> <span class='p'>{</span>
-    <span class='k'>border-top</span><span class='o'>:</span> <span class='k'>dotted</span> <span class='m'>1px</span> <span class='nb'>black</span><span class='p'>;</span>
-    <span class='k'>border-bottom</span><span class='o'>:</span> <span class='k'>solid</span> <span class='m'>2px</span> <span class='nb'>black</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.header</span> <span class="p">{</span>
+    <span class="o">@</span><span class="n">include</span> <span class="n">bordered</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* En LESS */</span>
+<span class="nc">.bordered</span><span class="o">()</span> <span class="p">{</span>
+    <span class="k">border-top</span><span class="o">:</span> <span class="k">dotted</span> <span class="m">1px</span> <span class="nb">black</span><span class="p">;</span>
+    <span class="k">border-bottom</span><span class="o">:</span> <span class="k">solid</span> <span class="m">2px</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='o'>.</span><span class='n'>bordered</span><span class='p'>();</span>
-<span class='p'>}</span>
-</code></pre></div><p>Ce qui donnera en CSS :</p><div class='highlight'><pre><code class='css'><span class='nc'>.header</span> <span class='p'>{</span>
-    <span class='k'>border-top</span><span class='o'>:</span> <span class='k'>dotted</span> <span class='m'>1px</span> <span class='nb'>black</span><span class='p'>;</span>
-    <span class='k'>border-bottom</span><span class='o'>:</span> <span class='k'>solid</span> <span class='m'>2px</span> <span class='nb'>black</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Il est à savoir que les mixins vont plus loin que ça et peuvent prendre en compte des paramètres, des valeurs par défaut, des conditions, etc.</p><p>Sans rentrer dans les détails, sachez par exemple que les mixins peuvent prendre en compte <strong>un nombre d’arguments variables</strong>.</p><p>Cependant, là où SASS gère parfaitement les différentes valeurs distinctes passées en paramètre, il faut échapper celles de LESS si on veut qu’il n’interprète pas le tout comme une seule grosse variable (qu’il prenne en compte la virgule quoi).</p><p class='islet'>L'échappement en LESS permet tout simplement de retourner une chaîne de caractère telle quelle grâce à <code>~"ma chaîne"</code>, ce qui servira dans un certain nombre d'astuces (du coup).</p><p>Techniquement cela se présente comme ceci :</p><div class='highlight'><pre><code class='css'><span class='c'>/* En SASS */</span>
-<span class='k'>@mixin</span> <span class='nt'>box-shadow</span><span class='o'>(</span><span class='err'>$</span><span class='nt'>shadows</span><span class='o'>...)</span> <span class='p'>{</span>
-    <span class='nt'>-moz-box-shadow</span><span class='o'>:</span> <span class='err'>$</span><span class='nt'>shadows</span><span class='o'>;</span>
-    <span class='nt'>-webkit-box-shadow</span><span class='o'>:</span> <span class='err'>$</span><span class='nt'>shadows</span><span class='o'>;</span>
-    <span class='nt'>box-shadow</span><span class='o'>:</span> <span class='err'>$</span><span class='nt'>shadows</span><span class='o'>;</span>
-<span class='p'>}</span>
+<span class="nc">.header</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">bordered</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div><p>Ce qui donnera en CSS :</p><div class="highlight"><pre><code class="css"><span class="nc">.header</span> <span class="p">{</span>
+    <span class="k">border-top</span><span class="o">:</span> <span class="k">dotted</span> <span class="m">1px</span> <span class="nb">black</span><span class="p">;</span>
+    <span class="k">border-bottom</span><span class="o">:</span> <span class="k">solid</span> <span class="m">2px</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Il est à savoir que les mixins vont plus loin que ça et peuvent prendre en compte des paramètres, des valeurs par défaut, des conditions, etc.</p><p>Sans rentrer dans les détails, sachez par exemple que les mixins peuvent prendre en compte <strong>un nombre d&#39;arguments variables</strong>.</p><p>Cependant, là où SASS gère parfaitement les différentes valeurs distinctes passées en paramètre, il faut échapper celles de LESS si on veut qu&#39;il n&#39;interprète pas le tout comme une seule grosse variable (qu&#39;il prenne en compte la virgule quoi).</p><p class="islet">L'échappement en LESS permet tout simplement de retourner une chaîne de caractère telle quelle grâce à <code>~"ma chaîne"</code>, ce qui servira dans un certain nombre d'astuces (du coup).</p><p>Techniquement cela se présente comme ceci :</p><div class="highlight"><pre><code class="css"><span class="c">/* En SASS */</span>
+<span class="k">@mixin</span> <span class="nt">box-shadow</span><span class="o">(</span><span class="err">$</span><span class="nt">shadows</span><span class="o">...)</span> <span class="p">{</span>
+    <span class="nt">-moz-box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
+    <span class="nt">-webkit-box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
+    <span class="nt">box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.shadows</span> <span class='p'>{</span>
-    <span class='o'>@</span><span class='n'>include</span> <span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='p'>(</span><span class='m'>0</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>);</span>
-<span class='p'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='css'><span class='c'>/* En LESS */</span>
-<span class='nc'>.box-shadow</span><span class='o'>(</span><span class='k'>@shadows</span><span class='o'>...)</span> <span class='p'>{</span>
-    <span class='nt'>-moz-box-shadow</span><span class='o'>:</span> <span class='k'>@shadows</span><span class='p'>;</span>
-    <span class='nt'>-webkit-box-shadow</span><span class='o'>:</span> <span class='k'>@shadows</span><span class='p'>;</span>
-    <span class='nt'>box-shadow</span><span class='o'>:</span> <span class='k'>@shadows</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.shadows</span> <span class="p">{</span>
+    <span class="o">@</span><span class="n">include</span> <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">(</span><span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* En LESS */</span>
+<span class="nc">.box-shadow</span><span class="o">(</span><span class="k">@shadows</span><span class="o">...)</span> <span class="p">{</span>
+    <span class="nt">-moz-box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
+    <span class="nt">-webkit-box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
+    <span class="nt">box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.shadows</span> <span class='p'>{</span>
-    <span class='o'>.</span><span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='p'>(</span><span class='o'>~</span><span class='s2'>&quot;0 4px 5px #666, 2px 6px 10px #999&quot;</span><span class='p'>);</span>
-<span class='p'>}</span>
-</code></pre></div><p>Ce qui donnera en CSS :</p><div class='highlight'><pre><code class='css'><span class='nc'>.shadows</span> <span class='p'>{</span>
-    <span class='o'>-</span><span class='n'>moz</span><span class='o'>-</span><span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
-    <span class='o'>-</span><span class='n'>webkit</span><span class='o'>-</span><span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
-    <span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Outre les petites spécificités, les mixins fonctionnent de la même manière.</p><h4 id="oprations">Opérations</h4><p>Chaque pré-processeur apporte son lot d’opérations mathématiques, très utiles pour réaliser un certain nombre de calculs et d’ajustements qui ne dépendront que de quelques variables, modifiables à souhait.</p><p>Les syntaxes sont similaires et assez intuitives (des histoires de <code>+</code>, de <code>-</code>, etc.). Une bonne pratique consiste à isoler les opérations entre parenthèses afin d’éviter les confusions et potentiels conflits.</p><p>Cependant, il faut savoir que LESS considère la première unité spécifiée dans le calcul, ce qui peut conduire à des aberrations (SASS lui ne compilera pas et vous sortira un joli warning) :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>300px</span> <span class='o'>+</span> <span class='m'>2em</span><span class='p'>;</span> <span class='o'>//</span> <span class='o'>==</span> <span class='m'>302px</span> <span class='n'>o_O</span>
-<span class='p'>}</span>
-</code></pre></div><p>En LESS il est donc préférable de <strong>ne pas spécifier les unités des variables</strong> afin de ne pas avoir de mauvaises surprises lors des opérations mathématiques. Il suffit de prendre l’habitude d’appliquer l’unité à la fin, lors de son affectation à une propriété :</p><div class='highlight'><pre><code class='text'>@base-font-size: 16;
+<span class="nc">.shadows</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">(</span><span class="o">~</span><span class="s2">&quot;0 4px 5px #666, 2px 6px 10px #999&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>Ce qui donnera en CSS :</p><div class="highlight"><pre><code class="css"><span class="nc">.shadows</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Outre les petites spécificités, les mixins fonctionnent de la même manière.</p><h4 id="toc_8">Opérations</h4><p>Chaque pré-processeur apporte son lot d&#39;opérations mathématiques, très utiles pour réaliser un certain nombre de calculs et d&#39;ajustements qui ne dépendront que de quelques variables, modifiables à souhait.</p><p>Les syntaxes sont similaires et assez intuitives (des histoires de <code>+</code>, de <code>-</code>, etc.). Une bonne pratique consiste à isoler les opérations entre parenthèses afin d&#39;éviter les confusions et potentiels conflits.</p><p>Cependant, il faut savoir que LESS considère la première unité spécifiée dans le calcul, ce qui peut conduire à des aberrations (SASS lui ne compilera pas et vous sortira un joli warning) :</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">300px</span> <span class="o">+</span> <span class="m">2em</span><span class="p">;</span> <span class="o">//</span> <span class="o">==</span> <span class="m">302px</span> <span class="n">o_O</span>
+<span class="p">}</span>
+</code></pre></div><p>En LESS il est donc préférable de <strong>ne pas spécifier les unités des variables</strong> afin de ne pas avoir de mauvaises surprises lors des opérations mathématiques. Il suffit de prendre l&#39;habitude d&#39;appliquer l&#39;unité à la fin, lors de son affectation à une propriété :</p><div class="highlight"><pre><code class="text">@base-font-size: 16;
 @base-spacing-unit: 24;
 
 html {
     font-size: (@base-font-size/16)*1em;
     margin-bottom: @base-spacing-unit*1px;
 }
-</code></pre></div><p>Ce qui donnera :</p><div class='highlight'><pre><code class='css'><span class='nt'>html</span> <span class='p'>{</span>
-    <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>1em</span><span class='p'>;</span>
-    <span class='k'>margin-bottom</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><h4 id="fonctions">Fonctions</h4><p>Chaque pré-processeur vient avec son lot de fonctions qui permettent de faire un certain nombre de trucs très sympa comme transformer les couleurs, faire des maths, manipuler des chaînes de caractères, etc.</p><p>Le plus simple, c’est de vous donner les liens vers les listes exhaustives de chacun :</p><ul><li><a href="http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html">Les fonctions de SASS</a></li><li><a href="http://lesscss.org/#reference">Les fonctions de LESS</a></li></ul><h4 id="interpolation">Interpolation</h4><p>Parfois, il est nécessaire d’inclure des variables au sein de chaines de caractères et de les interpréter tout de même. C’est ce qu’on appelle l’interpolation et SASS comme LESS permettent cela :</p><div class='highlight'><pre><code class='css'><span class='c'>/* En SASS */</span>
-<span class='err'>$</span><span class='nt'>base-url</span><span class='o'>:</span> <span class='s2'>&quot;../images&quot;</span><span class='o'>;</span>
+</code></pre></div><p>Ce qui donnera :</p><div class="highlight"><pre><code class="css"><span class="nt">html</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="toc_9">Fonctions</h4><p>Chaque pré-processeur vient avec son lot de fonctions qui permettent de faire un certain nombre de trucs très sympa comme transformer les couleurs, faire des maths, manipuler des chaînes de caractères, etc.</p><p>Le plus simple, c&#39;est de vous donner les liens vers les listes exhaustives de chacun :</p><ul><li><a href="http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html">Les fonctions de SASS</a></li><li><a href="http://lesscss.org/#reference">Les fonctions de LESS</a></li></ul><h4 id="toc_10">Interpolation</h4><p>Parfois, il est nécessaire d&#39;inclure des variables au sein de chaines de caractères et de les interpréter tout de même. C&#39;est ce qu&#39;on appelle l&#39;interpolation et SASS comme LESS permettent cela :</p><div class="highlight"><pre><code class="css"><span class="c">/* En SASS */</span>
+<span class="err">$</span><span class="nt">base-url</span><span class="o">:</span> <span class="s2">&quot;../images&quot;</span><span class="o">;</span>
 
-<span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;#{$base-url}/bg.png&quot;)</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='css'><span class='c'>/* En LESS */</span>
-<span class='k'>@base-url</span><span class='o'>:</span> <span class='s2'>&quot;../images&quot;</span><span class='p'>;</span>
+<span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;#{$base-url}/bg.png&quot;)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* En LESS */</span>
+<span class="k">@base-url</span><span class="o">:</span> <span class="s2">&quot;../images&quot;</span><span class="p">;</span>
 
-<span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;@{base-url}/bg.png&quot;)</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Ce qui donnera :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;../images/bg.png&quot;)</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Seule la syntaxe diffère, <code>#{ $var }</code> pour SASS et <code>@{ var }</code> pour LESS.</p><p>Il est également possible d’interpoler des variables dans les sélecteurs, comme nous allons le voir avec les boucles (oui, je travaille mes transitions).</p><h4 id="boucles">Boucles</h4><p>Techniquement parlant, les deux pré-processeurs permettent de créer des boucles, ce qui peut s’avérer assez utile parfois.</p><p>En revanche, si SASS gère nativement la logique de l’itération, LESS n’a rien de tel. En fait, il s’agit véritablement d’une alternative qui consiste à se baser sur les mixins afin de créer le comportement de la boucle.</p><p>En LESS, le principe est donc le suivant :</p><ol><li>On crée un mixin se basant sur un <code>@index</code></li><li>Le mixin produit le contenu de la boucle tant que <code>@index &gt; 0</code></li><li>A la fin du mixin, on décrémente <code>@index</code></li><li>On crée une variante vide du mixin pour arrêter la boucle quand <code>@index = 0</code></li></ol><p>Ce qui nous donne les syntaxes suivantes :</p><div class='highlight'><pre><code class='text'>/* En SASS */
+<span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;@{base-url}/bg.png&quot;)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Ce qui donnera :</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;../images/bg.png&quot;)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Seule la syntaxe diffère, <code>#{ $var }</code> pour SASS et <code>@{ var }</code> pour LESS.</p><p>Il est également possible d&#39;interpoler des variables dans les sélecteurs, comme nous allons le voir avec les boucles (oui, je travaille mes transitions).</p><h4 id="toc_11">Boucles</h4><p>Techniquement parlant, les deux pré-processeurs permettent de créer des boucles, ce qui peut s&#39;avérer assez utile parfois.</p><p>En revanche, si SASS gère nativement la logique de l&#39;itération, LESS n&#39;a rien de tel. En fait, il s&#39;agit véritablement d&#39;une alternative qui consiste à se baser sur les mixins afin de créer le comportement de la boucle.</p><p>En LESS, le principe est donc le suivant :</p><ol><li>On crée un mixin se basant sur un <code>@index</code></li><li>Le mixin produit le contenu de la boucle tant que <code>@index &gt; 0</code></li><li>A la fin du mixin, on décrémente <code>@index</code></li><li>On crée une variante vide du mixin pour arrêter la boucle quand <code>@index = 0</code></li></ol><p>Ce qui nous donne les syntaxes suivantes :</p><div class="highlight"><pre><code class="text">/* En SASS */
 $index: 5;
 
 @while $index &gt; 0 {
@@ -156,7 +156,7 @@ $index: 5;
     // On décrémente l&#39;index
     $index: $index - 1;
 }
-</code></pre></div><div class='highlight'><pre><code class='text'>/* En LESS */
+</code></pre></div><div class="highlight"><pre><code class="text">/* En LESS */
 .loop (@index) when (@index &gt; 0) {
     // On interpole le nom de la classe
     .container-@{index} {
@@ -172,71 +172,71 @@ $index: 5;
 
 // Lance la boucle (le mixin)
 .loop (5);
-</code></pre></div><p>Ce qui donnera, une fois compilé :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container-5</span> <span class='p'>{</span> <span class='k'>z-index</span><span class='o'>:</span> <span class='m'>5</span><span class='p'>;</span> <span class='p'>}</span>
-<span class='nc'>.container-4</span> <span class='p'>{</span> <span class='k'>z-index</span><span class='o'>:</span> <span class='m'>4</span><span class='p'>;</span> <span class='p'>}</span>
-<span class='nc'>.container-3</span> <span class='p'>{</span> <span class='k'>z-index</span><span class='o'>:</span> <span class='m'>3</span><span class='p'>;</span> <span class='p'>}</span>
-<span class='nc'>.container-2</span> <span class='p'>{</span> <span class='k'>z-index</span><span class='o'>:</span> <span class='m'>2</span><span class='p'>;</span> <span class='p'>}</span>
-<span class='nc'>.container-1</span> <span class='p'>{</span> <span class='k'>z-index</span><span class='o'>:</span> <span class='m'>1</span><span class='p'>;</span> <span class='p'>}</span>
-</code></pre></div><p>Cette technique est notamment utilisée par Bootstrap <a href="https://github.com/twitter/bootstrap/blob/master/less/mixins.less#L577-L595">pour générer leurs spans en fonction du nombre de colonnes</a>.</p><h4 id="extensions_et_classes_silencieuses">Extensions et classes silencieuses</h4><p>En SASS, il est possible d’étendre les propriétés d’une classe à une autre afin de partager un style commun, la seconde classe héritant de la première.</p><p>Par exemple, ceci :</p><div class='highlight'><pre><code class='css'><span class='nc'>.error</span> <span class='p'>{</span>
-    <span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
-    <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span>
-<span class='p'>}</span>
+</code></pre></div><p>Ce qui donnera, une fois compilé :</p><div class="highlight"><pre><code class="css"><span class="nc">.container-5</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.container-4</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">4</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.container-3</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.container-2</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.container-1</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div><p>Cette technique est notamment utilisée par Bootstrap <a href="https://github.com/twitter/bootstrap/blob/master/less/mixins.less#L577-L595">pour générer leurs spans en fonction du nombre de colonnes</a>.</p><h4 id="toc_12">Extensions et classes silencieuses</h4><p>En SASS, il est possible d&#39;étendre les propriétés d&#39;une classe à une autre afin de partager un style commun, la seconde classe héritant de la première.</p><p>Par exemple, ceci :</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.serious-error</span> <span class='p'>{</span>
-    <span class='o'>@</span><span class='n'>extend</span> <span class='o'>.</span><span class='n'>error</span><span class='p'>;</span>
-    <span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Donnera le code suivant :</p><div class='highlight'><pre><code class='css'><span class='nc'>.error</span><span class='o'>,</span> <span class='nc'>.serious-error</span> <span class='p'>{</span>
-    <span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
-    <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.serious-error</span> <span class="p">{</span>
+    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">error</span><span class="p">;</span>
+    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Donnera le code suivant :</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span><span class="o">,</span> <span class="nc">.serious-error</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.serious-error</span> <span class='p'>{</span>
-    <span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>SASS permet également de créer ce que l’on appelle des <em>classes silencieuses</em> : il s’agit de définir des classes qui ne seront pas compilées avant d’être explicitement incluses avec <code>@extend</code>.</p><p>Ainsi, ceci :</p><div class='highlight'><pre><code class='css'><span class='nt'>a</span><span class='o'>%</span><span class='nt'>error</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-    <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.serious-error</span> <span class="p">{</span>
+    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>SASS permet également de créer ce que l&#39;on appelle des <em>classes silencieuses</em> : il s&#39;agit de définir des classes qui ne seront pas compilées avant d&#39;être explicitement incluses avec <code>@extend</code>.</p><p>Ainsi, ceci :</p><div class="highlight"><pre><code class="css"><span class="nt">a</span><span class="o">%</span><span class="nt">error</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.notice</span> <span class='p'>{</span>
-    <span class='o'>@</span><span class='n'>extend</span> <span class='o'>%</span><span class='n'>error</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Produira le code suivant :</p><div class='highlight'><pre><code class='css'><span class='nt'>a</span><span class='nc'>.notice</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-    <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>En LESS, on utilise généralement <strong>les mixins</strong> pour réaliser ce genre d’extension. Selon le même principe que la classe silencieuse, le mixin ne sera pas compilé tant qu’il n’aura pas été inclus quelque part. Le principe est donc sensiblement le même, seule la syntaxe diffère :</p><div class='highlight'><pre><code class='css'><span class='nc'>.error</span><span class='o'>()</span> <span class='p'>{</span>
-    <span class='n'>a</span><span class='o'>&amp;</span> <span class='err'>{</span>
-        <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-        <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
-    <span class='p'>}</span>
-<span class='err'>}</span>
+<span class="nc">.notice</span> <span class="p">{</span>
+    <span class="o">@</span><span class="n">extend</span> <span class="o">%</span><span class="n">error</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Produira le code suivant :</p><div class="highlight"><pre><code class="css"><span class="nt">a</span><span class="nc">.notice</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>En LESS, on utilise généralement <strong>les mixins</strong> pour réaliser ce genre d&#39;extension. Selon le même principe que la classe silencieuse, le mixin ne sera pas compilé tant qu&#39;il n&#39;aura pas été inclus quelque part. Le principe est donc sensiblement le même, seule la syntaxe diffère :</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span><span class="o">()</span> <span class="p">{</span>
+    <span class="n">a</span><span class="o">&amp;</span> <span class="err">{</span>
+        <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+        <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
 
-<span class='nc'>.notice</span> <span class='p'>{</span>
-    <span class='o'>.</span><span class='n'>error</span><span class='p'>();</span>
-<span class='p'>}</span>
-</code></pre></div><p>Cela étant, vous noterez que SASS gère intelligemment l’extension en synthétisant les sélecteurs (<code>.error, serious-error</code> dans l’exemple précédent). En LESS, il faudrait le faire à la main.</p><p class='islet'><strong>Note</strong> - <a href='https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md#140-beta-1--2'>La version 1.4 de LESS</a> (actuellement en béta) introduit <code>:extend()</code> qui permettra de gérer les extensions au niveau des sélecteurs. La syntaxe sera donc plus proche du CSS, rappelant celle des pseudo-sélecteurs, ce qui devrait donner quelque chose du genre :</p><div class='highlight'><pre><code class='css'><span class='nc'>.error</span> <span class='p'>{</span>
-    <span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
-    <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.notice</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">error</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div><p>Cela étant, vous noterez que SASS gère intelligemment l&#39;extension en synthétisant les sélecteurs (<code>.error, serious-error</code> dans l&#39;exemple précédent). En LESS, il faudrait le faire à la main.</p><p class="islet"><strong>Note</strong> - <a href="https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md#140-beta-1--2">La version 1.4 de LESS</a> (actuellement en béta) introduit <code>:extend()</code> qui permettra de gérer les extensions au niveau des sélecteurs. La syntaxe sera donc plus proche du CSS, rappelant celle des pseudo-sélecteurs, ce qui devrait donner quelque chose du genre :</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.serious-error</span><span class='nd'>:extend</span><span class='o'>(</span><span class='nc'>.error</span><span class='o'>)</span> <span class='p'>{</span>
-    <span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><h4 id="variables_">Variables <code>!default</code></h4><p>Avec SASS, il est possible de donner une valeur par défaut aux variables, a posteriori. Cela signifie que la valeur sera affectée si et seulement si la variable n’est pas déjà définie.</p><div class='highlight'><pre><code class='sass'><span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>14</span><span class='kt'>px</span><span class='err'>;</span>
-<span class='na'>$base-font-size</span><span class='o'>:</span>    <span class='mi'>16</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
-<span class='na'>$base-spacing-unit</span><span class='o'>:</span> <span class='mi'>24</span><span class='kt'>px</span> <span class='nv'>!default</span><span class='err'>;</span>
+<span class="nc">.serious-error</span><span class="nd">:extend</span><span class="o">(</span><span class="nc">.error</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="toc_13">Variables <code>!default</code></h4><p>Avec SASS, il est possible de donner une valeur par défaut aux variables, a posteriori. Cela signifie que la valeur sera affectée si et seulement si la variable n&#39;est pas déjà définie.</p><div class="highlight"><pre><code class="sass"><span class="na">$base-font-size</span><span class="o">:</span>    <span class="mi">14</span><span class="kt">px</span><span class="err">;</span>
+<span class="na">$base-font-size</span><span class="o">:</span>    <span class="mi">16</span><span class="kt">px</span> <span class="nv">!default</span><span class="err">;</span>
+<span class="na">$base-spacing-unit</span><span class="o">:</span> <span class="mi">24</span><span class="kt">px</span> <span class="nv">!default</span><span class="err">;</span>
 
-<span class='nc'>.container</span> <span class='err'>{</span>
-    <span class='na'>font-size</span><span class='o'>:</span>        <span class='nv'>$base-font-size</span><span class='err'>;</span>
-    <span class='na'>margin-bottom</span><span class='o'>:</span>    <span class='nv'>$base-spacing-unit</span><span class='err'>;</span>
-<span class='err'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>16px</span><span class='p'>;</span>
-    <span class='k'>margin-bottom</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>L’intérêt de cette technique, c’est de pouvoir définir des variables par défaut au coeur du module développé, tout en permettant à celles-ci d’être <strong>redéfinies de l’extérieur</strong>.</p><p>Un exemple concret ? Le coeur du framework d’inuit.css utilise un ensemble de variables par défaut, permettant au développeur d’utiliser ce dernier comme un sous-module : il le met éventuellement à jour mais ne touche jamais au code qu’il y a dedans.</p><p>Pour modifier une variable, il doit simplement la redéfinir plus haut, dans son propre fichier de configuration :</p><div class='highlight'><pre><code class='text'>.
+<span class="nc">.container</span> <span class="err">{</span>
+    <span class="na">font-size</span><span class="o">:</span>        <span class="nv">$base-font-size</span><span class="err">;</span>
+    <span class="na">margin-bottom</span><span class="o">:</span>    <span class="nv">$base-spacing-unit</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>L&#39;intérêt de cette technique, c&#39;est de pouvoir définir des variables par défaut au coeur du module développé, tout en permettant à celles-ci d&#39;être <strong>redéfinies de l&#39;extérieur</strong>.</p><p>Un exemple concret ? Le coeur du framework d&#39;inuit.css utilise un ensemble de variables par défaut, permettant au développeur d&#39;utiliser ce dernier comme un sous-module : il le met éventuellement à jour mais ne touche jamais au code qu&#39;il y a dedans.</p><p>Pour modifier une variable, il doit simplement la redéfinir plus haut, dans son propre fichier de configuration :</p><div class="highlight"><pre><code class="text">.
 |-- inuit.css/          # Coeur du framework
 |   |-- base/
 |   |-- generic/
@@ -247,31 +247,31 @@ $index: 5;
 |-- ui/
 |-- _vars.scss          # Variables spécifiques
 |-- main.scss           # Fichier setup projet
-</code></pre></div><p>Il lui suffit de surcharger éventuellement des variables dans <code>_vars.scss</code> et d’organiser son <code>main.scss</code> ainsi :</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
-<span class='c'> * Setup</span>
-<span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-</code></pre></div><p>Sans toucher au code de inuit.css, il est donc capable de le configurer entièrement.</p><p><strong>En vérité, vous n’avez pas besoin de cette fonctionnalité en LESS.</strong></p><p>Merci <a href="https://twitter.com/KB1RMA">Chris Snyder</a> de m’avoir fait remarqué ce point !</p><p>Pendant un bon moment je pensais que LESS ne proposait pas d’équivalent aux variables par défaut de SASS, et qu’il fallait trouver d’habiles hacks pour contourner le problème.</p><p>En réalité, les variables fonctionnent différement avec LESS car le pré-processeur fait du <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. Ce qui signifie que les variables peuvent être utilisées <strong>avant</strong> d’être définies.</p><p>Ainsi, vous pouvez parfaitement surcharger les variables plus tard dans votre code. Ce qui est équivalent à avoir des variables par défaut :</p><div class='highlight'><pre><code class='css'><span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>14px</span><span class='p'>;</span>
-<span class='k'>@base-spacing-unit</span><span class='o'>:</span> <span class='nt'>24px</span><span class='p'>;</span>
+</code></pre></div><p>Il lui suffit de surcharger éventuellement des variables dans <code>_vars.scss</code> et d&#39;organiser son <code>main.scss</code> ainsi :</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
+<span class="c"> * Setup</span>
+<span class="c"> */</span>
+<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
+</code></pre></div><p>Sans toucher au code de inuit.css, il est donc capable de le configurer entièrement.</p><p><strong>En vérité, vous n&#39;avez pas besoin de cette fonctionnalité en LESS.</strong></p><p>Merci <a href="https://twitter.com/KB1RMA">Chris Snyder</a> de m&#39;avoir fait remarqué ce point !</p><p>Pendant un bon moment je pensais que LESS ne proposait pas d&#39;équivalent aux variables par défaut de SASS, et qu&#39;il fallait trouver d&#39;habiles hacks pour contourner le problème.</p><p>En réalité, les variables fonctionnent différement avec LESS car le pré-processeur fait du <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. Ce qui signifie que les variables peuvent être utilisées <strong>avant</strong> d&#39;être définies.</p><p>Ainsi, vous pouvez parfaitement surcharger les variables plus tard dans votre code. Ce qui est équivalent à avoir des variables par défaut :</p><div class="highlight"><pre><code class="css"><span class="k">@base-font-size</span><span class="o">:</span>    <span class="nt">14px</span><span class="p">;</span>
+<span class="k">@base-spacing-unit</span><span class="o">:</span> <span class="nt">24px</span><span class="p">;</span>
 
-<span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>font-size</span><span class='o'>:</span>        <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='k'>font-size</span><span class='p'>;</span>
-    <span class='k'>margin-bottom</span><span class='o'>:</span>    <span class='o'>@</span><span class='n'>base</span><span class='o'>-</span><span class='n'>spacing</span><span class='o'>-</span><span class='n'>unit</span><span class='p'>;</span>
-<span class='p'>}</span>
+<span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span>        <span class="o">@</span><span class="n">base</span><span class="o">-</span><span class="k">font-size</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span>    <span class="o">@</span><span class="n">base</span><span class="o">-</span><span class="n">spacing</span><span class="o">-</span><span class="n">unit</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='c'>/* … plus loin dans votre code */</span>
-<span class='k'>@base-font-size</span><span class='o'>:</span>    <span class='nt'>16px</span><span class='p'>;</span>
-</code></pre></div><p>Donnera le même résultat :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>16px</span><span class='p'>;</span>
-    <span class='k'>margin-bottom</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>De cette façon, nous pouvons faire la même chose avec inuit.css et tranquillement utiliser des variables (par défaut) dans le framework tout en laissant la possibilité aux développeurs de les surcharger ensuite.</p><div class='highlight'><pre><code class='css'><span class='c'>/**</span>
-<span class='c'> * Setup</span>
-<span class='c'> */</span>
-<span class='k'>@import</span> <span class='s2'>&quot;inuit.css/inuit&quot;</span><span class='p'>;</span>
-<span class='k'>@import</span> <span class='s2'>&quot;vars&quot;</span><span class='p'>;</span>
-</code></pre></div><h2 id="ce_qui_ne_peut_tre_reproduit_en_less">Ce qui ne peut être reproduit en LESS</h2><p>Voici donc une liste non exhaustive de ce dont SASS est capable sans qu’il n’existe de véritable alternative en LESS (éventuellement des ruses de sioux).</p><h4 id="bloc_de_contenu_dans_un_mixin">Bloc de contenu dans un mixin</h4><p>Avec SASS il est possible de passer tout un bloc de contenu au sein d’un mixin avec la variable <code>@content</code>. Concrètement, ceci :</p><div class='highlight'><pre><code class='text'>@mixin apply-to-ie6-only {
+<span class="c">/* … plus loin dans votre code */</span>
+<span class="k">@base-font-size</span><span class="o">:</span>    <span class="nt">16px</span><span class="p">;</span>
+</code></pre></div><p>Donnera le même résultat :</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>De cette façon, nous pouvons faire la même chose avec inuit.css et tranquillement utiliser des variables (par défaut) dans le framework tout en laissant la possibilité aux développeurs de les surcharger ensuite.</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
+<span class="c"> * Setup</span>
+<span class="c"> */</span>
+<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
+</code></pre></div><h2 id="toc_14">Ce qui ne peut être reproduit en LESS</h2><p>Voici donc une liste non exhaustive de ce dont SASS est capable sans qu&#39;il n&#39;existe de véritable alternative en LESS (éventuellement des ruses de sioux).</p><h4 id="toc_15">Bloc de contenu dans un mixin</h4><p>Avec SASS il est possible de passer tout un bloc de contenu au sein d&#39;un mixin avec la variable <code>@content</code>. Concrètement, ceci :</p><div class="highlight"><pre><code class="text">@mixin apply-to-ie6-only {
     *html {
         @content;
     }
@@ -282,28 +282,28 @@ $index: 5;
         background-image: url(/logo.gif);
     }
 }
-</code></pre></div><p>Se compile ainsi :</p><div class='highlight'><pre><code class='css'><span class='o'>*</span><span class='nt'>html</span> <span class='nf'>#logo</span> <span class='p'>{</span>
-    <span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(/logo.gif)</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>D’autant que je sache, il n’existe pas d’équivalent en LESS (désolé).</p><h4 id="variabiliser_les_proprits">Variabiliser les propriétés</h4><p>En SASS, il est également possible d’utiliser l’interpolation pour variabiliser une propriété. C’est extrêmement utile pour créer des mixins concis et puissants. Ainsi, ceci :</p><div class='highlight'><pre><code class='text'>@mixin border-badass($side) {
+</code></pre></div><p>Se compile ainsi :</p><div class="highlight"><pre><code class="css"><span class="o">*</span><span class="nt">html</span> <span class="nf">#logo</span> <span class="p">{</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(/logo.gif)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>D&#39;autant que je sache, il n&#39;existe pas d&#39;équivalent en LESS (désolé).</p><h4 id="toc_16">Variabiliser les propriétés</h4><p>En SASS, il est également possible d&#39;utiliser l&#39;interpolation pour variabiliser une propriété. C&#39;est extrêmement utile pour créer des mixins concis et puissants. Ainsi, ceci :</p><div class="highlight"><pre><code class="text">@mixin border-badass($side) {
     border-#{$side}: 1px #BADA55 solid;
 }
 
 .container {
     @include border-badass(left);
 }
-</code></pre></div><p>Donnera par exemple :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='k'>border-left</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#BADA55</span> <span class='k'>solid</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p><strong>En LESS en revanche, il s’agira de faire un mixin par propriété</strong>, ce qui complique énormément la tâche pour ce genre de cas de figure. Il faut donc apprendre à s’en passer</p><p></p><p>… bon, en réalité, il existe une bidouille qui permet d’obtenir le même résultat, mais qui n’a rien de très propre. A utiliser en votre âme et conscience donc !</p><p>Le principe se base sur le fait que les navigateurs ignorent les propriétés inconnues en CSS.</p><p>Ainsi, <code>hack: 1;</code> ne sera pas très valide, mais ne sera pas considéré. Sachant cela, et en le combinant avec l’interpolation LESS qui peut se faire sur les valeurs, on peut imaginer le code suivant :</p><div class='highlight'><pre><code class='text'>.border-badass(@side) {
+</code></pre></div><p>Donnera par exemple :</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#BADA55</span> <span class="k">solid</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>En LESS en revanche, il s&#39;agira de faire un mixin par propriété</strong>, ce qui complique énormément la tâche pour ce genre de cas de figure. Il faut donc apprendre à s&#39;en passer...</p><p>...</p><p>... bon, en réalité, il existe une bidouille qui permet d&#39;obtenir le même résultat, mais qui n&#39;a rien de très propre. A utiliser en votre âme et conscience donc !</p><p>Le principe se base sur le fait que les navigateurs ignorent les propriétés inconnues en CSS.</p><p>Ainsi, <code>hack: 1;</code> ne sera pas très valide, mais ne sera pas considéré. Sachant cela, et en le combinant avec l&#39;interpolation LESS qui peut se faire sur les valeurs, on peut imaginer le code suivant :</p><div class="highlight"><pre><code class="text">.border-badass(@side) {
     hack: 1 ~&quot;; border-@{side}: 1px #BADA55 solid&quot;;
 }
 
 .container {
     .border-badass(left);
 }
-</code></pre></div><p>Qui donnera :</p><div class='highlight'><pre><code class='css'><span class='nc'>.container</span> <span class='p'>{</span>
-    <span class='n'>hack</span><span class='o'>:</span> <span class='m'>1</span><span class='p'>;</span>
-    <span class='k'>border-left</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#BADA55</span> <span class='k'>solid</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div><p>Techniquement, ça marche.</p><p>De là à l’utiliser, tout dépend de votre besoin je dirais. On peut imaginer que vous traitiez automatiquement votre CSS compilé lors du build pour supprimer les occurrences à <code>hack:1;</code> par exemple. On peut aussi imaginer que LESS intègrera cette fonctionnalité à l’avenir.</p><p>Sinon, gardez en tête que c’est un peu sale (quand même).</p><h2 id="pour_finir">Pour finir</h2><p>Voici donc les principales similarités et différences qui existent entre SASS et LESS, d’après mon expérience. Convertir un projet SASS en LESS n’a rien de bien sorcier en soit, à condition de connaître et prendre garde aux spécificités de chaque langage.</p><p>D’un point de vue objectif, SASS est plus puissant que LESS et dispose de véritables notions de programmation qui peuvent en séduire plus d’un. Cependant, sa syntaxe et son esprit s’éloignent d’autant, LESS étant plus “naturel” et proche du langage CSS selon moi.</p><p>C’est donc plutôt <strong>une question de préférence et de confort</strong> que vous aurez à faire dans la plupart des cas. Le principal, c’est d’avoir fait le pas et d’utiliser un pré-processeur pour simplifier le développement et faciliter la maintenance de votre CSS : vous vous direz merci tôt ou tard !</p><p>Pour ceux qui veulent jouer et tester tout ceci en ligne, voici :</p><ul><li><a href="http://sass-lang.com/try.html">Sass-try</a>, pour le SASS</li><li><a href="http://less2css.org/">Less2css</a>, pour le LESS</li></ul><p>Si vous voyez des ajouts, des erreurs ou avez des remarques à émettre sur ce post, n’hésitez pas.</p><p>Plop !</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current"><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis étudiant d'une école de commerce orientée IT, développeur web en freelance à mes heures.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://delicious.com/nicoespeon'>tague</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2013/06/convertir-projet-sass-en-less';var title = "Convertir un projet SASS en LESS";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+</code></pre></div><p>Qui donnera :</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
+    <span class="n">hack</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#BADA55</span> <span class="k">solid</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Techniquement, ça marche.</p><p>De là à l&#39;utiliser, tout dépend de votre besoin je dirais. On peut imaginer que vous traitiez automatiquement votre CSS compilé lors du build pour supprimer les occurrences à <code>hack:1;</code> par exemple. On peut aussi imaginer que LESS intègrera cette fonctionnalité à l&#39;avenir.</p><p>Sinon, gardez en tête que c&#39;est un peu sale (quand même).</p><h2 id="toc_17">Pour finir</h2><p>Voici donc les principales similarités et différences qui existent entre SASS et LESS, d&#39;après mon expérience. Convertir un projet SASS en LESS n&#39;a rien de bien sorcier en soit, à condition de connaître et prendre garde aux spécificités de chaque langage.</p><p>D&#39;un point de vue objectif, SASS est plus puissant que LESS et dispose de véritables notions de programmation qui peuvent en séduire plus d&#39;un. Cependant, sa syntaxe et son esprit s&#39;éloignent d&#39;autant, LESS étant plus &quot;naturel&quot; et proche du langage CSS selon moi.</p><p>C&#39;est donc plutôt <strong>une question de préférence et de confort</strong> que vous aurez à faire dans la plupart des cas. Le principal, c&#39;est d&#39;avoir fait le pas et d&#39;utiliser un pré-processeur pour simplifier le développement et faciliter la maintenance de votre CSS : vous vous direz merci tôt ou tard !</p><p>Pour ceux qui veulent jouer et tester tout ceci en ligne, voici :</p><ul><li><a href="http://sass-lang.com/try.html">Sass-try</a>, pour le SASS</li><li><a href="http://less2css.org/">Less2css</a>, pour le LESS</li></ul><p>Si vous voyez des ajouts, des erreurs ou avez des remarques à émettre sur ce post, n&#39;hésitez pas.</p><p>Plop !</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current"><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis étudiant d'une école de commerce orientée IT, développeur web en freelance à mes heures.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://delicious.com/nicoespeon'>tague</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2013/06/convertir-projet-sass-en-less';var title = "Convertir un projet SASS en LESS";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
