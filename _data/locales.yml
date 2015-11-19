@@ -14,6 +14,7 @@ en:
       class:        "worth-reading"
     lang_message:   "English version"
     about_message:  "<p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Unit Production Manager at <a href='http://www.metidia.com'>Metidia</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p>"
+    friends_title:  "Friends"
     footer_message: "The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>."
     rss_message:    "Stay tuned"
 
@@ -33,5 +34,6 @@ fr:
       class:        "worth-reading"
     lang_message:   "Version française"
     about_message:  "<p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Directeur de Production chez <a href='http://www.metidia.com'>Metidia</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p>"
+    friends_title:  "Copains"
     footer_message: "Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>."
     rss_message:    "Restez connectés"
