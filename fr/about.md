@@ -1,23 +1,32 @@
 ---
 layout: default
 title: About
-description: Pensées d'un développeur web et chef de projet à ses heures. Qui suis-je et comment se contacter.
+description: Pensées d'un développeur web et coach Agile à ses heures. Qui suis-je et comment me contacter.
 ---
 
 # Qui suis-je ?
 
-Je m'appelle **Nicolas Carlo**. Je suis diplômé de [Télécom École de Management](http://telecom-em.eu), une école de commerce orientée IT sur Paris.
-Certains me connaissent sous le nom **espeon**, notamment sur le web où j'utilise ce pseudo.
+Je m'appelle **Nicolas Carlo**. Je suis diplômé de [Télécom École de Management](http://telecom-em.eu), développeur freelance & coach Agile à mes heures.
 
-Je suis également un développeur web et chef de projet à mes heures.
+Je suis associé et Directeur de Production au sein de [Metidia](http://www.metidia.com). 
 
-J'ai rejoint la start-up [Metidia](http://www.metidia.com) en tant qu'associé où je m'occupe de la partie technique avec [Fabien Bernard](http://twitter.com/fabien0102).
+Fonder une start-up requiert d'être multi-casquettes mais je m'occupe essentiellement de :
+ 
+- gestion de projet en mode Agile (Lean, Kanban) d'une équipe de 4-6 personnes
+- développement de jeux HTML5 (Canvas, Backbone.js, Node.js, MongoDB)
+- coaching [Software Craftmanship](https://fr.wikipedia.org/wiki/Software_craftsmanship) et développement d'un environnement de production Agile adapté (Management visuel, GitHub flow, CI…)
 
-Je fais du développement back-end en Node.js, PHP/MySQL et un peu de Ruby on Rails. J'ai joué avec des frameworks tels que *Zend Framework 2* ou *CodeIgniter*. Je suis également **certifié MongoDB** pour avoir passé avec succès l'examen *M101JS: MongoDB for Node.js Developers*.
+Côté back-end, je pratique essentiellement du Node.js. Je suis certifié *MongoDB* pour avoir passé avec succès l'examen *M101JS: MongoDB for Node.js Developers*.
 
-Mais **j'affectionne particulièrement le développement front-end**, me tenant toujours informé des dernières nouveautés sur le HTML, le CSS et le JavaScript. J'aime élaborer des applications en *Backbone.js* et développer mes connaissances sur les performances front-end ou la maintenabilité du CSS (OOCSS, SMACSS, BEM, ... ce genre de chose).
+J'affectionne particulièrement le **développement front-end**. Je suis passionné par ce domaine, tout en me spécialisant dans les branches suivantes :
+ 
+- développement de [SPA](https://fr.wikipedia.org/wiki/Application_web_monopage), notamment en *Backbone.js*
+- scalabilité du CSS (OOCSS, SMACSS, BEM…)
+- pratiques Software Craftmanship
 
-Enfin, je co-organise le meetup [Backbone.js Paris](http://www.meetup.com/backbone-paris/) et j'y donne parfois des talks. N'hésitez pas à me contacter pour proposer des talks ou sponsoriser une rencontre !
+J'aime aider à mettre en place des **environnements Agiles productifs, adaptés à l'équipe**. Je coach celle-ci pour trouver ensemble des solutions organisationnelles (management visuel, Kanban, Kaizen, méthodologie Lean) et techniques (environnement de CI, software craftmanship) pour s'épanouir, produire vite et bien.
+
+Enfin, je co-organise le meetup [Backbone.js Paris](http://www.meetup.com/backbone-paris/) ainsi que le [Best of Web Paris](http://bestofweb.paris/). J'y donne parfois des talks. N'hésitez pas à me contacter pour proposer des talks ou sponsoriser une rencontre !
 
 
 # Comment me contacter ?
