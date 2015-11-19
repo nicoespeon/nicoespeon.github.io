@@ -15,6 +15,6 @@ safe: false
 url: http://nicoespeon.com
 
 name: "@nicoespeon's blog"
-description: "Freelance web-developer and project manager thoughts. LEAN management, OOCSS, Backbone.js, Marionette.js, EaselJS, front-end performance and a bit of PHP back-end frameworks."
+description: "Freelance web-developer and Agile coach thoughts. Lean, Kanban, scalable CSS, HTML5 games, Backbone.js, Software Craftmanship."
 default_locale:     "en"
 authorized_locales: ["en", "fr"]
