@@ -12,7 +12,7 @@ paginate_per_category: true
 default_category: "en"
 
 safe: false
-url: http://nicoespeon.com
+url: http://www.nicoespeon.com
 
 name: "@nicoespeon's blog"
 description: "Freelance web-developer and Agile coach thoughts. Lean, Kanban, scalable CSS, HTML5 games, Backbone.js, Software Craftmanship."
