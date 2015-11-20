@@ -114,6 +114,15 @@
         $( this ).find( "p" ).stop().toggle( "slow" );
       } );
     }
+
+    /**
+     * Append anchor to page subtitles with IDs (used for blog posts).
+     */
+    $( "h2[id], h3[id]" ).each( function () {
+      var $title = $( this );
+      var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );
+      $title.append( $anchor );
+    } );
   } );
 </script>
 

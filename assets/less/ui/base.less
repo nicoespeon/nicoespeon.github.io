@@ -24,11 +24,19 @@ h1 {
 }
 
 h1, h2, h3 {
+    position: relative;
+    clear: both;
     font-family: @brand-face;
 
     > span {
         color: @base-ui-color;
         font-weight: normal;
+    }
+}
+
+@media only screen and (max-width:~"@{lap-end}px") {
+    h2[id], h3[id] {
+        left: 1em;
     }
 }
 
