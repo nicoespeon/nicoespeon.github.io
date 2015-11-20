@@ -254,17 +254,21 @@ label,.label{display:block;}
 .accessibility,.visuallyhidden{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}
 @media only screen and (max-width:480px){.accessibility--palm,.visuallyhidden--palm{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}@media only screen and (min-width:481px) and (max-width:1023px){.accessibility--lap,.visuallyhidden--lap{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}@media only screen and (min-width:481){.accessibility--lap-and-up,.visuallyhidden--lap-and-up{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}@media only screen and (max-width:1023px){.accessibility--portable,.visuallyhidden--portable{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}@media only screen and (min-width:1024px){.accessibility--desk,.visuallyhidden--desk{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}@media only screen and (min-width:1200px){.accessibility--desk-wide,.visuallyhidden--desk-wide{border:0!important;clip:rect(0 0 0 0) !important;height:1px!important;margin:-1px !important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;}}body{background-color:#000;background-image:url('/assets/img/background.png');color:#FFF;}
 h1{color:#ff4444;}
-h1,h2,h3{font-family:Snippet,sans-serif;}h1>span,h2>span,h3>span{color:#333333;font-weight:normal;}
-a{color:#ff4444;text-decoration:none;}a:hover{color:#aa0000;}footer a:hover{color:#ff7777;}
+h1,h2,h3{position:relative;clear:both;font-family:Snippet,sans-serif;}h1>span,h2>span,h3>span{color:#333333;font-weight:normal;}
+@media only screen and (max-width:1023px){h2[id],h3[id]{left:1em;}}a{color:#ff4444;text-decoration:none;}a:hover{color:#aa0000;}footer a:hover{color:#ff7777;}
 .current a{text-decoration:none;}.current a:hover{color:#ff4444;}
 .current a:before{content:"< ";}
 .current a:after{content:" >";}
 em{font-style:normal;font-family:Snippet,sans-serif;}
 code{color:#445588;font-weight:bold;}
+canvas{max-width:100%;}
 #site{padding-top:20px;padding-bottom:20px;background-color:#FFF;-webkit-box-shadow:inset 0 -1px 5px #999999;-moz-box-shadow:inset 0 -1px 5px #999999;box-shadow:inset 0 -1px 5px #999999;color:#333333;}
 .container{margin-right:auto;margin-left:auto;padding:0 20px;max-width:1050px;}
 header>img,header>nav{line-height:80px;}
 @media only screen and (max-width:1023px){header>nav{line-height:40px;}}@media only screen and (max-width:1023px){.section{border-bottom:1px dashed #cccccc;padding-bottom:24px;}}footer{font-size:12px;font-size:0.75rem;font-weight:100;}footer p{margin:12px 0;}
+.anchor{position:absolute;left:-1.3em;text-decoration:none;color:#AAA;font-size:0.8em;line-height:2em;transition:0.15s;}.anchor::before{content:'';transition:inherit;position:absolute;top:100%;left:0;right:0;height:1px;background:currentcolor;-webkit-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}
+h2:hover .anchor,h3:hover .anchor,.anchor:focus,.anchor:active,.anchor:hover{color:#ff4444;}
+.anchor:focus,.anchor:active,.anchor:hover{outline:0;}.anchor:focus::before,.anchor:active::before,.anchor:hover::before{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);transform:scaleX(1);}
 .block-list>li{border-color:#DDD;border-style:dashed;}
 .block-list,.block-list>li:last-child{border:none;}
 .text--justify{text-align:justify;}
