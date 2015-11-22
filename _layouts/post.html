@@ -15,7 +15,9 @@ layout: default
     </h1>
 
     <div class="media">
-        <a href="https://twitter.com/share" class="twitter-share-button media__img--rev" data-text="{{ page.title }} |" data-via="nicoespeon">Tweeter</a>
+        <div class="media__img">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }} |" data-via="nicoespeon">Tweeter</a>
+        </div>
 
         <div class="media__body brand-face zeta">
             {% if locale == site.default_locale %}
