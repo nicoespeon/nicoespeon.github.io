@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="How to unit test your Marionette.js Behaviors with ease."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/en/2015/11/testing-marionette-behaviors/" /><meta property="og:type" content="article" /><meta property="og:title" content="Testing Marionette.js Behaviors | @nicoespeon" /><meta property="og:description" content="How to unit test your Marionette.js Behaviors with ease." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Testing Marionette.js Behaviors | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/index.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/projects.html">Projects</a></li><li><a href="/worth-reading.html">Worth Reading</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Testing Marionette.js Behaviors</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Testing Marionette.js Behaviors |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(23 November, 2015)</div></div><p class="islet">How to unit test your Marionette.js Behaviors with ease.</p><h2 id="context">Context</h2><p>This is a talk I gave on November 10th, 2015 at <a href="http://www.meetup.com/fr/backbone-paris/events/226050848/">meetup Backbone.js Paris S02E01</a>.</p><h2 id="video-fr">Video (FR)</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/0VHW_7PyjBw?rel=0&amp;t=28m20s" frameborder="0" allowfullscreen=""></iframe><h2 id="slides">Slides</h2><iframe src="https://slides.com/nicoespeon/testing-marionette-behaviors/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe><h2 id="concretly">Concretly</h2><h3 id="problems">Problems</h3><p>When you want to test your Behavior, the first problem that generally comes up is:</p><blockquote><p>Damn, how to I instantiate my Behavior so I can test its API?</p></blockquote><p>In fact, <em>the Behavior API</em> are not that much public methods you declared inside. These never are directly called:</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">Alert</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Behavior</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Alert!&quot;</span><span class="p">,</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Not really urgent&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;click&quot;</span><span class="o">:</span> <span class="s2">&quot;emitAlert&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">emitAlert</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">message</span> <span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should emit an alert&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="c1">// =&gt; This won&#39;t work</span>
+  <span class="nx">expect</span><span class="p">(</span> <span class="nx">Behavior</span><span class="p">.</span><span class="nx">emitAlert</span><span class="p">()</span> <span class="p">).</span><span class="nx">toEmitAnAlert</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>A Behavior <a href="http://slides.com/stephanebachelier/marionettebehaviors#/10">reacts to events</a> — DOM interactions, trigger from the view, etc.</p><p>If you want to test a Behavior you then have to <strong>trigger these events</strong> then <strong>observe the Behavior’s impacts on the system</strong> to check if it reacted appropriately. Behaviors work with side effects, this is what you need to test.</p><p>A Behavior is declared and instantiated within the context of a view:</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">ShareView</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">ItemView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;#card&quot;</span><span class="p">,</span>
+  
+  <span class="nx">behaviors</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">AlertOnShare</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">behaviorClass</span><span class="o">:</span> <span class="nx">AlertBehavior</span><span class="p">,</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Shared&quot;</span><span class="p">,</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Your message has been shared!&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>To test a Behavior, you then need to <strong>instantiate a view</strong> in which the Behavior is declared.</p><blockquote><p>OK! Then I’ll mock a view with my Behavior declared so I can test it.</p></blockquote><div class="highlight"><pre><code class="javascript"><span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;Alert Behavior&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">view</span><span class="p">;</span>
+  
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  
+    <span class="nx">view</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">ItemView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+      <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="p">),</span>
+      
+      <span class="nx">behaviors</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">Alert</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">behaviorClass</span><span class="o">:</span> <span class="nx">AlertBehavior</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;My message.&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="p">);</span>
+  
+  <span class="p">}</span> <span class="p">);</span>
+  
+  <span class="c1">// …</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>This is an option.</p><p>However, you won’t have the Behavior actually behave within the <strong>context</strong> of your application’s views. This is not necessarily wrong since we’re talking about unit tests here. But that requires a lot of ceremony to mock whatever should be:</p><ul><li>mock a view with default parameters</li><li>mock a view with configured parameters</li><li>mock whatever should be tested — template, events, triggers…</li></ul><p>Another solution would be to <strong>test the instantiated Behavior within each view of our applicaation</strong>, directly in these views tests actually.</p><blockquote><p>OK! So I’ll test the Behavior within each of my views… But well… what about duplication?!</p></blockquote><p>Yep, if you go testing how your Behaviors behave for every view’s context, you will duplicate tests. That would be a pitty for something which is supposed to isolate views behaviors so you don’t duplicate code.</p><h3 id="what-can-we-do-then">What can we do then?</h3><p><i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors" target="_blank">GitHub repo to illustrate the proposed solution</a></p><p>The idea is to refactor Behavior’s tests into a function that will take <code>context</code> as a param.</p><div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">addOnClickTests</span> <span class="p">(</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">view</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ModelClass</span><span class="p">();</span>
+    <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ViewClass</span><span class="p">(</span> <span class="p">{</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">model</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should increase the model size by 1 when we click on the view&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+
+    <span class="nx">view</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span> <span class="s2">&quot;click&quot;</span> <span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="s2">&quot;size&quot;</span> <span class="p">)</span> <span class="p">).</span><span class="nx">toBe</span><span class="p">(</span> <span class="mi">2</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div><p>This <em>factory</em> embeds tests of your Behavior and run them within a specific context.</p><p>This allows you to instantiate tests with the context of your view, providing correct parameters:</p><div class="highlight"><pre><code class="javascript"><span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;Like View&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="kr">const</span> <span class="nx">View</span> <span class="o">=</span> <span class="nx">LikeView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span> <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;AddOnClick Behavior&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">addOnClickTests</span><span class="p">(</span> <span class="p">{</span> <span class="nx">ViewClass</span><span class="o">:</span> <span class="nx">View</span><span class="p">,</span> <span class="nx">ModelClass</span><span class="o">:</span> <span class="nx">LikeModel</span> <span class="p">}</span> <span class="p">);</span>
+
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><blockquote><p>Sure, but what you’re doing here is testing default parameters of the Behavior: « increase the model size by 1 ». How to test specific parameters? Should we pass them through the context? If so, that’s just duplication again. We’d better completely mock the view at the end.</p></blockquote><p>That’s exactly why Marionette is publicly exposing the array of instantiated Behaviors of a view in its <code>_behaviors</code> attribute <a href="https://github.com/marionettejs/backbone.marionette/blob/2f3fcebc26aa6f0b1310ed077278c17f3b22aac0/src/marionette.view.js#L17">since v2.2.0</a>.</p><p>The trick is to be able to retrieve your Behavior instance in the view context so you can adapt tests regarding parameters that it actually uses.</p><p>I specify an <code>id</code> to my Behaviors for that, so I can retrieve them easily:</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">OnClick</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Behavior</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;addOnClick&quot;</span><span class="p">,</span>
+
+  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">propertyToIncrease</span><span class="o">:</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+    <span class="nx">increaseStep</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+
+  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;click&quot;</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">add</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// increase `propertyToIncrease` by `increaseStep`</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">addOnClickTests</span> <span class="p">(</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">view</span><span class="p">,</span> <span class="nx">behavior</span><span class="p">,</span> <span class="nx">options</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ModelClass</span><span class="p">();</span>
+    <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ViewClass</span><span class="p">(</span> <span class="p">{</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">model</span> <span class="p">}</span> <span class="p">);</span>
+
+    <span class="c1">// Retrieve instantiated behavior and its actual options under this context.</span>
+    <span class="nx">behavior</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">findWhere</span><span class="p">(</span> <span class="nx">view</span><span class="p">.</span><span class="nx">_behaviors</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;addOnClick&quot;</span> <span class="p">}</span> <span class="p">);</span>
+    <span class="nx">options</span> <span class="o">=</span> <span class="nx">behavior</span><span class="p">.</span><span class="nx">options</span><span class="p">;</span>
+
+    <span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should be instantiated&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">behavior</span> <span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeUndefined</span><span class="p">(</span>  <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should increase the model value when we click on the view&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">expectedValue</span> <span class="o">=</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span> <span class="p">)</span> <span class="o">+</span> <span class="nx">options</span><span class="p">.</span><span class="nx">increaseStep</span><span class="p">;</span>
+
+    <span class="nx">view</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span> <span class="s2">&quot;click&quot;</span> <span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span> <span class="p">)</span> <span class="p">).</span><span class="nx">toBe</span><span class="p">(</span> <span class="nx">expectedValue</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div><h3 id="to-sum-it-up">To sum it up</h3><ul><li>test the API of your Behavior = its impact on the system, reacting to some events</li><li>describe your Behavior tests in a factory that takes a context as a parameter</li><li>embed your tests in each of your views tests, using the according context</li><li>use <code>this.view._behaviors</code> to retrieve your Behavior — you can use an <code>id</code> for that — and its actual paremeters within the context of the view</li></ul><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li class="current" ><a href="/">English version</a></li><li ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Unit Production Manager at <a href='http://www.metidia.com'>Metidia</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Stay tuned</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Friends</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/en/2015/11/testing-marionette-behaviors/';var title = "Testing Marionette.js Behaviors";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>

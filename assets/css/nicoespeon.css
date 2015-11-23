@@ -260,8 +260,10 @@ h1,h2,h3{position:relative;clear:both;font-family:Snippet,sans-serif;}h1>span,h2
 .current a:before{content:"< ";}
 .current a:after{content:" >";}
 em{font-style:normal;font-family:Snippet,sans-serif;}
-code{color:#445588;font-weight:bold;}
+code{color:#458;font-weight:bold;}
 canvas{max-width:100%;}
+blockquote{font-style:italic;border-left:2px solid #48b2b2;padding-left:20px;overflow:hidden;}
+iframe{margin-bottom:1.5em;}
 #site{padding-top:20px;padding-bottom:20px;background-color:#FFF;-webkit-box-shadow:inset 0 -1px 5px #999999;-moz-box-shadow:inset 0 -1px 5px #999999;box-shadow:inset 0 -1px 5px #999999;color:#333333;}
 .container{margin-right:auto;margin-left:auto;padding:0 20px;max-width:1050px;}
 header>img,header>nav{line-height:80px;}

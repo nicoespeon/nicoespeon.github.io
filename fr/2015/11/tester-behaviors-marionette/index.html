@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Comment tester unitairement, et simplement, ses Behaviors Marionette.js."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/fr/2015/11/tester-behaviors-marionette/" /><meta property="og:type" content="article" /><meta property="og:title" content="Tester ses Behaviors Marionette.js | @nicoespeon" /><meta property="og:description" content="Comment tester unitairement, et simplement, ses Behaviors Marionette.js." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Tester ses Behaviors Marionette.js | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/fr/index.html">Accueil</a></li><li><a href="/fr/about.html">À propos</a></li><li><a href="/fr/projects.html">Projets</a></li><li><a href="/fr/worth-reading.html">A Lire</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Tester ses Behaviors Marionette.js</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Tester ses Behaviors Marionette.js |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(23 Novembre, 2015)</div></div><p class="islet">Comment tester unitairement, et simplement, ses Behaviors Marionette.js.</p><h2 id="contexte">Contexte</h2><p>Ceci est un talk que j’ai présenté le 10 novembre 2015 au <a href="http://www.meetup.com/fr/backbone-paris/events/226050848/">meetup Backbone.js Paris S02E01</a>.</p><h2 id="vido">Vidéo</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/0VHW_7PyjBw?rel=0&amp;t=28m20s" frameborder="0" allowfullscreen=""></iframe><h2 id="slides">Slides</h2><iframe src="https://slides.com/nicoespeon/tester-behaviors-marionette/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe><h2 id="concrtement">Concrètement</h2><h3 id="les-problmatiques">Les problématiques</h3><p>Lorsqu’on se dit qu’on va tester notre Behavior, la première problématique que l’on rencontre est généralement la suivante :</p><blockquote><p>Mince, comment je fais pour instancier ma Behavior pour pouvoir tester son API ?</p></blockquote><p>En fait, <em>l’API d’une Behavior</em> ce ne sont pas particulièrement les méthodes publiques qu’on y déclare. Celles-ci ne seront jamais appellées directement :</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">Alert</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Behavior</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Alert!&quot;</span><span class="p">,</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Not really urgent&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;click&quot;</span><span class="o">:</span> <span class="s2">&quot;emitAlert&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">emitAlert</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">message</span> <span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should emit an alert&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="c1">// =&gt; This won&#39;t work</span>
+  <span class="nx">expect</span><span class="p">(</span> <span class="nx">Behavior</span><span class="p">.</span><span class="nx">emitAlert</span><span class="p">()</span> <span class="p">).</span><span class="nx">toEmitAnAlert</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>Une Behavior <a href="http://slides.com/stephanebachelier/marionettebehaviors#/10">réagit à des événements</a> (interactions DOM, trigger de la vue, etc.).</p><p>Pour tester une Behavior, il faut donc <strong>déclencher ces événements</strong> puis <strong>observer l’impact de la Behavior sur le système</strong> pour voir si celle-ci a réagit correctement. Les Behaviors fonctionnant par effets de bord, c’est bel et bien ce qu’il faut tester.</p><p>Une Behavior est déclarée et instanciée dans le contexte d’une vue :</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">ShareView</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">ItemView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;#card&quot;</span><span class="p">,</span>
+  
+  <span class="nx">behaviors</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">AlertOnShare</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">behaviorClass</span><span class="o">:</span> <span class="nx">AlertBehavior</span><span class="p">,</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Shared&quot;</span><span class="p">,</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Your message has been shared!&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>Pour tester une Behavior, il faut donc commencer par <strong>instancier une vue</strong> dans laquelle celle-ci est déclarée.</p><blockquote><p>OK ! Donc je vais mock une vue en y déclarant ma Behavior pour pouvoir la tester.</p></blockquote><div class="highlight"><pre><code class="javascript"><span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;Alert Behavior&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">view</span><span class="p">;</span>
+  
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  
+    <span class="nx">view</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">ItemView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+      <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="p">),</span>
+      
+      <span class="nx">behaviors</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">Alert</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">behaviorClass</span><span class="o">:</span> <span class="nx">AlertBehavior</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;My message.&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="p">);</span>
+  
+  <span class="p">}</span> <span class="p">);</span>
+  
+  <span class="c1">// …</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>C’est une possibilité.</p><p>Cependant, je n’ai pas vraiment le comportement de la Behavior dans le <strong>contexte</strong> des vues de mon application. Ce n’est pas nécessairement grave puisque nous parlons de tests unitaires. Simplement, cela demande beaucoup de cérémonie pour mock tout ce qu’il faut :</p><ul><li>mock une vue avec les paramètres par défaut</li><li>mock une vue avec des paramètres configurés</li><li>mock tout ce qui doit être testé (template, events, triggers…)</li></ul><p>Une autre solution consiste à <strong>tester la Behavior instanciée dans chacunes des vues de notre application</strong>, directement dans les tests de celles-ci en fait.</p><blockquote><p>OK ! Je vais tester la Behavior dans chacune de mes vues… Mais, mais… Et la duplication ?!</p></blockquote><p>Effectivement, si on commence par tester le comportement de nos Behaviors dans le contexte de chacune de nos vues, on se retrouve à dupliquer les tests. Sachant que le principe de la Behavior c’est d’isoler un ensemble de comportements de vue pour ne pas avoir à le dupliquer, c’est un peu dommage de perdre ça côté tests.</p><h3 id="comment-on-sen-sort-">Comment on s’en sort ?</h3><p><i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors" target="_blank">Dépôt GitHub pour illustrer la solution proposée</a></p><p>L’idée consiste à refactor les tests d’une Behavior dans une fonction qui prend un <code>context</code> en paramètre.</p><div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">addOnClickTests</span> <span class="p">(</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">view</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ModelClass</span><span class="p">();</span>
+    <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ViewClass</span><span class="p">(</span> <span class="p">{</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">model</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should increase the model size by 1 when we click on the view&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+
+    <span class="nx">view</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span> <span class="s2">&quot;click&quot;</span> <span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="s2">&quot;size&quot;</span> <span class="p">)</span> <span class="p">).</span><span class="nx">toBe</span><span class="p">(</span> <span class="mi">2</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div><p>Cette <em>factory</em> embarque les tests de la Behavior et les déroule dans un contexte particulier.</p><p>Ceci nous permet de l’instancier dans le contexte de notre vue, avec les paramètres qui vont bien :</p><div class="highlight"><pre><code class="javascript"><span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;Like View&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="kr">const</span> <span class="nx">View</span> <span class="o">=</span> <span class="nx">LikeView</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span> <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">describe</span><span class="p">(</span> <span class="s2">&quot;AddOnClick Behavior&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">addOnClickTests</span><span class="p">(</span> <span class="p">{</span> <span class="nx">ViewClass</span><span class="o">:</span> <span class="nx">View</span><span class="p">,</span> <span class="nx">ModelClass</span><span class="o">:</span> <span class="nx">LikeModel</span> <span class="p">}</span> <span class="p">);</span>
+
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><blockquote><p>Oui, mais ici tu testes les paramètres par défaut de la Behavior : « increase the model size by 1 ». Comment tester des paramètres en particulier ? On les passe dans le contexte ? Du coup, on fait à nouveau de la duplication, autant mock la vue complètement.</p></blockquote><p>C’est effectivement la raison pour laquelle Marionette expose publiquement un tableau des Behaviors instanciées d’une vue dans son attribut <code>_behaviors</code> <a href="https://github.com/marionettejs/backbone.marionette/blob/2f3fcebc26aa6f0b1310ed077278c17f3b22aac0/src/marionette.view.js#L17">depuis la v2.2.0</a>.</p><p>L’astuce consiste donc à retrouver l’instance de la Behavior dans le contexte de la vue afin de pouvoir variabiliser les tests en fonction des paramètres avec lesquels la Behavior a été instanciée.</p><p>Pour cela, je déclare un <code>id</code> à mes Behaviors afin de pouvoir les retrouver facilement :</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">OnClick</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Behavior</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;addOnClick&quot;</span><span class="p">,</span>
+
+  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">propertyToIncrease</span><span class="o">:</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+    <span class="nx">increaseStep</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+
+  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;click&quot;</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span>
+  <span class="p">},</span>
+
+  <span class="nx">add</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// increase `propertyToIncrease` by `increaseStep`</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">addOnClickTests</span> <span class="p">(</span> <span class="nx">context</span> <span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">view</span><span class="p">,</span> <span class="nx">behavior</span><span class="p">,</span> <span class="nx">options</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ModelClass</span><span class="p">();</span>
+    <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">context</span><span class="p">.</span><span class="nx">ViewClass</span><span class="p">(</span> <span class="p">{</span> <span class="nx">model</span><span class="o">:</span> <span class="nx">model</span> <span class="p">}</span> <span class="p">);</span>
+
+    <span class="c1">// Retrieve instantiated behavior and its actual options under this context.</span>
+    <span class="nx">behavior</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">findWhere</span><span class="p">(</span> <span class="nx">view</span><span class="p">.</span><span class="nx">_behaviors</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;addOnClick&quot;</span> <span class="p">}</span> <span class="p">);</span>
+    <span class="nx">options</span> <span class="o">=</span> <span class="nx">behavior</span><span class="p">.</span><span class="nx">options</span><span class="p">;</span>
+
+    <span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should be instantiated&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">behavior</span> <span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeUndefined</span><span class="p">(</span>  <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+  <span class="nx">it</span><span class="p">(</span> <span class="s2">&quot;should increase the model value when we click on the view&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">expectedValue</span> <span class="o">=</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span> <span class="p">)</span> <span class="o">+</span> <span class="nx">options</span><span class="p">.</span><span class="nx">increaseStep</span><span class="p">;</span>
+
+    <span class="nx">view</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span> <span class="s2">&quot;click&quot;</span> <span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">propertyToIncrease</span> <span class="p">)</span> <span class="p">).</span><span class="nx">toBe</span><span class="p">(</span> <span class="nx">expectedValue</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div><h3 id="pour-rsumer">Pour résumer</h3><ul><li>on teste l’API de la Behavior = son impact sur le système en réaction à des événements</li><li>on décrit nos tests de Behavior dans une factory qui prend un contexte en paramètre</li><li>on embarque nos tests dans chacune de nos vues en y passant le bon contexte</li><li>on utilise <code>this.view._behaviors</code> pour retrouver la Behavior (avec un <code>id</code> par exemple) et ses paramètres d’instanciation dans le contexte de la vue</li></ul><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Directeur de Production chez <a href='http://www.metidia.com'>Metidia</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2015/11/tester-behaviors-marionette/';var title = "Tester ses Behaviors Marionette.js";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
