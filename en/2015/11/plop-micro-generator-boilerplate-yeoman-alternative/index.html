@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Meet plop, a little node package which quickly bootstraps new files."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/" /><meta property="og:type" content="article" /><meta property="og:title" content="Plop — a micro-generator to ease your daily life | @nicoespeon" /><meta property="og:description" content="Meet plop, a little node package which quickly bootstraps new files." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Plop — a micro-generator to ease your daily life | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/index.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/projects.html">Projects</a></li><li><a href="/worth-reading.html">Worth Reading</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Plop — a micro-generator to ease your daily life</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Plop — a micro-generator to ease your daily life |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(26 November, 2015)</div></div><p class="islet">Meet plop, a little node package which quickly bootstraps new files.</p><h2 id="whats-plop">What’s plop?</h2><p><a href="https://github.com/amwmedia/plop">Plop</a> is a little node package that will ease your life whenever you need to create a new controller / router / helper / …</p><blockquote><p>Hey, that’s damn easy to create a new controller: copy-paste another controller code, delete specific lines you won’t use. Tadaaa!</p></blockquote><p>Well, now pop a bunch of legitimate questions:</p><ul><li>Which “other” controller do you speak about? The more recent? The “best” coded? Is there any reference controller around there?</li><li>How can I get the previous point if I’m not — yet — an expert of the project codebase?</li><li>How can I ensure I’m correct when I name the new file? When I delete lines I consider “useless”?</li><li>Do I need to declare this new controller in some existing file? Which one? How?</li></ul><p>Find a good file, open it, copy its content, create a new file, paste the content, delete useless lines… It’s repetitive, error prone and doesn’t have a lot of added value. And that could take some time. Most of all, that’s frequent!</p><p>It would just be awesome to write <code>plop</code> in your terminal, answer 2 questions and BIM, you’re all set!</p><div class="illustration"><img alt="Plop behavior" title="Plop behavior" src="/assets/img/plop/plop-behavior.gif" />Quick, neat. Still tempted whith the copy-paste option?</div><p>That’s exactly what I’m talking about here.</p><h2 id="setup">Setup</h2><h3 id="installation">Installation</h3><p>As a node package, <code>npm install -g plop</code> and you’re ready to play with plop.</p><p>You also can install it locally to the project, adding it to dependencies: <code>npm install --save-dev plop</code>.</p><p>Then add it to your <code>package.json</code> scripts so you can run it with <code>npm run plop</code>:</p><div class="highlight"><pre><code class="json"><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-awesome-project&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is an awesome project, isn&#39;t it?&quot;</span><span class="p">,</span>
+  
+  <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.1&quot;</span>
+  <span class="p">},</span>
+  
+  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;plop&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Voilà!</p><h3 id="configuration">Configuration</h3><p>Plop uses a simple <code>plopfile.js</code>.</p><p>Here’s the standard configuration file I’d suggest you to put at the root of the project:</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="c1">// Here we&#39;ll define our generators</span>
+
+<span class="p">};</span>
+</code></pre></div><p>Plop will also use templates that can either be inlined within the configuration file, or put in separate files. My suggestion is to put them into a <code>plop-templates/</code> folder, at the root of the project too.</p><h3 id="all-inclusive-ftw">All inclusive FTW</h3><p>As you’d guess: both generator and templates are embedded in the project, just like your tests or task runner (brunch, gulp, grunt…).</p><p>This has <strong>tremendous advantages</strong> over a <a href="http://yeoman.io/authoring/">customized Yeoman generator</a>:</p><ul><li>a single repo to maintain them all</li><li>everything is embedded, no need for installing yeoman and a generator to use it</li><li>update a template is dead easy, you don’t a to publish a new version of your generator and make sure everyone is up-to-date before using it</li></ul><p>In a nutshell, when a project-specific Yeoman generator may sound overkill, plop fits perfectly. Lightweight, close to source code, it will be <strong>easier to adopt</strong>, maintain and, at the end, <strong>it will be used</strong>.</p><h2 id="our-first-generator">Our first generator</h2><p>To declare a new generator, <code>plop</code> provides you <code>setGenerator</code>:</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="c1">// We declare a new generator called &quot;module&quot;</span>
+  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
+  
+      <span class="c1">// Succintly describes what generator does.</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Create a new module&quot;</span><span class="p">,</span>
+      
+      <span class="c1">// Get inputs from the user.</span>
+      <span class="c1">// That&#39;s Inquirer.js doing the job behind the hood.</span>
+      <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      
+      <span class="c1">// List of actions to take.</span>
+      <span class="c1">// Here we &quot;add&quot; new files from our templates.</span>
+      <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+      
+    <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre></div><h3 id="prompts">Prompts</h3><p>The <code>prompts</code> part is delegated to <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a>.</p><p>You can just refer to <a href="https://github.com/SBoudrias/Inquirer.js/#objects">their documentation</a> to learn whatever you can do — questions types, output filter, input validation…</p><p>You can imagine doing some not trivial stuff:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">trimRight</span><span class="p">,</span> <span class="nx">isEmpty</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">ensurePlural</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">trimRight</span><span class="p">(</span> <span class="nx">text</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span> <span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">isNotEmptyFor</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">)</span> <span class="k">return</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is required&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
+  
+      <span class="c1">// …</span>
+      
+      <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span><span class="p">,</span>
+          <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
+          <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      
+      <span class="c1">// …</span>
+      
+    <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre></div><p><code>validate</code> will ensure the given module name is not empty.</p><p><code>filter</code> allow you to standardize the output: here module names should end with an <code>s</code> by convention. Even if I do it wrong and give <code>calendar</code> as the module name, I can be sure the <code>name</code> variable will be <code>calendars</code>.</p><h3 id="actions">Actions</h3><p>Now it knows everything it needs, plop will run every <code>actions</code> you configured. It can use every variables that inquirer did transmit.</p><p>Actions, just like templates, are parsed with <a href="https://github.com/wycats/handlebars.js/">Handlebars</a>. If you understand how it works, you know how to use plop.</p><p>Therefore <code>{{name}}</code> is the answer given to the prompt, validated and filtered previously. You can drop it wherever needed, in the created file path and/or its template.</p><p>There are 2 types of actions that are supported yet:</p><ul><li><code>"add"</code> that will create a new file into the given <code>path</code> — which is relative to <code>plopfile.js</code></li><li><code>"modify"</code> that will modify the file located at given <code>path</code>. It will replace the RegExp you provided in <code>pattern</code> with the template you provide</li></ul><p>Both actions can either use an inlined template via <code>template</code>, or retrieve it from the path you set via <code>templateFile</code>.</p><h4 id="a-concrete-example">A concrete example</h4><p>Let’s imagine that kind of implementation:</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">modulePath</span> <span class="o">=</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="p">{</span>
+  
+      <span class="c1">// …</span>
+      
+      <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+          <span class="c1">// Add a new model + tests boilerplate.</span>
+          <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
+            <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
+            <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
+          <span class="p">},</span>
+          
+          <span class="c1">// Modify the module file to inject created model.</span>
+          <span class="c1">// This is basically RegExp replacement.</span>
+          <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
+            <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(\/\/ IMPORT MODULE FILES)/g</span><span class="p">,</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\nimport Model from \&quot;./{{camelCase name}}.model\&quot;;&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
+            <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(const namespace = &quot;\w+&quot;;)/g</span><span class="p">,</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\n\nModel = Model.extend( { namespace: namespace } );&quot;</span>
+          <span class="p">}</span>
+      <span class="p">]</span>
+      
+    <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre></div><p>Then, let’s say you have the <code>plop-templates/model.js</code> template:</p><div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
+<span class="cm"> * TODO - Describe what your model does.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @class         {{pascalCase name}}.Model</span>
+<span class="cm"> * @module        {{pascalCase name}}</span>
+<span class="cm"> * @constructor</span>
+<span class="cm"> */</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Model</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;backbone&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Executed on model initialization</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>Considering <code>{{name}}</code> is <code>calendars</code>, then plop will create the following <code>app/modules/calendars.model.js</code> file:</p><div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
+<span class="cm"> * TODO - Describe what your model does.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @class         Calendars.Model</span>
+<span class="cm"> * @module        Calendars</span>
+<span class="cm"> * @constructor</span>
+<span class="cm"> */</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Model</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;backbone&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Executed on model initialization</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>And will also transform your current <code>app/modules/calendars.js</code> module file:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="nx">Module</span> <span class="nx">from</span> <span class="s2">&quot;core/module&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">_</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
+
+<span class="c1">// IMPORT MODULE FILES</span>
+
+<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;calendars&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+    <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
+    <span class="p">},</span>
+
+    <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Do something when module is considered as ready</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>To insert the reference to the created model:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="nx">Module</span> <span class="nx">from</span> <span class="s2">&quot;core/module&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">_</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
+
+<span class="c1">// IMPORT MODULE FILES</span>
+<span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s2">&quot;./calendars.model&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;calendars&quot;</span><span class="p">;</span>
+
+<span class="nx">Model</span> <span class="o">=</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span> <span class="nx">namespace</span><span class="o">:</span> <span class="nx">namespace</span> <span class="p">}</span> <span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+
+    <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
+    <span class="p">},</span>
+
+    <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Do something when module is considered as ready</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div><p>With <code>"add"</code> and <code>"modify"</code> you can ease a lot of small repetitive things.</p><h3 id="helpers">Helpers</h3><p>A little note about templating helpers of plop: these are <a href="http://handlebarsjs.com/expressions.html#helpers">those from Handlebars</a>.</p><p>You starts with a bunch of <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers plop gives you</a>. <code>camelCase</code>, for instance, just works this way: <code>{{camelCase name}}</code> with <code>name = "my awesome module"</code> gives <code>"myAwesomeModule"</code>.</p><p>You can define your own helpers within <code>plopfile.js</code> with <code>addHelper</code> :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">plop</span><span class="p">.</span><span class="nx">addHelper</span><span class="p">(</span> <span class="s2">&quot;upperCase&quot;</span><span class="p">,</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="p">);</span>
+    
+    <span class="c1">// …</span>
+    
+<span class="p">};</span>
+</code></pre></div><p>We just created an <code>upperCase</code> helper we could use later in the <code>actions</code> and templates: <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>There you go, just type <code>npm run plop</code> — or simply <code>plop</code>, if you made it global — then follow the guide.</p><p>You can also directly call a specific generator with <code>npm run plop [generatorName]</code>.</p><p>Plop is fast and efficient to use, just like Yeoman. However, it’s far more lightweight and easier to maintain.</p><h2 id="my-experience-feedback-in-production">My experience feedback in production</h2><p>As of the time of writing, I use plop with my team on the <a href="http://vinoga.com">Vinoga</a> project. Its features perfectly match our use cases.</p><p>I did wrote a Yeoman generator for the project before. It was concretely unused by the team.</p><p>If we need to go further, there would miss one feature so far: the possibility to adapt actions regarding user answers. Need a use case? New module creation.</p><p>Currently, all we need to do is create a module. Then we create a collection, a model, a view… We could save a little bit of time if, <strong>when we create the module</strong>, plop asks us along if we need to include something else.</p><p>I’ll certainly create an issue for that. Probably a PR if I got some time.</p><p>Nevertheless, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running <code>plop module</code> in your console, how cool is that \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li class="current" ><a href="/">English version</a></li><li ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Unit Production Manager at <a href='http://www.metidia.com'>Metidia</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Stay tuned</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Friends</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/';var title = "Plop — a micro-generator to ease your daily life";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
