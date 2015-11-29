@@ -21,37 +21,37 @@
   <span class="c1">// On déclare un nouveau générateur appelé &quot;module&quot;</span>
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
   
-      <span class="c1">// Décrit succintement ce que fait le générateur </span>
-      <span class="c1">// pour s&#39;y retrouver.</span>
-      <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Create a new module&quot;</span><span class="p">,</span>
-      
-      <span class="c1">// Récupère les inputs de l&#39;utilisateur.</span>
-      <span class="c1">// C&#39;est Inquirer.js qui fait le job ici.</span>
-      <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
-          <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      
-      <span class="c1">// Liste des actions à faire.</span>
-      <span class="c1">// Ici, on &quot;add&quot; de nouveaux fichiers à partir </span>
-      <span class="c1">// de nos templates.</span>
-      <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-      
-    <span class="p">}</span> <span class="p">);</span>
+    <span class="c1">// Décrit succintement ce que fait le générateur </span>
+    <span class="c1">// pour s&#39;y retrouver.</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Create a new module&quot;</span><span class="p">,</span>
+    
+    <span class="c1">// Récupère les inputs de l&#39;utilisateur.</span>
+    <span class="c1">// C&#39;est Inquirer.js qui fait le job ici.</span>
+    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    
+    <span class="c1">// Liste des actions à faire.</span>
+    <span class="c1">// Ici, on &quot;add&quot; de nouveaux fichiers à partir </span>
+    <span class="c1">// de nos templates.</span>
+    <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">,</span>
+        <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
+        <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+    
+  <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
 </code></pre></div><h3 id="prompts">Prompts</h3><p>La partie <code>prompts</code> est directement déléguée à <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a>.</p><p>Vous pouvez donc vous référez à <a href="https://github.com/SBoudrias/Inquirer.js/#objects">leur documentation</a> pour découvrir tout ce que vous pouvez faire (type des questions, filtre d’output, validation d’input…).</p><p>On peut ainsi imaginer des choses un peu plus complexes :</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">trimRight</span><span class="p">,</span> <span class="nx">isEmpty</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
@@ -69,21 +69,21 @@
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
   
-      <span class="c1">// …</span>
-      
-      <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
-          <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-          <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span><span class="p">,</span>
-          <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
-          <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      
-      <span class="c1">// …</span>
-      
-    <span class="p">}</span> <span class="p">);</span>
+    <span class="c1">// …</span>
+    
+    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span><span class="p">,</span>
+        <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
+        <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    
+    <span class="c1">// …</span>
+    
+  <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
 </code></pre></div><p><code>validate</code> va s’assurer que le nom donné pour le module n’est pas vide.</p><p><code>filter</code> me permet de formaliser l’output : tous les noms des modules doivent se terminer par un <code>s</code>. Ainsi, si par inadvertance je nomme mon module <code>calendar</code>, je suis assuré que la variable <code>name</code> vaudra <code>calendars</code> pour la suite.</p><h3 id="actions">Actions</h3><p>Une fois qu’il sait tout, plop va réaliser l’ensemble des <code>actions</code> qu’on lui demande. Il dispose à ce moment là des variables que lui fournit inquirer.</p><p>Les actions, comme les templates, sont parsées avec <a href="https://github.com/wycats/handlebars.js/">Handlebars</a>. Si vous avez compris son fonctionnement, vous savez déjà utiliser plop.</p><p>Ainsi <code>{{name}}</code> correspond à la réponse donnée au prompt, validée et filtrée au préalable. Il me suffit de la placer où bon me semble, dans le chemin du fichier créé et/ou son template.</p><p>Il faut savoir qu’il y a 2 types d’actions supportés pour le moment :</p><ul><li><code>"add"</code> qui va créer un nouveau fichier au niveau du <code>path</code> indiqué (relatif à <code>plopfile.js</code>)</li><li><code>"modify"</code> qui va modifier le fichier situé au niveau du <code>path</code>. Il va remplacer la RegExp définie dans <code>pattern</code> par le template</li></ul><p>Pour les 2 actions on peut soit utiliser un template inline via <code>template</code>, soit spécifier le chemin du template à utiliser via <code>templateFile</code>.</p><h4 id="un-exemple-concret">Un exemple concret</h4><p>Ça peut donner quelque chose du genre :</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">modulePath</span> <span class="o">=</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">;</span>
@@ -92,38 +92,38 @@
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="p">{</span>
   
-      <span class="c1">// …</span>
-      
-      <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
-          <span class="c1">// Ajoute un nouveau model + boilerplate de tests.</span>
-          <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-            <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
-            <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-            <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
-            <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
-          <span class="p">},</span>
-          
-          <span class="c1">// Modifie le module pour y injecter le model créé.</span>
-          <span class="c1">// Tout fonctionne avec un replace de RegExp.</span>
-          <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
-            <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
-            <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(\/\/ IMPORT MODULE FILES)/g</span><span class="p">,</span>
-            <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\nimport Model from \&quot;./{{camelCase name}}.model\&quot;;&quot;</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
-            <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
-            <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(const namespace = &quot;\w+&quot;;)/g</span><span class="p">,</span>
-            <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\n\nModel = Model.extend( { namespace: namespace } );&quot;</span>
-          <span class="p">}</span>
-      <span class="p">]</span>
-      
-    <span class="p">}</span> <span class="p">);</span>
+    <span class="c1">// …</span>
+    
+    <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+        <span class="c1">// Ajoute un nouveau model + boilerplate de tests.</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
+        <span class="p">},</span>
+        
+        <span class="c1">// Modifie le module pour y injecter le model créé.</span>
+        <span class="c1">// Tout fonctionne avec un replace de RegExp.</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
+          <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(\/\/ IMPORT MODULE FILES)/g</span><span class="p">,</span>
+          <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\nimport Model from \&quot;./{{camelCase name}}.model\&quot;;&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
+          <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(const namespace = &quot;\w+&quot;;)/g</span><span class="p">,</span>
+          <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\n\nModel = Model.extend( { namespace: namespace } );&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    
+  <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
 </code></pre></div><p>À partir du template <code>plop-templates/model.js</code> :</p><div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
@@ -167,19 +167,17 @@
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
 
-    <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
-    <span class="p">},</span>
+  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="p">},</span>
 
-    <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
-    <span class="p">},</span>
+  <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
+  <span class="p">},</span>
 
-    <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// Do something when module is considered as ready</span>
-    <span class="p">}</span>
-
-  <span class="p">}</span> <span class="p">);</span>
+  <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when module is considered as ready</span>
+  <span class="p">}</span>
 
 <span class="p">}</span> <span class="p">);</span>
 </code></pre></div><p>Pour y insérer le model créé :</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="nx">Module</span> <span class="nx">from</span> <span class="s2">&quot;core/module&quot;</span><span class="p">;</span>
@@ -194,26 +192,87 @@
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
 
-    <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
-    <span class="p">},</span>
+  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="p">},</span>
 
-    <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
-    <span class="p">},</span>
+  <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
+  <span class="p">},</span>
 
-    <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// Do something when module is considered as ready</span>
-    <span class="p">}</span>
-
-  <span class="p">}</span> <span class="p">);</span>
+  <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do something when module is considered as ready</span>
+  <span class="p">}</span>
 
 <span class="p">}</span> <span class="p">);</span>
-</code></pre></div><p>Avec <code>"add"</code> et <code>"modify"</code> il est possible de faire un paquet de petites choses répétitives plus simplement.</p><h3 id="helpers">Helpers</h3><p>Un petit point sur les helpers de templating de plop : ce sont <a href="http://handlebarsjs.com/expressions.html#helpers">ceux de Handlebars</a>.</p><p>Il y a déjà un certain nombre de <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers fournis par plop</a>. <code>camelCase</code>, par exemple, fonctionne ainsi : <code>{{camelCase name}}</code> avec <code>name = "my awesome module"</code> donne <code>"myAwesomeModule"</code>.</p><p>Vous pouvez définir vos propres helpers dans le <code>plopfile.js</code> avec <code>addHelper</code> :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</code></pre></div><p>Avec <code>"add"</code> et <code>"modify"</code> il est possible de faire un paquet de petites choses répétitives plus simplement.</p><h4 id="adapter-les-actions-en-fonction-des-rponses-donnes">Adapter les actions en fonction des réponses données</h4><p><a href="https://github.com/amwmedia/plop/pull/1">Vous pouvez également passer une fonction à <code>actions</code></a>. Cette fonction prend en paramètre les réponses de l’utilisateur et doit retourner le tableau des actions à effectuer.</p><p>L’intérêt c’est de pouvoir <strong>adapter les actions en fonction des réponses données</strong>.</p><p>Prenons l’exemple de la création d’un nouveau module :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="nx">plop</span><span class="p">.</span><span class="nx">addHelper</span><span class="p">(</span> <span class="s2">&quot;upperCase&quot;</span><span class="p">,</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="p">);</span>
+  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
+      
+    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is the name of your module?&quot;</span><span class="p">,</span>
+        <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
+        <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;dataConfig&quot;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Tell me about the data, what do you need?&quot;</span><span class="p">,</span>
+        <span class="k">default</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="nx">choices</span><span class="o">:</span> <span class="p">[</span>
+         <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Nothing&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span> <span class="p">},</span>
+         <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;A Model&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;model&quot;</span> <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
     
-    <span class="c1">// …</span>
+    <span class="nx">actions</span><span class="o">:</span> <span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Ajoute un nouveau module quoiqu&#39;il en soit.</span>
+      <span class="kd">let</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+         <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}/{{camelCase name}}.js&quot;</span><span class="p">,</span>
+         <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+         <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
+         <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
+       <span class="p">}</span>
+      <span class="p">];</span>
+         
+      <span class="c1">// Si l&#39;on souhaite un modèle, alors on en ajoute un</span>
+      <span class="c1">// dans la foulée.</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">dataConfig</span> <span class="o">===</span> <span class="s2">&quot;model&quot;</span> <span class="p">)</span> <span class="p">{</span>
+       <span class="nx">actions</span> <span class="o">=</span> <span class="nx">actions</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
+          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
+        <span class="p">},</span>
+       <span class="p">]</span> <span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="c1">// Retourne le tableau des actions à réaliser.</span>
+      <span class="k">return</span> <span class="nx">actions</span><span class="p">;</span>
+    <span class="p">}</span>
+      
+  <span class="p">}</span> <span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre></div><p>Le générateur peut donc s’adapter aux réponses que l’on donne et prendre en compte un certain nombre de scénarios (un module avec un Model, une Collection + Model, avec une CollectionView ou bien une CompositeView…).</p><h3 id="helpers">Helpers</h3><p>Un petit point sur les helpers de templating de plop : ce sont <a href="http://handlebarsjs.com/expressions.html#helpers">ceux de Handlebars</a>.</p><p>Il y a déjà un certain nombre de <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers fournis par plop</a>. <code>camelCase</code>, par exemple, fonctionne ainsi : <code>{{camelCase name}}</code> avec <code>name = "my awesome module"</code> donne <code>"myAwesomeModule"</code>.</p><p>Vous pouvez définir vos propres helpers dans le <code>plopfile.js</code> avec <code>addHelper</code> :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="nx">plop</span><span class="p">.</span><span class="nx">addHelper</span><span class="p">(</span> <span class="s2">&quot;upperCase&quot;</span><span class="p">,</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="p">);</span>
+  
+  <span class="c1">// …</span>
     
 <span class="p">};</span>
-</code></pre></div><p>On vient de créer un helper <code>upperCase</code> que l’on pourra utiliser dans les <code>actions</code> et les templates : <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>Et c’est tout, il ne reste plus qu’à lancer <code>npm run plop</code> (ou <code>plop</code>, si vous l’avez installé globalement) et se laisser guider.</p><p>On peut aussi directement appeler un générateur avec <code>npm run plop [generatorName]</code>.</p><p>À l’usage plop est rapide et efficace tout comme Yeoman. Par contre, il est bien plus léger et simple à maintenir.</p><h2 id="retour-dexprience-en-production">Retour d’expérience en production</h2><p>À l’heure actuelle, j’utilise plop avec mon équipe sur le projet <a href="http://vinoga.com">Vinoga</a>. Ses fonctionnalités conviennent parfaitement à nos use cases.</p><p>J’avais développé un générateur Yeoman auparavant, largement inutilisé par l’équipe en pratique.</p><p>Si nous devions aller plus loin, il nous manquerait essentiellement une fonctionnalité : pouvoir adapter les actions en fonction des réponses de l’utilisateur. Un exemple de use case ? La création d’un nouveau module.</p><p>À l’heure actuelle, il nous suffit de créer un module ; puis nous créons ensuite au besoin une collection, un model, une vue… Nous pourrions gagner du temps si, <strong>à la création du module</strong>, plop nous demandait au passage ce que l’on souhaitait y inclure.</p><p>Je vais certainement créer une issue pour ça. Probablement une PR si j’ai le temps.</p><p>En tout cas, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer <code>plop module</code> dans sa console, c’est plutôt cool \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Directeur de Production chez <a href='http://www.metidia.com'>Metidia</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/';var title = "Plop — un micro-générateur pour se simplifier la vie au quotidien";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+</code></pre></div><p>On vient de créer un helper <code>upperCase</code> que l’on pourra utiliser dans les <code>actions</code> et les templates : <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>Et c’est tout, il ne reste plus qu’à lancer <code>npm run plop</code> (ou <code>plop</code>, si vous l’avez installé globalement) et se laisser guider.</p><p>On peut aussi directement appeler un générateur avec <code>npm run plop [generatorName]</code>.</p><p>À l’usage plop est rapide et efficace tout comme Yeoman. Par contre, il est bien plus léger et simple à maintenir.</p><h2 id="retour-dexprience-en-production">Retour d’expérience en production</h2><p>À l’heure actuelle, j’utilise plop avec mon équipe sur le projet <a href="http://vinoga.com">Vinoga</a>. Ses fonctionnalités conviennent parfaitement à nos use cases.</p><p>J’avais développé un générateur Yeoman auparavant, largement inutilisé par l’équipe en pratique.</p><p>Vraiment, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer <code>plop module</code> dans sa console, c’est plutôt cool \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Directeur de Production chez <a href='http://www.metidia.com'>Metidia</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2015 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/';var title = "Plop — un micro-générateur pour se simplifier la vie au quotidien";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
