@@ -101,35 +101,35 @@ module.exports = ( plop ) => {
   // We declare a new generator called "module"
   plop.setGenerator( "module", {
   
-      // Succintly describes what generator does.
-      description: "Create a new module",
+    // Succintly describes what generator does.
+    description: "Create a new module",
+    
+    // Get inputs from the user.
+    // That's Inquirer.js doing the job behind the hood.
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "What is your module name?"
+      }
+    ],
+    
+    // List of actions to take.
+    // Here we "add" new files from our templates.
+    actions: [
+      {
+        type: "add",
+        path: "app/modules/{{camelCase name}}.js",
+        templateFile: "plop-templates/module.js"
+      },
+      {
+        type: "add",
+        path: "app/tests/{{camelCase name}}.tests.js",
+        templateFile: "plop-templates/module.tests.js"
+      }
+    ]
       
-      // Get inputs from the user.
-      // That's Inquirer.js doing the job behind the hood.
-      prompts: [
-        {
-          type: "input",
-          name: "name",
-          message: "What is your module name?"
-        }
-      ],
-      
-      // List of actions to take.
-      // Here we "add" new files from our templates.
-      actions: [
-        {
-          type: "add",
-          path: "app/modules/{{camelCase name}}.js",
-          templateFile: "plop-templates/module.js"
-        },
-        {
-          type: "add",
-          path: "app/tests/{{camelCase name}}.tests.js",
-          templateFile: "plop-templates/module.tests.js"
-        }
-      ]
-      
-    } );
+  } );
 
 };
 {% endraw %}
@@ -159,21 +159,21 @@ module.exports = ( plop ) => {
 
   plop.setGenerator( "module", {
   
-      // …
-      
-      prompts: [
-        {
-          type: "input",
-          name: "name",
-          message: "What is your module name?",
-          validate: isNotEmptyFor( "name" ),
-          filter: ensurePlural
-        }
-      ],
-      
-      // …
-      
-    } );
+    // …
+    
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "What is your module name?",
+        validate: isNotEmptyFor( "name" ),
+        filter: ensurePlural
+      }
+    ],
+    
+    // …
+    
+  } );
 
 };
 {% endhighlight %}
@@ -211,38 +211,38 @@ module.exports = ( plop ) => {
 
   plop.setGenerator( "model", {
   
-      // …
-      
-      actions: [
-          // Add a new model + tests boilerplate.
-          {
-            type: "add",
-            path: "app/modules/{{camelCase name}}.model.js",
-            templateFile: "plop-templates/model.js"
-          },
-          {
-            type: "add",
-            path: "app/tests/{{camelCase name}}.model.tests.js",
-            templateFile: "plop-templates/model.tests.js"
-          },
-          
-          // Modify the module file to inject created model.
-          // This is basically RegExp replacement.
-          {
-            type: "modify",
-            path: modulePath,
-            pattern: /(\/\/ IMPORT MODULE FILES)/g,
-            template: "$1\nimport Model from \"./{{camelCase name}}.model\";"
-          },
-          {
-            type: "modify",
-            path: modulePath,
-            pattern: /(const namespace = "\w+";)/g,
-            template: "$1\n\nModel = Model.extend( { namespace: namespace } );"
-          }
-      ]
-      
-    } );
+    // …
+    
+    actions: [
+        // Add a new model + tests boilerplate.
+        {
+          type: "add",
+          path: "app/modules/{{camelCase name}}.model.js",
+          templateFile: "plop-templates/model.js"
+        },
+        {
+          type: "add",
+          path: "app/tests/{{camelCase name}}.model.tests.js",
+          templateFile: "plop-templates/model.tests.js"
+        },
+        
+        // Modify the module file to inject created model.
+        // This is basically RegExp replacement.
+        {
+          type: "modify",
+          path: modulePath,
+          pattern: /(\/\/ IMPORT MODULE FILES)/g,
+          template: "$1\nimport Model from \"./{{camelCase name}}.model\";"
+        },
+        {
+          type: "modify",
+          path: modulePath,
+          pattern: /(const namespace = "\w+";)/g,
+          template: "$1\n\nModel = Model.extend( { namespace: namespace } );"
+        }
+    ]
+    
+  } );
 
 };
 {% endraw %}
@@ -306,19 +306,17 @@ const namespace = "calendars";
 
 export default Module.extend( {
 
-    initialize() {
-      _.defaults( this.options, { isDisplayed: true } );
-    },
+  initialize() {
+    _.defaults( this.options, { isDisplayed: true } );
+  },
 
-    onStart() {
-      this.ready();
-    },
+  onStart() {
+    this.ready();
+  },
 
-    onReady() {
-      // Do something when module is considered as ready
-    }
-
-  } );
+  onReady() {
+    // Do something when module is considered as ready
+  }
 
 } );
 {% endhighlight %}
@@ -338,24 +336,99 @@ Model = Model.extend( { namespace: namespace } );
 
 export default Module.extend( {
 
-    initialize() {
-      _.defaults( this.options, { isDisplayed: true } );
-    },
+  initialize() {
+    _.defaults( this.options, { isDisplayed: true } );
+  },
 
-    onStart() {
-      this.ready();
-    },
+  onStart() {
+    this.ready();
+  },
 
-    onReady() {
-      // Do something when module is considered as ready
-    }
-
-  } );
+  onReady() {
+    // Do something when module is considered as ready
+  }
 
 } );
 {% endhighlight %}
 
 With `"add"` and `"modify"` you can ease a lot of small repetitive things.
+
+#### Adapt actions to given answers
+
+[You can pass a function to `actions`](https://github.com/amwmedia/plop/pull/1). This function will take user's answers as a parameter and should return the array of actions to take.
+
+This way you can **adapt actions to given answers**.
+
+Let's consider this example of new module creation:
+
+{% highlight javascript %}
+{% raw %}
+module.exports = ( plop ) => {
+
+  plop.setGenerator( "module", {
+      
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "What is the name of your module?",
+        validate: isNotEmptyFor( "name" ),
+        filter: ensurePlural
+      },
+      {
+        type: "list",
+        name: "dataConfig",
+        message: "Tell me about the data, what do you need?",
+        default: "none",
+        choices: [
+         { name: "Nothing", value: "none" },
+         { name: "A Model", value: "model" }
+        ]
+      }
+    ],
+    
+    actions: ( data ) => {
+      // Add a new module, whatever happens.
+      let actions = [
+       {
+         type: "add",
+         path: "app/modules/{{camelCase name}}/{{camelCase name}}.js",
+         templateFile: "plop-templates/module.js"
+       },
+       {
+         type: "add",
+         path: "app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js",
+         templateFile: "plop-templates/module.tests.js"
+       }
+      ];
+         
+      // If you wish a Model, then we add a Model.
+      if ( data.dataConfig === "model" ) {
+       actions = actions.concat( [
+        {
+          type: "add",
+          path: "app/modules/{{camelCase name}}.model.js",
+          templateFile: "plop-templates/model.js"
+        },
+        {
+          type: "add",
+          path: "app/tests/{{camelCase name}}.model.tests.js",
+          templateFile: "plop-templates/model.tests.js"
+        },
+       ] );
+      }
+      
+      // Return the array of actions to take.
+      return actions;
+    }
+      
+  } );
+
+};
+{% endraw %}
+{% endhighlight %}
+
+Your generator can adapt to many different scenarios (e.g: a module with a Model, a Collection + Model, with a CollectionView or a CompositeView…).
 
 ### Helpers
 
@@ -370,9 +443,9 @@ You can define your own helpers within `plopfile.js` with `addHelper` :
 {% highlight javascript %}
 module.exports = ( plop ) => {
 
-    plop.addHelper( "upperCase", ( text ) => text.toUpperCase() );
-    
-    // …
+  plop.addHelper( "upperCase", ( text ) => text.toUpperCase() );
+  
+  // …
     
 };
 {% endhighlight %}
@@ -395,10 +468,4 @@ As of the time of writing, I use plop with my team on the [Vinoga](http://vinoga
 
 I did wrote a Yeoman generator for the project before. It was concretely unused by the team.
 
-If we need to go further, there would miss one feature so far: the possibility to adapt actions regarding user answers. Need a use case? New module creation.
-
-Currently, all we need to do is create a module. Then we create a collection, a model, a view… We could save a little bit of time if, **when we create the module**, plop asks us along if we need to include something else.
-
-I'll certainly create an issue for that. Probably a PR if I got some time.
-
-Nevertheless, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running `plop module` in your console, how cool is that \o/
+Definitely, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running `plop module` in your console, how cool is that \o/
