@@ -6,7 +6,8 @@
   <span class="nx">items</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">impureFunction</span><span class="p">(</span> <span class="nx">values</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">impureFunction</span><span class="p">(</span> <span class="nx">values</span> <span class="p">);</span>
+<span class="c1">// Désormais `values.a` vaut 3 car la fonction impure l&#39;a modifié.</span>
 </code></pre></div><p>Ici, on modifie les attributs de l’objet passé en paramètre, donc on modifie l’objet en dehors de la portée de notre fonction également : elle est impure dans ce cas.</p><div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
 
 <span class="kd">function</span> <span class="nx">pureFunction</span> <span class="p">(</span> <span class="nx">a</span> <span class="p">)</span> <span class="p">{</span>
@@ -17,7 +18,8 @@
   <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">pureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">pureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="p">);</span>
+<span class="c1">// `values.a` n&#39;a pas été modifié, c&#39;est toujours 1</span>
 </code></pre></div><p>Ici, on modifie simplement le paramètre dans la portée de la fonction, on ne touche à rien d’autre en dehors !</p><div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
@@ -27,7 +29,11 @@
   <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">impureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">impureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="p">);</span>
+<span class="c1">// En fait la valeur de `c` dépend de celle de `b`.</span>
+<span class="c1">// Dans une base de code plus grande vous risquez d&#39;oublier ce</span>
+<span class="c1">// détail et le résultat peut vous surprendre car il peut varier</span>
+<span class="c1">// de manière implicite.</span>
 </code></pre></div><p>La variable <code>b</code> n’est pas dans la portée de la fonction. Le résultat dépendra du contexte : surprises garanties !</p><div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
@@ -37,7 +43,9 @@
   <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">values</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">pureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">pureFunction</span><span class="p">(</span> <span class="nx">values</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">);</span>
+<span class="c1">// Ici il est clair que la valeur de `c` dépend de celle de `b`. </span>
+<span class="c1">// Pas de surprise en douce.</span>
 </code></pre></div><h2 id="et-en-pratique-a-donne-quoi-">Et en pratique ça donne quoi ?</h2><p>Considérons que ce code existe :</p><div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">getMinQuantity</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">getMinQuantity</span> <span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Une fonction pure qui retourne une valeur numérique</span>
   <span class="c1">// en fonction du name.</span>
