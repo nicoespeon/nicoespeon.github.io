@@ -29,7 +29,8 @@ function impureFunction ( items ) {
   items.a = items.a * b + 2;
 }
 
-impureFunction( values );
+var c = impureFunction( values );
+// Désormais `values.a` vaut 3 car la fonction impure l'a modifié.
 {% endhighlight %}
 
 Ici, on modifie les attributs de l'objet passé en paramètre, donc on modifie l'objet en dehors de la portée de notre fonction également : elle est impure dans ce cas.
@@ -45,7 +46,8 @@ function pureFunction ( a ) {
   return a;
 }
 
-values.a = pureFunction( values.a );
+var c = pureFunction( values.a );
+// `values.a` n'a pas été modifié, c'est toujours 1
 {% endhighlight %}
 
 Ici, on modifie simplement le paramètre dans la portée de la fonction, on ne touche à rien d'autre en dehors !
@@ -60,7 +62,11 @@ function impureFunction ( a ) {
   return a;
 }
 
-values.a = impureFunction( values.a );
+var c = impureFunction( values.a );
+// En fait la valeur de `c` dépend de celle de `b`.
+// Dans une base de code plus grande vous risquez d'oublier ce
+// détail et le résultat peut vous surprendre car il peut varier
+// de manière implicite.
 {% endhighlight %}
 
 La variable `b` n'est pas dans la portée de la fonction. Le résultat dépendra du contexte : surprises garanties !
@@ -75,7 +81,9 @@ function pureFunction ( a, c ) {
   return a;
 }
 
-values.a = pureFunction( values.a, b );
+var c = pureFunction( values.a, b );
+// Ici il est clair que la valeur de `c` dépend de celle de `b`. 
+// Pas de surprise en douce.
 {% endhighlight %}
 
 ## Et en pratique ça donne quoi ?

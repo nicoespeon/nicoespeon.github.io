@@ -27,9 +27,12 @@ function impureFunction ( items ) {
   var b = 1;
 
   items.a = items.a * b + 2;
+  
+  return items.a;
 }
 
-impureFunction( values );
+var c = impureFunction( values );
+// Now `values.a` is 3, the impure function modifies it.
 {% endhighlight %}
 
 Here we modify the attributes of the given object. Hence we modify the object which lies outside of the scope of our function: the function is impure.
@@ -45,7 +48,8 @@ function pureFunction ( a ) {
   return a;
 }
 
-values.a = pureFunction( values.a );
+var c = pureFunction( values.a );
+// `values.a` has not been modified, it's still 1
 {% endhighlight %}
 
 Now we simply modify the parameter which is in the scope of the function, nothing is modified outside!
@@ -60,7 +64,10 @@ function impureFunction ( a ) {
   return a;
 }
 
-values.a = impureFunction( values.a );
+var c = impureFunction( values.a );
+// Actually, the value of `c` will depend on the value of `b`.
+// In a bigger codebase, you may forget about that, which may 
+// surprise you because the result can vary implicitly.
 {% endhighlight %}
 
 Here, `b` is not in the scope of the function. The result will depend on the context: surprises expected!
@@ -75,7 +82,9 @@ function pureFunction ( a, c ) {
   return a;
 }
 
-values.a = pureFunction( values.a, b );
+var c = pureFunction( values.a, b );
+// Here it's made clear that the value of `c` will depend on
+// the value of `b`. No sneaky surprise behind your back.
 {% endhighlight %}
 
 ## What does it look like, concretely?

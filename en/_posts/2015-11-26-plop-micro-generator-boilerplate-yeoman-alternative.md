@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [plop, yeoman, generator, node.js]
+icon: console
 
 title: Plop — a micro-generator to ease your daily life
 description: Meet plop, a little node package which quickly bootstraps new files.

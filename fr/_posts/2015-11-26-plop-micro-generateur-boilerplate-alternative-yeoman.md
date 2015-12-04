@@ -5,6 +5,7 @@ published: true
 comments: true
 
 tags: [plop, yeoman, générateur, node.js]
+icon: console
 
 title: Plop — un micro-générateur pour se simplifier la vie au quotidien
 description: Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers.
