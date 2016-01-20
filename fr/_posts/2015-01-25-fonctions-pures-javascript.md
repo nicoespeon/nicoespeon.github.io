@@ -152,7 +152,7 @@ var popover = {
 };
 {% endhighlight %}
 
-Ici nous avons `addQuantityText()` qui est pure, tandis que `formatQuantityText()` et `setQuantityTextColor()` ne le sont pas.
+Ici nous avons `addQuantityText()`, `formatQuantityText()` et `setQuantityTextColor()` qui sont toutes impures.
 
 Dans notre contexte, c'est `addQuantityText()` qui est utilisée lorsque l'on souhaite "afficher la quantité" dans notre `$$boxContainer`. C'est le point d'entrée qui se charge de tous les détails. C'est dans cette fonction qu'on va aller jeter un œil si un soucis se présente avec notre `$$quantity`. Ça risque de devenir un vrai jeu de piste.
 
