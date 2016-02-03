@@ -184,43 +184,7 @@ var marketsModel = new MarketsModel();
 
 Ici `objectsModelProto`, `buildingsModelProto` et `constructablesModelProto` viennent surcharger le prototype de base de `marketsModelProto` pour rajouter des comportements spécifiques.
 
-#### Oui mais l'héritage à un sens !
-
-Si la notion d'héritage fait sens (disons que `Decorations` EST un `Props`), alors on peut tout aussi simplement utiliser **l'héritage de prototype**.
-
-Il s'agit simplement de créer un objet à partir du prototype de `Props` en guise de prototype pour `Decorations` :
-
-{% highlight javascript %}
-var objectsModelProto = { /* … */ };
-var constructablesModelProto = { /* … */ };
-
-// Props se compose avec le comportement de Objects.
-var propsModelProto = _.assign(
-  { /* … */ }, // -> interface spécifique à props
-  objectsModelProto
-);
-
-// Decorations hérite de Props… et on compose le comportement
-// de constructabilité à la volée (mixin) !
-var decosModelProto = _.assign(
-  _.create( propsModelProto ),
-  constructablesModelProto,
-  { /* … */ } // -> pour surcharger nos mixins, si besoin
-);
-
-// Une fois les prototype créé, on hérite de Backbone.
-var PropsModel = Backbone.Model.extend( propsModelProto );
-var DecorationsModel = Backbone.Model.extend( decosModelProto );
-
-// Puis on instancie.
-var propsModel = new PropsModel();
-var decorationsModel = new DecorationsModel();
-{% endhighlight %}
-
-<p class="islet">
-  J'utilise <code>_.assign</code> et <code>_.create</code> de <a href="https://lodash.com/" target="_blank">lodash</a> ici.<br>
-  Il font un fallback sur <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/assign" target="_blank"><code>Object.assign()</code></a> et <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/create" target="_blank"><code>Object.create()</code></a> lorsque c'est supporté.
-</p>
+#### Merge ou assign
 
 À noter qu'il peut être intéressant d'utiliser `_.merge` plutôt que `_.assign` si l'on souhaite pouvoir fusionner les attributs. Ça peut être pratique avec Backbone pour fusionner certains attributs tels que `events` :
 
@@ -317,21 +281,6 @@ var marketsModelProto = _.assign(
 // main.js
 var MarketsModel = Backbone.Model.extend( marketsModelProto );
 var marketsModel = new MarketsModel();
-{% endhighlight %}
-
-Ou, dans le cas d'un héritage, utiliser l'héritage de prototype :
-
-{% highlight javascript %}
-// decorations.model.js
-var decosModelProto = _.assign(
-  _.create( propsModelProto ), // -> hérite de props
-  constructablesModelProto,
-  { /* … */ } // -> pour surcharger nos mixins
-);
-
-// main.js
-var DecorationsModel = Backbone.Model.extend( decosModelProto );
-var decorationsModel = new DecorationsModel();
 {% endhighlight %}
 
 Pour finir, voici quelques articles que je vous recommande pour aller plus loin sur le sujet de la composition et de l'héritage en JavaScript :

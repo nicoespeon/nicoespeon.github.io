@@ -184,43 +184,7 @@ var marketsModel = new MarketsModel();
 
 You can see how `objectsModelProto`, `buildingsModelProto` and `constructablesModelProto` override the base prototype of `marketsModelProto` to add specific behaviors.
 
-#### What if inheritance makes sense?
-
-If inheritance makes sense — let's say that `Decorations` IS a `Props` — then you can simply do the same with **prototypal inheritance**.
-
-You simply need to create an object from the prototype of `Props`, as a prototype for `Decorations`:
-
-{% highlight javascript %}
-var objectsModelProto = { /* … */ };
-var constructablesModelProto = { /* … */ };
-
-// Props compose himself with the behavior of Objects.
-var propsModelProto = _.assign(
-  { /* … */ }, // -> specific interface of props
-  objectsModelProto
-);
-
-// Decorations inherits from Props… and we compose the
-// constructability behavior passing by — mixin!
-var decosModelProto = _.assign(
-  _.create( propsModelProto ),
-  constructablesModelProto,
-  { /* … */ } // -> to override our mixins, if needed
-);
-
-// Once prototype are created, inherit from Backbone.
-var PropsModel = Backbone.Model.extend( propsModelProto );
-var DecorationsModel = Backbone.Model.extend( decosModelProto );
-
-// Then you instantiate.
-var propsModel = new PropsModel();
-var decorationsModel = new DecorationsModel();
-{% endhighlight %}
-
-<p class="islet">
-  I'm using <code>_.assign</code> and <code>_.create</code> from <a href="https://lodash.com/" target="_blank">lodash</a> here.<br>
-  They fallback on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank"><code>Object.assign()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank"><code>Object.create()</code></a> when supported.
-</p>
+#### Merge or assign
 
 Please note that might be useful to use `_.merge` instead of `_.assign` if you need to merge attributes deeply. This may be handy with Backbone when you need to merge things like `events`:
 
@@ -291,9 +255,9 @@ _.merge(
 
 ## In conclusion
 
-Favor **objects composition**  over **inheritance**. Don't use inheritance if it doesn't really make sense, or is required. Beware overlong inheritance chains: that's damn fragile.
+Favor **objects composition** over **inheritance**. Don't use inheritance if it doesn't really make sense, or is required. Beware overlong inheritance chains: that's damn fragile.
 
-What is preferable to avoir:
+What is preferable to avoid:
 
 {% highlight javascript %}
 // markets.model.js
@@ -317,21 +281,6 @@ var marketsModelProto = _.assign(
 // main.js
 var MarketsModel = Backbone.Model.extend( marketsModelProto );
 var marketsModel = new MarketsModel();
-{% endhighlight %}
-
-Or, if you need inheritance, use the prototypal one:
-
-{% highlight javascript %}
-// decorations.model.js
-var decosModelProto = _.assign(
-  _.create( propsModelProto ), // -> inherits from props
-  constructablesModelProto,
-  { /* … */ } // -> override our mixins
-);
-
-// main.js
-var DecorationsModel = Backbone.Model.extend( decosModelProto );
-var decorationsModel = new DecorationsModel();
 {% endhighlight %}
 
 Let's end up this post with few post I recommend you to read if you need to know more about composition and inheritance with JavaScript:
