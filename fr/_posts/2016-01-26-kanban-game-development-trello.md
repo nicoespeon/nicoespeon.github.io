@@ -277,6 +277,10 @@ J'utilise également [une extension Chrome](https://chrome.google.com/webstore/d
   Existe également une extension Chrome qui semble faire tout cela : <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi" target="_blank">CardCounter for Trello</a>, mais je ne l'ai pas encore testé donc je ne sais pas ce que ça vaut.
 </p>
 
+Une autre extension assez pratique : [Card color titles](https://chrome.google.com/webstore/detail/card-color-titles-for-tre/hpmobkglehhleflhaefmfajhbdnjmgim) qui affiche les titres des labels directement sur les cartes.
+
+Enfin, [Ollert](https://ollertapp.com/boards) est un outil de visualisation assez complet qui vous permettra, notamment, de tracer le Cumulative Flow Diagram de votre tableau sur une période donnée.
+
 ### Board « Calendar »
 
 Pour finir, une petite anecdote sur une board que nous avions appelé « Calendar ».

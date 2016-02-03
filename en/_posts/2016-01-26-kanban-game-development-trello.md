@@ -275,6 +275,10 @@ I also use [a Chrome extension](https://chrome.google.com/webstore/detail/kanban
   There seems to have a Chrome extension that does all of this: <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi" target="_blank">CardCounter for Trello</a>, but since I didn't tested it, I can't recommend it.
 </p>
 
+Another very useful extension: [Card color titles](https://chrome.google.com/webstore/detail/card-color-titles-for-tre/hpmobkglehhleflhaefmfajhbdnjmgim) which displays labels titles right on the cards.
+
+And then, [Ollert](https://ollertapp.com/boards) which is a nice exhaustive visualisation tool. It can draw the Cumulative Flow Diagram for a defined period of your board, among other stuff.
+
 ### Board "Calendar"
 
 Let's end this post with a story about a board we named "Calendar". 
