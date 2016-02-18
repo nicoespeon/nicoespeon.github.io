@@ -11,6 +11,16 @@ title: Kanban et Game Development avec Trello
 description: Comment Kanban nous permet d'être efficaces pour produire des jeux vidéo en tant que start-up ? Et comment utilisons-nous Trello pour cela ?
 ---
 
+## Vidéo & Slides
+
+J’ai présenté ce talk le 2 février 2016 au [meetup Trello French UG #02](http://www.meetup.com/fr-FR/Trello-France-User-Group/events/227984227/).
+
+L’article détaille le sujet en profondeur ci-dessous.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4P-mfUew8MQ?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<iframe src="http://slides.com/nicoespeon/kanban-game-development-trello/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 ## Contexte
 
 ### Metidia, une start-up qui développe des jeux vidéo
