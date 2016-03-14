@@ -11,6 +11,14 @@ title: Plop — un micro-générateur pour se simplifier la vie au quotidien
 description: Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers.
 ---
 
+## Vidéo & Slides
+
+J’ai présenté ce talk le 21 décembre 2015 au [meetup Node.js Paris Chapitre 3 / Conférence 2](http://www.meetup.com/fr-FR/Nodejs-Paris/events/227335326/).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1GyoY6V-0ss?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<iframe src="http://slides.com/nicoespeon/plop-alternative-yeoman/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 ## Kezako plop ?
 
 [Plop](https://github.com/amwmedia/plop) c'est un petit paquet node qui permet de se simplifier la vie quand on veut créer un nouveau controller / router / helper / …
