@@ -128,7 +128,7 @@ Yep, if you go testing how your Behaviors behave for every view's context, you w
 
 ### What can we do then?
 
-<i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors" target="_blank">GitHub repo to illustrate the proposed solution</a>
+<i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors">GitHub repo to illustrate the proposed solution</a>
 
 The idea is to refactor Behavior's tests into a function that will take `context` as a param.
 

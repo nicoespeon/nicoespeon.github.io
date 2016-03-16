@@ -272,7 +272,7 @@ With that said, I actually don't know why the number of cards in a list **only**
 I also use [a Chrome extension](https://chrome.google.com/webstore/detail/kanban-wip-for-trello/oekefjibcnongmmmmkdiofgeppfkmdii) to give some color to lists background regarding the number of cards in it. If the WIP limit you set is reached, it becomes yellow. If the limit is exceeded, it turns red. This is not truly a must-have, but that's really helpful to understand the state of the flow at a glance.
 
 <p class="islet">
-  There seems to have a Chrome extension that does all of this: <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi" target="_blank">CardCounter for Trello</a>, but since I didn't tested it, I can't recommend it.
+  There seems to have a Chrome extension that does all of this: <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi">CardCounter for Trello</a>, but since I didn't tested it, I can't recommend it.
 </p>
 
 Another very useful extension: [Card color titles](https://chrome.google.com/webstore/detail/card-color-titles-for-tre/hpmobkglehhleflhaefmfajhbdnjmgim) which displays labels titles right on the cards.

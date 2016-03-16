@@ -284,7 +284,7 @@ Soit dit en passant, je ne sais pas pourquoi le nombre de cartes d'une liste ne 
 J'utilise également [une extension Chrome](https://chrome.google.com/webstore/detail/kanban-wip-for-trello/oekefjibcnongmmmmkdiofgeppfkmdii) pour coloriser le background des listes en fonction du nombre de cartes. Si la limite de WIP est atteinte, c'est jaune. Si on dépasse, c'est rouge. Ce n'est pas indispensable, mais c'est pas mal pour comprendre l'état du flow de visu.
 
 <p class="islet">
-  Existe également une extension Chrome qui semble faire tout cela : <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi" target="_blank">CardCounter for Trello</a>, mais je ne l'ai pas encore testé donc je ne sais pas ce que ça vaut.
+  Existe également une extension Chrome qui semble faire tout cela : <a href="https://chrome.google.com/webstore/detail/cardcounter-for-trello/miejdnaildjcmahbhmfngfdoficmkdhi">CardCounter for Trello</a>, mais je ne l'ai pas encore testé donc je ne sais pas ce que ça vaut.
 </p>
 
 Une autre extension assez pratique : [Card color titles](https://chrome.google.com/webstore/detail/card-color-titles-for-tre/hpmobkglehhleflhaefmfajhbdnjmgim) qui affiche les titres des labels directement sur les cartes.

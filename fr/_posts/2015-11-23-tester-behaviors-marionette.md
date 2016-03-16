@@ -128,7 +128,7 @@ Effectivement, si on commence par tester le comportement de nos Behaviors dans l
 
 ### Comment on s'en sort ?
 
-<i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors" target="_blank">Dépôt GitHub pour illustrer la solution proposée</a>
+<i class="icon-github"></i> <a href="https://github.com/nicoespeon/testing-marionette-behaviors">Dépôt GitHub pour illustrer la solution proposée</a>
 
 L'idée consiste à refactor les tests d'une Behavior dans une fonction qui prend un `context` en paramètre.
 
