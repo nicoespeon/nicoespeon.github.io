@@ -29,7 +29,7 @@ fr:
     - text:         "Projets"
       url:          "/fr/projects.html"
       class:        "projects"
-    - text:         "A Lire"
+    - text:         "À Lire"
       url:          "/fr/worth-reading.html"
       class:        "worth-reading"
     lang_message:   "Version française"
