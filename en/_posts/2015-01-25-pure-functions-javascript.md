@@ -367,3 +367,7 @@ Indeed, the idea here is simple: **simplify your code by limiting the number of 
 If you force yourself to think twice to maximize the number of pure functions in your code, you'll probably make your maintaeance / life / debug easier!
 
 Well, you've got the idea. Which is often, in practice, a matter of design, the choice between a `get` and a `set` for instance.
+
+## Further Reading
+
+[Introduction To Functions](https://www.kompulsa.com/javascript-basics-introduction-to-functions/)
