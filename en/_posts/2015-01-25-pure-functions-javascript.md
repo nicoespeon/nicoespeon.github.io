@@ -27,7 +27,7 @@ function impureFunction ( items ) {
   var b = 1;
 
   items.a = items.a * b + 2;
-  
+
   return items.a;
 }
 
@@ -66,7 +66,7 @@ function impureFunction ( a ) {
 
 var c = impureFunction( values.a );
 // Actually, the value of `c` will depend on the value of `b`.
-// In a bigger codebase, you may forget about that, which may 
+// In a bigger codebase, you may forget about that, which may
 // surprise you because the result can vary implicitly.
 {% endhighlight %}
 
@@ -364,10 +364,10 @@ In practice, when you are doing object-oriented code you may think that function
 
 Indeed, the idea here is simple: **simplify your code by limiting the number of functions that has an impact on the system**.
 
-If you force yourself to think twice to maximize the number of pure functions in your code, you'll probably make your maintaeance / life / debug easier!
+If you force yourself to think twice to maximize the number of pure functions in your code, you'll probably make your maintenance / life / debug easier!
 
 Well, you've got the idea. Which is often, in practice, a matter of design, the choice between a `get` and a `set` for instance.
 
 ## Further Reading
 
-[Introduction To Functions](https://www.kompulsa.com/javascript-basics-introduction-to-functions/)
+- [Introduction To Functions](https://www.kompulsa.com/javascript-basics-introduction-to-functions/)
