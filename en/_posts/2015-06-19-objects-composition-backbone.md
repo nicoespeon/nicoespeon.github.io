@@ -47,6 +47,18 @@ Then you'll take this object, eventually compose it with others, to build the pr
 
 To sum it up: instead of creating huge, poorly built, inheritance chains from constructors, simply create your objects and compose them to create a prototype you will instantiate your class with.
 
+### Concatenative inheritance
+
+Someone notified me that what I'm talking about here is called **multiple inheritance**, not actual **object composition**.
+
+When you do object composition, you make attributes point to instances of other classes.
+
+There is no multiple inheritance in JavaScript. Still, composing different prototypes to produce a totally new one is a very close notion, which can be confusing. Here we are talking about "composing prototypes", but not in the terms of objects composition…
+
+There you'll find a more concrete explanation: [Composition, Inheritance, and Aggregation in JavaScript](http://stackoverflow.com/questions/8696695/composition-inheritance-and-aggregation-in-javascript)
+
+So, let's call that **concatenative inheritance**, [as detailed by Eric Eliott](https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9#.d084tr4c8).
+
 ## With a concrete example
 
 ### Context

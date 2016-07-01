@@ -21,13 +21,13 @@ Or, en gros, il existe 2 types de relations dans le modèle objets : l'héritage
 On peut faire l'analogie avec un arbre généalogique :
 
 - **l'héritage**, c'est comme une naissance : quand ça arrive, c'est pour la vie.
-- **la composition** c'est comme un mariage : ça arrive au cours de l'existence des objets et ça peut changer. Les objets peuvent se séparer et trouver de nouveaux partenaires avec qui s'associer. On notera néamoins que les objets ne sont pas monogames.
+- **la composition** c'est comme un mariage : ça arrive au cours de l'existence des objets et ça peut changer. Les objets peuvent se séparer et trouver de nouveaux partenaires avec qui s'associer. On notera néanmoins que les objets ne sont pas monogames.
 
 > Source: [Object Design - Roles, Responsibilities and Collaborations](http://www.amazon.com/Object-Design-Roles-Responsibilities-Collaborations/dp/0201379430)
 
 ### "Heritage" all the things!
 
-Le premier réflexe des développeurs JavaScript consiste souvent à tenter de mimiquer les règles d'héritage pseudo-classique.
+Le premier réflexe des développeurs JavaScript consiste souvent à tenter de reproduire les règles d'héritage pseudo-classique.
 
 On se retrouve alors vite avec des `new` un peu partout et des chaînes d'héritage longues comme le bras. Ça produit souvent quelque chose **très difficile à maintenir**.
 
@@ -46,6 +46,18 @@ Du coup, il est vachement plus simple d'encapsuler les méthodes d'une même log
 Cet objet on va le prendre, éventuellement le composer avec d'autres, pour former le prototype avec lequel on va instancier notre classe. Tout simplement.
 
 Pour résumer : plutôt que de créer des chaînes d'héritage plus ou moins bancales à grands coups de constructeurs, créez simplement vos objets et composez les pour former un prototype avec lequel vous allez instancier votre classe.
+
+### Concatenative inheritance
+
+Quelqu'un m'a fait très justement remarqué que ce dont je vous parle ici s'appelle **l'héritage multiple**, plutôt que d'**object composition** au sens propre du terme.
+
+Object composition fait référence au fait de faire pointer les attributs de notre objet vers des instances d'autres classes.
+
+Il n'y a pas d'héritage multiple à proprement parler en JavaScript. Mais le fait de composer différents prototypes pour en former un nouveau est la notion qui s'en rapproche, ce qui peut générer de la confusion. On parle de "composer des prototypes", ce qui est le cas, mais pas dans le sens de la composition d'objets…
+
+Voici pour une explication plus concrète : [Composition, Inheritance, and Aggregation in JavaScript](http://stackoverflow.com/questions/8696695/composition-inheritance-and-aggregation-in-javascript)
+
+Du coup, nous appellerons ça la **concatenative inheritance**, [à la manière d'Eric Eliott](https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9#.d084tr4c8).
 
 ## Sur un exemple concret
 
