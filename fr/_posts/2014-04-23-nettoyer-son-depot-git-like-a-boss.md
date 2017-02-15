@@ -82,7 +82,7 @@ Cette option va vous permettre de passer en revue chacun de vos commits et d'y e
 
 Pour ma part, j'ai utilisé `rm -rf *.mp3` pour m'assurer de bien supprimer l'ensemble des fichiers MP3s qui pouvaient être versionnés. Dans un tel cas, il faut s'assurer de forcer la commande (d'où le `-rf`) car le nettoyage s'arrête s'il y a une erreur à base de *fichier-mp3-non-trouvé-dans-ce-commit*.
 
-<p class="islet"><strong>Note</strong> - Au cas où vous ne voudriez pas vraiment supprimer les fichiers mais juste les retirer de l'historique git, préférez l'utilisation de la commande <code>--index-filter "git rm -rf --cached --ignored-unmatch *.mp3"</code> à la place.</p>
+<p class="islet"><strong>Note</strong> - Au cas où vous ne voudriez pas vraiment supprimer les fichiers mais juste les retirer de l'historique git, préférez l'utilisation de la commande <code>--index-filter "git rm -rf --cached --ignore-unmatch *.mp3"</code> à la place.</p>
 
 ### `--prune-empty`
 

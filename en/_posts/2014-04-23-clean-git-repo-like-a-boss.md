@@ -79,7 +79,7 @@ This option will check every commit of your tree and execute the given shell com
 
 I previously used `rm -rf *.mp3` to ensure there will not be any MP3 file surviving this operation. In this case, I needed to ensure the command is forced -this is for the `-rf` part- so the cleaning won't stop if there is an error because of *no-mp3-file-in-this-commit* reason.
 
-<p class="islet"><strong>Note</strong> - In case you don't want to actually delete these files but just remove them from the git history, prefer to perform a <code>--index-filter "git rm -rf --cached --ignored-unmatch *.mp3"</code> instead.</p>
+<p class="islet"><strong>Note</strong> - In case you don't want to actually delete these files but just remove them from the git history, prefer to perform a <code>--index-filter "git rm -rf --cached --ignore-unmatch *.mp3"</code> instead.</p>
 
 ### `--prune-empty`
 
