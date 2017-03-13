@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/" /><meta property="og:type" content="article" /><meta property="og:title" content="Plop — un micro-générateur pour se simplifier la vie au quotidien | @nicoespeon" /><meta property="og:description" content="Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Plop — un micro-générateur pour se simplifier la vie au quotidien | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/fr/index.html">Accueil</a></li><li><a href="/fr/about.html">À propos</a></li><li><a href="/fr/projects.html">Projets</a></li><li><a href="/fr/worth-reading.html">À Lire</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Plop — un micro-générateur pour se simplifier la vie au quotidien</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Plop — un micro-générateur pour se simplifier la vie au quotidien |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(26 Novembre, 2015)</div></div><p class="islet">Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers.</p><h2 id="vido--slides">Vidéo &amp; Slides</h2><p>J’ai présenté ce talk le 21 décembre 2015 au <a href="http://www.meetup.com/fr-FR/Nodejs-Paris/events/227335326/">meetup Node.js Paris Chapitre 3 / Conférence 2</a>.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/1GyoY6V-0ss?rel=0" frameborder="0" allowfullscreen=""></iframe><iframe src="http://slides.com/nicoespeon/plop-alternative-yeoman/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe><h2 id="kezako-plop-">Kezako plop ?</h2><p><a href="https://github.com/amwmedia/plop">Plop</a> c’est un petit paquet node qui permet de se simplifier la vie quand on veut créer un nouveau controller / router / helper / …</p><blockquote><p>Bah créer un nouveau controller c’est facile : je copie-colle le code d’un autre controller et je supprime les lignes dont je ne me sers pas. Tadaaa !</p></blockquote><p>Certes, mais viennent un certain nombre de questions légitimes :</p><ul><li>Quel “autre” controller ? Le plus récent ? Le “mieux” codé ? Y a-t-il un controller de référence ?</li><li>Si je ne suis pas (encore) un expert du projet en question, comment répondre au point précédent ?</li><li>Comment m’assurer que je ne me trompe pas en nommant le nouveau fichier ? En supprimant les lignes qui sont “inutiles”, selon moi ?</li><li>Est-ce-que je dois déclarer ce nouveau controller quelque part dans un fichier existant ? Lequel ? Comment ?</li></ul><p>Trouver un bon fichier, l’ouvrir, copier son contenu, créer un nouveau fichier, coller le contenu, supprimer les lignes inutiles… C’est répétitif, propice aux erreurs et ça n’a pas beaucoup de valeur ajoutée. En plus, ça peut prendre un peu de temps. Surtout, c’est fréquent !</p><p>Ce serait vachement mieux à la place d’écrire <code>plop</code> dans son terminal, répondre à 2 questions et BIM, c’est fait !</p><div class="illustration"><img alt="Comportement de Plop" title="Comportement de Plop" src="/assets/img/plop/plop-behavior.gif" />Simple et efficace. Toujours tenté(e) par l'option copier-coller ?</div><p>C’est exactement ce que nous allons voir ici.</p><h2 id="setup">Setup</h2><h3 id="installation">Installation</h3><p>Plop étant un paquet node, <code>npm install -g plop</code> et vous pouvez commencer à jouer.</p><p>On peut aussi l’installer localement sur le projet en le rajoutant aux dépendances : <code>npm install --save-dev plop</code>.</p><p>Puis ajoutez-le aux scripts de votre <code>package.json</code> pour pouvoir le lancer avec <code>npm run plop</code> :</p><div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-awesome-project&quot;</span><span class="p">,</span>
   <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is an awesome project, isn&#39;t it?&quot;</span><span class="p">,</span>
-  
+
   <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{},</span>
   <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.1&quot;</span>
   <span class="p">},</span>
-  
+
   <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;plop&quot;</span>
   <span class="p">}</span>
@@ -20,11 +20,11 @@
 
   <span class="c1">// On déclare un nouveau générateur appelé &quot;module&quot;</span>
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
-  
+
     <span class="c1">// Décrit succintement ce que fait le générateur </span>
     <span class="c1">// pour s&#39;y retrouver.</span>
     <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Create a new module&quot;</span><span class="p">,</span>
-    
+
     <span class="c1">// Récupère les inputs de l&#39;utilisateur.</span>
     <span class="c1">// C&#39;est Inquirer.js qui fait le job ici.</span>
     <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
@@ -34,7 +34,7 @@
         <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    
+
     <span class="c1">// Liste des actions à faire.</span>
     <span class="c1">// Ici, on &quot;add&quot; de nouveaux fichiers à partir </span>
     <span class="c1">// de nos templates.</span>
@@ -50,7 +50,7 @@
         <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
       <span class="p">}</span>
     <span class="p">]</span>
-    
+
   <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
@@ -68,9 +68,9 @@
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
-  
+
     <span class="c1">// …</span>
-    
+
     <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
@@ -80,9 +80,9 @@
         <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    
+
     <span class="c1">// …</span>
-    
+
   <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
@@ -91,9 +91,9 @@
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="p">{</span>
-  
+
     <span class="c1">// …</span>
-    
+
     <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
         <span class="c1">// Ajoute un nouveau model + boilerplate de tests.</span>
         <span class="p">{</span>
@@ -106,7 +106,7 @@
           <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
           <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
         <span class="p">},</span>
-        
+
         <span class="c1">// Modifie le module pour y injecter le model créé.</span>
         <span class="c1">// Tout fonctionne avec un replace de RegExp.</span>
         <span class="p">{</span>
@@ -122,7 +122,7 @@
           <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\n\nModel = Model.extend( { namespace: namespace } );&quot;</span>
         <span class="p">}</span>
     <span class="p">]</span>
-    
+
   <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
@@ -208,7 +208,7 @@
 </code></pre></div><p>Avec <code>"add"</code> et <code>"modify"</code> il est possible de faire un paquet de petites choses répétitives plus simplement.</p><h4 id="adapter-les-actions-en-fonction-des-rponses-donnes">Adapter les actions en fonction des réponses données</h4><p><a href="https://github.com/amwmedia/plop/pull/1">Vous pouvez également passer une fonction à <code>actions</code></a>. Cette fonction prend en paramètre les réponses de l’utilisateur et doit retourner le tableau des actions à effectuer.</p><p>L’intérêt c’est de pouvoir <strong>adapter les actions en fonction des réponses données</strong>.</p><p>Prenons l’exemple de la création d’un nouveau module :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
-      
+
     <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
@@ -228,7 +228,7 @@
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    
+
     <span class="nx">actions</span><span class="o">:</span> <span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="c1">// Ajoute un nouveau module quoiqu&#39;il en soit.</span>
       <span class="kd">let</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
@@ -243,7 +243,7 @@
          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
        <span class="p">}</span>
       <span class="p">];</span>
-         
+
       <span class="c1">// Si l&#39;on souhaite un modèle, alors on en ajoute un</span>
       <span class="c1">// dans la foulée.</span>
       <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">dataConfig</span> <span class="o">===</span> <span class="s2">&quot;model&quot;</span> <span class="p">)</span> <span class="p">{</span>
@@ -260,19 +260,19 @@
         <span class="p">},</span>
        <span class="p">]</span> <span class="p">);</span>
       <span class="p">}</span>
-      
+
       <span class="c1">// Retourne le tableau des actions à réaliser.</span>
       <span class="k">return</span> <span class="nx">actions</span><span class="p">;</span>
     <span class="p">}</span>
-      
+
   <span class="p">}</span> <span class="p">);</span>
 
 <span class="p">};</span>
 </code></pre></div><p>Le générateur peut donc s’adapter aux réponses que l’on donne et prendre en compte un certain nombre de scénarios (un module avec un Model, une Collection + Model, avec une CollectionView ou bien une CompositeView…).</p><h3 id="helpers">Helpers</h3><p>Un petit point sur les helpers de templating de plop : ce sont <a href="http://handlebarsjs.com/expressions.html#helpers">ceux de Handlebars</a>.</p><p>Il y a déjà un certain nombre de <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers fournis par plop</a>. <code>camelCase</code>, par exemple, fonctionne ainsi : <code>{{camelCase name}}</code> avec <code>name = "my awesome module"</code> donne <code>"myAwesomeModule"</code>.</p><p>Vous pouvez définir vos propres helpers dans le <code>plopfile.js</code> avec <code>addHelper</code> :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
   <span class="nx">plop</span><span class="p">.</span><span class="nx">addHelper</span><span class="p">(</span> <span class="s2">&quot;upperCase&quot;</span><span class="p">,</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="p">);</span>
-  
+
   <span class="c1">// …</span>
-    
+
 <span class="p">};</span>
-</code></pre></div><p>On vient de créer un helper <code>upperCase</code> que l’on pourra utiliser dans les <code>actions</code> et les templates : <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>Et c’est tout, il ne reste plus qu’à lancer <code>npm run plop</code> (ou <code>plop</code>, si vous l’avez installé globalement) et se laisser guider.</p><p>On peut aussi directement appeler un générateur avec <code>npm run plop [generatorName]</code>.</p><p>À l’usage plop est rapide et efficace tout comme Yeoman. Par contre, il est bien plus léger et simple à maintenir.</p><h2 id="retour-dexprience-en-production">Retour d’expérience en production</h2><p>À l’heure actuelle, j’utilise plop avec mon équipe sur le projet <a href="http://vinoga.com">Vinoga</a>. Ses fonctionnalités conviennent parfaitement à nos use cases.</p><p>J’avais développé un générateur Yeoman auparavant, largement inutilisé par l’équipe en pratique.</p><p>Vraiment, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer <code>plop module</code> dans sa console, c’est plutôt cool \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Consultant chez <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='http://www.linkedin.com/profile/view?id=143126897'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p><p>J’ai tendance à <a href='https://medium.com/@nicoespeon'>écrire sur Medium</a> désormais, si vous souhaitez suivre mes articles ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/';var title = "Plop — un micro-générateur pour se simplifier la vie au quotidien";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+</code></pre></div><p>On vient de créer un helper <code>upperCase</code> que l’on pourra utiliser dans les <code>actions</code> et les templates : <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>Et c’est tout, il ne reste plus qu’à lancer <code>npm run plop</code> (ou <code>plop</code>, si vous l’avez installé globalement) et se laisser guider.</p><p>On peut aussi directement appeler un générateur avec <code>npm run plop [generatorName]</code>.</p><p>À l’usage plop est rapide et efficace tout comme Yeoman. Par contre, il est bien plus léger et simple à maintenir.</p><h2 id="retour-dexprience-en-production">Retour d’expérience en production</h2><p>À l’heure actuelle, j’utilise plop avec mon équipe sur le projet <a href="http://vinoga.com">Vinoga</a>. Ses fonctionnalités conviennent parfaitement à nos use cases.</p><p>J’avais développé un générateur Yeoman auparavant, largement inutilisé par l’équipe en pratique.</p><p>Vraiment, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer <code>plop module</code> dans sa console, c’est plutôt cool \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Consultant chez <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='https://www.linkedin.com/in/nicolas-carlo-095b243b/'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p><p>J’ai tendance à <a href='https://medium.com/@nicoespeon'>écrire sur Medium</a> désormais, si vous souhaitez suivre mes articles ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/';var title = "Plop — un micro-générateur pour se simplifier la vie au quotidien";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
