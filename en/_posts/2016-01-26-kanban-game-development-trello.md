@@ -58,6 +58,8 @@ We adopted [Trello](https://trello.com/) since the very beginning in 2013. Free,
 
 Trello boards are very flexible, which allows us to make changes through time regarding our needs.
 
+Trello can also be [used for remote teams](https://www.timedoctor.com/blog/how-to-use-trello/), and it is much more than that. It’s whatever you need it to be, based on the projects you’re working on whether they are for different clients.
+
 And so we may create and close diverse boards regarding projects we work on. These boards structure may vary regarding what's needed: a temporary project managed with some GANTT because business needs it - thanks to the [Elegantt extension](http://elegantt.com/trello/) − ; a simple *TODO > Doing > Done* Kanban to handle a subproject ; etc.
 
 All that aside, we have set up a board for each identified process:
@@ -210,9 +212,9 @@ Once released into production, cards are not done yet.
 
 Remember that any card has an associated SMART objective the team agreed on? Well, once in production, we do analyse it.
 
-That can be done when the card is released − that's the case with most of bug fixes − or later if we need to collect some data − A/B tests, for instance. In the latter case, we set a due date and a responsible to the card. 
+That can be done when the card is released − that's the case with most of bug fixes − or later if we need to collect some data − A/B tests, for instance. In the latter case, we set a due date and a responsible to the card.
 
-When the analysis is done, the card is considered completed. We move it into the **Live** of the current month. Then we follow the scenario we forecasted regarding if the objective was reached or not. Objectives can be considered as our "assumptions" within the meaning of [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup). 
+When the analysis is done, the card is considered completed. We move it into the **Live** of the current month. Then we follow the scenario we forecasted regarding if the objective was reached or not. Objectives can be considered as our "assumptions" within the meaning of [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).
 
 We do a monthly review of cards that were put to live = what we learned.
 
@@ -281,7 +283,7 @@ And then, [Ollert](https://ollertapp.com/boards) which is a nice exhaustive visu
 
 ### Board "Calendar"
 
-Let's end this post with a story about a board we named "Calendar". 
+Let's end this post with a story about a board we named "Calendar".
 
 It was here for a purpose: what do we do for a task that should be done at a specific date, not before, nor after? In other words, **a task that simply can't be put into the flow**.
 
