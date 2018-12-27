@@ -1,294 +1,666 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Petit tour d'horizon sur ces guidelines qui feront de vous un bûcheron du CSS, un vrai. Timber !"><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/fr/2013/05/tombez-pour-smacss/" /><meta property="og:type" content="article" /><meta property="og:title" content="Tombez pour SMACSS | @nicoespeon" /><meta property="og:description" content="Petit tour d'horizon sur ces guidelines qui feront de vous un bûcheron du CSS, un vrai. Timber !" /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Tombez pour SMACSS | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/fr/index.html">Accueil</a></li><li><a href="/fr/about.html">À propos</a></li><li><a href="/fr/projects.html">Projets</a></li><li><a href="/fr/worth-reading.html">À Lire</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Tombez pour SMACSS</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Tombez pour SMACSS |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(16 Mai, 2013)</div></div><p class="islet">Petit tour d'horizon sur ces guidelines qui feront de vous un bûcheron du CSS, un vrai. Timber !</p><h2 id="tldr">TL;DR</h2><p><strong>SMACSS</strong> est un ensemble de conseils et de lignes de conduite élaborés par <a href="https://twitter.com/snookca">Jonathan Snoovvk</a> et dont le but est de vous permettre d’organiser votre CSS de manière claire et intelligente.</p><p>Le premier principe réside dans <strong>la catégorisation</strong> : on distingue et regroupe les règles CSS par affinité logique afin de structurer son code (<em>base, layout, module, state, theme</em>).</p><p>Le second principe relève de <strong>la convention de nommage</strong> : ne pas utiliser des ID quand une classe fait très bien l’affaire, nommer les classes de manière à faire ressortir la logique qui s’y cache, …</p><p>Le troisième principe consiste à <strong>découpler le HTML du CSS</strong> : garder chaque module indépendant du contexte HTML dans lequel il se trouve, utiliser les <a href="http://www.yoyodesign.org/doc/w3c/css2/selector.html#child-selectors">sélecteurs d’enfants</a> à bon escient, …</p><p>Avec ces 3 principes, SMACSS vous permet de poser des bases solides pour un CSS de qualité, made in Canada !</p><h2 id="principe-et-intrts">Principe et intérêts</h2><p>Il arrive bien (trop) souvent que l’organisation du CSS d’un projet web soit vraiment, vraiment mauvaise.</p><p>La raison à cela étant que les gens considèrent que <a href="http://www.veronique-bouvier.com/css-cest-facile-par-hugo-giraudel/">le CSS c’est facile</a> : des sélecteurs, des attributs, des valeurs et roule ma poule ! Si bien que la plupart des projets sur lesquels j’ai travaillé tendent à organiser leur CSS de manière “naturelle”, à savoir :</p><ul><li>un éventuel reset CSS ou autre framework de base,</li><li>un fichier CSS principal pour tout ce qui est commun sur l’ensemble du site,</li><li>un fichier CSS spécifique par page lorsqu’il est nécessaire d’ajouter du style,</li><li>d’autres fichiers éventuels plus ou moins pertinents (“le CSS du carousel jQuery qu’on a choppé sur le web” en fait partie)</li></ul><p>Les problèmes sont alors présents et de plus en plus évidents à mesure que le projet évolue :</p><ul><li>on ne livre pas un seul et unique fichier CSS compressé par page, <a href="http://browserdiet.com/#combine-css">comme il le faudrait</a></li><li>on duplique les propriétés et le code qui va avec</li><li>on ne sait plus où sont rangées les règles correspondant au formulaire X</li><li>on galère pour maintenir le CSS, on préfère rajouter des règles les unes par dessus les autres</li><li>on se demande où placer cette règle qui apparaît sur quelques pages… mais pas toutes</li><li>on a oublié de racheter du café et c’est dimanche</li><li>etc.</li></ul><p>Bref, c’est le bordel dans votre CSS !</p><div class="illustration"><img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg" /></div><p>La méthode <strong>Scalable and Modular Architecture for CSS (SMACSS)</strong> a pour but de venir organiser tout ça selon un ensemble de lignes de conduite assez simples à appréhender.</p><p>Ce n’est pas un framework au sens rigide du terme, mais des bonnes pratiques pour garder un code clairement architecturé et aisé à maintenir.</p><p>La philosophie <strong>SMACSS</strong> repose sur ces 3 grands principes que je vais détailler par la suite :</p><div class="illustration"><img src="/assets/img/css/smacss-principles.jpg" alt="Les principes de SMACSS" title="Les principes de SMACSS" />Les 3 grands principes de SMACSS</div><h2 id="catgoriser-son-css">Catégoriser son CSS</h2><p>La première considération de SMACSS consiste à <strong>regrouper les règles CSS selon des catégories</strong> qui vont définir l’organisation du code.</p><p>La catégorisation est le principe central de SMACSS. Le fait de catégoriser les règles permet de distinguer des modèles type et de définir des bonnes pratiques pour chacunes de ces catégories.</p><p>On distingue 5 types de catégories :</p><ol><li><em>Base</em></li><li><em>Layout</em></li><li><em>Module</em></li><li><em>State</em></li><li><em>Theme</em></li></ol><h4 id="base">Base</h4><p>Il s’agit des éléments par défaut tels qu’ils sont définis sur l’ensemble du site. Ce sont les règles de style “de base” (sans blague).</p><p>Bien généralement il s’agit des éléments HTML basiques.<br />Mais on peut également y retrouver des sélecteurs descendants (<code>h1 em</code>), des sélecteurs d’enfants (<code>ul &gt; li</code>) ou même des pseudo-classes (<code>a:hover</code>).</p><p><strong>Cette catégorie ne doit contenir ni classe, ni identifiant !</strong><br /><strong>Vous ne devez pas utiliser <code>!important</code> dans cette catégorie.</strong></p><div class="highlight"><pre><code class="css"><span class="c">/* Exemple des styles de base de ce blog */</span>
-<span class="nt">body</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&#39;/assets/img/background.png&#39;)</span><span class="p">;</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Roboto&#39;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100}body{color:#222;line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:#222;height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#222 0,#222 15px,transparent 0,transparent 26px);width:6.25rem}a{color:#2375ff;text-decoration:none}a:active,a:focus,a:hover{color:#ff7abc}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:#222;font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:#222}.tags__list-item-link:focus,.tags__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}.categories__list-item-link{color:#222}.categories__list-item-link:focus,.categories__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:rgba(255,122,188,.15);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #ff7abc}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__date{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:#ebebeb;text-decoration:none;border:0;border-radius:.1875rem;color:#555;line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:#222;background:#dfdfdf;border:0}.post-single__home-button{display:block;margin-left:auto;margin-right:auto;max-width:5.625rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:#555;background:#ebebeb;font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__home-button:focus,.post-single__home-button:hover{color:#222;background:#dfdfdf;border:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__home-button{position:fixed;max-width:auto;margin:0;top:30px;left:30px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Tombez pour SMACSS</title><meta data-react-helmet="true" name="description" content="Petit tour d&#x27;horizon sur ces guidelines qui feront de vous un bûcheron du CSS, un vrai. Timber !"/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"/><link as="script" rel="preload" href="/app-7ff74e5535bdd06d11ef.js"/><link as="script" rel="preload" href="/2-95af416e05d9551b4d5b.js"/><link as="script" rel="preload" href="/0-adb2f97cc27438a8487c.js"/><link as="script" rel="preload" href="/webpack-runtime-b9583aeb2d8577f338c5.js"/><link rel="preload" href="/static/d/469/path---fr-2013-05-tombez-pour-smacss-a-1-f-b9c-f89tDTcZpu5NjwOLL8OmM8XjHNM.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div><a class="post-single__home-button" href="/fr/">← Articles</a></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Tombez pour SMACSS</h1><div class="post-single__body"><h2 id="tldr"><a href="#tldr" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TL;DR</h2>
+<p><strong>SMACSS</strong> est un ensemble de conseils et de lignes de conduite élaborés par <a href="https://twitter.com/snookca">Jonathan Snoovvk</a> et dont le but est de vous permettre d’organiser votre CSS de manière claire et intelligente.</p>
+<p>Le premier principe réside dans <strong>la catégorisation</strong> : on distingue et regroupe les règles CSS par affinité logique afin de structurer son code (<em>base, layout, module, state, theme</em>).</p>
+<p>Le second principe relève de <strong>la convention de nommage</strong> : ne pas utiliser des ID quand une classe fait très bien l’affaire, nommer les classes de manière à faire ressortir la logique qui s’y cache, …</p>
+<p>Le troisième principe consiste à <strong>découpler le HTML du CSS</strong> : garder chaque module indépendant du contexte HTML dans lequel il se trouve, utiliser les <a href="http://www.yoyodesign.org/doc/w3c/css2/selector.html#child-selectors">sélecteurs d’enfants</a> à bon escient, …</p>
+<p>Avec ces 3 principes, SMACSS vous permet de poser des bases solides pour un CSS de qualité, made in Canada !</p>
+<h2 id="principe-et-intérêts"><a href="#principe-et-int%C3%A9r%C3%AAts" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Principe et intérêts</h2>
+<p>Il arrive bien (trop) souvent que l’organisation du CSS d’un projet web soit vraiment, vraiment mauvaise.</p>
+<p>La raison à cela étant que les gens considèrent que <a href="http://www.veronique-bouvier.com/css-cest-facile-par-hugo-giraudel/">le CSS c’est facile</a> : des sélecteurs, des attributs, des valeurs et roule ma poule ! Si bien que la plupart des projets sur lesquels j’ai travaillé tendent à organiser leur CSS de manière “naturelle”, à savoir :</p>
+<ul>
+<li>un éventuel reset CSS ou autre framework de base,</li>
+<li>un fichier CSS principal pour tout ce qui est commun sur l’ensemble du site,</li>
+<li>un fichier CSS spécifique par page lorsqu’il est nécessaire d’ajouter du style,</li>
+<li>d’autres fichiers éventuels plus ou moins pertinents (“le CSS du carousel jQuery qu’on a choppé sur le web” en fait partie)</li>
+</ul>
+<p>Les problèmes sont alors présents et de plus en plus évidents à mesure que le projet évolue :</p>
+<ul>
+<li>on ne livre pas un seul et unique fichier CSS compressé par page, <a href="http://browserdiet.com/#combine-css">comme il le faudrait</a></li>
+<li>on duplique les propriétés et le code qui va avec</li>
+<li>on ne sait plus où sont rangées les règles correspondant au formulaire X</li>
+<li>on galère pour maintenir le CSS, on préfère rajouter des règles les unes par dessus les autres</li>
+<li>on se demande où placer cette règle qui apparaît sur quelques pages… mais pas toutes</li>
+<li>on a oublié de racheter du café et c’est dimanche</li>
+<li>etc.</li>
+</ul>
+<p>Bref, c’est le bordel dans votre CSS !</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-e0740.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 73.6%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB5YdEIoE//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAECAxIRE//aAAgBAQABBQLKdXkjArHEqc5kq+P/xAAVEQEBAAAAAAAAAAAAAAAAAAAAE//aAAgBAwEBPwFN/8QAFREBAQAAAAAAAAAAAAAAAAAAABL/2gAIAQIBAT8BW//EABwQAAICAgMAAAAAAAAAAAAAAAABAhETITEycf/aAAgBAQAGPwLskJ5ImqIxjSSVlKXmjmrP/8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyEk2/VwaF2MdkBTcwsQV2DEKSeIQtCtP//aAAwDAQACAAMAAAAQj+//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EEpiIP/EABgRAAIDAAAAAAAAAAAAAAAAAAABEUFR/9oACAECAQE/EGrZHT//xAAfEAEBAAIBBAMAAAAAAAAAAAABEQAhMUFRgaFxkdH/2gAIAQEAAT8QpuxtoRv79ZRDG1WPLPXvC3g4NGdsDHQgqkRXyuFYJEQG3XxiWuLEWvfXxn//2Q=='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="Your CSS is a MESS"
+        title=""
+        src="/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-e0740.jpg"
+        srcset="/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-64397.jpg 240w,
+/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-1a212.jpg 480w,
+/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-e0740.jpg 500w"
+        sizes="(max-width: 500px) 100vw, 500px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<p>La méthode <strong>Scalable and Modular Architecture for CSS (SMACSS)</strong> a pour but de venir organiser tout ça selon un ensemble de lignes de conduite assez simples à appréhender.</p>
+<p>Ce n’est pas un framework au sens rigide du terme, mais des bonnes pratiques pour garder un code clairement architecturé et aisé à maintenir.</p>
+<p>La philosophie <strong>SMACSS</strong> repose sur ces 3 grands principes que je vais détailler par la suite :</p>
+<figure>
+  
+  <a class="gatsby-resp-image-link" href="/static/smacss-principles-5826f4ae14c0a4a16ea9d435ddb23646-e0740.jpg" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 74.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAevO2SoP/8QAGRABAQADAQAAAAAAAAAAAAAAAQACERMD/9oACAEBAAEFAs/Qxu0O5wG5kGj/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAcEAEAAQQDAAAAAAAAAAAAAAAAkREhMUFCouH/2gAIAQEABj8C9Y7LNy5So//EABoQAQADAQEBAAAAAAAAAAAAAAEAEVEhkYH/2gAIAQEAAT8hRri5xA48QBas2MqpvGTrd+sCpf1uf//aAAwDAQACAAMAAAAQsA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgIDAQAAAAAAAAAAAAABADERUSFBkeH/2gAIAQEAAT8Qy23VBh1cRZxDkWg8MQDWxHg4gdlv7wgqDYvWf//Z&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Les principes de SMACSS" title="" src="/static/smacss-principles-5826f4ae14c0a4a16ea9d435ddb23646-e0740.jpg" srcset="/static/smacss-principles-5826f4ae14c0a4a16ea9d435ddb23646-64397.jpg 240w,
+/static/smacss-principles-5826f4ae14c0a4a16ea9d435ddb23646-1a212.jpg 480w,
+/static/smacss-principles-5826f4ae14c0a4a16ea9d435ddb23646-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+  </a>
+    
+  <figcaption>Les 3 grands principes de SMACSS</figcaption>
+</figure>
+<h2 id="catégoriser-son-css"><a href="#cat%C3%A9goriser-son-css" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Catégoriser son CSS</h2>
+<p>La première considération de SMACSS consiste à <strong>regrouper les règles CSS selon des catégories</strong> qui vont définir l’organisation du code.</p>
+<p>La catégorisation est le principe central de SMACSS. Le fait de catégoriser les règles permet de distinguer des modèles type et de définir des bonnes pratiques pour chacunes de ces catégories.</p>
+<p>On distingue 5 types de catégories :</p>
+<ol>
+<li><em>Base</em></li>
+<li><em>Layout</em></li>
+<li><em>Module</em></li>
+<li><em>State</em></li>
+<li><em>Theme</em></li>
+</ol>
+<h3 id="base"><a href="#base" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Base</h3>
+<p>Il s’agit des éléments par défaut tels qu’ils sont définis sur l’ensemble du site. Ce sont les règles de style “de base” (sans blague).</p>
+<p>Bien généralement il s’agit des éléments HTML basiques.<br>
+Mais on peut également y retrouver des sélecteurs descendants (<code class="language-text">h1 em</code>), des sélecteurs d’enfants (<code class="language-text">ul &gt; li</code>) ou même des pseudo-classes (<code class="language-text">a:hover</code>).</p>
+<p><strong>Cette catégorie ne doit contenir ni classe, ni identifiant !</strong><br>
+<strong>Vous ne devez pas utiliser <code class="language-text">!important</code> dans cette catégorie.</strong></p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* Exemple des styles de base de ce blog */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #000<span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url('/assets/img/background.png')</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">h1</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#F44</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #f44<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span> <span class="p">{</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Snippet&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">h1,
+h2,
+h3</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Snippet'</span>, sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">h1</span> <span class="o">&gt;</span> <span class="nt">span</span><span class="o">,</span> <span class="nt">h2</span> <span class="o">&gt;</span> <span class="nt">span</span><span class="o">,</span> <span class="nt">h3</span> <span class="o">&gt;</span> <span class="nt">span</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#333</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">h1 > span,
+h2 > span,
+h3 > span</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">em</span> <span class="p">{</span>
-    <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Snippet&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p class="islet">Les <strong>resets CSS</strong> font partie de cette catégorie.</p><h4 id="layout">Layout</h4><p>Il s’agit du découpage de l’architecture de votre site en sections principales.</p><p>Généralement, il s’agit de sélecteurs simples, descendants ou d’enfants, voire de classes ou d’identifiants (pour le coup, c’est bien le seul endroit où l’usage d’ID est tolérable).</p><p><strong>Vous ne devez pas utiliser <code>!important</code> dans cette catégorie.</strong></p><div class="illustration"><img src="/assets/img/css/smacss-layout.jpg" alt="La couche layout" title="La couche layout en SMACSS" />Découpage du site en sections majeures pour le layout</div><div class="highlight"><pre><code class="css"><span class="c">/* Exemple des styles layout de ce blog */</span>
-<span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">margin-right</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
-    <span class="k">margin-left</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
-    <span class="k">max-width</span><span class="o">:</span> <span class="m">1050px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">em</span> <span class="token punctuation">{</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Snippet'</span>, sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Les <strong>resets CSS</strong> font partie de cette catégorie.</p>
+<h3 id="layout"><a href="#layout" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Layout</h3>
+<p>Il s’agit du découpage de l’architecture de votre site en sections principales.</p>
+<p>Généralement, il s’agit de sélecteurs simples, descendants ou d’enfants, voire de classes ou d’identifiants (pour le coup, c’est bien le seul endroit où l’usage d’ID est tolérable).</p>
+<p><strong>Vous ne devez pas utiliser <code class="language-text">!important</code> dans cette catégorie.</strong></p>
+<figure>
+  
+  <a class="gatsby-resp-image-link" href="/static/smacss-layout-40a830bd78f235b53cd9331734cb1d16-e0740.jpg" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 65.60000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgP/2gAMAwEAAhADEAAAAdCXF5ILIf/EABkQAAIDAQAAAAAAAAAAAAAAAAABEBESE//aAAgBAQABBQLDMM5sSKj/xAAWEQADAAAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8BrKz/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAADAQAAAAAAAAAAAAAAAAAAATIg/9oACAEBAAY/AqZbLeP/xAAZEAACAwEAAAAAAAAAAAAAAAAAARARIUH/2gAIAQEAAT8hxwkI2ghLCl32P//aAAwDAQACAAMAAAAQnD//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/EAP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAgBAgEBPxCI/8QAHRAAAwACAgMAAAAAAAAAAAAAAAERQXExYYHR4f/aAAgBAQABPxCyxvYrU2du+xjZ+Po5JErzEYjbJD//2Q==&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="La couche layout" title="" src="/static/smacss-layout-40a830bd78f235b53cd9331734cb1d16-e0740.jpg" srcset="/static/smacss-layout-40a830bd78f235b53cd9331734cb1d16-64397.jpg 240w,
+/static/smacss-layout-40a830bd78f235b53cd9331734cb1d16-1a212.jpg 480w,
+/static/smacss-layout-40a830bd78f235b53cd9331734cb1d16-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+  </a>
+    
+  <figcaption>D&#xE9;coupage du site en sections majeures pour le layout</figcaption>
+</figure>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* Exemple des styles layout de ce blog */</span>
+<span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0 20px<span class="token punctuation">;</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> 1050px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">header</span> <span class="o">&gt;</span> <span class="nt">img</span><span class="o">,</span> <span class="nt">header</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="p">{</span>
-    <span class="k">line-height</span><span class="o">:</span> <span class="m">80px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">header > img,
+header > nav</span> <span class="token punctuation">{</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nt">footer</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">75</span><span class="n">rem</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span>
+<span class="token selector">footer</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 0.75rem<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
 
-    <span class="k">padding-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p class="islet"><strong>Attention à ne pas confondre le <em>layout</em> et les <em>modules</em> !</strong><br /><br />Le <em>layout</em> correspond aux sections majeures de votre site, ce sont les grandes parties de votre template (le header, le footer, la sidebar, ...).<br />Les <em>modules</em> correspondent aux sections mineures qui peuvent apparaître sur votre site (menu de navigation, formulaire de connexion, ...). Le <em>layout</em> peut contenir un ou plusieurs <em>modules</em>.</p><h4 id="module">Module</h4><p>Un module est une section mineure, un composant autonome de la page.</p><p>Partir sur une structure modulaire est une bonne pratique à appliquer pour créer et maintenir un CSS flexible et réutilisable. A titre d’exemple, les modules les plus classiques sont certainement la navigation et les boutons.</p><p><strong>Vous ne devez pas utiliser d’ID ou <code>!important</code> dans cette catégorie.</strong></p><div class="illustration"><img src="/assets/img/css/smacss-module.jpg" alt="La couche module" title="La couche module en SMACSS" />Mise en lumière des modules de la page</div><div class="highlight"><pre><code class="css"><span class="c">/* Exemple des styles du module block-list de ce blog */</span>
-<span class="nc">.block-list</span> <span class="p">{</span>
-    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-    <span class="k">margin-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 100<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><strong>Attention à ne pas confondre le <em>layout</em> et les <em>modules</em> !</strong></p>
+<p>Le <em>layout</em> correspond aux sections majeures de votre site, ce sont les grandes parties de votre template (le header, le footer, la sidebar, …).</p>
+<p>Les <em>modules</em> correspondent aux sections mineures qui peuvent apparaître sur votre site (menu de navigation, formulaire de connexion, …). Le <em>layout</em> peut contenir un ou plusieurs <em>modules</em>.</p>
+<h3 id="module"><a href="#module" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module</h3>
+<p>Un module est une section mineure, un composant autonome de la page.</p>
+<p>Partir sur une structure modulaire est une bonne pratique à appliquer pour créer et maintenir un CSS flexible et réutilisable. A titre d’exemple, les modules les plus classiques sont certainement la navigation et les boutons.</p>
+<p><strong>Vous ne devez pas utiliser d’ID ou <code class="language-text">!important</code> dans cette catégorie.</strong></p>
+<figure>
+  
+  <a class="gatsby-resp-image-link" href="/static/smacss-module-e72757c07b945dd8837ebd0cbe842afc-e0740.jpg" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 65.60000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUBBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHsyksnKY//xAAaEAACAgMAAAAAAAAAAAAAAAABAwAREBMx/9oACAEBAAEFAillBbJpZBysf//EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oACAEDAQE/Aar/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwGq/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAIDIZEBIDP/2gAIAQEABj8Ch1RLmaOyq0//xAAbEAABBAMAAAAAAAAAAAAAAAABABARMXGB8f/aAAgBAQABPyGkRVHJ6RMwhAWdt//aAAwDAQACAAMAAAAQFN//xAAXEQADAQAAAAAAAAAAAAAAAAAAEVGh/9oACAEDAQE/EHQ6w//EABURAQEAAAAAAAAAAAAAAAAAAABx/9oACAECAQE/ECH/xAAcEAACAgIDAAAAAAAAAAAAAAABEQAhMWEQcfD/2gAIAQEAAT8QQNmEWpXqasvuCrT5uAyDOE5XP2TPH//Z&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="La couche module" title="" src="/static/smacss-module-e72757c07b945dd8837ebd0cbe842afc-e0740.jpg" srcset="/static/smacss-module-e72757c07b945dd8837ebd0cbe842afc-64397.jpg 240w,
+/static/smacss-module-e72757c07b945dd8837ebd0cbe842afc-1a212.jpg 480w,
+/static/smacss-module-e72757c07b945dd8837ebd0cbe842afc-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+  </a>
+    
+  <figcaption>Mise en lumi&#xE8;re des modules de la page</figcaption>
+</figure>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* Exemple des styles du module block-list de ce blog */</span>
+<span class="token selector">.block-list</span> <span class="token punctuation">{</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.block-list</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">0</span> <span class="k">dashed</span> <span class="m">#DDD</span><span class="p">;</span>
-    <span class="k">border-bottom-width</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.block-list > li</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 0 dashed #ddd<span class="token punctuation">;</span>
+  <span class="token property">border-bottom-width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.block-list</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:last-child</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.block-list > li:last-child</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.block-list__link</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">-12px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Le plus complexe dans l’élaboration des modules est certainement le fait de devoir prendre garde à ce qu’ils soient modulaires, justement.</p><p>Un module doit être <strong>un bloc autonome</strong> et la structure des sélecteurs doit refléter cela. Si vous commencez à ajouter un contexte spécifique dans votre CSS pour styliser votre module “en fonction de là où il se trouve”, vous passez à côté de la plaque !</p><p>Il faut penser modularité et réusabilité.</p><div class="highlight"><pre><code class="css"><span class="nt">header</span> <span class="nc">.block-list</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span> <span class="c">/* Mauvaise idée =( */</span>
-<span class="nc">.block-list-fit</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>    <span class="c">/* Bien mieux ! */</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Utilisation concrète --&gt;</span>
-<span class="nt">&lt;header&gt;</span>
-    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;block-list block-list-fit&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;li&gt;</span>Lorem ipsum dolor sit amet<span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li&gt;</span>Possimus est fugit reiciendis<span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li&gt;</span>Nostrum, ducimus, temporibus<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/header&gt;</span>
-</code></pre></div><p>Ainsi, rien ne vous empêche d’appliquer le modificateur <code>.block-list-fit</code> ailleurs, ou de le retirer si besoin. C’est un Lego qui apporte sa pierre à l’édifice de votre design.</p><h4 id="state">State</h4><p>Il s’agit de classes qui viennent définir un état particulier dans lequel se trouvent vos éléments.</p><p>Généralement, une règle qui se trouve dans cette catégorie correspond à une simple classe CSS.</p><p><strong>C’est la seule catégorie où l’usage de <code>!important</code> peut être toléré, voire recommandé.</strong></p><p>En effet, ce genre de règles déterminent <strong>un état final</strong> du design, qui doit s’appliquer quoiqu’il advienne. Si votre code est propre, vous ne devriez pas avoir deux états s’appliquant sur le même élément et modifiant les mêmes attributs (sinon, vous avez un petit soucis de logique).</p><div class="illustration"><img src="/assets/img/css/smacss-state.jpg" alt="La couche state" title="La couche state en SMACSS" />Exemple des différents états possibles d'un bouton</div><div class="highlight"><pre><code class="css"><span class="c">/* Exemple des styles state d&#39;un projet */</span>
-<span class="nc">.is-block</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.block-list__link</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> -12px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Le plus complexe dans l’élaboration des modules est certainement le fait de devoir prendre garde à ce qu’ils soient modulaires, justement.</p>
+<p>Un module doit être <strong>un bloc autonome</strong> et la structure des sélecteurs doit refléter cela. Si vous commencez à ajouter un contexte spécifique dans votre CSS pour styliser votre module “en fonction de là où il se trouve”, vous passez à côté de la plaque !</p>
+<p>Il faut penser modularité et réusabilité.</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">header .block-list</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token comment">/* Mauvaise idée =( */</span>
 
-<span class="nc">.is-dragged</span>  <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="k">rgb</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">85</span><span class="o">,</span> <span class="m">128</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="k">rgb</span><span class="p">(</span><span class="m">217</span><span class="o">,</span> <span class="m">237</span><span class="o">,</span> <span class="m">247</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Bien souvent, les états correspondent à des interactions avec l’utilisateur et ont des dépendances avec Javascript.</p><p>En effet, quoi de plus simple que de rajouter et d’enlever une classe <code>.is-loading</code> sur la page pour faire un retour à l’utilisateur du traitement de sa requête ? Le JS n’en est que plus simple :</p><div class="highlight"><pre><code class="javascript"><span class="c1">// Exemple d&#39;utilisation lors d&#39;un traitement de formulaire</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;form#update-quantity&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Ajoute le loading sur la page (calcul en cours)</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#content&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;is-loading&#39;</span><span class="p">);</span>
+<span class="token selector">.block-list-fit</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token comment">/* Bien mieux ! */</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Utilisation concrète --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>block-list block-list-fit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Possimus est fugit reiciendis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Nostrum, ducimus, temporibus<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span></code></pre></div>
+<p>Ainsi, rien ne vous empêche d’appliquer le modificateur <code class="language-text">.block-list-fit</code> ailleurs, ou de le retirer si besoin. C’est un Lego qui apporte sa pierre à l’édifice de votre design.</p>
+<h3 id="state"><a href="#state" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State</h3>
+<p>Il s’agit de classes qui viennent définir un état particulier dans lequel se trouvent vos éléments.</p>
+<p>Généralement, une règle qui se trouve dans cette catégorie correspond à une simple classe CSS.</p>
+<p><strong>C’est la seule catégorie où l’usage de <code class="language-text">!important</code> peut être toléré, voire recommandé.</strong></p>
+<p>En effet, ce genre de règles déterminent <strong>un état final</strong> du design, qui doit s’appliquer quoiqu’il advienne. Si votre code est propre, vous ne devriez pas avoir deux états s’appliquant sur le même élément et modifiant les mêmes attributs (sinon, vous avez un petit soucis de logique).</p>
+<figure>
+  
+  <a class="gatsby-resp-image-link" href="/static/smacss-state-be756d14664baca399990b429accbc34-e0740.jpg" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7mig//xAAWEAADAAAAAAAAAAAAAAAAAAAAESD/2gAIAQEAAQUCHP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAHBAAAQMFAAAAAAAAAAAAAAAAAAEQESExcYGR/9oACAEBAAE/ITTrVm4iYb//2gAMAwEAAgADAAAAEAAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAQEBAAMAAAAAAAAAAAAAAREAIRBRYf/aAAgBAQABPxBs4a4wqzCzpHI+BPUco9o+E8f/2Q==&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="La couche state" title="" src="/static/smacss-state-be756d14664baca399990b429accbc34-e0740.jpg" srcset="/static/smacss-state-be756d14664baca399990b429accbc34-64397.jpg 240w,
+/static/smacss-state-be756d14664baca399990b429accbc34-1a212.jpg 480w,
+/static/smacss-state-be756d14664baca399990b429accbc34-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+  </a>
+    
+  <figcaption>Exemple des diff&#xE9;rents &#xE9;tats possibles d&apos;un bouton</figcaption>
+</figure>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* Exemple des styles state d'un projet */</span>
+<span class="token selector">.is-block</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block  <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="c1">// Requête AJAX pour mettre directement à jour le formulaire</span>
-    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/cart/update/&quot;</span> <span class="o">+</span> <span class="nx">ref</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nx">quantity</span><span class="p">,</span>
-        <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
-        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// Retire le loading (fin du calcul)</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#content&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;is-loading&#39;</span><span class="p">);</span>
+<span class="token selector">.is-dragged</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>0, 85, 128<span class="token punctuation">)</span>  <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>217, 237, 247<span class="token punctuation">)</span>  <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Bien souvent, les états correspondent à des interactions avec l’utilisateur et ont des dépendances avec Javascript.</p>
+<p>En effet, quoi de plus simple que de rajouter et d’enlever une classe <code class="language-text">.is-loading</code> sur la page pour faire un retour à l’utilisateur du traitement de sa requête ? Le JS n’en est que plus simple :</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Exemple d'utilisation lors d'un traitement de formulaire</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'form#update-quantity'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Ajoute le loading sur la page (calcul en cours)</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'is-loading'</span><span class="token punctuation">)</span>
 
-            <span class="c1">// ...</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div><div class="illustration visuallyhidden--palm"><iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe>Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ</div><h4 id="theme">Theme</h4><p>Dans certains cas, il se peut qu’un projet nécessite l’élaboration de différents thèmes pouvant s’interchanger en fonction des choix de l’utilisateur ou de l’équipe.</p><p>Dans ces cas, on peut <strong>découpler l’apparence de la structure</strong> des modules (notamment) afin de pouvoir switcher facilement entre ces différents designs.</p><p>Il s’agit donc généralement de redéfinir les styles de <em>base</em>, de <em>layout</em>, de <em>module</em> ou même de <em>state</em> en indiquant de manière claire quelles sont les règles qui définissent le thème et quelles sont celles qui n’en font pas partie.</p><p>Bien souvent, séparer clairement ces règles en les regroupant dans un fichier CSS relatif au thème suffit à montrer cette distinction.</p><div class="highlight"><pre><code class="css"><span class="c">/* Exemple des styles d&#39;un theme d&#39;un projet */</span>
-<span class="nt">body</span> <span class="p">{</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Roboto&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="token comment">// Requête AJAX pour mettre directement à jour le formulaire</span>
+    $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token punctuation">:</span> <span class="token string">'/cart/update/'</span> <span class="token operator">+</span> ref <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> quantity<span class="token punctuation">,</span>
+      dataType<span class="token punctuation">:</span> <span class="token string">'json'</span><span class="token punctuation">,</span>
+      success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Retire le loading (fin du calcul)</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'is-loading'</span><span class="token punctuation">)</span>
 
-<span class="nt">header</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#33F</span><span class="p">;</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#A66105</span><span class="p">;</span>
-<span class="p">}</span>
+        <span class="token comment">// …</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe>
+<p><em>Exemple de l’utilisation de <code>.is-loading</code> lors de la modification d’un champ</em></p>
+<h3 id="theme"><a href="#theme" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theme</h3>
+<p>Dans certains cas, il se peut qu’un projet nécessite l’élaboration de différents thèmes pouvant s’interchanger en fonction des choix de l’utilisateur ou de l’équipe.</p>
+<p>Dans ces cas, on peut <strong>découpler l’apparence de la structure</strong> des modules (notamment) afin de pouvoir switcher facilement entre ces différents designs.</p>
+<p>Il s’agit donc généralement de redéfinir les styles de <em>base</em>, de <em>layout</em>, de <em>module</em> ou même de <em>state</em> en indiquant de manière claire quelles sont les règles qui définissent le thème et quelles sont celles qui n’en font pas partie.</p>
+<p>Bien souvent, séparer clairement ces règles en les regroupant dans un fichier CSS relatif au thème suffit à montrer cette distinction.</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* Exemple des styles d'un theme d'un projet */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.block-list</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">0</span> <span class="k">dashed</span> <span class="m">#00D</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">header</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #33f<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #a66105<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="c">/* Ou bien si le thème est interchangeable, on peut envisager ceci */</span>
-<span class="nc">.theme-ocean</span> <span class="p">{</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Roboto&quot;</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.block-list > li</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 0 dashed #00d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.theme-ocean</span> <span class="nt">header</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#33F</span><span class="p">;</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#A66105</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token comment">/* Ou bien si le thème est interchangeable, on peut envisager ceci */</span>
+<span class="token selector">.theme-ocean</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.theme-ocean</span> <span class="nc">.block-list</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">0</span> <span class="k">dashed</span> <span class="m">#00D</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><h4 id="bonus--shame">Bonus : Shame</h4><p>Ce point ne fait pas véritablement partie de <strong>SMACSS</strong>, mais relève d’une idée/blague de Harry Roberts <a href="http://csswizardry.com/2013/04/shame-css/">au détour d’un post</a>. Tant qu’à y aller dans l’organisation du code, je trouvais pertinent de rajouter ce dernier point.</p><p>L’idée c’est que, dans la vraie vie, il arrive que les développeurs n’aient pas le temps de coder bien proprement une fonctionnalité de dernière minute ou bien qu’il soit nécessaire de rapidement corriger un problème sans qu’on n’ait vraiment eu le temps de comprendre ce qui n’allait pas.</p><p>Ainsi, en CSS comme ailleurs, il arrive de devoir faire un petit correctif rapide à grand coup de <code>overflow:hidden;</code> et autres <code>!important</code>.</p><p>Le problème, c’est que bien souvent les développeurs ne prennent pas (n’ont pas) le temps de venir faire le refactoring qui s’impose, histoire de nettoyer tout ça. Et ainsi le CSS se remplit de petits hacks divers et variés, dont on oublie la raison voire l’existence, et qui viennent saloper tout le travail (je vous raconte pas quand y’a plus d’un développeur sur le projet).</p><p><strong>La solution</strong> est donc d’isoler ces petites magouilles dans un seul et même fichier : <code>shame.css</code>.</p><p>Le workflow est le suivant :</p><ol><li>Si la règle CSS que l'on va rajouter est un hack, on la place dans <code>shame.css</code></li><li>On commente le hack le mieux possible<ul><li>à quel code cela se réfère-t-il ?</li><li>pourquoi c'était nécessaire ?</li><li>comment ça fonctionne ?</li><li>comment on pourrait le faire proprement en ayant plus de temps ?</li></ul></li><li>On ne blâme pas le développeur s'il a correctement expliqué son hack</li><li>Quand on a du temps disponible, on vient nettoyer <code>shame.css</code></li></ol><p>Voici un exemple de hack (librement inspiré de celui de Harry) :</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * Nav specificity fix.</span>
-<span class="c"> *</span>
-<span class="c"> * Quelqu&#39;un a utilisé un ID dans le header (`#header a{}`)</span>
-<span class="c"> * qui l&#39;emportesur le sélecteur de nav (`.site-nav a{}`).</span>
-<span class="c"> * Utilisation de !important pour le surcharger d&#39;ici qu&#39;on ait</span>
-<span class="c"> * le temps derefactor le header.</span>
-<span class="c"> */</span>
-<span class="nc">.site-nav</span> <span class="nt">a</span><span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Si vous faîtes les choses correctement, vous devrez inclure ce fichier <strong>à la fin de votre CSS compressé final</strong>.</p><h2 id="nommer-ses-classes">Nommer ses classes</h2><p>En plus de la catégorisation des règles CSS et de la nouvelle structure que cela donne à notre code, il peut être particulièrement utile de convenir de certaines <strong>conventions de nommage</strong> au sein du projet.</p><p>Sans aller chercher très loin, c’est apporter une certaine rigueur et intelligence au code qui évitera aux futurs développeurs de venir se casser les dents sur des classes aux noms aléatoires.</p><p>Par exemple, <code>.titre-bleu</code> fait partie de ces fausses bonnes idées de début de projet. Si effectivement il s’agit de mettre le titre en bleu avec cette classe, qu’en sera-t-il dans 1 an lorsque finalement il aura été décrété que le rouge était plus tendance ? Changer le CSS ne fera que relever l’absurdité des ces <code>.titre-bleu</code> qui sont finalement rouges… Il faudra donc se taper toutes les occurences de cette classe dans le projet pour aller corriger le tir !</p><p>D’un autre côté, si le choix avait été porté sur <code>.titre-festif</code> (ou quelque chose d’aussi sémantique), alors il n’y aurait jamais eu de problème. C’est un concept de base qu’il faut bien assimiler si on veut éviter les erreurs qui coûtent (du temps, donc de l’argent).</p><p>D’une manière générale, <strong>la convention de nommage doit clarifier les intentions</strong>.</p><p>Voici quelques pistes :</p><ul><li>pour les <em>modules</em>, il est judicieux que les classes partagent la même racine correspondant au module en question. Des projets comme <em>Bootstrap</em> <a href="https://github.com/twitter/bootstrap/blob/master/less/buttons.less">adoptent d’ailleurs cette convention</a>.</li></ul><div class="highlight"><pre><code class="css"><span class="nc">.btn</span> <span class="p">{}</span>
-<span class="nc">.btn-search</span> <span class="p">{}</span>
-<span class="nc">.btn-small</span> <span class="p">{}</span>
-<span class="nc">.btn-large</span> <span class="p">{}</span>
-<span class="c">/* ... */</span>
-</code></pre></div><ul><li>pour <em>state</em>, il s’agit d’un état logique dans lequel se trouve un élément. Ainsi, il n’est pas bête que chaque classe transmettent cette intention avec <code>.is-</code> par exemple :</li></ul><div class="highlight"><pre><code class="css"><span class="nc">.is-loading</span> <span class="p">{}</span>
-<span class="nc">.is-collapsed</span> <span class="p">{}</span>
+<span class="token selector">.theme-ocean header</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #33f<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #a66105<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="c">/* et pour les états relatifs à un module... */</span>
-<span class="nc">.is-btn-active</span> <span class="p">{}</span>
-<span class="nc">.is-btn-disabled</span> <span class="p">{}</span>
-</code></pre></div><ul><li>pour les <em>themes</em> donc, il est envisageable de créer une sorte de namespace explicite, notamment s’il est possible de switcher entre les différents thèmes proposés :</li></ul><div class="highlight"><pre><code class="css"><span class="nc">.theme-ocean</span> <span class="p">{}</span>
-<span class="nc">.theme-silver</span> <span class="p">{}</span>
-<span class="c">/* ... */</span>
-</code></pre></div><h2 id="dcoupler-le-html-du-css">Découpler le HTML du CSS</h2><p>Ce point recoupe de manière assez explicite les bonnes pratiques d’OOCSS <a href="/fr/2013/05/plongee-au-coeur-de-oocss/">que j’avais introduites il y a quelque temps</a>.</p><p>Le principe est donc le même : <strong>le CSS doit être indépendant du contexte HTML dans lequel les éléments se trouvent</strong>.</p><p>C’est la condition <em>sine qua none</em> d’un code flexible, modulaire et réutilisable. C’est d’autant plus vrai quand vous pensez aux modules qui constituent une bonne partie de votre CSS une fois les bases et le layout posés.</p><p>De plus, faîtes en sorte que vos modules aient <strong>une structure prédictible</strong> ! Pour cela, utilisez les sélecteurs d’enfants et ne soyez pas trop génériques, au risque de ne pas envisager tous les cas de figure.</p><p>Enfin, <strong>si le HTML n’est pas prédictible, créez une classe !</strong></p><h4 id="des-modules-prdictibles">Des modules prédictibles</h4><p>Pour reprendre l’exemple employé par Jonathan Snoovvk, voici un code à problème :</p><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Un menu de navigation classique --&gt;</span>
-<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Accueil<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products&quot;</span><span class="nt">&gt;</span>Nos produits<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contact&quot;</span><span class="nt">&gt;</span>Contactez-nois<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="nc">.nav</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.theme-ocean .block-list > li</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 0 dashed #00d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="bonus--shame"><a href="#bonus--shame" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bonus : Shame</h3>
+<p>Ce point ne fait pas véritablement partie de <strong>SMACSS</strong>, mais relève d’une idée/blague de Harry Roberts <a href="http://csswizardry.com/2013/04/shame-css/">au détour d’un post</a>. Tant qu’à y aller dans l’organisation du code, je trouvais pertinent de rajouter ce dernier point.</p>
+<p>L’idée c’est que, dans la vraie vie, il arrive que les développeurs n’aient pas le temps de coder bien proprement une fonctionnalité de dernière minute ou bien qu’il soit nécessaire de rapidement corriger un problème sans qu’on n’ait vraiment eu le temps de comprendre ce qui n’allait pas.</p>
+<p>Ainsi, en CSS comme ailleurs, il arrive de devoir faire un petit correctif rapide à grand coup de <code class="language-text">overflow:hidden;</code> et autres <code class="language-text">!important</code>.</p>
+<p>Le problème, c’est que bien souvent les développeurs ne prennent pas (n’ont pas) le temps de venir faire le refactoring qui s’impose, histoire de nettoyer tout ça. Et ainsi le CSS se remplit de petits hacks divers et variés, dont on oublie la raison voire l’existence, et qui viennent saloper tout le travail (je vous raconte pas quand y’a plus d’un développeur sur le projet).</p>
+<p><strong>La solution</strong> est donc d’isoler ces petites magouilles dans un seul et même fichier : <code class="language-text">shame.css</code>.</p>
+<p>Le workflow est le suivant :</p>
+<ol>
+    <li>Si la règle CSS que l'on va rajouter est un hack, on la place dans <code>shame.css</code></li>
+    <li>On commente le hack le mieux possible
+        <ul>
+            <li>à quel code cela se réfère-t-il ?</li>
+            <li>pourquoi c'était nécessaire ?</li>
+            <li>comment ça fonctionne ?</li>
+            <li>comment on pourrait le faire proprement en ayant plus de temps ?</li>
+        </ul>
+    </li>
+    <li>On ne blâme pas le développeur s'il a correctement expliqué son hack</li>
+    <li>Quand on a du temps disponible, on vient nettoyer <code>shame.css</code></li>
+</ol>
+<p>Voici un exemple de hack (librement inspiré de celui de Harry) :</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/**
+ * Nav specificity fix.
+ *
+ * Quelqu'un a utilisé un ID dans le header (`#header a{}`)
+ * qui l'emporte sur le sélecteur de nav (`.site-nav a{}`).
+ * Utilisation de !important pour le surcharger d'ici qu'on ait
+ * le temps de refactor le header.
+ */</span>
+<span class="token selector">.site-nav a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #bada55  <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Si vous faîtes les choses correctement, vous devrez inclure ce fichier <strong>à la fin de votre CSS compressé final</strong>.</p>
+<h2 id="nommer-ses-classes"><a href="#nommer-ses-classes" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nommer ses classes</h2>
+<p>En plus de la catégorisation des règles CSS et de la nouvelle structure que cela donne à notre code, il peut être particulièrement utile de convenir de certaines <strong>conventions de nommage</strong> au sein du projet.</p>
+<p>Sans aller chercher très loin, c’est apporter une certaine rigueur et intelligence au code qui évitera aux futurs développeurs de venir se casser les dents sur des classes aux noms aléatoires.</p>
+<p>Par exemple, <code class="language-text">.titre-bleu</code> fait partie de ces fausses bonnes idées de début de projet. Si effectivement il s’agit de mettre le titre en bleu avec cette classe, qu’en sera-t-il dans 1 an lorsque finalement il aura été décrété que le rouge était plus tendance ? Changer le CSS ne fera que relever l’absurdité des ces <code class="language-text">.titre-bleu</code> qui sont finalement rouges… Il faudra donc se taper toutes les occurences de cette classe dans le projet pour aller corriger le tir !</p>
+<p>D’un autre côté, si le choix avait été porté sur <code class="language-text">.titre-festif</code> (ou quelque chose d’aussi sémantique), alors il n’y aurait jamais eu de problème. C’est un concept de base qu’il faut bien assimiler si on veut éviter les erreurs qui coûtent (du temps, donc de l’argent).</p>
+<p>D’une manière générale, <strong>la convention de nommage doit clarifier les intentions</strong>.</p>
+<p>Voici quelques pistes :</p>
+<ul>
+<li>pour les <em>modules</em>, il est judicieux que les classes partagent la même racine correspondant au module en question. Des projets comme <em>Bootstrap</em> <a href="https://github.com/twitter/bootstrap/blob/master/less/buttons.less">adoptent d’ailleurs cette convention</a>.</li>
+</ul>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.btn</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.btn-search</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.btn-small</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.btn-large</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* … */</span></code></pre></div>
+<ul>
+<li>pour <em>state</em>, il s’agit d’un état logique dans lequel se trouve un élément. Ainsi, il n’est pas bête que chaque classe transmettent cette intention avec <code class="language-text">.is-</code> par exemple :</li>
+</ul>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.is-loading</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.is-collapsed</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token comment">/* et pour les états relatifs à un module… */</span>
+<span class="token selector">.is-btn-active</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.is-btn-disabled</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>pour les <em>themes</em> donc, il est envisageable de créer une sorte de namespace explicite, notamment s’il est possible de switcher entre les différents thèmes proposés :</li>
+</ul>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.theme-ocean</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.theme-silver</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* … */</span></code></pre></div>
+<h2 id="découpler-le-html-du-css"><a href="#d%C3%A9coupler-le-html-du-css" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Découpler le HTML du CSS</h2>
+<p>Ce point recoupe de manière assez explicite les bonnes pratiques d’OOCSS <a href="%7B%25%20post_url%202013-05-08-plongee-au-coeur-de-oocss%20%25%7D">que j’avais introduites il y a quelque temps</a>.</p>
+<p>Le principe est donc le même : <strong>le CSS doit être indépendant du contexte HTML dans lequel les éléments se trouvent</strong>.</p>
+<p>C’est la condition <em>sine qua none</em> d’un code flexible, modulaire et réutilisable. C’est d’autant plus vrai quand vous pensez aux modules qui constituent une bonne partie de votre CSS une fois les bases et le layout posés.</p>
+<p>De plus, faîtes en sorte que vos modules aient <strong>une structure prédictible</strong> ! Pour cela, utilisez les sélecteurs d’enfants et ne soyez pas trop génériques, au risque de ne pas envisager tous les cas de figure.</p>
+<p>Enfin, <strong>si le HTML n’est pas prédictible, créez une classe !</strong></p>
+<h3 id="des-modules-prédictibles"><a href="#des-modules-pr%C3%A9dictibles" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Des modules prédictibles</h3>
+<p>Pour reprendre l’exemple employé par Jonathan Snoovvk, voici un code à problème :</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Un menu de navigation classique --></span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>C’est un cas de figure tout ce qu’il y a de plus classique sur un projet et, jusqu’à présent, ça fonctionnait pas trop mal.</p><p>Seulement voilà, le projet évolue et le menu se développe, donnant quelque chose d’un peu plus complexe :</p><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Un menu de navigation un peu plus cossu --&gt;</span>
-<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Accueil<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products&quot;</span><span class="nt">&gt;</span>Nos produits<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;ul&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products/shoes&quot;</span><span class="nt">&gt;</span>Chaussures<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products/jackets&quot;</span><span class="nt">&gt;</span>Blousons<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;/ul&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contact&quot;</span><span class="nt">&gt;</span>Contactez-nois<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div><p>Et là, c’est le drame…</p><p>Le code précédent n’avait pas envisagé cette possibilité et voilà que le menu imbriqué hérite d’un design non désiré : le sous-menu est affecté par le <code>float: left;</code> qu’il faut à présent annuler (et pis le client, il voulait le sous-menu en rouge, paraît que c’est tendance).</p><p>Une fausse bonne idée (mais naturelle) pour corriger cela consiste à créer de nouvelles règles plus spécifiques :</p><div class="highlight"><pre><code class="css"><span class="nc">.nav</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Accueil<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Nos produits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/contact<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Contactez-nois<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre></div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.nav</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li a</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 5px 10px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>C’est un cas de figure tout ce qu’il y a de plus classique sur un projet et, jusqu’à présent, ça fonctionnait pas trop mal.</p>
+<p>Seulement voilà, le projet évolue et le menu se développe, donnant quelque chose d’un peu plus complexe :</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Un menu de navigation un peu plus cossu --></span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Accueil<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Nos produits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products/shoes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Chaussures<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products/jackets<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Blousons<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/contact<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Contactez-nois<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre></div>
+<p>Et là, c’est le drame…</p>
+<p>Le code précédent n’avait pas envisagé cette possibilité et voilà que le menu imbriqué hérite d’un design non désiré : le sous-menu est affecté par le <code class="language-text">float: left;</code> qu’il faut à présent annuler (et pis le client, il voulait le sous-menu en rouge, paraît que c’est tendance).</p>
+<p>Une fausse bonne idée (mais naturelle) pour corriger cela consiste à créer de nouvelles règles plus spécifiques :</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.nav</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="nt">li</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Et c’est ainsi que votre CSS devient petit à petit un joyeux bordel…</p><p>Avec SMACSS, vous auriez retenu le 3e principe et pris garde à ce que la structure de votre module soit prédictible :</p><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Un menu de navigation un peu plus cossu --&gt;</span>
-<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Accueil<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products&quot;</span><span class="nt">&gt;</span>Nos produits<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav nav-imbricated&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products/shoes&quot;</span><span class="nt">&gt;</span>Chaussures<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/products/jackets&quot;</span><span class="nt">&gt;</span>Blousons<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;/ul&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contact&quot;</span><span class="nt">&gt;</span>Contactez-nois<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="nc">.nav</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li a</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 5px 10px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li li</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.nav-imbricated</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Plus de problème de design du sous-menu : il suffit de lui appliquer une variante du menu de navigation. Plus besoin de devoir annuler le <code>float: left;</code> non désiré non plus, c’est goody !</p><h4 id="dans-le-doute-crez-une-classe">Dans le doute, créez une classe</h4><p>Parfois, il s’avère que la structure d’un module soit flexible et qu’il puisse contenir tout un tas d’éléments différents. Il serait alors absurde de vouloir envisager toutes les possibilités ainsi :</p><div class="highlight"><pre><code class="css"><span class="nc">.media</span> <span class="p">{</span>
-    <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav li li a</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Et c’est ainsi que votre CSS devient petit à petit un joyeux bordel…</p>
+<p>Avec SMACSS, vous auriez retenu le 3e principe et pris garde à ce que la structure de votre module soit prédictible :</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Un menu de navigation un peu plus cossu --></span>
 
-<span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
-    <span class="k">margin-right</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Accueil<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Nos produits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav nav-imbricated<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products/shoes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Chaussures<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/products/jackets<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Blousons<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/contact<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Contactez-nois<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre></div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.nav</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="nt">img</span><span class="o">,</span> <span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">p</span> <span class="nt">img</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav > li</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">p</span><span class="o">,</span> <span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">ul</span><span class="o">,</span> <span class="nc">.media</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
-    <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>La solution à ce genre de problème consiste à créer une classe afin de définir la structure, quelque soit l’élément qui sera utilisé pour la sémantique HTML :</p><div class="highlight"><pre><code class="css"><span class="nc">.media</span> <span class="p">{</span>
-    <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav > li > a</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 5px 10px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.media-img</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
-    <span class="k">margin-right</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.nav-imbricated > li > a</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Plus de problème de design du sous-menu : il suffit de lui appliquer une variante du menu de navigation. Plus besoin de devoir annuler le <code class="language-text">float: left;</code> non désiré non plus, c’est goody !</p>
+<h3 id="dans-le-doute-créez-une-classe"><a href="#dans-le-doute-cr%C3%A9ez-une-classe" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dans le doute, créez une classe</h3>
+<p>Parfois, il s’avère que la structure d’un module soit flexible et qu’il puisse contenir tout un tas d’éléments différents. Il serait alors absurde de vouloir envisager toutes les possibilités ainsi :</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.media</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.media-img</span> <span class="nt">img</span> <span class="p">{</span>
-    <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.media > div</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nc">.media-body</span> <span class="p">{</span>
-    <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Ce qui peut être à nouveau simplifié et présente les bases du <strong>media object</strong> :</p><div class="highlight"><pre><code class="css"><span class="nc">.media</span><span class="o">,</span> <span class="nc">.media-body</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;}</span>
-<span class="nc">.media-img</span>          <span class="p">{</span> <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">margin-right</span><span class="o">:</span><span class="m">20px</span><span class="p">;}</span>
-<span class="nc">.media-img</span> <span class="nt">img</span>      <span class="p">{</span> <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;}</span>
-</code></pre></div><p>C’est ce que l’on appelle découpler le HTML du CSS \o/</p><h2 id="dmonstration-par-lexemple">Démonstration par l’exemple</h2><p>Pour terminer sur la question, je me propose de vous présenter comment je met en application SMACSS dans l’organisation de mon CSS.</p><p>Prenons l’exemple de ce blog (<a href="https://github.com/nicoespeon/nicoespeon.github.io">dont le code est disponible sur Github</a>). L’architecture du CSS se présente de la manière suivante (dossier <code>/assets/less</code>) :</p><div class="highlight"><pre><code class="text">.
-|-- inuit.css/                  # Framework inuit.css
+<span class="token selector">.media > div img,
+.media > p img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media > p,
+.media > ul,
+.media > div</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>La solution à ce genre de problème consiste à créer une classe afin de définir la structure, quelque soit l’élément qui sera utilisé pour la sémantique HTML :</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.media</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-img</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-img img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-body</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Ce qui peut être à nouveau simplifié et présente les bases du <strong>media object</strong> :</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.media,
+.media-body</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.media-img</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.media-img img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>C’est ce que l’on appelle découpler le HTML du CSS \o/</p>
+<h2 id="démonstration-par-lexemple"><a href="#d%C3%A9monstration-par-lexemple" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Démonstration par l’exemple</h2>
+<p>Pour terminer sur la question, je me propose de vous présenter comment je met en application SMACSS dans l’organisation de mon CSS.</p>
+<p>Prenons l’exemple de ce blog (<a href="https://github.com/nicoespeon/nicoespeon.github.io">dont le code est disponible sur Github</a>). L’architecture du CSS se présente de la manière suivante (dossier <code class="language-text">/assets/less</code>) :</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">.
+|-- inuit.css/ # Framework inuit.css
 |
 |-- ui/
-|   |-- base.less               # Éléments de base
-|   |-- layout.less             # Structure globale
-|   |-- mod-block-list.less     # Module block-list
-|   |-- mod-image.less          # Module image
-|   |-- mod-island.less         # Module island
-|   |-- mod-pagination.less     # Module pagination
-|   (...)
-|   |-- (state.less)            # Design des états possibles
+| |-- base.less # Éléments de base
+| |-- layout.less # Structure globale
+| |-- mod-block-list.less # Module block-list
+| |-- mod-image.less # Module image
+| |-- mod-island.less # Module island
+| |-- mod-pagination.less # Module pagination
+| (…)
+| |-- (state.less) # Design des états possibles
 |
-|-- vars.less                   # Variables globales LESS
-|-- nicoespeon.less             # Fichier de setup
-</code></pre></div><p>En pratique, c’est le fichier <a href="https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/assets/less/nicoespeon.less"><code>nicoespeon.less</code></a> qui est interprété et qui s’occupe d’importer les fichiers utilisés dans le bon ordre, puis de compiler tout ça et de générer un seul et unique fichier CSS compressé, rangé dans <code>/assets/css/nicoespeon.css</code>.</p><p>Personnellement, j’ai choisi de préfixer les noms de chaque module par <code>mod-</code>. J’aurais également pu les placer dans un dossier <code>modules/</code>, tout comme inuit.css dispose du dossier <code>objects/</code> qui remplit ni plus ni moins le même rôle.</p><p>C’est donc <strong>un choix personnel</strong>, et là est toute la question : à vous de prendre la philosophie et de l’adapter à votre réalité, à vos besoins… et de vous y tenir !</p><h2 id="conclusion">Conclusion</h2><p>Voilà pour cette présentation de la philosophie SMACSS !</p><p>Bien évidemment, je vous suggère d’aller faire un tour du côté du site officiel :</p><p><a href="http://smacss.com" class="illustration"><img src="/assets/img/css/get-smacked.jpg" alt="Get Smacked" title="Get Smacked" /></a></p><p>Vous y trouverez l’essentiel du livre gratuitement. Vous pourrez également vous procurer le bouquin pour $15-20 si le cœur vous en dit (et disposer de conseils plus avancées sur la question).</p><p>Les images utilisées dans cet article sont tirées de “<a href="https://speakerdeck.com/snookca/your">Your CSS is a mess</a>”, slideshow de Jonathan Snoovvk que je vous recommande.</p><p>Vous pouvez également jeter un oeil à <a href="http://vimeo.com/61755493">son intervention à la Smashing Conference 2012</a>.</p><p>Enfin, si vous avez des réactions à propos de cet article je vous en prie : faîtes donc ci-dessous !</p><p>Plop !</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li ><a href="/">English version</a></li><li class="current" ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>Je m'appelle <span class='brand-face'>Nicolas</span> et je suis Consultant chez <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>Je <a href='/archive'>rédige</a> des articles sur le développement web et la gestion de projets. Je suis <a href='https://www.linkedin.com/in/nicolas-carlo-095b243b/'>LinkedIn</a>, je <a href='https://github.com/nicoespeon/'>code</a> et je <a href='http://twitter.com/nicoespeon'>tweet</a> pas mal aussi.</p><p>J’ai tendance à <a href='https://medium.com/@nicoespeon'>écrire sur Medium</a> désormais, si vous souhaitez suivre mes articles ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Restez connectés</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Copains</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>Ce site est construit grâce à <a href='https://github.com/mojombo/jekyll'>Jekyll</a> et à <a href='http://inuitcss.com/'>inuit.css</a> de l'excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Le code source est <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hébergé sur GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/fr/2013/05/tombez-pour-smacss/';var title = "Tombez pour SMACSS";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+|-- vars.less # Variables globales LESS
+|-- nicoespeon.less # Fichier de setup</code></pre></div>
+<p>En pratique, c’est le fichier <a href="https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/assets/less/nicoespeon.less"><code class="language-text">nicoespeon.less</code></a> qui est interprété et qui s’occupe d’importer les fichiers utilisés dans le bon ordre, puis de compiler tout ça et de générer un seul et unique fichier CSS compressé, rangé dans <code class="language-text">/assets/css/nicoespeon.css</code>.</p>
+<p>Personnellement, j’ai choisi de préfixer les noms de chaque module par <code class="language-text">mod-</code>. J’aurais également pu les placer dans un dossier <code class="language-text">modules/</code>, tout comme inuit.css dispose du dossier <code class="language-text">objects/</code> qui remplit ni plus ni moins le même rôle.</p>
+<p>C’est donc <strong>un choix personnel</strong>, et là est toute la question : à vous de prendre la philosophie et de l’adapter à votre réalité, à vos besoins… et de vous y tenir !</p>
+<h2 id="conclusion"><a href="#conclusion" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+<p>Voilà pour cette présentation de la philosophie SMACSS !</p>
+<p>Bien évidemment, je vous suggère d’aller faire un tour du côté du site officiel :</p>
+<p><a href="http://smacss.com">
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 74.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB2FWqIcIK/8QAGxAAAwACAwAAAAAAAAAAAAAAAQIDABIEETH/2gAIAQEAAQUCqdZx5AdsYt2s9SPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgICAwAAAAAAAAAAAAAAAAERIQIDEBKR/9oACAEBAAY/Am0dfOKxolaoZZ//xAAZEAEBAQEBAQAAAAAAAAAAAAABEVEAIRD/2gAIAQEAAT8hWmph1GSuPgPQ6p3g7QnUiI53/9oADAMBAAIAAwAAABB/D//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPxASNM//xAAXEQADAQAAAAAAAAAAAAAAAAABEBFR/9oACAECAQE/EIdX/8QAHxAAAgIBBAMAAAAAAAAAAAAAAREAITEQQWFxgZGh/9oACAEBAAE/EA5EF5Ct66gcicCtNsnhaIqlgBnzGd0onzdQyBTCyIK9T//Z'); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="Get Smacked"
+        title=""
+        src="/static/get-smacked-65b8c1850961c7e02cb7d0d2d1cb99ec-e0740.jpg"
+        srcset="/static/get-smacked-65b8c1850961c7e02cb7d0d2d1cb99ec-64397.jpg 240w,
+/static/get-smacked-65b8c1850961c7e02cb7d0d2d1cb99ec-1a212.jpg 480w,
+/static/get-smacked-65b8c1850961c7e02cb7d0d2d1cb99ec-e0740.jpg 500w"
+        sizes="(max-width: 500px) 100vw, 500px"
+      />
+    </span>
+  </span>
+  </a></p>
+<p>Vous y trouverez l’essentiel du livre gratuitement. Vous pourrez également vous procurer le bouquin pour $15-20 si le cœur vous en dit (et disposer de conseils plus avancées sur la question).</p>
+<p>Les images utilisées dans cet article sont tirées de ”<a href="https://speakerdeck.com/snookca/your">Your CSS is a mess</a>”, slideshow de Jonathan Snoovvk que je vous recommande.</p>
+<p>Vous pouvez également jeter un oeil à <a href="http://vimeo.com/61755493">son intervention à la Smashing Conference 2012</a>.</p>
+<p>Enfin, si vous avez des réactions à propos de cet article je vous en prie : faîtes donc ci-dessous !</p>
+<p>Plop !</p></div><div class="post-single__date"><em>Publié le 15 mai 2013</em></div></div><div class="post-single__footer"><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/fr/tags/css/">css</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/fr/tags/smacss/">smacss</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/fr/tags/architecture-css/">architecture css</a></li></ul></div><hr/><p class="post-single__footer-text">J’écris sur le développement web, les pratiques agiles et l’organisation personnelle.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Suivez @nicoespeon</a></li></ul></p><div><div><div id="disqus_thread"></div></div></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"fr-2013-05-tombez-pour-smacss-a1f","path":"/fr/2013/05/tombez-pour-smacss/"};window.dataPath="469/path---fr-2013-05-tombez-pour-smacss-a-1-f-b9c-f89tDTcZpu5NjwOLL8OmM8XjHNM";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-7ff74e5535bdd06d11ef.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-537486c90735c3c1377a.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css","/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-tag-template-jsx-9af5daf83e7a19f992d4.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-category-template-jsx-2904b34758b9f2881007.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7dad01c535737efdd8d0.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-97677500450b5e762191.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-49360dc815704cae244e.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-fr-index-jsx-3e9f39338bc9c19248bb.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-38760c202caef6425508.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-index-jsx-f353ee5021831a4ee797.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-3f2391670fe656f96072.js"]};/*]]>*/</script><script src="/webpack-runtime-b9583aeb2d8577f338c5.js" async=""></script><script src="/0-adb2f97cc27438a8487c.js" async=""></script><script src="/2-95af416e05d9551b4d5b.js" async=""></script><script src="/app-7ff74e5535bdd06d11ef.js" async=""></script><script src="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
+
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>

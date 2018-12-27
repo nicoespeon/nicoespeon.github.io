@@ -1,309 +1,531 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Similarities, differences et equivalents between those two CSS preprocessors."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/en/2013/06/convert-sass-project-into-less/" /><meta property="og:type" content="article" /><meta property="og:title" content="Convert a SASS project into LESS | @nicoespeon" /><meta property="og:description" content="Similarities, differences et equivalents between those two CSS preprocessors." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Convert a SASS project into LESS | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/index.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/projects.html">Projects</a></li><li><a href="/worth-reading.html">Worth Reading</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Convert a SASS project into LESS</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Convert a SASS project into LESS |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(11 June, 2013)</div></div><p class="islet">Similarities, differences et equivalents between those two CSS preprocessors.</p><h2 id="matters-of-taste">Matters of taste</h2><p><a href="http://lesscss.org/">LESS</a> and <a href="http://sass-lang.com/">SASS</a> today are <a href="http://css-tricks.com/poll-results-popularity-of-css-preprocessors/">the two most popular CSS preprocessors so far</a>.</p><p>They are quite similar and give functionalities to CSS that every front-end developer ever dreamt: variables, functions, mathematical operations, selectors nesting, etc.</p><p>However, there are some differences:</p><ul><li>SASS is compiled with Ruby, it has two different syntaxes: <code>.sass</code> and <code>.scss</code>.<br />The second one, closer to the CSS syntax, is the most used.</li><li>LESS is compiled with Javascript, it has one syntax which is quite close to the CSS.</li></ul><p>As a general rule, we can say that <a href="http://css-tricks.com/sass-vs-less/">SASS is more powerful than LESS</a> because it notably has a bunch of additional functionalities. However, this is a matter of taste and LESS could suffice enough to please you and, in my opinion, is easier to use at first.</p><p>Personnally, <strong>I use LESS instead of SASS</strong> with my projects, mostfully because I get used to it.<br />In the same time, I tend to use the inuit.css framework (instead of Bootstrap) on these projects. But inuit.css uses SASS!</p><p>Hopefully, I’m not the only one who likes LESS and <a href="http://twitter.com/pwcc">Peter Wilson</a> has worked to create the LESS version of the framework. As I was keen on this idea, I joined the project we are maintaining today: <a href="https://github.com/peterwilsoncc/inuit.css">the official LESS port of inuit.css</a>.</p><p>It’s all about <strong>traducing the SASS framework into LESS</strong>, which leads us to 3 options:</p><ol><li>The SASS code is identical to the LESS one, so it’s the same principle</li><li>The SASS code as an equivalent in LESS, so you need to find the alternative</li><li>The SASS code doesn’t have any equivalent in LESS and you need to ruse - or ignore it -</li></ol><p>Here is a broad overview of these options, as far as I know.</p><h2 id="what-is-identical-in-less">What is identical in LESS</h2><p>In such a case, it’s dead easy: there is nothing to do.</p><p>Indeed, even though they are differents, SASS and LESS both share some basic concepts.</p><h4 id="nesting">Nesting</h4><p>One of the guiding principle of CSS preprocessors: selectors nesting.</p><p>Instead of creating huge selectors to specify inheritance, you just have to nest them like this:</p><div class="highlight"><pre><code class="css"><span class="nc">.islet</span> <span class="p">{</span>
-    <span class="k">margin-top</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-
-    <span class="n">p</span> <span class="err">{</span>
-        <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
-        <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span>
-    <span class="p">}</span>
-<span class="err">}</span>
-</code></pre></div><p>That will produce the following code, in both languages:</p><div class="highlight"><pre><code class="css"><span class="nc">.islet</span> <span class="p">{</span>
-    <span class="k">margin-top</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.islet</span> <span class="nt">p</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span>
-<span class="p">}</span>
-</code></pre></div><p class="islet"><strong>Beware</strong> - Developers, whether they are experimented or not, often abuse of nesting which bloats their CSS for no valuable reason.<br /><br />Keep in mind <a href="http://thesassway.com/beginner/the-inception-rule">the inception rule</a>: <strong>never go farther than 4 nested levels</strong>.</p><h4 id="comments-and-compilation">Comments and compilation</h4><p>In addition to features they bring, preprocessors help you to produce code clear and organized while having a single compiled - and compressed - CSS file as the output for production.</p><p>In that spirit, SASS and LESS both have alternate comments that are not compiled into CSS. So this code:</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * The date/time</span>
-<span class="c"> */</span>
-<span class="nc">.timeline__time</span> <span class="p">{</span>
-    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-
-    <span class="o">//</span> <span class="n">The</span> <span class="n">actual</span> <span class="n">inner</span> <span class="k">width</span> <span class="n">is</span> <span class="err">`</span><span class="m">25</span><span class="o">%</span> <span class="o">-</span> <span class="n">x</span><span class="err">`</span><span class="o">,</span> <span class="err">`</span><span class="n">x</span><span class="err">`</span> <span class="n">is</span> <span class="n">the</span> <span class="k">padding</span>
-    <span class="k">padding-right</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Will produce the following code:</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * The date/time</span>
-<span class="c"> */</span>
-<span class="nc">.timeline__time</span> <span class="p">{</span>
-    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-
-    <span class="k">padding-right</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Which could be very helpful in case you want to add some code comments which would not be relevant for production code.</p><p>Please note that a compiled file for production should be compressed so it doesn’t have CSS comments neither, excepted if you decide to preserve them. <a href="http://yui.github.io/yuicompressor/css.html">YUI compressor</a> uses <code>/*! */</code> to preserve CSS comments for instance.</p><h4 id="imports">Imports</h4><p>Preprocessors help you to import other files very easily with <code>@import</code>, which allows you to build a clear and modular architecture of your source files. Dare I say: CSS preprocessors are OOCSS best friends.</p><p>A best practice may be to create a <code>main.less</code> / <code>_main.scss</code> file which role is to import the source file you need to produce your final <code>main.css</code>:</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * Setup</span>
-<span class="c"> */</span>
-<span class="k">@import</span> <span class="s2">&quot;inuit.css/defaults&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
-
-
-<span class="c">/**</span>
-<span class="c"> * She’s all yours, cap’n... Begin importing your stuff here.</span>
-<span class="c"> */</span>
-<span class="k">@import</span> <span class="s2">&quot;ui/base&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;ui/layout&quot;</span><span class="p">;</span>
-
-<span class="k">@import</span> <span class="s2">&quot;ui/mod-block-list&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;ui/mod-helper&quot;</span><span class="p">;</span>
-
-<span class="c">/* etc. */</span>
-</code></pre></div><p>You’ll note here that it’s pointless to add the extension, whatever preprocessor you use.</p><p class="islet"><strong>Beware</strong> - All likeness taken after, the <code>@import</code> command of preprocessors has nothing to do with CSS one. Indeed, preprocessors will import your files when you compile them to output a unique CSS file that will be used in production. But CSS import will load many files by the browser.<br /><br />Please note that the use of <code>@import</code> is <a href="http://browserdiet.com/#prefer-link-over-import">not a very good CSS practice</a>, try to avoid it.</p><h2 id="what-has-an-equivalent-in-less">What has an equivalent in LESS</h2><p>In such a case, you mainly have to know the syntax and specificities of each language as fundamentals principles are the same. Let’s see what you’ve got…</p><h4 id="variables">Variables</h4><p>SASS and LESS both allow you to create variables, which is basically the Holy Grail in CSS!</p><p>The concept is very straight forward. The only difference here is that SASS uses <code>$</code> while LESS uses <code>@</code>.</p><div class="highlight"><pre><code class="css"><span class="c">/* With SASS */</span>
-<span class="err">$</span><span class="nt">color</span><span class="o">:</span> <span class="nf">#BADA55</span><span class="o">;</span>
-
-<span class="nc">.header</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="err">$</span><span class="k">color</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* With LESS */</span>
-<span class="k">@color</span><span class="o">:</span> <span class="nf">#BADA55</span><span class="p">;</span>
-
-<span class="nc">.header</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="o">@</span><span class="k">color</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>And so the CSS output is:</p><div class="highlight"><pre><code class="css"><span class="nc">.header</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="m">#BADA55</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><h4 id="mixins">Mixins</h4><p>SASS and LESS both allow you to create what we call <strong>mixins</strong>. That means that you could simply create groups of properties that can be quickly included wherever you want to.</p><p>Here again, the main difference is the syntax, not the concept:</p><div class="highlight"><pre><code class="css"><span class="c">/* With SASS */</span>
-<span class="k">@mixin</span> <span class="nt">bordered</span> <span class="p">{</span>
-    <span class="nt">border-top</span><span class="o">:</span> <span class="nt">dotted</span> <span class="nt">1px</span> <span class="nt">black</span><span class="o">;</span>
-    <span class="nt">border-bottom</span><span class="o">:</span> <span class="nt">solid</span> <span class="nt">2px</span> <span class="nt">black</span><span class="o">;</span>
-<span class="p">}</span>
-
-<span class="nc">.header</span> <span class="p">{</span>
-    <span class="o">@</span><span class="n">include</span> <span class="n">bordered</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* With LESS */</span>
-<span class="nc">.bordered</span><span class="o">()</span> <span class="p">{</span>
-    <span class="k">border-top</span><span class="o">:</span> <span class="k">dotted</span> <span class="m">1px</span> <span class="nb">black</span><span class="p">;</span>
-    <span class="k">border-bottom</span><span class="o">:</span> <span class="k">solid</span> <span class="m">2px</span> <span class="nb">black</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.header</span> <span class="p">{</span>
-    <span class="o">.</span><span class="n">bordered</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div><p>This will output:</p><div class="highlight"><pre><code class="css"><span class="nc">.header</span> <span class="p">{</span>
-    <span class="k">border-top</span><span class="o">:</span> <span class="k">dotted</span> <span class="m">1px</span> <span class="nb">black</span><span class="p">;</span>
-    <span class="k">border-bottom</span><span class="o">:</span> <span class="k">solid</span> <span class="m">2px</span> <span class="nb">black</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>You should know that mixins can do more and have parameters, default values, conditions, etc.</p><p>Without going further into details, you should know also that mixins can take a <strong>variable number of arguments</strong> into account.</p><p>However, while SASS deals perfectly with the different values you give to the parameters, you would have to escape those you pass to LESS if you don’t want him to interpret the whole thing as a single big variable.</p><p class="islet">Escaping in LESS would return the exactly given output thanks to <code>~"my string"</code>, which could be helpful for a bunch of tips.</p><p>Technically, code is the following:</p><div class="highlight"><pre><code class="css"><span class="c">/* With SASS */</span>
-<span class="k">@mixin</span> <span class="nt">box-shadow</span><span class="o">(</span><span class="err">$</span><span class="nt">shadows</span><span class="o">...)</span> <span class="p">{</span>
-    <span class="nt">-moz-box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
-    <span class="nt">-webkit-box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
-    <span class="nt">box-shadow</span><span class="o">:</span> <span class="err">$</span><span class="nt">shadows</span><span class="o">;</span>
-<span class="p">}</span>
-
-<span class="nc">.shadows</span> <span class="p">{</span>
-    <span class="o">@</span><span class="n">include</span> <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">(</span><span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* With LESS */</span>
-<span class="nc">.box-shadow</span><span class="o">(</span><span class="k">@shadows</span><span class="o">...)</span> <span class="p">{</span>
-    <span class="nt">-moz-box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
-    <span class="nt">-webkit-box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
-    <span class="nt">box-shadow</span><span class="o">:</span> <span class="k">@shadows</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.shadows</span> <span class="p">{</span>
-    <span class="o">.</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">(</span><span class="o">~</span><span class="s2">&quot;0 4px 5px #666, 2px 6px 10px #999&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>And that would produce this CSS:</p><div class="highlight"><pre><code class="css"><span class="nc">.shadows</span> <span class="p">{</span>
-    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
-    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
-    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Excepted some little specificities, mixins just work the same.</p><h4 id="operations">Operations</h4><p>Every preprocessor has is bunch of mathematical operations which could be very useful to do some flexible styling with variables.</p><p>Syntaxes are very close and intuitive - just a matter of <code>+</code> and <code>-</code>, etc. A best practice is to isolate these operations into parenthesis so you avoid potential confusions and conflicts.</p><p>However, you should know that LESS is considering the first unit specified in the calculus, which could lead to some aberrations while SASS will properly output a warning instead of compiling something wrong:</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">300px</span> <span class="o">+</span> <span class="m">2em</span><span class="p">;</span> <span class="o">//</span> <span class="o">==</span> <span class="m">302px</span> <span class="n">o_O</span>
-<span class="p">}</span>
-</code></pre></div><p>So in LESS you should better <strong>not specify variables unit</strong> so you don’t have that kind of nasty surprises when you do operations. You just have to apply the unit at the very end and you’re all set:</p><div class="highlight"><pre><code class="text">@base-font-size: 16;
-@base-spacing-unit: 24;
-
-html {
-    font-size: (@base-font-size/16)*1em;
-    margin-bottom: @base-spacing-unit*1px;
-}
-</code></pre></div><p>Which will produce:</p><div class="highlight"><pre><code class="css"><span class="nt">html</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><h4 id="functions">Functions</h4><p>Each preprocessor brings their own functions that allow you to do a bunch of very nice things with colors, maths, strings, etc.</p><p>You may have a look to each respective list to get an idea:</p><ul><li><a href="http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html">SASS functions</a></li><li><a href="http://lesscss.org/#reference">LESS functions</a></li></ul><h4 id="interpolation">Interpolation</h4><p>Sometimes you’ll need to include some variables into stings and interprate them however. That’s what we call interpolation and both SASS and LESS allow you to do that:</p><div class="highlight"><pre><code class="css"><span class="c">/* With SASS */</span>
-<span class="err">$</span><span class="nt">base-url</span><span class="o">:</span> <span class="s2">&quot;../images&quot;</span><span class="o">;</span>
-
-<span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;#{$base-url}/bg.png&quot;)</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="c">/* With LESS */</span>
-<span class="k">@base-url</span><span class="o">:</span> <span class="s2">&quot;../images&quot;</span><span class="p">;</span>
-
-<span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;@{base-url}/bg.png&quot;)</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Which will produce:</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&quot;../images/bg.png&quot;)</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>The only difference is the syntax: <code>#{ $var }</code> with SASS and <code>@{ var }</code> with LESS.</p><p>You also can interpolate variables within selectors as we could see with loops - yep, I’m working on my transitions -.</p><h4 id="loops">Loops</h4><p>Technically speaking, both preprocessors can implement loops which could be very useful.</p><p>However, SASS natively deals with the iteration logic, not LESS. In fact, you can use an alternative based on mixins to create the loop behavior with LESS.</p><p>With LESS, here is the deal:</p><ol><li>Create a mixin with an <code>@index</code> parameter</li><li>The mixin will produce the content of the loop while <code>@index &gt; 0</code></li><li>At the end of the mixin, you decrease <code>@index</code></li><li>You create an empty verion of the mixin to stop the loop when <code>@index = 0</code></li></ol><p>Which leads us to the following syntaxes for a loop:</p><div class="highlight"><pre><code class="text">/* With SASS */
-$index: 5;
-
-@while $index &gt; 0 {
-    // Interpolate the class name
-    .container-#{$index} {
-        z-index: $index;
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100}body{color:#222;line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:#222;height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#222 0,#222 15px,transparent 0,transparent 26px);width:6.25rem}a{color:#2375ff;text-decoration:none}a:active,a:focus,a:hover{color:#ff7abc}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:#222;font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:#222}.tags__list-item-link:focus,.tags__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}.categories__list-item-link{color:#222}.categories__list-item-link:focus,.categories__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:rgba(255,122,188,.15);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #ff7abc}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__date{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:#ebebeb;text-decoration:none;border:0;border-radius:.1875rem;color:#555;line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:#222;background:#dfdfdf;border:0}.post-single__home-button{display:block;margin-left:auto;margin-right:auto;max-width:5.625rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:#555;background:#ebebeb;font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__home-button:focus,.post-single__home-button:hover{color:#222;background:#dfdfdf;border:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__home-button{position:fixed;max-width:auto;margin:0;top:30px;left:30px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
     }
-
-    // Decrease the index
-    $index: $index - 1;
-}
-</code></pre></div><div class="highlight"><pre><code class="text">/* With LESS */
-.loop (@index) when (@index &gt; 0) {
-    // Interpolate the class name
-    .container-@{index} {
-        z-index: @index;
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
     }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Convert a SASS project into LESS</title><meta data-react-helmet="true" name="description" content="Similarities, differences et equivalents between those two CSS preprocessors."/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"/><link as="script" rel="preload" href="/app-7ff74e5535bdd06d11ef.js"/><link as="script" rel="preload" href="/2-95af416e05d9551b4d5b.js"/><link as="script" rel="preload" href="/0-adb2f97cc27438a8487c.js"/><link as="script" rel="preload" href="/webpack-runtime-b9583aeb2d8577f338c5.js"/><link rel="preload" href="/static/d/389/path---en-2013-06-convert-sass-project-into-less-99-f-5bf-Q6WOGTASmISQcvggwmdBbBSbGro.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div><a class="post-single__home-button" href="/">← Articles</a></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Convert a SASS project into LESS</h1><div class="post-single__body"><h2 id="matters-of-taste"><a href="#matters-of-taste" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Matters of taste</h2>
+<p><a href="http://lesscss.org/">LESS</a> and <a href="http://sass-lang.com/">SASS</a> today are <a href="http://css-tricks.com/poll-results-popularity-of-css-preprocessors/">the two most popular CSS preprocessors so far</a>.</p>
+<p>They are quite similar and give functionalities to CSS that every front-end developer ever dreamt: variables, functions, mathematical operations, selectors nesting, etc.</p>
+<p>However, there are some differences:</p>
+<ul>
+<li>SASS is compiled with Ruby, it has two different syntaxes: <code class="language-text">.sass</code> and <code class="language-text">.scss</code>.<br>
+The second one, closer to the CSS syntax, is the most used.</li>
+<li>LESS is compiled with Javascript, it has one syntax which is quite close to the CSS.</li>
+</ul>
+<p>As a general rule, we can say that <a href="http://css-tricks.com/sass-vs-less/">SASS is more powerful than LESS</a> because it notably has a bunch of additional functionalities. However, this is a matter of taste and LESS could suffice enough to please you and, in my opinion, is easier to use at first.</p>
+<p>Personnally, <strong>I use LESS instead of SASS</strong> with my projects, mostfully because I get used to it.</p>
+<p>In the same time, I tend to use the inuit.css framework (instead of Bootstrap) on these projects. But inuit.css uses SASS!</p>
+<p>Hopefully, I’m not the only one who likes LESS and <a href="http://twitter.com/pwcc">Peter Wilson</a> has worked to create the LESS version of the framework. As I was keen on this idea, I joined the project we are maintaining today: <a href="https://github.com/peterwilsoncc/inuit.css">the official LESS port of inuit.css</a>.</p>
+<p>It’s all about <strong>traducing the SASS framework into LESS</strong>, which leads us to 3 options:</p>
+<ol>
+<li>The SASS code is identical to the LESS one, so it’s the same principle</li>
+<li>The SASS code as an equivalent in LESS, so you need to find the alternative</li>
+<li>The SASS code doesn’t have any equivalent in LESS and you need to ruse - or ignore it -</li>
+</ol>
+<p>Here is a broad overview of these options, as far as I know.</p>
+<h2 id="what-is-identical-in-less"><a href="#what-is-identical-in-less" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is identical in LESS</h2>
+<p>In such a case, it’s dead easy: there is nothing to do.</p>
+<p>Indeed, even though they are differents, SASS and LESS both share some basic concepts.</p>
+<h3 id="nesting"><a href="#nesting" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nesting</h3>
+<p>One of the guiding principle of CSS preprocessors: selectors nesting.</p>
+<p>Instead of creating huge selectors to specify inheritance, you just have to nest them like this:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.islet</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 24px<span class="token selector">;
 
-    // Decrease the index and start the loop again
-    .loop (@index - 1);
-}
+  p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>That will produce the following code, in both languages:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.islet</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// Stop the loop at 0
-.loop (0) {}
+<span class="token selector">.islet p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><strong>Beware</strong> - Developers, whether they are experimented or not, often abuse of nesting which bloats their CSS for no valuable reason.</p>
+<p>Keep in mind <a href="http://thesassway.com/beginner/the-inception-rule">the inception rule</a>: <strong>never go farther than 4 nested levels</strong>.</p>
+<h3 id="comments-and-compilation"><a href="#comments-and-compilation" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comments and compilation</h3>
+<p>In addition to features they bring, preprocessors help you to produce code clear and organized while having a single compiled - and compressed - CSS file as the output for production.</p>
+<p>In that spirit, SASS and LESS both have alternate comments that are not compiled into CSS. So this code:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/**
+ * The date/time
+ */</span>
+<span class="token selector">.timeline__time </span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
 
-// Start the loop
-.loop (5);
-</code></pre></div><p>Which will output, once compiled:</p><div class="highlight"><pre><code class="css"><span class="nc">.container-5</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.container-4</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">4</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.container-3</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.container-2</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.container-1</span> <span class="p">{</span> <span class="k">z-index</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div><p>This technique is used by Bootstrap <a href="https://github.com/twitter/bootstrap/blob/master/less/mixins.less#L577-L595">to generate spans regarding the number of columns</a>.</p><h4 id="extend-and-silent-classes">Extend and silent classes</h4><p>With SASS you can extend a class properties very easily to share a common style, the second class inherits style of the first one.</p><p>For instance, this:</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="token comment">// The actual inner width is `25% - x`, `x` is the padding</span>
+  <span class="token property">padding-right</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Will produce the following code:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/**
+ * The date/time
+ */</span>
+<span class="token selector">.timeline__time</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
 
-<span class="nc">.serious-error</span> <span class="p">{</span>
-    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">error</span><span class="p">;</span>
-    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Will give the following code:</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span><span class="o">,</span> <span class="nc">.serious-error</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="token property">padding-right</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Which could be very helpful in case you want to add some code comments which would not be relevant for production code.</p>
+<p>Please note that a compiled file for production should be compressed so it doesn’t have CSS comments neither, excepted if you decide to preserve them. <a href="http://yui.github.io/yuicompressor/css.html">YUI compressor</a> uses <code class="language-text">/*! */</code> to preserve CSS comments for instance.</p>
+<h3 id="imports"><a href="#imports" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Imports</h3>
+<p>Preprocessors help you to import other files very easily with <code class="language-text">@import</code>, which allows you to build a clear and modular architecture of your source files. Dare I say: CSS preprocessors are OOCSS best friends.</p>
+<p>A best practice may be to create a <code class="language-text">main.less</code> / <code class="language-text">_main.scss</code> file which role is to import the source file you need to produce your final <code class="language-text">main.css</code>:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/**
+ * Setup
+ */</span>
+<span class="token keyword">@import</span> <span class="token string">'inuit.css/defaults'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'vars'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'inuit.css/inuit'</span><span class="token punctuation">;</span>
 
-<span class="nc">.serious-error</span> <span class="p">{</span>
-    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>SASS can create what we call <em>silent classes</em>: you just define classes that wouldn’t be compiled until they are included somewhere with <code>@extend</code>.</p><p>So this code:</p><div class="highlight"><pre><code class="css"><span class="nt">a</span><span class="o">%</span><span class="nt">error</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token comment">/**
+ * It's all yours, cap’n… Begin importing your stuff here.
+ */</span>
+<span class="token keyword">@import</span> <span class="token string">'ui/base'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'ui/layout'</span><span class="token punctuation">;</span>
 
-<span class="nc">.notice</span> <span class="p">{</span>
-    <span class="o">@</span><span class="n">extend</span> <span class="o">%</span><span class="n">error</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Will output the following:</p><div class="highlight"><pre><code class="css"><span class="nt">a</span><span class="nc">.notice</span> <span class="p">{</span>
-    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>With LESS, you’ll generally use <strong>mixins</strong> to realize that kind of extensions. Just like a silent class, the mixin won’t be compiled until it’s included somewhere. So it comes with the same spirit, only the syntax changes:</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span><span class="o">()</span> <span class="p">{</span>
-    <span class="n">a</span><span class="o">&amp;</span> <span class="err">{</span>
-        <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
-        <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="err">}</span>
+<span class="token keyword">@import</span> <span class="token string">'ui/mod-block-list'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'ui/mod-helper'</span><span class="token punctuation">;</span>
 
-<span class="nc">.notice</span> <span class="p">{</span>
-    <span class="o">.</span><span class="n">error</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div><p>That said, you’ll note that SASS is extending smartly selectors - <code>.error, serious-error</code> in the previous example. With LESS, you’d need to do that by hand.</p><p class="islet"><strong>Note</strong> - <a href="https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md#140-beta-1--2">LESS v1.4</a> - which is currently in beta - will introduce <code>:extend()</code> that could handle selectors extension. The syntax would be closer to the CSS one, just like a pseudo-selector, which should produce something like that:</p><div class="highlight"><pre><code class="css"><span class="nc">.error</span> <span class="p">{</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#f00</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="m">#fdd</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token comment">/* etc. */</span></code></pre></div>
+<p>You’ll note here that it’s pointless to add the extension, whatever preprocessor you use.</p>
+<p><strong>Beware</strong> - All likeness taken after, the <code>@import</code> command of preprocessors has nothing to do with CSS one. Indeed, preprocessors will import your files when you compile them to output a unique CSS file that will be used in production. But CSS import will load many files by the browser.</p>
+<p>Please note that the use of <code>@import</code> is <a href="http://browserdiet.com/#prefer-link-over-import">not a very good CSS practice</a>, try to avoid it.</p>
+<h2 id="what-has-an-equivalent-in-less"><a href="#what-has-an-equivalent-in-less" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What has an equivalent in LESS</h2>
+<p>In such a case, you mainly have to know the syntax and specificities of each language as fundamentals principles are the same. Let’s see what you’ve got…</p>
+<h3 id="variables"><a href="#variables" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variables</h3>
+<p>SASS and LESS both allow you to create variables, which is basically the Holy Grail in CSS!</p>
+<p>The concept is very straight forward. The only difference here is that SASS uses <code class="language-text">$</code> while LESS uses <code class="language-text">@</code>.</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/* With SASS */</span>
+<span class="token property"><span class="token variable">$color</span></span><span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span>
 
-<span class="nc">.serious-error</span><span class="nd">:extend</span><span class="o">(</span><span class="nc">.error</span><span class="o">)</span> <span class="p">{</span>
-    <span class="k">border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><h4 id="default-variables"><code>!default</code> variables</h4><p>With SASS you can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.</p><div class="highlight"><pre><code class="sass"><span class="na">$base-font-size</span><span class="o">:</span>    <span class="mi">14</span><span class="kt">px</span><span class="err">;</span>
-<span class="na">$base-font-size</span><span class="o">:</span>    <span class="mi">16</span><span class="kt">px</span> <span class="nv">!default</span><span class="err">;</span>
-<span class="na">$base-spacing-unit</span><span class="o">:</span> <span class="mi">24</span><span class="kt">px</span> <span class="nv">!default</span><span class="err">;</span>
+<span class="token selector">.header </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$color</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/* With LESS */</span>
+<span class="token variable">@color<span class="token punctuation">:</span></span> #bada55<span class="token punctuation">;</span>
 
-<span class="nc">.container</span> <span class="err">{</span>
-    <span class="na">font-size</span><span class="o">:</span>        <span class="nv">$base-font-size</span><span class="err">;</span>
-    <span class="na">margin-bottom</span><span class="o">:</span>    <span class="nv">$base-spacing-unit</span><span class="err">;</span>
-<span class="err">}</span>
-</code></pre></div><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>This technique is very useful because you can define defaults into the core of the module you’re developing, so you allow users to override them if necessary <strong>from the outside</strong>.</p><p>Need a concrete example? I’ve got that: the framework core of inuit.css use a bunch of defaults so the developer can use the framework as a submodule: he can update it but he never has to touch it, never!</p><p>To override a variable, he just needs to define it in its own configuration file:</p><div class="highlight"><pre><code class="text">.
-|-- inuit.css/          # Framework core
-|   |-- base/
-|   |-- generic/
-|   |-- objects/
-|   |-- _defaults.scss  # Default variables
-|   |-- _inuit.scss     # Setup file for inuit.css
+<span class="token selector">.header</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">@color</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>And so the CSS output is:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.header</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="mixins"><a href="#mixins" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mixins</h3>
+<p>SASS and LESS both allow you to create what we call <strong>mixins</strong>. That means that you could simply create groups of properties that can be quickly included wherever you want to.</p>
+<p>Here again, the main difference is the syntax, not the concept:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/* With SASS */</span>
+<span class="token keyword">@mixin</span> <span class="token selector">bordered </span><span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted 1px black<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid 2px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.header </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> bordered<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/* With LESS */</span>
+<span class="token selector">.bordered()</span> <span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted 1px black<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid 2px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.header</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.bordered</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>This will output:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.header</span> <span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted 1px black<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid 2px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>You should know that mixins can do more and have parameters, default values, conditions, etc.</p>
+<p>Without going further into details, you should know also that mixins can take a <strong>variable number of arguments</strong> into account.</p>
+<p>However, while SASS deals perfectly with the different values you give to the parameters, you would have to escape those you pass to LESS if you don’t want him to interpret the whole thing as a single big variable.</p>
+<p>Escaping in LESS would return the exactly given output thanks to <code>~“my string”</code>, which could be helpful for a bunch of tips.</p>
+<p>Technically, code is the following:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/* With SASS */</span>
+<span class="token keyword">@mixin</span> <span class="token function">box-shadow</span><span class="token punctuation">(</span><span class="token variable">$shadows</span>…<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">-moz-box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$shadows</span><span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$shadows</span><span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$shadows</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.shadows </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">box-shadow</span><span class="token punctuation">(</span>0 4px 5px #666, 2px 6px 10px #999<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/* With LESS */</span>
+<span class="token selector">.box-shadow(<span class="token variable">@shadows</span>…)</span> <span class="token punctuation">{</span>
+  <span class="token property">-moz-box-shadow</span><span class="token punctuation">:</span> <span class="token variable">@shadows</span><span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> <span class="token variable">@shadows</span><span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">@shadows</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.shadows</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.box-shadow</span><span class="token punctuation">(</span>~<span class="token string">'0 4px 5px #666, 2px 6px 10px #999'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>And that would produce this CSS:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.shadows</span> <span class="token punctuation">{</span>
+  <span class="token property">-moz-box-shadow</span><span class="token punctuation">:</span> 0 4px 5px #666, 2px 6px 10px #999<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> 0 4px 5px #666, 2px 6px 10px #999<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 4px 5px #666, 2px 6px 10px #999<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Excepted some little specificities, mixins just work the same.</p>
+<h3 id="operations"><a href="#operations" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operations</h3>
+<p>Every preprocessor has is bunch of mathematical operations which could be very useful to do some flexible styling with variables.</p>
+<p>Syntaxes are very close and intuitive - just a matter of <code class="language-text">+</code> and <code class="language-text">-</code>, etc. A best practice is to isolate these operations into parenthesis so you avoid potential confusions and conflicts.</p>
+<p>However, you should know that LESS is considering the first unit specified in the calculus, which could lead to some aberrations while SASS will properly output a warning instead of compiling something wrong:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 300px <span class="token operator">+</span> 2em<span class="token punctuation">;</span> <span class="token comment">// == 302px o_O</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>So in LESS you should better <strong>not specify variables unit</strong> so you don’t have that kind of nasty surprises when you do operations. You just have to apply the unit at the very end and you’re all set:</p>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token variable">@base-font-size<span class="token punctuation">:</span></span> 16<span class="token punctuation">;</span>
+<span class="token variable">@base-spacing-unit<span class="token punctuation">:</span></span> 24<span class="token punctuation">;</span>
+
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token variable">@base-font-size</span><span class="token operator">/</span>16<span class="token punctuation">)</span><span class="token operator">*</span>1em<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token variable">@base-spacing-unit</span><span class="token operator">*</span>1px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Which will produce:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="functions"><a href="#functions" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h3>
+<p>Each preprocessor brings their own functions that allow you to do a bunch of very nice things with colors, maths, strings, etc.</p>
+<p>You may have a look to each respective list to get an idea:</p>
+<ul>
+<li><a href="http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html">SASS functions</a></li>
+<li><a href="http://lesscss.org/#reference">LESS functions</a></li>
+</ul>
+<h3 id="interpolation"><a href="#interpolation" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interpolation</h3>
+<p>Sometimes you’ll need to include some variables into stings and interprate them however. That’s what we call interpolation and both SASS and LESS allow you to do that:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/* With SASS */</span>
+<span class="token property"><span class="token variable">$base-url</span></span><span class="token punctuation">:</span> <span class="token string">'../images'</span><span class="token punctuation">;</span>
+
+<span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url</span><span class="token punctuation">(</span><span class="token string">'#{$base-url}/bg.png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/* With LESS */</span>
+<span class="token variable">@base-url<span class="token punctuation">:</span></span> <span class="token string">'../images'</span><span class="token punctuation">;</span>
+
+<span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url('@{base-url}/bg.png')</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Which will produce:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url('../images/bg.png')</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>The only difference is the syntax: <code class="language-text">#{ $var }</code> with SASS and <code class="language-text">@{ var }</code> with LESS.</p>
+<p>You also can interpolate variables within selectors as we could see with loops - yep, I’m working on my transitions.</p>
+<h3 id="loops"><a href="#loops" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Loops</h3>
+<p>Technically speaking, both preprocessors can implement loops which could be very useful.</p>
+<p>However, SASS natively deals with the iteration logic, not LESS. In fact, you can use an alternative based on mixins to create the loop behavior with LESS.</p>
+<p>With LESS, here is the deal:</p>
+<ol>
+<li>Create a mixin with an <code class="language-text">@index</code> parameter</li>
+<li>The mixin will produce the content of the loop while <code class="language-text">@index &gt; 0</code></li>
+<li>At the end of the mixin, you decrease <code class="language-text">@index</code></li>
+<li>You create an empty verion of the mixin to stop the loop when <code class="language-text">@index = 0</code></li>
+</ol>
+<p>Which leads us to the following syntaxes for a loop:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/* With SASS */</span>
+<span class="token property"><span class="token variable">$index</span></span><span class="token punctuation">:</span> 5<span class="token punctuation">;</span>
+
+<span class="token keyword">@while</span> <span class="token selector"><span class="token variable">$index</span> > 0 </span><span class="token punctuation">{</span>
+  <span class="token comment">// Interpolate the class name</span>
+  <span class="token selector">.container-<span class="token variable">#{$index}</span> </span><span class="token punctuation">{</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token variable">$index</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Decrease the index</span>
+  <span class="token property"><span class="token variable">$index</span></span><span class="token punctuation">:</span> <span class="token variable">$index</span> <span class="token operator">-</span> 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/* With LESS */</span>
+<span class="token selector">.loop (<span class="token variable">@index</span>) when (<span class="token variable">@index</span> > 0)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Interpolate the class name</span>
+  <span class="token selector">.container-@{index}</span> <span class="token punctuation">{</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token variable">@index</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Decrease the index and start the loop again</span>
+  .loop <span class="token punctuation">(</span><span class="token variable">@index</span> <span class="token operator">-</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Stop the loop at 0</span>
+<span class="token selector">.loop (0)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Start the loop</span>
+.loop <span class="token punctuation">(</span>5<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>Which will output, once compiled:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container-5</span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container-4</span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container-3</span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container-2</span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container-1</span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>This technique is used by Bootstrap <a href="https://github.com/twitter/bootstrap/blob/master/less/mixins.less#L577-L595">to generate spans regarding the number of columns</a>.</p>
+<h3 id="extend-and-silent-classes"><a href="#extend-and-silent-classes" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extend and silent classes</h3>
+<p>With SASS you can extend a class properties very easily to share a common style, the second class inherits style of the first one.</p>
+<p>For instance, this:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token selector">.error </span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px #f00<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #fdd<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.serious-error </span><span class="token punctuation">{</span>
+  <span class="token keyword">@extend</span> .error<span class="token punctuation">;</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Will give the following code:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.error,
+.serious-error</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px #f00<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #fdd<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.serious-error</span> <span class="token punctuation">{</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>SASS can create what we call <em>silent classes</em>: you just define classes that wouldn’t be compiled until they are included somewhere with <code class="language-text">@extend</code>.</p>
+<p>So this code:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token selector">a<span class="token placeholder">%error</span> </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.notice </span><span class="token punctuation">{</span>
+  <span class="token keyword">@extend</span> <span class="token placeholder selector">%error</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Will output the following:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">a.notice</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>With LESS, you’ll generally use <strong>mixins</strong> to realize that kind of extensions. Just like a silent class, the mixin won’t be compiled until it’s included somewhere. So it comes with the same spirit, only the syntax changes:</p>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token selector">.error()</span> <span class="token punctuation">{</span>
+  <span class="token selector">a&amp;</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.notice</span> <span class="token punctuation">{</span>
+  <span class="token mixin-usage function">.error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>That said, you’ll note that SASS is extending smartly selectors - <code class="language-text">.error, serious-error</code> in the previous example. With LESS, you’d need to do that by hand.</p>
+<p><strong>Note</strong> - <a href="https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md#140-beta-1--2">LESS v1.4</a> - which is currently in beta - will introduce <code>:extend()</code> that could handle selectors extension. The syntax would be closer to the CSS one, just like a pseudo-selector, which should produce something like that:</p>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token selector">.error</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px #f00<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #fdd<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.serious-error:extend(.error)</span> <span class="token punctuation">{</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="default-variables"><a href="#default-variables" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">!default</code> variables</h3>
+<p>With SASS you can set a default value to variables at any time. The default value is used if the variable is not already defined somewhere.</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token property"><span class="token variable">$base-font-size</span></span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$base-font-size</span></span><span class="token punctuation">:</span> 16px <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$base-spacing-unit</span></span><span class="token punctuation">:</span> 24px <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+
+<span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$base-font-size</span><span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token variable">$base-spacing-unit</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>This technique is very useful because you can define defaults into the core of the module you’re developing, so you allow users to override them if necessary <strong>from the outside</strong>.</p>
+<p>Need a concrete example? I’ve got that: the framework core of inuit.css use a bunch of defaults so the developer can use the framework as a submodule: he can update it but he never has to touch it, never!</p>
+<p>To override a variable, he just needs to define it in its own configuration file:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">.
+|-- inuit.css/ # Framework core
+| |-- base/
+| |-- generic/
+| |-- objects/
+| |-- \_defaults.scss # Default variables
+| |-- \_inuit.scss # Setup file for inuit.css
 |
 |-- ui/
-|-- _vars.scss          # Specific variables
-|-- main.scss           # Setup file for the project
-</code></pre></div><p>So he can override variables in <code>_vars.scss</code> and organize <code>main.scss</code> as follows:</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * Setup</span>
-<span class="c"> */</span>
-<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
-</code></pre></div><p>Without touching anything from the inuit.css core he is able to configure it entirely.</p><p><strong>The fact is, you ain’t gonna need this with LESS.</strong></p><p>Thanks <a href="https://twitter.com/KB1RMA">Chris Snyder</a> for pointing this out!</p><p>For a long time I thought LESS didn’t provide the ability to do the same, and I’ve had to find hacks to this problem.</p><p>Actually, variables work differently in LESS since the pre-processor uses <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. That means variables can be used <strong>before</strong> being described.</p><p>Hence, you can perfectly override variables later in your codebase. Which is the equivalent of having default variables:</p><div class="highlight"><pre><code class="css"><span class="k">@base-font-size</span><span class="o">:</span>    <span class="nt">14px</span><span class="p">;</span>
-<span class="k">@base-spacing-unit</span><span class="o">:</span> <span class="nt">24px</span><span class="p">;</span>
+|-- \_vars.scss # Specific variables
+|-- main.scss # Setup file for the project</code></pre></div>
+<p>So he can override variables in <code class="language-text">_vars.scss</code> and organize <code class="language-text">main.scss</code> as follows:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token comment">/**
+ * Setup
+ */</span>
+<span class="token keyword">@import</span> <span class="token string">'vars'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'inuit.css/inuit'</span><span class="token punctuation">;</span></code></pre></div>
+<p>Without touching anything from the inuit.css core he is able to configure it entirely.</p>
+<p><strong>The fact is, you ain’t gonna need this with LESS.</strong></p>
+<p>Thanks <a href="https://twitter.com/KB1RMA">Chris Snyder</a> for pointing this out!</p>
+<p>For a long time I thought LESS didn’t provide the ability to do the same, and I’ve had to find hacks to this problem.</p>
+<p>Actually, variables work differently in LESS since the pre-processor uses <a href="http://lesscss.org/features/#variables-feature-lazy-loading">lazy loading</a>. That means variables can be used <strong>before</strong> being described.</p>
+<p>Hence, you can perfectly override variables later in your codebase. Which is the equivalent of having default variables:</p>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token variable">@base-font-size<span class="token punctuation">:</span></span> 14px<span class="token punctuation">;</span>
+<span class="token variable">@base-spacing-unit<span class="token punctuation">:</span></span> 24px<span class="token punctuation">;</span>
 
-<span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span>        <span class="o">@</span><span class="n">base</span><span class="o">-</span><span class="k">font-size</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span>    <span class="o">@</span><span class="n">base</span><span class="o">-</span><span class="n">spacing</span><span class="o">-</span><span class="n">unit</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">@base-font-size</span><span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token variable">@base-spacing-unit</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="c">/* … later in your code */</span>
-<span class="k">@base-font-size</span><span class="o">:</span>    <span class="nt">16px</span><span class="p">;</span>
-</code></pre></div><p>Will produce the same result:</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Hence, we could do the same with inuit.css and use proper (default) variables in the framework while giving the capacity to developers to override them after.</p><div class="highlight"><pre><code class="css"><span class="c">/**</span>
-<span class="c"> * Setup</span>
-<span class="c"> */</span>
-<span class="k">@import</span> <span class="s2">&quot;inuit.css/inuit&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;vars&quot;</span><span class="p">;</span>
-</code></pre></div><h2 id="what-couldnt-be-reproduced-in-less">What couldn’t be reproduced in LESS</h2><p>Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.</p><h4 id="block-of-content-within-a-mixin">Block of content within a mixin</h4><p>If you are using SASS, you can pass a whole block of content into a mixin thanks to the <code>@content</code> variable. Concretely, this:</p><div class="highlight"><pre><code class="text">@mixin apply-to-ie6-only {
-    *html {
-        @content;
-    }
-}
+<span class="token comment">/* … later in your code */</span>
+<span class="token variable">@base-font-size<span class="token punctuation">:</span></span> 16px<span class="token punctuation">;</span></code></pre></div>
+<p>Will produce the same result:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Hence, we could do the same with inuit.css and use proper (default) variables in the framework while giving the capacity to developers to override them after.</p>
+<div class="gatsby-highlight" data-language="less"><pre class="language-less"><code class="language-less"><span class="token comment">/**
+ * Setup
+ */</span>
+<span class="token variable">@import</span> <span class="token string">'inuit.css/inuit'</span><span class="token punctuation">;</span>
+<span class="token variable">@import</span> <span class="token string">'vars'</span><span class="token punctuation">;</span></code></pre></div>
+<h2 id="what-couldnt-be-reproduced-in-less"><a href="#what-couldnt-be-reproduced-in-less" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What couldn’t be reproduced in LESS</h2>
+<p>Here is a non-exhaustive list of what SASS is able to do and not LESS, without any real alternative but ingenious hacks.</p>
+<h3 id="block-of-content-within-a-mixin"><a href="#block-of-content-within-a-mixin" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Block of content within a mixin</h3>
+<p>If you are using SASS, you can pass a whole block of content into a mixin thanks to the <code class="language-text">@content</code> variable. Concretely, this:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token selector">apply-to-ie6-only </span><span class="token punctuation">{</span>
+  <span class="token selector">html </span><span class="token punctuation">{</span>
+    <span class="token keyword">@content</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-@include apply-to-ie6-only {
-    #logo {
-        background-image: url(/logo.gif);
-    }
-}
-</code></pre></div><p>Will compile into:</p><div class="highlight"><pre><code class="css"><span class="o">*</span><span class="nt">html</span> <span class="nf">#logo</span> <span class="p">{</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(/logo.gif)</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>As far as I know, there is no possibility to do that in LESS - but I’d consider any suggestion!</p><h4 id="variable-properties">Variable properties</h4><p>With SASS you also can use interpolation to have variable properties. This is extremely useful to create powerful mixins like this:</p><div class="highlight"><pre><code class="text">@mixin border-badass($side) {
-    border-#{$side}: 1px #BADA55 solid;
-}
+<span class="token keyword">@include</span> <span class="token selector">apply-to-ie6-only </span><span class="token punctuation">{</span>
+  <span class="token selector">#logo </span><span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url</span><span class="token punctuation">(</span>/logo.gif<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Will compile into:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">html #logo</span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(/logo.gif)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>As far as I know, there is no possibility to do that in LESS - but I’d consider any suggestion!</p>
+<h3 id="variable-properties"><a href="#variable-properties" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable properties</h3>
+<p>With SASS you also can use interpolation to have variable properties. This is extremely useful to create powerful mixins like this:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">border-badass</span><span class="token punctuation">(</span><span class="token variable">$side</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">border-<span class="token variable">#{$side}</span></span><span class="token punctuation">:</span> 1px #bada55 solid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-.container {
-    @include border-badass(left);
-}
-</code></pre></div><p>Will output:</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#BADA55</span> <span class="k">solid</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p><strong>However, you need to do a mixin per property in LESS</strong>, which is very painfull. So you may need to get use of it…</p><p>…</p><p>… well, in fact, there IS a kind of <em>weird</em> hack that can produce the same result. I deny any responsibility for its weirdness, you are smart enough to decide whether or not it worth using it!</p><p>The thing is that browsers will ignore unknown CSS properties.</p><p>So let’s say, <code>hack: 1;</code> would’n be very valid right? But it wouldn’t be considered. If you keep that in mind and use LESS interpolation over properties values, you’d be able to imagine the following code:</p><div class="highlight"><pre><code class="text">.border-badass(@side) {
-    hack: 1 ~&quot;; border-@{side}: 1px #BADA55 solid&quot;;
-}
+<span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">border-badass</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Will output:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 1px #bada55 solid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><strong>However, you need to do a mixin per property in LESS</strong>, which is very painfull. So you may need to get use of it…</p>
+<p>…</p>
+<p>… well, in fact, there IS a kind of <em>weird</em> hack that can produce the same result. I deny any responsibility for its weirdness, you are smart enough to decide whether or not it worth using it!</p>
+<p>The thing is that browsers will ignore unknown CSS properties.</p>
+<p>So let’s say, <code class="language-text">hack: 1;</code> would’n be very valid right? But it wouldn’t be considered. If you keep that in mind and use LESS interpolation over properties values, you’d be able to imagine the following code:</p>
+<div class="gatsby-highlight" data-language="scss"><pre class="language-scss"><code class="language-scss">.<span class="token function">border-badass</span><span class="token punctuation">(</span><span class="token atrule"><span class="token rule">@side</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token property">hack</span><span class="token punctuation">:</span> 1 ~<span class="token string">"; border-@{side}: 1px #BADA55 solid"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-.container {
-    .border-badass(left);
-}
-</code></pre></div><p>Which will output:</p><div class="highlight"><pre><code class="css"><span class="nc">.container</span> <span class="p">{</span>
-    <span class="n">hack</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
-    <span class="k">border-left</span><span class="o">:</span> <span class="m">1px</span> <span class="m">#BADA55</span> <span class="k">solid</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Technically, it works.</p><p>I don’t tell you to use it, but we can imagine that you automatically treat your compiled CSS so you delete every <code>hack:1;</code> for instance. We can also imagine that LESS will have this feature later.</p><p>So keep in mind: it’s weird, but it works though…</p><h2 id="final-words">Final words</h2><p>Here we are! That was my 50 cents about main similarities and differencies I experimented between SASS and LESS. To convert a SASS project into LESS isn’t that difficult, but you need do take care of each language specificities.</p><p>From an objective point of view, SASS is more powerful than LESS and has real programming notions inside. However, its syntax and spirit is even more far from the original CSS compared to LESS, in my humble opinion.</p><p>It’s much more <strong>a question of habit and comfort</strong>. What counts is that you’re using a CSS preprocessor to simplify development and make your stylesheets easier to scale and maintain: the future you will thank the present you for that!</p><p>For those who would like to play with it online, here you go:</p><ul><li><a href="http://sass-lang.com/try.html">Sass-try</a>, for SASS</li><li><a href="http://less2css.org/">Less2css</a>, for LESS</li></ul><p>If you have any suggestion, spot any mistake or have some comments to do on this (long) post, please do.</p><p>Plop!</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li class="current" ><a href="/">English version</a></li><li ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Consultant at <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='https://www.linkedin.com/in/nicolas-carlo-095b243b/'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p><p>I tend to <a href='https://medium.com/@nicoespeon'>post on Medium</a> now, in case you want to keep updated ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Stay tuned</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Friends</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/en/2013/06/convert-sass-project-into-less/';var title = "Convert a SASS project into LESS";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+<span class="token selector">.container </span><span class="token punctuation">{</span>
+    .<span class="token function">border-badass</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Which will output:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">hack</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 1px #bada55 solid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Technically, it works.</p>
+<p>I don’t tell you to use it, but we can imagine that you automatically treat your compiled CSS so you delete every <code class="language-text">hack:1;</code> for instance. We can also imagine that LESS will have this feature later.</p>
+<p>So keep in mind: it’s weird, but it works though…</p>
+<h2 id="final-words"><a href="#final-words" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Final words</h2>
+<p>Here we are! That was my 50 cents about main similarities and differencies I experimented between SASS and LESS. To convert a SASS project into LESS isn’t that difficult, but you need do take care of each language specificities.</p>
+<p>From an objective point of view, SASS is more powerful than LESS and has real programming notions inside. However, its syntax and spirit is even more far from the original CSS compared to LESS, in my humble opinion.</p>
+<p>It’s much more <strong>a question of habit and comfort</strong>. What counts is that you’re using a CSS preprocessor to simplify development and make your stylesheets easier to scale and maintain: the future you will thank the present you for that!</p>
+<p>For those who would like to play with it online, here you go:</p>
+<ul>
+<li><a href="http://sass-lang.com/try.html">Sass-try</a>, for SASS</li>
+<li><a href="http://less2css.org/">Less2css</a>, for LESS</li>
+</ul>
+<p>If you have any suggestion, spot any mistake or have some comments to do on this (long) post, please do.</p>
+<p>Plop!</p></div><div class="post-single__date"><em>Published 10 Jun 2013</em></div></div><div class="post-single__footer"><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/less/">less</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/sass/">sass</a></li></ul></div><hr/><p class="post-single__footer-text">I write about web development, agile practices and personal organization.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Follow @nicoespeon</a></li></ul></p><div><div><div id="disqus_thread"></div></div></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"en-2013-06-convert-sass-project-into-less-99f","path":"/en/2013/06/convert-sass-project-into-less/"};window.dataPath="389/path---en-2013-06-convert-sass-project-into-less-99-f-5bf-Q6WOGTASmISQcvggwmdBbBSbGro";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-7ff74e5535bdd06d11ef.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-537486c90735c3c1377a.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css","/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-tag-template-jsx-9af5daf83e7a19f992d4.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-category-template-jsx-2904b34758b9f2881007.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7dad01c535737efdd8d0.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-97677500450b5e762191.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-49360dc815704cae244e.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-fr-index-jsx-3e9f39338bc9c19248bb.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-38760c202caef6425508.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-index-jsx-f353ee5021831a4ee797.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-3f2391670fe656f96072.js"]};/*]]>*/</script><script src="/webpack-runtime-b9583aeb2d8577f338c5.js" async=""></script><script src="/0-adb2f97cc27438a8487c.js" async=""></script><script src="/2-95af416e05d9551b4d5b.js" async=""></script><script src="/app-7ff74e5535bdd06d11ef.js" async=""></script><script src="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
+
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>

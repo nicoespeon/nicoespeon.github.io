@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "nicoespeon.github.io",
+  "description": null,
+  "icons": {
+    "60": "/icons-ad72c5f34acd111a2daec190afc34979/firefox_app_60x60.png",
+    "128": "/icons-ad72c5f34acd111a2daec190afc34979/firefox_app_128x128.png",
+    "512": "/icons-ad72c5f34acd111a2daec190afc34979/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}

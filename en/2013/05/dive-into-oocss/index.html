@@ -1,195 +1,548 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="OOCSS - what it is, what it does, what it is, what it isn't."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/en/2013/05/dive-into-oocss/" /><meta property="og:type" content="article" /><meta property="og:title" content="Dive into OOCSS principles | @nicoespeon" /><meta property="og:description" content="OOCSS - what it is, what it does, what it is, what it isn't." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Dive into OOCSS principles | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/index.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/projects.html">Projects</a></li><li><a href="/worth-reading.html">Worth Reading</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Dive into OOCSS principles</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Dive into OOCSS principles |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(08 May, 2013)</div></div><p class="islet">OOCSS - what it is, what it does, what it is, what it isn't.</p><h1 id="i-can-haz-oocss">I can haz OOCSS?</h1><p>Consider a new web project: a start-up dreams of developing THE indispensable webapplication of tomorrow’s web. They choose wisefully technologies, frameworks, environments they’ll use… However, the front-end rendering will still the same for the browser: <em>HTML, CSS and Javascript</em>.</p><p>But here’s the thing: even if the whole application will probably take advantages of some frameworks, have a look over the stylesheet and you’ll probably get something like that, with or without preprocessor:</p><div class="highlight"><pre><code class="css"><span class="nf">#form-generator</span> <span class="p">{</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">760px</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
-<span class="p">}</span>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100}body{color:#222;line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:#222;height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#222 0,#222 15px,transparent 0,transparent 26px);width:6.25rem}a{color:#2375ff;text-decoration:none}a:active,a:focus,a:hover{color:#ff7abc}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:#222;font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:#222}.tags__list-item-link:focus,.tags__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}.categories__list-item-link{color:#222}.categories__list-item-link:focus,.categories__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:rgba(255,122,188,.15);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #ff7abc}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__date{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:#ebebeb;text-decoration:none;border:0;border-radius:.1875rem;color:#555;line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:#222;background:#dfdfdf;border:0}.post-single__home-button{display:block;margin-left:auto;margin-right:auto;max-width:5.625rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:#555;background:#ebebeb;font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__home-button:focus,.post-single__home-button:hover{color:#222;background:#dfdfdf;border:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__home-button{position:fixed;max-width:auto;margin:0;top:30px;left:30px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Dive into OOCSS principles</title><meta data-react-helmet="true" name="description" content="OOCSS - what it is, what it does, what it is, what it isn&#x27;t."/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"/><link as="script" rel="preload" href="/app-7ff74e5535bdd06d11ef.js"/><link as="script" rel="preload" href="/2-95af416e05d9551b4d5b.js"/><link as="script" rel="preload" href="/0-adb2f97cc27438a8487c.js"/><link as="script" rel="preload" href="/webpack-runtime-b9583aeb2d8577f338c5.js"/><link rel="preload" href="/static/d/811/path---en-2013-05-dive-into-oocss-096-21c-0qojaXkqMEeVrYQIrFRWlh8rC8.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div><a class="post-single__home-button" href="/">← Articles</a></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Dive into OOCSS principles</h1><div class="post-single__body"><h2 id="i-can-haz-oocss"><a href="#i-can-haz-oocss" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>I can haz OOCSS?</h2>
+<p>Consider a new web project: a start-up dreams of developing THE indispensable webapplication of tomorrow’s web. They choose wisefully technologies, frameworks, environments they’ll use… However, the front-end rendering will still the same for the browser: <em>HTML, CSS and Javascript</em>.</p>
+<p>But here’s the thing: even if the whole application will probably take advantages of some frameworks, have a look over the stylesheet and you’ll probably get something like that, with or without preprocessor:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">#form-generator</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 760px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nf">#form-generator</span> <span class="nt">label</span> <span class="p">{</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
-    <span class="c">/* ... */</span>
-<span class="p">}</span>
+<span class="token selector">#form-generator label</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token comment">/* … */</span>
+<span class="token punctuation">}</span>
 
-<span class="nf">#form-generator</span> <span class="nt">label</span><span class="nc">.title</span> <span class="p">{</span>
-    <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="o">:</span> <span class="m">11px</span><span class="p">;</span>
-    <span class="c">/* ... */</span>
-<span class="p">}</span>
+<span class="token selector">#form-generator label.title</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 11px<span class="token punctuation">;</span>
+  <span class="token comment">/* … */</span>
+<span class="token punctuation">}</span>
 
-<span class="nf">#form-generator</span> <span class="nt">textarea</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">350px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">#form-generator textarea</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 350px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="nf">#form-generator</span> <span class="nc">.big</span> <span class="nt">textarea</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">500px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="token selector">#form-generator .big textarea</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="c">/* a bunch of CSS */</span>
-</code></pre></div><p>This kind of code will cause a lot of hassles over time:</p><ul><li><p><strong>Lack of flexibility</strong>, it can only apply to elements which are contained in the form which gets the <code>#form-generator</code> identifier. That could sound relevant at first, but what if you want to build other pages with some similars forms in it?</p></li><li><p><strong>Too much specificity</strong>, you have to overspecified again and again selectors when you want to create some particular cases. Just look at <code>label.title-titre</code> or <code>.big textarea</code> for instance.</p></li><li><p><strong>Too complicated</strong>, you need to be an <strong>expert</strong> and know the architecture of every single page to dissect and maintain all of this mess. Plus, it would probably grow as the project develops.</p></li></ul><p>If you add some messy organisation for CSS files, then you get a spaghetti code which would lead to a lot of troubles, errors, code duplication as new developers enters the ring over time.</p><p>This extreme dependency between the HTML structure makes the code be <strong>especially fragile</strong>: even if it’s clean, a simple mistake of a non-expert can ruined it completely.</p><p>In short, these non-mature practices will make things harder for the start-up and promises long sleepless nights of debug and refactor.</p><p>Finally, <strong>the problem here belongs to the 1:1 relation</strong> between CSS and the number of blocks, pages, modules of the website. As long as it grows, the stylesheet grows as well. That implies development time, and so money… We could do better in terms of <a href="http://en.wikipedia.org/wiki/Rate_of_return">ROI</a>.</p><div class="illustration"><img alt="Your CSS is a MESS" title="Your CSS is a MESS" src="/assets/img/css/your-css-is-a-mess.jpg" />Freely inspired by <a href="https://speakerdeck.com/snookca/your">Jonathan Snoovvk</a> =)</div><p>The <strong>Object Oriented CSS (OOCSS)</strong> bring its own solution to these problems. It’s nor a new preprocessor, nor a new language, but a <em>code philosophy</em>. It’s a set of best practices, rules and advices to help your CSS become scalable.</p><p>OOCSS has 2 principles :</p><ol><li><strong>Separate structure from skin</strong><br /></li><li><strong>Separate container from content</strong></li></ol><h4 id="separate-structure-from-skin">1. Separate structure from skin</h4><p>Usually, elements of a website have a visual aspect which is repeated in different contexts : colors, font, borders, … the graphic charter in a whole. This is the <strong>skin</strong>.</p><p>In the same time, a bunch of “non-visible” properties are repeated : width/height, overflow, etc. This is the <strong>structure</strong>.</p><p>If you separate them, you create <strong>re-usable</strong> components that can be shared into elements which have same properties. And so we speak about <strong>objects</strong>, which may sound familiar to back-end developers by the way.</p><h4 id="separate-container-from-content">2. Separate container from content</h4><p>The deal here is not to stupidly constrain the style of an element (the <strong>content</strong>) to the its context (its <strong>container</strong>).</p><p>If you are designing titles, why limit yourself to those who are into the <code>&lt;header&gt;</code>, just because this is the only title place for now? Plus, it’s very likely that all your titles have a consistent design in your whole website for ergonomics concerns.</p><p>It’s even more true for modules.</p><h1 id="why-is-oocss-good">Why is OOCSS good?</h1><h4 id="the-10-best-practices">The 10 best practices</h4><p>Here are the 10 best practices that are part of the OOCSS spirit:</p><ol><li><p><strong>Create a library per component</strong><br />Each component - button, table, link, image, clearfix, etc. - should be a piece of Lego = combinable and re-usable as you wish.</p></li><li><p><strong>Use semantic and consistent styles</strong><br />The style of a new HTML element should be predictable.</p></li><li><p><strong>Design transparent modules</strong><br />The module is the container that could be used with any content.</p></li><li><p><strong>Be flexible</strong><br />Height and width should be extensible and adapt themself - <a href="http://fr.wikipedia.org/wiki/Responsive_Web_Design">RWD</a> inside -.</p></li><li><p><strong>Learn to love grids</strong><br />Grids allow you to control width. Height is generally defined by the content.</p></li><li><p><strong>Minimize selectors</strong><br />Keep a low specificity <code>[0-0-1-0]</code> to <a href="http://nicoespeon.com/en/2013/05/optimize-selectors-css-vs-js/#bewaaaaare_specificity">have a better control over selectors</a>.</p></li><li><p><strong>Separate structure from skin</strong><br />You must do the distinction, it’s a fundamental principle of OOCSS. Create abstract objects for blocks structure and use class to dress these blocks, regardless their nature.</p></li><li><p><strong>Separate container from content</strong><br />You must do the distinction, it’s a fundamental principle of OOCSS. Create <strong>1:n relationship</strong> separating the container from its content.</p></li><li><p><strong>Extend objects with multiple classes</strong>Class/objects are just like Legos you put together to build the expected result.</p></li><li><p><strong>Use resets and YUI fonts</strong><br />This is a specific choice of the <a href="https://github.com/stubbornella/oocss/wiki">OOCSS framework</a>.</p></li></ol><p class="islet"><strong>Legos first</strong> - A best practice is to design individual pages after having created basic components for the whole website.</p><h4 id="the-9-pitfalls-to-avoid">The 9 pitfalls to avoid</h4><p>Here are the 9 pitfalls <strong>to ban</strong>, according to the OOCSS spirit:</p><ol><li><p><strong>Create styles that depend on context</strong><br />There is nothing less flexible but a <code>article &gt; p:nth-child(2) &gt; span.plop</code> selector.</p></li><li><p><strong>Overspecify selectors</strong><br /><code>div.my-class</code> is uselessly overspecific as <code>.my-class</code> is sufficient enough. However, it becomes relevant if you want to override a class styling for some specific elements - <code>strong.error</code> will override the defaults rules of <code>.error</code> for this special use -.</p></li><li><p><strong>Use IDs</strong><br /><a href="http://nicoespeon.com/en/2013/05/optimize-selectors-css-vs-js/#class_or_id_">What an ID can do, a class can do better</a>. Futhermore, IDs contribute in creating unexpected specificity mess.</p></li><li><p><strong>Use shadows and border-radius on irregular backgrounds</strong><br />It could have unexpected results.</p></li><li><p><strong>Create a sprite containing every images, excepted if you don’t have a lot of pages</strong><br />It’s not very optimal in certain cases as you need to deal with image rendering exclusively in CSS.</p></li><li><p><strong>Precisely adjust the height</strong><br />An element height is controlled by its content. Separate container from content will make your life easier.</p></li><li><p><strong>Use images as texts</strong><br />I guess you can reach a better accessibility level.</p></li><li><p><strong>Be redundant</strong><br />Two components which that look too close to be differenciate on a same page look too close to be used on the website: choose one!</p></li><li><p><strong>Do early optimisation</strong><br />Developers tend to waste a lot of time on the optimisation question when it’s not critical than to focus on what is essential to go on.</p></li></ol><h4 id="oocss-benefits">OOCSS benefits</h4><p>As the project is going on, you will be able to create whole new pages combining existing elements <strong>without adding any CSS</strong>, even for a completely new architecture.</p><p>Re-use elements is also a totally free <strong>performance gain</strong>! You’ll create new elements with 0 line of CSS code, what could be better?</p><p>OOCSS force you to think the website as a whole instead of focusing on simple pages put one along the others. You should anticipate the future.</p><p>Finally, the main advantage of this philosophy IMHO is that it makes your CSS modular, <strong>easier to maintain</strong>. This modularity makes your CSS robust: a new developer would be less likely to break the design when working on it.</p><h1 id="oocss-how-does-that-works">OOCSS, how does that works?</h1><h4 id="gimme-concrete-examples">Gimme concrete examples!</h4><p>Remember the 2 main principles:</p><ol><li>Separate structure from skin</li><li>Separate container from content</li></ol><p>With these good practices in mind, let’s see how to apply the philosophy on a daily code.</p><h4 id="separate-structure-from-skin-1">1. Separate structure from skin</h4><p>Let’s take the favorite example over blog posts: buttons. A “classic” CSS would look like this, I guess:</p><div class="highlight"><pre><code class="css"><span class="lineno"> 1</span> <span class="nf">#button</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="lineno"> 3</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span> <span class="m">12px</span><span class="p">;</span>
-<span class="lineno"> 4</span>     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="lineno"> 5</span>
-<span class="lineno"> 6</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-<span class="lineno"> 7</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
-<span class="lineno"> 8</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
-<span class="lineno"> 9</span>     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-<span class="lineno">10</span>
-<span class="lineno">11</span>     <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
-<span class="lineno">12</span>     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="lineno">13</span>
-<span class="lineno">14</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#d5d5d5</span><span class="p">;</span>
-<span class="lineno">15</span> <span class="p">}</span>
-<span class="lineno">16</span>
-<span class="lineno">17</span> <span class="nf">#button-primary</span> <span class="p">{</span>
-<span class="lineno">18</span>     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="lineno">19</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span> <span class="m">12px</span><span class="p">;</span>
-<span class="lineno">20</span>     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="lineno">21</span>
-<span class="lineno">22</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-<span class="lineno">23</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
-<span class="lineno">24</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span>
-<span class="lineno">25</span>     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-<span class="lineno">26</span>     <span class="k">text-shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">-1px</span> <span class="m">0</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">25</span><span class="p">);</span>
-<span class="lineno">27</span>
-<span class="lineno">28</span>     <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
-<span class="lineno">29</span>     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="lineno">30</span>
-<span class="lineno">31</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#006dcc</span><span class="p">;</span>
-<span class="lineno">32</span> <span class="p">}</span>
-<span class="lineno">33</span>
-<span class="lineno">34</span> <span class="nf">#button-large</span> <span class="p">{</span>
-<span class="lineno">35</span>     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="lineno">36</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span> <span class="m">16px</span><span class="p">;</span>
-<span class="lineno">37</span>     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="lineno">38</span>
-<span class="lineno">39</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="lineno">40</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
-<span class="lineno">41</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
-<span class="lineno">42</span>     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-<span class="lineno">43</span>
-<span class="lineno">44</span>     <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
-<span class="lineno">45</span>     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="lineno">46</span>
-<span class="lineno">47</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#d5d5d5</span><span class="p">;</span>
-<span class="lineno">48</span> <span class="p">}</span>
-<span class="lineno">49</span>
-<span class="lineno">50</span> <span class="nf">#button-activation</span> <span class="p">{</span>
-<span class="lineno">51</span>     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="lineno">52</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span> <span class="m">16px</span><span class="p">;</span>
-<span class="lineno">53</span>     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="lineno">54</span>
-<span class="lineno">55</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="lineno">56</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
-<span class="lineno">57</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span>
-<span class="lineno">58</span>     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-<span class="lineno">59</span>     <span class="k">text-shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">-1px</span> <span class="m">0</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">25</span><span class="p">);</span>
-<span class="lineno">60</span>
-<span class="lineno">61</span>     <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
-<span class="lineno">62</span>     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="lineno">63</span>
-<span class="lineno">64</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#006dcc</span><span class="p">;</span>
-<span class="lineno">65</span> <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- The corresponding HTML --&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">id=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">id=</span><span class="s">&quot;button-primary&quot;</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">id=</span><span class="s">&quot;button-large&quot;</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">id=</span><span class="s">&quot;button-activation&quot;</span><span class="nt">&gt;</span>Large Primary<span class="nt">&lt;/a&gt;</span>
-</code></pre></div><p>At the end, you come with a lot of redundancy and a <code>#button-activation</code> which is nothing but a large version of <code>#botton-primary</code>.</p><p>If you refactor this CSS with OOCSS principles, you’ll get something more flexible:</p><div class="highlight"><pre><code class="css"><span class="lineno"> 1</span> <span class="nc">.button</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="lineno"> 3</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span> <span class="m">12px</span><span class="p">;</span>
-<span class="lineno"> 4</span>     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="lineno"> 5</span>
-<span class="lineno"> 6</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-<span class="lineno"> 7</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
-<span class="lineno"> 8</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#333333</span><span class="p">;</span>
-<span class="lineno"> 9</span>     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
-<span class="lineno">10</span>
-<span class="lineno">11</span>     <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
-<span class="lineno">12</span>     <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
-<span class="lineno">13</span>
-<span class="lineno">14</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#d5d5d5</span><span class="p">;</span>
-<span class="lineno">15</span> <span class="p">}</span>
-<span class="lineno">16</span>
-<span class="lineno">17</span> <span class="nc">.button-primary</span> <span class="p">{</span>
-<span class="lineno">18</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span>
-<span class="lineno">19</span>     <span class="k">text-shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">-1px</span> <span class="m">0</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">25</span><span class="p">);</span>
-<span class="lineno">20</span>
-<span class="lineno">21</span>     <span class="k">background-color</span><span class="o">:</span> <span class="m">#006dcc</span><span class="p">;</span>
-<span class="lineno">22</span> <span class="p">}</span>
-<span class="lineno">23</span>
-<span class="lineno">24</span> <span class="nc">.button-large</span> <span class="p">{</span>
-<span class="lineno">25</span>     <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span> <span class="m">16px</span><span class="p">;</span>
-<span class="lineno">26</span>
-<span class="lineno">27</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="lineno">28</span>     <span class="k">line-height</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
-<span class="lineno">29</span> <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- The corresponding HTML --&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;button button-primary&quot;</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;button button-large&quot;</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;button button-large button-primary&quot;</span><span class="nt">&gt;</span>Large Primary<span class="nt">&lt;/a&gt;</span>
-</code></pre></div><p><code>.button</code> define the generic properties - the “defaults” ones - for our buttons. If you override it, you come with new classes that you can combine to get the expected result, <strong>just like Legos</strong>!</p><p>Here was the trick.</p><h4 id="separate-container-from-content-1">2. Separate container from content</h4><p>It did happen, sometimes, that my code looked like this when developing the main design:</p><div class="highlight"><pre><code class="css"><span class="lineno"> 1</span> <span class="nt">header</span> <span class="nt">h1</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Roboto&#39;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="lineno"> 3</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">2em</span><span class="p">;</span>
-<span class="lineno"> 4</span>
-<span class="lineno"> 5</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#F44</span><span class="p">;</span>
-<span class="lineno"> 6</span> <span class="p">}</span>
-<span class="lineno"> 7</span>
-<span class="lineno"> 8</span> <span class="c">/* a bunch of CSS */</span>
-<span class="lineno"> 9</span>
-<span class="lineno">10</span> <span class="nt">footer</span> <span class="nt">h1</span> <span class="p">{</span>
-<span class="lineno">11</span>     <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Roboto&#39;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="lineno">12</span>     <span class="k">font-size</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
-<span class="lineno">13</span>
-<span class="lineno">14</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#F44</span><span class="p">;</span>
-<span class="lineno">15</span>     <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
-<span class="lineno">16</span>     <span class="n">filter</span><span class="o">:</span> <span class="n">alpha</span><span class="p">(</span><span class="k">opacity</span> <span class="o">=</span> <span class="m">50</span><span class="p">);</span>
-<span class="lineno">17</span> <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- The corresponding HTML --&gt;</span>
-<span class="nt">&lt;header&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Header Title<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/header&gt;</span>
-<span class="nt">&lt;footer&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Small title in the footer<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/footer&gt;</span>
-</code></pre></div><p>Here again, it’s a fail: <strong>I am duplicating code</strong>, which is useless and I didn’t even notice that!</p><p>The elements I defined here are simply not re-usable. They directly rely on a specific container. But it’s clear enough that some properties are not specific to this container.</p><p>And so I may have consider the following alternative:</p><div class="highlight"><pre><code class="css"><span class="lineno"> 1</span> <span class="nt">h1</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Roboto&#39;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
-<span class="lineno"> 3</span>
-<span class="lineno"> 4</span>     <span class="k">color</span><span class="o">:</span> <span class="m">#F44</span><span class="p">;</span>
-<span class="lineno"> 5</span> <span class="p">}</span>
-<span class="lineno"> 6</span>
-<span class="lineno"> 7</span> <span class="c">/* ... */</span>
-<span class="lineno"> 8</span>
-<span class="lineno"> 9</span> <span class="nt">h1</span><span class="o">,</span> <span class="nc">.h1-size</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">2em</span><span class="p">;</span>   <span class="p">}</span>
-<span class="lineno">10</span> <span class="nt">h2</span><span class="o">,</span> <span class="nc">.h2-size</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">1.8em</span><span class="p">;</span> <span class="p">}</span>
-<span class="lineno">11</span> <span class="nt">h3</span><span class="o">,</span> <span class="nc">.h3-size</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span> <span class="p">}</span>
-<span class="lineno">12</span>
-<span class="lineno">13</span> <span class="c">/* ... */</span>
-<span class="lineno">14</span>
-<span class="lineno">15</span> <span class="nc">.muted</span> <span class="p">{</span>
-<span class="lineno">16</span>     <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
-<span class="lineno">17</span>     <span class="n">filter</span><span class="o">:</span> <span class="n">alpha</span><span class="p">(</span><span class="k">opacity</span> <span class="o">=</span> <span class="m">50</span><span class="p">);</span>
-<span class="lineno">18</span> <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- The corresponding HTML --&gt;</span>
-<span class="nt">&lt;header&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Header Title<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/header&gt;</span>
-<span class="nt">&lt;footer&gt;</span>
-    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;h3-size muted&quot;</span><span class="nt">&gt;</span>Small title in the footer<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/footer&gt;</span>
-</code></pre></div><p>You may think “Why should I care? We don’t really reduce code here!”. For sure that’s true here… if you only focus on the title.</p><p>But OOCSS makes you think further about the future of your website. Here we don’t just improved titles flexibility, but we add few new elements:</p><ul><li><p>Each level of title has a standard and homogene <code>font-size</code>. Each of these <code>font-size</code> is also set to an independent class and could be re-used, whatever the context</p><p>Doing so, you’ll notice that I didn’t choose the level of title because of the default sizing it would render on the screen: it’s better for semantics, for accessibility and <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> \o/</p></li><li><p>I created a <code>.muted</code> class that allows me to mitigate the visibility/opacity of an element. I guess this little utility would be useful later and I’m sure I won’t have to duplicate that kind of code around in my CSS.</p></li></ul><h4 id="the-media-object">The media object</h4><p>The most famous example which illustrate OOCSS is the <strong>media object</strong> created by <a href="http://www.stubbornella.org/">Nicole Sullivan</a>. It saves <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">hundreds of lines of code</a>.</p><div class="illustration"><img alt="The Media Object" title="Media Object, an example of objects extension" src="/assets/img/css/media-object.jpg" /></div><p>It’s nothing but an abstract object which represents a <em>media object</em> - a picture, a video - aside to a <em>media body</em> - typically a text -, to its left or to its right.</p><p>It’s a typical scheme that is repeated everywhere. Think about the Facebook display.</p><p>Here is basically the module content:</p><div class="highlight"><pre><code class="css"><span class="nc">.media</span><span class="o">,</span> <span class="nc">.media-body</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.media-img</span>          <span class="p">{</span> <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">margin-right</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.media-img-rev</span>      <span class="p">{</span> <span class="k">float</span><span class="o">:</span><span class="k">right</span><span class="p">;</span> <span class="k">margin-left</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.media-img</span> <span class="nt">img</span>      <span class="p">{</span> <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Base structure for the media object --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;media&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;media-img&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;#&quot;</span> <span class="na">alt=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;media-body&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p&gt;</span>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        <span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div><p>These few re-usable lines of CSS will save a lot of time and help to improve performance over a whole project.</p><p>You’ll note that <a href="https://github.com/twitter/bootstrap/blob/master/less/media.less">Bootstrap has implemented it</a>, just like <a href="https://github.com/csswizardry/inuit.css/blob/master/objects/_media.scss">inuit.css</a>, which is not that surprising when you consider these two frameworks use OOCSS concepts.</p><p class="islet">Harry Roberts has recently <a href="http://csswizardry.com/2013/05/the-flag-object/">proposed the <strong>flag object</strong></a> which incorporates more or less the <strong>media object</strong> with the vertical centering concept.</p><h4 id="implement-the-oocss-in-your-project">Implement the OOCSS in your project</h4><p>First of all, you need to understand and adhere to the philosophy. There is no absolute rule and best practices change as the web develop and evolve. Plus, you should always consider the context of your project and define what is good for you.</p><p>That said, we can sum up the implementation of an OOCSS spirit with some concrete practices:</p><ul><li>Don’t use IDs for CSS</li><li>Don’t overspecify your selectors (<code>.error</code> and not <code>p.error</code>), excepted for overriding reasons</li><li>Avoid the use of <code>!important</code></li><li>Distinguish components of your project and create modules out of them</li><li>If relevant, adopt a CSS framework based over OOCSS principles. I’d advice you to use <em><a href="http://twitter.github.io/bootstrap/">Bootstrap</a></em> if you need a predefined design ; <em><a href="http://inuitcss.com/">inuit.css</a></em> is you just need about structure and deal with the design by yourself. Note that the <em><a href="https://github.com/stubbornella/oocss/wiki">oocss</a></em> framework from Nicole Sullivan exists as a reference.</li></ul><h1 id="few-comments">Few comments</h1><h4 id="good-remarks-and-poor-ideas">Good remarks and poor ideas</h4><p>No need to say that these philosophy is a non-absolute vision of CSS that we could debate on.</p><p>However, we can point out the following things:</p><ul><li><p><strong>It’s absolutely possible to use IDs</strong> in HTML for JavaScript purpose, for instance. Moreover, identifiers could be useful as <em>namespaces</em> for a particular module that you want to share without breaking anything.</p></li><li><p>One of the arguments against OOCSS is that you are “polluting” HTML with a bunch of classes that some HTML-evangelist don’t appreciate, which is understandable. However, <strong>OOCSS doesn’t impact the HTML semantics</strong>.</p></li><li><p>OOCSS principles can perform miracles over big projects, where it worth to implement them. For little ones, <em>it’s up to you!</em> However, <strong>the philosophy is relevant regardless the size of your project</strong> and doesn’t take that long to be implemented than an ordinary development when you get used to it. Rather, modules you’ve already created for any other project could be re-used in a new one, you just have to change their design a bit and there you go!</p></li></ul><p class="islet">Even if OOCSS is now a well-spread vision for the benefits it brings, I must say that I was suspicious when I read the assertion: <em>"avoid the use of ID in CSS, ever"</em>.<br />But since I understood the benefits of this practice, I warmly recommend it.<br /><br />That said, as I <a href="http://smacss.com/">get smacked</a> for my code organisation, I now use IDs in my CSS <strong>in a unique place</strong> : <a href="https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/assets/less/ui/layout.less">the layout</a>.<br /><br />It's just a matter of adaptation to your project needs and philosophy.</p><h4 id="another-philosophy">Another philosophy</h4><p><a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/">Another vision of CSS</a> give its importance to the context of elements.</p><p>It’s another philosophy, <em>interface-oriented</em> which considers that CSS is defined to design the existing HTML interface. To pollute HTML with classes is a non-sense when selectors and good code organisation can deal with the design.</p><p>Even though I don’t adhere to this practice - at least for a project which is meant to evolve -, it’s an interesting philosophy which could be relevant for small projects, for instance.</p><h1 id="to-go-further">To go further</h1><h4 id="posts-and-interesting-links">Posts and interesting links</h4><p>Here is a list of links you may have a look to go deeper into OOCSS:</p><ul><li><a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">An introduction to OOCSS</a>, is an introducting post about this concept, by Smashing Magazine.</li><li><a href="http://fr.slideshare.net/stubbornella/the-cascade-grids-headings-and-selectors-from-an-oocss-perspective-ajax-experience-2009">The OOCSS perspective</a> by Nicole Sullivan, or even <a href="http://fr.slideshare.net/stubbornella/object-oriented-css">the short version</a> if you don’t have time.</li><li><a href="http://www.stubbornella.org/content/category/general/geek/css/oocss-css-geek-general/">List of Nicole Sullivan’s blog post about OOCSS</a>.</li><li><a href="http://vimeo.com/44773888">Breaking Good Habits</a>, speech from Harry Robert with <a href="https://speakerdeck.com/csswizardry/breaking-good-habits">the according slides</a>.</li><li><a href="http://andrewhathaway.net/posts/oocss-and-rwd">OOCSS &amp; RWD</a> to think about how the OOCSS can help to build responsive websites.</li><li><a href="http://csslint.net/">CSSLint</a> is a tool that will lint your CSS according to OOCSS principles.</li></ul><h4 id="conclusion">Conclusion</h4><p>Our little dive into OOCSS is now over.</p><div class="illustration"><img alt="After OOCSS" title="Code smells better with OOCSS" src="/assets/img/css/after-oocss.jpg" />Adopt the "Oh Oh" CSS</div><p>Plop!</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li class="current" ><a href="/">English version</a></li><li ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Consultant at <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='https://www.linkedin.com/in/nicolas-carlo-095b243b/'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p><p>I tend to <a href='https://medium.com/@nicoespeon'>post on Medium</a> now, in case you want to keep updated ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Stay tuned</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Friends</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/en/2013/05/dive-into-oocss/';var title = "Dive into OOCSS principles";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+<span class="token comment">/* a bunch of CSS */</span></code></pre></div>
+<p>This kind of code will cause a lot of hassles over time:</p>
+<ul>
+<li>
+<p><strong>Lack of flexibility</strong>, it can only apply to elements which are contained in the form which gets the <code class="language-text">#form-generator</code> identifier. That could sound relevant at first, but what if you want to build other pages with some similars forms in it?</p>
+</li>
+<li>
+<p><strong>Too much specificity</strong>, you have to overspecified again and again selectors when you want to create some particular cases. Just look at <code class="language-text">label.title-titre</code> or <code class="language-text">.big textarea</code> for instance.</p>
+</li>
+<li>
+<p><strong>Too complicated</strong>, you need to be an <strong>expert</strong> and know the architecture of every single page to dissect and maintain all of this mess. Plus, it would probably grow as the project develops.</p>
+</li>
+</ul>
+<p>If you add some messy organisation for CSS files, then you get a spaghetti code which would lead to a lot of troubles, errors, code duplication as new developers enters the ring over time.</p>
+<p>This extreme dependency between the HTML structure makes the code be <strong>especially fragile</strong>: even if it’s clean, a simple mistake of a non-expert can ruined it completely.</p>
+<p>In short, these non-mature practices will make things harder for the start-up and promises long sleepless nights of debug and refactor.</p>
+<p>Finally, <strong>the problem here belongs to the 1:1 relation</strong> between CSS and the number of blocks, pages, modules of the website. As long as it grows, the stylesheet grows as well. That implies development time, and so money… We could do better in terms of <a href="http://en.wikipedia.org/wiki/Rate_of_return">ROI</a>.</p>
+<figure>
+	
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 73.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB5YdEIoE//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAECAxIRE//aAAgBAQABBQLKdXkjArHEqc5kq+P/xAAVEQEBAAAAAAAAAAAAAAAAAAAAE//aAAgBAwEBPwFN/8QAFREBAQAAAAAAAAAAAAAAAAAAABL/2gAIAQIBAT8BW//EABwQAAICAgMAAAAAAAAAAAAAAAABAhETITEycf/aAAgBAQAGPwLskJ5ImqIxjSSVlKXmjmrP/8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyEk2/VwaF2MdkBTcwsQV2DEKSeIQtCtP//aAAwDAQACAAMAAAAQj+//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EEpiIP/EABgRAAIDAAAAAAAAAAAAAAAAAAABEUFR/9oACAECAQE/EGrZHT//xAAfEAEBAAIBBAMAAAAAAAAAAAABEQAhMUFRgaFxkdH/2gAIAQEAAT8QpuxtoRv79ZRDG1WPLPXvC3g4NGdsDHQgqkRXyuFYJEQG3XxiWuLEWvfXxn//2Q==&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Your CSS is a MESS" title="" src="/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-e0740.jpg" srcset="/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-64397.jpg 240w,
+/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-1a212.jpg 480w,
+/static/your-css-is-a-mess-cf1b14e7fdb36982325b73285ba698a4-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+	<figcaption>Freely inspired by <a href="https://speakerdeck.com/snookca/your">Jonathan Snoovvk</a> =)</figcaption>
+</figure>
+<p>The <strong>Object Oriented CSS (OOCSS)</strong> bring its own solution to these problems. It’s nor a new preprocessor, nor a new language, but a <em>code philosophy</em>. It’s a set of best practices, rules and advices to help your CSS become scalable.</p>
+<p>OOCSS has 2 principles :</p>
+<ol>
+<li><strong>Separate structure from skin</strong><br></li>
+<li><strong>Separate container from content</strong></li>
+</ol>
+<h3 id="1-separate-structure-from-skin"><a href="#1-separate-structure-from-skin" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Separate structure from skin</h3>
+<p>Usually, elements of a website have a visual aspect which is repeated in different contexts : colors, font, borders, … the graphic charter in a whole. This is the <strong>skin</strong>.</p>
+<p>In the same time, a bunch of “non-visible” properties are repeated : width/height, overflow, etc. This is the <strong>structure</strong>.</p>
+<p>If you separate them, you create <strong>re-usable</strong> components that can be shared into elements which have same properties. And so we speak about <strong>objects</strong>, which may sound familiar to back-end developers by the way.</p>
+<h3 id="2-separate-container-from-content"><a href="#2-separate-container-from-content" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Separate container from content</h3>
+<p>The deal here is not to stupidly constrain the style of an element (the <strong>content</strong>) to the its context (its <strong>container</strong>).</p>
+<p>If you are designing titles, why limit yourself to those who are into the <code class="language-text">&lt;header&gt;</code>, just because this is the only title place for now? Plus, it’s very likely that all your titles have a consistent design in your whole website for ergonomics concerns.</p>
+<p>It’s even more true for modules.</p>
+<h2 id="why-is-oocss-good"><a href="#why-is-oocss-good" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why is OOCSS good?</h2>
+<h3 id="the-10-best-practices"><a href="#the-10-best-practices" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The 10 best practices</h3>
+<p>Here are the 10 best practices that are part of the OOCSS spirit:</p>
+<ol>
+<li>
+<p><strong>Create a library per component</strong><br>
+Each component - button, table, link, image, clearfix, etc. - should be a piece of Lego = combinable and re-usable as you wish.</p>
+</li>
+<li>
+<p><strong>Use semantic and consistent styles</strong><br>
+The style of a new HTML element should be predictable.</p>
+</li>
+<li>
+<p><strong>Design transparent modules</strong><br>
+The module is the container that could be used with any content.</p>
+</li>
+<li>
+<p><strong>Be flexible</strong><br>
+Height and width should be extensible and adapt themself - <a href="http://fr.wikipedia.org/wiki/Responsive_Web_Design">RWD</a> inside -.</p>
+</li>
+<li>
+<p><strong>Learn to love grids</strong><br>
+Grids allow you to control width. Height is generally defined by the content.</p>
+</li>
+<li>
+<p><strong>Minimize selectors</strong><br>
+Keep a low specificity <code class="language-text">[0-0-1-0]</code> to <a href="/en/2013/05/optimize-selectors-css-vs-js/#bewaaaaare_specificity">have a better control over selectors</a>.</p>
+</li>
+<li>
+<p><strong>Separate structure from skin</strong><br>
+You must do the distinction, it’s a fundamental principle of OOCSS. Create abstract objects for blocks structure and use class to dress these blocks, regardless their nature.</p>
+</li>
+<li>
+<p><strong>Separate container from content</strong><br>
+You must do the distinction, it’s a fundamental principle of OOCSS. Create <strong>1:n relationship</strong> separating the container from its content.</p>
+</li>
+<li>
+<p><strong>Extend objects with multiple classes</strong>
+Class/objects are just like Legos you put together to build the expected result.</p>
+</li>
+<li>
+<p><strong>Use resets and YUI fonts</strong><br>
+This is a specific choice of the <a href="https://github.com/stubbornella/oocss/wiki">OOCSS framework</a>.</p>
+</li>
+</ol>
+<p><strong>Legos first</strong> - A best practice is to design individual pages after having created basic components for the whole website.</p>
+<h3 id="the-9-pitfalls-to-avoid"><a href="#the-9-pitfalls-to-avoid" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The 9 pitfalls to avoid</h3>
+<p>Here are the 9 pitfalls <strong>to ban</strong>, according to the OOCSS spirit:</p>
+<ol>
+<li>
+<p><strong>Create styles that depend on context</strong><br>
+There is nothing less flexible but a <code class="language-text">article &gt; p:nth-child(2) &gt; span.plop</code> selector.</p>
+</li>
+<li>
+<p><strong>Overspecify selectors</strong><br>
+<code class="language-text">div.my-class</code> is uselessly overspecific as <code class="language-text">.my-class</code> is sufficient enough. However, it becomes relevant if you want to override a class styling for some specific elements - <code class="language-text">strong.error</code> will override the defaults rules of <code class="language-text">.error</code> for this special use -.</p>
+</li>
+<li>
+<p><strong>Use IDs</strong><br>
+<a href="/en/2013/05/optimize-selectors-css-vs-js/#class_or_id_">What an ID can do, a class can do better</a>. Futhermore, IDs contribute in creating unexpected specificity mess.</p>
+</li>
+<li>
+<p><strong>Use shadows and border-radius on irregular backgrounds</strong><br>
+It could have unexpected results.</p>
+</li>
+<li>
+<p><strong>Create a sprite containing every images, excepted if you don’t have a lot of pages</strong><br>
+It’s not very optimal in certain cases as you need to deal with image rendering exclusively in CSS.</p>
+</li>
+<li>
+<p><strong>Precisely adjust the height</strong><br>
+An element height is controlled by its content. Separate container from content will make your life easier.</p>
+</li>
+<li>
+<p><strong>Use images as texts</strong><br>
+I guess you can reach a better accessibility level.</p>
+</li>
+<li>
+<p><strong>Be redundant</strong><br>
+Two components which that look too close to be differenciate on a same page look too close to be used on the website: choose one!</p>
+</li>
+<li>
+<p><strong>Do early optimisation</strong><br>
+Developers tend to waste a lot of time on the optimisation question when it’s not critical than to focus on what is essential to go on.</p>
+</li>
+</ol>
+<h3 id="oocss-benefits"><a href="#oocss-benefits" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OOCSS benefits</h3>
+<p>As the project is going on, you will be able to create whole new pages combining existing elements <strong>without adding any CSS</strong>, even for a completely new architecture.</p>
+<p>Re-use elements is also a totally free <strong>performance gain</strong>! You’ll create new elements with 0 line of CSS code, what could be better?</p>
+<p>OOCSS force you to think the website as a whole instead of focusing on simple pages put one along the others. You should anticipate the future.</p>
+<p>Finally, the main advantage of this philosophy IMHO is that it makes your CSS modular, <strong>easier to maintain</strong>. This modularity makes your CSS robust: a new developer would be less likely to break the design when working on it.</p>
+<h2 id="oocss-how-does-that-works"><a href="#oocss-how-does-that-works" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OOCSS, how does that works?</h2>
+<h3 id="gimme-concrete-examples"><a href="#gimme-concrete-examples" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gimme concrete examples!</h3>
+<p>Remember the 2 main principles:</p>
+<ol>
+<li>Separate structure from skin</li>
+<li>Separate container from content</li>
+</ol>
+<p>With these good practices in mind, let’s see how to apply the philosophy on a daily code.</p>
+<h3 id="1-separate-structure-from-skin-1"><a href="#1-separate-structure-from-skin-1" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Separate structure from skin</h3>
+<p>Let’s take the favorite example over blog posts: buttons. A “classic” CSS would look like this, I guess:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">#button</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 12px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333333<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #d5d5d5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#button-primary</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 12px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">text-shadow</span><span class="token punctuation">:</span> 0 -1px 0 <span class="token function">rgba</span><span class="token punctuation">(</span>0, 0, 0, 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #006dcc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#button-large</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px 16px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333333<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #d5d5d5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#button-activation</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px 16px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">text-shadow</span><span class="token punctuation">:</span> 0 -1px 0 <span class="token function">rgba</span><span class="token punctuation">(</span>0, 0, 0, 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #006dcc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- The corresponding HTML --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Primary<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button-large<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Large<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button-activation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Large Primary<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre></div>
+<p>In the end, you come with a lot of redundancy and a <code class="language-text">#button-activation</code> which is nothing but a large version of <code class="language-text">#botton-primary</code>.</p>
+<p>If you refactor this CSS with OOCSS principles, you’ll get something more flexible:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.button</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 12px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333333<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #d5d5d5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button-primary</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+  <span class="token property">text-shadow</span><span class="token punctuation">:</span> 0 -1px 0 <span class="token function">rgba</span><span class="token punctuation">(</span>0, 0, 0, 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #006dcc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button-large</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px 16px<span class="token punctuation">;</span>
+
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- The corresponding HTML --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button button-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Primary<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button button-large<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Large<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button button-large button-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Large Primary<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre></div>
+<p><code class="language-text">.button</code> define the generic properties - the “defaults” ones - for our buttons. If you override it, you come with new classes that you can combine to get the expected result, <strong>just like Legos</strong>!</p>
+<p>Here was the trick.</p>
+<h3 id="2-separate-container-from-content-1"><a href="#2-separate-container-from-content-1" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Separate container from content</h3>
+<p>It did happen, sometimes, that my code looked like this when developing the main design:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">header h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, Helvetica, sans-serif<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+
+  <span class="token property">color</span><span class="token punctuation">:</span> #f44<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* a bunch of CSS */</span>
+
+<span class="token selector">footer h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, Helvetica, sans-serif<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+
+  <span class="token property">color</span><span class="token punctuation">:</span> #f44<span class="token punctuation">;</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0.5<span class="token punctuation">;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">alpha</span><span class="token punctuation">(</span>opacity = 50<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- The corresponding HTML --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Header Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Small title in the footer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span></code></pre></div>
+<p>Here again, it’s a fail: <strong>I am duplicating code</strong>, which is useless and I didn’t even notice that!</p>
+<p>The elements I defined here are simply not re-usable. They directly rely on a specific container. But it’s clear enough that some properties are not specific to this container.</p>
+<p>And so I may have consider the following alternative:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Roboto'</span>, Helvetica, sans-serif<span class="token punctuation">;</span>
+
+  <span class="token property">color</span><span class="token punctuation">:</span> #f44<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* … */</span>
+<span class="token selector">h1,
+.h1-size</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h2,
+.h2-size</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.8em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h3,
+.h3-size</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* … */</span>
+<span class="token selector">.muted</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0.5<span class="token punctuation">;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">alpha</span><span class="token punctuation">(</span>opacity = 50<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- The corresponding HTML --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Header Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>h3-size muted<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Small title in the footer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span></code></pre></div>
+<p>You may think “Why should I care? We don’t really reduce code here!“. For sure that’s true here… if you only focus on the title.</p>
+<p>But OOCSS makes you think further about the future of your website. Here we don’t just improved titles flexibility, but we add few new elements:</p>
+<ul>
+<li>
+<p>Each level of title has a standard and homogene <code class="language-text">font-size</code>. Each of these <code class="language-text">font-size</code> is also set to an independent class and could be re-used, whatever the context</p>
+<p>Doing so, you’ll notice that I didn’t choose the level of title because of the default sizing it would render on the screen: it’s better for semantics, for accessibility and <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> \o/</p>
+</li>
+<li>
+<p>I created a <code class="language-text">.muted</code> class that allows me to mitigate the visibility/opacity of an element. I guess this little utility would be useful later and I’m sure I won’t have to duplicate that kind of code around in my CSS.</p>
+</li>
+</ul>
+<h3 id="the-media-object"><a href="#the-media-object" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The media object</h3>
+<p>The most famous example which illustrate OOCSS is the <strong>media object</strong> created by <a href="http://www.stubbornella.org/">Nicole Sullivan</a>. It saves <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">hundreds of lines of code</a>.</p>
+<p>
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 75.2%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHr1RM1D//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABoQAAMBAAMAAAAAAAAAAAAAAAABESEQQbH/2gAIAQEAAT8h2xecSiN7G9P/2gAMAwEAAgADAAAAEFT/AP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQADAQEAAAAAAAAAAAAAAAEAESExgf/aAAgBAQABPxDHBzYqysY9KfSOzIA6uER//9k='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="Media Object, an example of objects extension"
+        title=""
+        src="/static/media-object-d0c1a92768c3d599cffe58b7655202c2-e0740.jpg"
+        srcset="/static/media-object-d0c1a92768c3d599cffe58b7655202c2-64397.jpg 240w,
+/static/media-object-d0c1a92768c3d599cffe58b7655202c2-1a212.jpg 480w,
+/static/media-object-d0c1a92768c3d599cffe58b7655202c2-e0740.jpg 500w"
+        sizes="(max-width: 500px) 100vw, 500px"
+      />
+    </span>
+  </span>
+  </p>
+<p>It’s nothing but an abstract object which represents a <em>media object</em> - a picture, a video - aside to a <em>media body</em> - typically a text -, to its left or to its right.</p>
+<p>It’s a typical scheme that is repeated everywhere. Think about the Facebook display.</p>
+<p>Here is basically the module content:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.media,
+.media-body</span> <span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-img</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-img-rev</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.media-img img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Base structure for the media object --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-img<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<p>These few re-usable lines of CSS will save a lot of time and help to improve performance over a whole project.</p>
+<p>You’ll note that <a href="https://github.com/twitter/bootstrap/blob/master/less/media.less">Bootstrap has implemented it</a>, just like <a href="https://github.com/csswizardry/inuit.css/blob/master/objects/_media.scss">inuit.css</a>, which is not that surprising when you consider these two frameworks use OOCSS concepts.</p>
+<p>Harry Roberts has recently <a href="http://csswizardry.com/2013/05/the-flag-object/">proposed the <strong>flag object</strong></a> which incorporates more or less the <strong>media object</strong> with the vertical centering concept.</p>
+<h3 id="implement-the-oocss-in-your-project"><a href="#implement-the-oocss-in-your-project" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implement the OOCSS in your project</h3>
+<p>First of all, you need to understand and adhere to the philosophy. There is no absolute rule and best practices change as the web develop and evolve. Plus, you should always consider the context of your project and define what is good for you.</p>
+<p>That said, we can sum up the implementation of an OOCSS spirit with some concrete practices:</p>
+<ul>
+<li>Don’t use IDs for CSS</li>
+<li>Don’t overspecify your selectors (<code class="language-text">.error</code> and not <code class="language-text">p.error</code>), excepted for overriding reasons</li>
+<li>Avoid the use of <code class="language-text">!important</code></li>
+<li>Distinguish components of your project and create modules out of them</li>
+<li>If relevant, adopt a CSS framework based over OOCSS principles. I’d advice you to use <em><a href="http://twitter.github.io/bootstrap/">Bootstrap</a></em> if you need a predefined design ; <em><a href="http://inuitcss.com/">inuit.css</a></em> is you just need about structure and deal with the design by yourself. Note that the <em><a href="https://github.com/stubbornella/oocss/wiki">oocss</a></em> framework from Nicole Sullivan exists as a reference.</li>
+</ul>
+<h2 id="few-comments"><a href="#few-comments" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Few comments</h2>
+<h3 id="good-remarks-and-poor-ideas"><a href="#good-remarks-and-poor-ideas" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Good remarks and poor ideas</h3>
+<p>No need to say that these philosophy is a non-absolute vision of CSS that we could debate on.</p>
+<p>However, we can point out the following things:</p>
+<ul>
+<li>
+<p><strong>It’s absolutely possible to use IDs</strong> in HTML for JavaScript purpose, for instance. Moreover, identifiers could be useful as <em>namespaces</em> for a particular module that you want to share without breaking anything.</p>
+</li>
+<li>
+<p>One of the arguments against OOCSS is that you are “polluting” HTML with a bunch of classes that some HTML-evangelist don’t appreciate, which is understandable. However, <strong>OOCSS doesn’t impact the HTML semantics</strong>.</p>
+</li>
+<li>
+<p>OOCSS principles can perform miracles over big projects, where it worth to implement them. For little ones, <em>it’s up to you!</em> However, <strong>the philosophy is relevant regardless the size of your project</strong> and doesn’t take that long to be implemented than an ordinary development when you get used to it. Rather, modules you’ve already created for any other project could be re-used in a new one, you just have to change their design a bit and there you go!</p>
+</li>
+</ul>
+<p>Even if OOCSS is now a well-spread vision for the benefits it brings, I must say that I was suspicious when I read the assertion: <em>“avoid the use of ID in CSS, ever”</em>.</p>
+<p>But since I understood the benefits of this practice, I warmly recommend it.</p>
+<p>That said, as I <a href="http://smacss.com/">get smacked</a> for my code organisation, I now use IDs in my CSS <strong>in a unique place</strong> : the layout.</p>
+<p>It’s just a matter of adaptation to your project needs and philosophy.</p>
+<h3 id="another-philosophy"><a href="#another-philosophy" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Another philosophy</h3>
+<p><a href="http://coding.smashingmagazine.com/2012/06/19/classes-where-were-going-we-dont-need-classes/">Another vision of CSS</a> give its importance to the context of elements.</p>
+<p>It’s another philosophy, <em>interface-oriented</em> which considers that CSS is defined to design the existing HTML interface. To pollute HTML with classes is a non-sense when selectors and good code organisation can deal with the design.</p>
+<p>Even though I don’t adhere to this practice - at least for a project which is meant to evolve -, it’s an interesting philosophy which could be relevant for small projects, for instance.</p>
+<h2 id="to-go-further"><a href="#to-go-further" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To go further</h2>
+<h3 id="posts-and-interesting-links"><a href="#posts-and-interesting-links" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Posts and interesting links</h3>
+<p>Here is a list of links you may have a look to go deeper into OOCSS:</p>
+<ul>
+<li><a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">An introduction to OOCSS</a>, is an introducting post about this concept, by Smashing Magazine.</li>
+<li><a href="http://fr.slideshare.net/stubbornella/the-cascade-grids-headings-and-selectors-from-an-oocss-perspective-ajax-experience-2009">The OOCSS perspective</a> by Nicole Sullivan, or even <a href="http://fr.slideshare.net/stubbornella/object-oriented-css">the short version</a> if you don’t have time.</li>
+<li><a href="http://www.stubbornella.org/content/category/general/geek/css/oocss-css-geek-general/">List of Nicole Sullivan’s blog post about OOCSS</a>.</li>
+<li><a href="http://vimeo.com/44773888">Breaking Good Habits</a>, speech from Harry Robert with <a href="https://speakerdeck.com/csswizardry/breaking-good-habits">the according slides</a>.</li>
+<li><a href="http://andrewhathaway.net/posts/oocss-and-rwd">OOCSS &#x26; RWD</a> to think about how the OOCSS can help to build responsive websites.</li>
+<li><a href="http://csslint.net/">CSSLint</a> is a tool that will lint your CSS according to OOCSS principles.</li>
+</ul>
+<h3 id="conclusion"><a href="#conclusion" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h3>
+<p>Our little dive into OOCSS is now over.</p>
+<figure>
+	
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 500px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 69.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB0aWFmXiQP//EABkQAAMBAQEAAAAAAAAAAAAAAAECAxEAEP/aAAgBAQABBQKrFVaueVBZRJ97/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAEDAQE/ATV//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxABAAICAwAAAAAAAAAAAAAAAQAQERIhMYH/2gAIAQEABj8CME4Bo1x7Dqv/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/IWQm3biAuM+xNneIfU0Ca7UXZ//aAAwDAQACAAMAAAAQjz//xAAWEQEBAQAAAAAAAAAAAAAAAAABEDH/2gAIAQMBAT8QWCf/xAAWEQEBAQAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QA1n/xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhYUFxgf/aAAgBAQABPxDLRtiUVyJyLAPk+5qmFF/QHODHAFTRbr5Nk//Z&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Code smells better with OOCSS" title="" src="/static/after-oocss-024e38f309f8bbeb056bbef3411f6868-e0740.jpg" srcset="/static/after-oocss-024e38f309f8bbeb056bbef3411f6868-64397.jpg 240w,
+/static/after-oocss-024e38f309f8bbeb056bbef3411f6868-1a212.jpg 480w,
+/static/after-oocss-024e38f309f8bbeb056bbef3411f6868-e0740.jpg 500w" sizes="(max-width: 500px) 100vw, 500px">
+    </span>
+  </span>
+  
+	<figcaption>Adopt the &quot;Oh Oh&quot; CSS</figcaption>
+</figure>
+<p>Plop!</p></div><div class="post-single__date"><em>Published 7 May 2013</em></div></div><div class="post-single__footer"><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/css/">css</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/oocss/">oocss</a></li></ul></div><hr/><p class="post-single__footer-text">I write about web development, agile practices and personal organization.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Follow @nicoespeon</a></li></ul></p><div><div><div id="disqus_thread"></div></div></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"en-2013-05-dive-into-oocss-096","path":"/en/2013/05/dive-into-oocss/"};window.dataPath="811/path---en-2013-05-dive-into-oocss-096-21c-0qojaXkqMEeVrYQIrFRWlh8rC8";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-7ff74e5535bdd06d11ef.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-537486c90735c3c1377a.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css","/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-tag-template-jsx-9af5daf83e7a19f992d4.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-category-template-jsx-2904b34758b9f2881007.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7dad01c535737efdd8d0.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-97677500450b5e762191.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-49360dc815704cae244e.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-fr-index-jsx-3e9f39338bc9c19248bb.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-38760c202caef6425508.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-index-jsx-f353ee5021831a4ee797.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-3f2391670fe656f96072.js"]};/*]]>*/</script><script src="/webpack-runtime-b9583aeb2d8577f338c5.js" async=""></script><script src="/0-adb2f97cc27438a8487c.js" async=""></script><script src="/2-95af416e05d9551b4d5b.js" async=""></script><script src="/app-7ff74e5535bdd06d11ef.js" async=""></script><script src="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
+
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>

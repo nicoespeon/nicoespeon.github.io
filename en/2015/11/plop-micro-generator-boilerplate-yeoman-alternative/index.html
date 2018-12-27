@@ -1,275 +1,398 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, minimum-scale=1.0"><meta name="description" content="Meet plop, a little node package which quickly bootstraps new files."><meta property="og:site_name" content="@nicoespeon's blog" /><meta property="og:url" content="http://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/" /><meta property="og:type" content="article" /><meta property="og:title" content="Plop — a micro-generator to ease your daily life | @nicoespeon" /><meta property="og:description" content="Meet plop, a little node package which quickly bootstraps new files." /><meta property="og:image" content="https://fr.gravatar.com/userimage/27601663/eb6a327f57a4931bfdf6c213af65ed2d.jpg?size=300" /><title>Plop — a micro-generator to ease your daily life | @nicoespeon</title><link rel="icon" href="/assets/img/icon.png"><link rel="author" href="https://plus.google.com/u/0/108378377887967941980"><!-- DNS prefetch for external resources --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//platform.twitter.com"><link rel="dns-prefetch" href="//p.twitter.com"><link rel="dns-prefetch" href="//cdn.api.twitter.com"><link rel="dns-prefetch" href="//google-analytics.com"><link rel="stylesheet"href='http://fonts.googleapis.com/css?family=Snippet|Roboto:300,100,700'><link rel="stylesheet" href="/assets/css/nicoespeon.css" media="screen"><link rel="stylesheet" href="/assets/css/nicoespeon-print.css" media="print"></head><body><div id="site"><div class="container"><div class="grid"><div class="grid__item seven-tenths portable-one-whole" role="main"><header class="media" role="banner"><!-- Brand logo --><img src="http://www.gravatar.com/avatar/46978c87c5c75cea5d05a61fa8b7d95b" class="media__img img--circle" alt="My avatar" width="80" height="80"/><!-- Main navigation --><nav class="media__body" role="navigation"><ul class="nav nav--main"><li><a href="/index.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/projects.html">Projects</a></li><li><a href="/worth-reading.html">Worth Reading</a></li></ul></nav><!-- /navigation --></header><!-- /header --><article role="main"><h1>Plop — a micro-generator to ease your daily life</h1><div class="media"><div class="media__img"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Plop — a micro-generator to ease your daily life |" data-via="nicoespeon">Tweeter</a></div><div class="media__body brand-face zeta">(26 November, 2015)</div></div><p class="islet">Meet plop, a little node package which quickly bootstraps new files.</p><h2 id="whats-plop">What’s plop?</h2><p><a href="https://github.com/amwmedia/plop">Plop</a> is a little node package that will ease your life whenever you need to create a new controller / router / helper / …</p><blockquote><p>Hey, that’s damn easy to create a new controller: copy-paste another controller code, delete specific lines you won’t use. Tadaaa!</p></blockquote><p>Well, now pop a bunch of legitimate questions:</p><ul><li>Which “other” controller do you speak about? The more recent? The “best” coded? Is there any reference controller around there?</li><li>How can I get the previous point if I’m not — yet — an expert of the project codebase?</li><li>How can I ensure I’m correct when I name the new file? When I delete lines I consider “useless”?</li><li>Do I need to declare this new controller in some existing file? Which one? How?</li></ul><p>Find a good file, open it, copy its content, create a new file, paste the content, delete useless lines… It’s repetitive, error prone and doesn’t have a lot of added value. And that could take some time. Most of all, that’s frequent!</p><p>It would just be awesome to write <code>plop</code> in your terminal, answer 2 questions and BIM, you’re all set!</p><div class="illustration"><img alt="Plop behavior" title="Plop behavior" src="/assets/img/plop/plop-behavior.gif" />Quick, neat. Still tempted whith the copy-paste option?</div><p>That’s exactly what I’m talking about here.</p><h2 id="setup">Setup</h2><h3 id="installation">Installation</h3><p>As a node package, <code>npm install -g plop</code> and you’re ready to play with plop.</p><p>You also can install it locally to the project, adding it to dependencies: <code>npm install --save-dev plop</code>.</p><p>Then add it to your <code>package.json</code> scripts so you can run it with <code>npm run plop</code>:</p><div class="highlight"><pre><code class="json"><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-awesome-project&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is an awesome project, isn&#39;t it?&quot;</span><span class="p">,</span>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100}body{color:#222;line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:#222;height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#222 0,#222 15px,transparent 0,transparent 26px);width:6.25rem}a{color:#2375ff;text-decoration:none}a:active,a:focus,a:hover{color:#ff7abc}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:#222;font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:#222}.tags__list-item-link:focus,.tags__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}.categories__list-item-link{color:#222}.categories__list-item-link:focus,.categories__list-item-link:hover{color:#2375ff;border-bottom:1px solid #2375ff}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:rgba(255,122,188,.15);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #ff7abc}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__date{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:#ebebeb;text-decoration:none;border:0;border-radius:.1875rem;color:#555;line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:#222;background:#dfdfdf;border:0}.post-single__home-button{display:block;margin-left:auto;margin-right:auto;max-width:5.625rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:#555;background:#ebebeb;font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__home-button:focus,.post-single__home-button:hover{color:#222;background:#dfdfdf;border:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__home-button{position:fixed;max-width:auto;margin:0;top:30px;left:30px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Plop — a micro-generator to ease your daily life</title><meta data-react-helmet="true" name="description" content="Meet plop, a little node package which quickly bootstraps new files."/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"/><link as="script" rel="preload" href="/app-7ff74e5535bdd06d11ef.js"/><link as="script" rel="preload" href="/2-95af416e05d9551b4d5b.js"/><link as="script" rel="preload" href="/0-adb2f97cc27438a8487c.js"/><link as="script" rel="preload" href="/webpack-runtime-b9583aeb2d8577f338c5.js"/><link rel="preload" href="/static/d/781/path---en-2015-11-plop-micro-generator-boilerplate-yeoman-alternative-4-e-8-89b-3oocgeX0ibM0dQxrkfLhQVJXtg.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div><a class="post-single__home-button" href="/">← Articles</a></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Plop — a micro-generator to ease your daily life</h1><div class="post-single__body"><h2 id="whats-plop"><a href="#whats-plop" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What’s plop?</h2>
+<p><a href="https://github.com/amwmedia/plop">Plop</a> is a little node package that will ease your life whenever you need to create a new controller / router / helper / …</p>
+<blockquote>
+<p>Hey, that’s damn easy to create a new controller: copy-paste another controller code, delete specific lines you won’t use. Tadaaa!</p>
+</blockquote>
+<p>Well, now pop a bunch of legitimate questions:</p>
+<ul>
+<li>Which “other” controller do you speak about? The more recent? The “best” coded? Is there any reference controller around there?</li>
+<li>How can I get the previous point if I’m not — yet — an expert of the project codebase?</li>
+<li>How can I ensure I’m correct when I name the new file? When I delete lines I consider “useless”?</li>
+<li>Do I need to declare this new controller in some existing file? Which one? How?</li>
+</ul>
+<p>Find a good file, open it, copy its content, create a new file, paste the content, delete useless lines… It’s repetitive, error prone and doesn’t have a lot of added value. And that could take some time. Most of all, that’s frequent!</p>
+<p>It would just be awesome to write <code class="language-text">plop</code> in your terminal, answer 2 questions and BIM, you’re all set!</p>
+<figure>
+  <img src="/plop-behavior-62658fd875867f5e906af0d0cae2be0a.gif" alt="Plop behavior">
+  <figcaption>Quick, neat. Still tempted with the copy-paste option?</figcaption>
+</figure>
+<p>That’s exactly what I’m talking about here.</p>
+<h2 id="setup"><a href="#setup" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup</h2>
+<h3 id="installation"><a href="#installation" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h3>
+<p>As a node package, <code class="language-text">npm install -g plop</code> and you’re ready to play with plop.</p>
+<p>You also can install it locally to the project, adding it to dependencies: <code class="language-text">npm install --save-dev plop</code>.</p>
+<p>Then add it to your <code class="language-text">package.json</code> scripts so you can run it with <code class="language-text">npm run plop</code>:</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"your-awesome-project"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"This is an awesome project, isn't it?"</span><span class="token punctuation">,</span>
 
-  <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{},</span>
-  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.1&quot;</span>
-  <span class="p">},</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"plop"</span><span class="token operator">:</span> <span class="token string">"1.0.1"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;plop&quot;</span><span class="p">:</span> <span class="s2">&quot;plop&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>Voilà!</p><h3 id="configuration">Configuration</h3><p>Plop uses a simple <code>plopfile.js</code>.</p><p>Here’s the standard configuration file I’d suggest you to put at the root of the project:</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"plop"</span><span class="token operator">:</span> <span class="token string">"plop"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Voilà!</p>
+<h3 id="configuration"><a href="#configuration" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h3>
+<p>Plop uses a simple <code class="language-text">plopfile.js</code>.</p>
+<p>Here’s the standard configuration file I’d suggest you to put at the root of the project:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Here we'll define our generators</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Plop will also use templates that can either be inlined within the configuration file, or put in separate files. My suggestion is to put them into a <code class="language-text">plop-templates/</code> folder, at the root of the project too.</p>
+<h3 id="all-inclusive-ftw"><a href="#all-inclusive-ftw" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>All inclusive FTW</h3>
+<p>As you’d guess: both generator and templates are embedded in the project, just like your tests or task runner (brunch, gulp, grunt…).</p>
+<p>This has <strong>tremendous advantages</strong> over a <a href="http://yeoman.io/authoring/">customized Yeoman generator</a>:</p>
+<ul>
+<li>a single repo to maintain them all</li>
+<li>everything is embedded, no need for installing yeoman and a generator to use it</li>
+<li>update a template is dead easy, you don’t a to publish a new version of your generator and make sure everyone is up-to-date before using it</li>
+</ul>
+<p>In a nutshell, when a project-specific Yeoman generator may sound overkill, plop fits perfectly. Lightweight, close to source code, it will be <strong>easier to adopt</strong>, maintain and, at the end, <strong>it will be used</strong>.</p>
+<h2 id="our-first-generator"><a href="#our-first-generator" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Our first generator</h2>
+<p>To declare a new generator, <code class="language-text">plop</code> provides you <code class="language-text">setGenerator</code>:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// We declare a new generator called "module"</span>
+  plop<span class="token punctuation">.</span><span class="token function">setGenerator</span><span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Succintly describes what generator does.</span>
+    description<span class="token punctuation">:</span> <span class="token string">'Create a new module'</span><span class="token punctuation">,</span>
 
-  <span class="c1">// Here we&#39;ll define our generators</span>
+    <span class="token comment">// Get inputs from the user.</span>
+    <span class="token comment">// That's Inquirer.js doing the job behind the hood.</span>
+    prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'What is your module name?'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
 
-<span class="p">};</span>
-</code></pre></div><p>Plop will also use templates that can either be inlined within the configuration file, or put in separate files. My suggestion is to put them into a <code>plop-templates/</code> folder, at the root of the project too.</p><h3 id="all-inclusive-ftw">All inclusive FTW</h3><p>As you’d guess: both generator and templates are embedded in the project, just like your tests or task runner (brunch, gulp, grunt…).</p><p>This has <strong>tremendous advantages</strong> over a <a href="http://yeoman.io/authoring/">customized Yeoman generator</a>:</p><ul><li>a single repo to maintain them all</li><li>everything is embedded, no need for installing yeoman and a generator to use it</li><li>update a template is dead easy, you don’t a to publish a new version of your generator and make sure everyone is up-to-date before using it</li></ul><p>In a nutshell, when a project-specific Yeoman generator may sound overkill, plop fits perfectly. Lightweight, close to source code, it will be <strong>easier to adopt</strong>, maintain and, at the end, <strong>it will be used</strong>.</p><h2 id="our-first-generator">Our first generator</h2><p>To declare a new generator, <code>plop</code> provides you <code>setGenerator</code>:</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="token comment">// List of actions to take.</span>
+    <span class="token comment">// Here we "add" new files from our templates.</span>
+    actions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> <span class="token string">'app/modules/{{camelCase name}}.js'</span><span class="token punctuation">,</span>
+        templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/module.js'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> <span class="token string">'app/tests/{{camelCase name}}.tests.js'</span><span class="token punctuation">,</span>
+        templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/module.tests.js'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="prompts"><a href="#prompts" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prompts</h3>
+<p>The <code class="language-text">prompts</code> part is delegated to <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a>.</p>
+<p>You can just refer to <a href="https://github.com/SBoudrias/Inquirer.js/#objects">their documentation</a> to learn whatever you can do — questions types, output filter, input validation…</p>
+<p>You can imagine doing some not trivial stuff:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> trimRight<span class="token punctuation">,</span> isEmpty <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span>
 
-  <span class="c1">// We declare a new generator called &quot;module&quot;</span>
-  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="token keyword">const</span> <span class="token function-variable function">ensurePlural</span> <span class="token operator">=</span> text <span class="token operator">=></span> <span class="token function">trimRight</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">'s'</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'s'</span>
 
-    <span class="c1">// Succintly describes what generator does.</span>
-    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Create a new module&quot;</span><span class="p">,</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isNotEmptyFor</span> <span class="token operator">=</span> name <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> value <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> name <span class="token operator">+</span> <span class="token string">' is required'</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-    <span class="c1">// Get inputs from the user.</span>
-    <span class="c1">// That&#39;s Inquirer.js doing the job behind the hood.</span>
-    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  plop<span class="token punctuation">.</span><span class="token function">setGenerator</span><span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token comment">// …</span>
 
-    <span class="c1">// List of actions to take.</span>
-    <span class="c1">// Here we &quot;add&quot; new files from our templates.</span>
-    <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">,</span>
-        <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
-        <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
+    prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'What is your module name?'</span><span class="token punctuation">,</span>
+        validate<span class="token punctuation">:</span> <span class="token function">isNotEmptyFor</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        filter<span class="token punctuation">:</span> ensurePlural<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
 
-  <span class="p">}</span> <span class="p">);</span>
+    <span class="token comment">// …</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">validate</code> will ensure the given module name is not empty.</p>
+<p><code class="language-text">filter</code> allow you to standardize the output: here module names should end with an <code class="language-text">s</code> by convention. Even if I do it wrong and give <code class="language-text">calendar</code> as the module name, I can be sure the <code class="language-text">name</code> variable will be <code class="language-text">calendars</code>.</p>
+<h3 id="actions"><a href="#actions" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Actions</h3>
+<p>Now it knows everything it needs, plop will run every <code class="language-text">actions</code> you configured. It can use every variables that inquirer did transmit.</p>
+<p>Actions, just like templates, are parsed with <a href="https://github.com/wycats/handlebars.js/">Handlebars</a>. If you understand how it works, you know how to use plop.</p>
+<p>Therefore <code class="language-text">{{name}}</code> is the answer given to the prompt, validated and filtered previously. You can drop it wherever needed, in the created file path and/or its template.</p>
+<p>There are 2 types of actions that are supported yet:</p>
+<ul>
+<li><code class="language-text">&quot;add&quot;</code> that will create a new file into the given <code class="language-text">path</code> — which is relative to <code class="language-text">plopfile.js</code></li>
+<li><code class="language-text">&quot;modify&quot;</code> that will modify the file located at given <code class="language-text">path</code>. It will replace the RegExp you provided in <code class="language-text">pattern</code> with the template you provide</li>
+</ul>
+<p>Both actions can either use an inlined template via <code class="language-text">template</code>, or retrieve it from the path you set via <code class="language-text">templateFile</code>.</p>
+<h4 id="a-concrete-example"><a href="#a-concrete-example" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A concrete example</h4>
+<p>Let’s imagine that kind of implementation:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> modulePath <span class="token operator">=</span> <span class="token string">'app/modules/{{camelCase name}}.js'</span>
 
-<span class="p">};</span>
-</code></pre></div><h3 id="prompts">Prompts</h3><p>The <code>prompts</code> part is delegated to <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a>.</p><p>You can just refer to <a href="https://github.com/SBoudrias/Inquirer.js/#objects">their documentation</a> to learn whatever you can do — questions types, output filter, input validation…</p><p>You can imagine doing some not trivial stuff:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">trimRight</span><span class="p">,</span> <span class="nx">isEmpty</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  plop<span class="token punctuation">.</span><span class="token function">setGenerator</span><span class="token punctuation">(</span><span class="token string">'model'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token comment">// …</span>
 
-<span class="kr">const</span> <span class="nx">ensurePlural</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">trimRight</span><span class="p">(</span> <span class="nx">text</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span> <span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">;</span>
+    actions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Add a new model + tests boilerplate.</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> <span class="token string">'app/modules/{{camelCase name}}.model.js'</span><span class="token punctuation">,</span>
+        templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/model.js'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> <span class="token string">'app/tests/{{camelCase name}}.model.tests.js'</span><span class="token punctuation">,</span>
+        templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/model.tests.js'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-<span class="kr">const</span> <span class="nx">isNotEmptyFor</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">)</span> <span class="k">return</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is required&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+      <span class="token comment">// Modify the module file to inject created model.</span>
+      <span class="token comment">// This is basically RegExp replacement.</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'modify'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> modulePath<span class="token punctuation">,</span>
+        pattern<span class="token punctuation">:</span> <span class="token regex">/(\/\/ IMPORT MODULE FILES)/g</span><span class="token punctuation">,</span>
+        template<span class="token punctuation">:</span> <span class="token string">'$1\nimport Model from "./{{camelCase name}}.model";'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'modify'</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> modulePath<span class="token punctuation">,</span>
+        pattern<span class="token punctuation">:</span> <span class="token regex">/(const namespace = "\w+";)/g</span><span class="token punctuation">,</span>
+        template<span class="token punctuation">:</span> <span class="token string">'$1\n\nModel = Model.extend( { namespace: namespace } );'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Then, let’s say you have the <code class="language-text">plop-templates/model.js</code> template:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/**
+ * TODO - Describe what your model does.
+ *
+ * @class {{pascalCase name}}.Model
+ * @module {{pascalCase name}}
+ * @constructor
+ */</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Model <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'backbone'</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Model<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Executed on model initialization</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>Considering <code class="language-text">{{name}}</code> is <code class="language-text">calendars</code>, then plop will create the following <code class="language-text">app/modules/calendars.model.js</code> file:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/**
+ * TODO - Describe what your model does.
+ *
+ * @class Calendars.Model
+ * @module Calendars
+ * @constructor
+ */</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Model <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'backbone'</span>
 
-  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Model<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Executed on model initialization</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>And will also transform your current <code class="language-text">app/modules/calendars.js</code> module file:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> Module <span class="token keyword">from</span> <span class="token string">'core/module'</span>
+<span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span>
 
-    <span class="c1">// …</span>
+<span class="token comment">// IMPORT MODULE FILES</span>
 
-    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is your module name?&quot;</span><span class="p">,</span>
-        <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
-        <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
+<span class="token keyword">const</span> namespace <span class="token operator">=</span> <span class="token string">'calendars'</span>
 
-    <span class="c1">// …</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Module<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _<span class="token punctuation">.</span><span class="token function">defaults</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">,</span> <span class="token punctuation">{</span> isDisplayed<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="p">}</span> <span class="p">);</span>
+  <span class="token function">onStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-<span class="p">};</span>
-</code></pre></div><p><code>validate</code> will ensure the given module name is not empty.</p><p><code>filter</code> allow you to standardize the output: here module names should end with an <code>s</code> by convention. Even if I do it wrong and give <code>calendar</code> as the module name, I can be sure the <code>name</code> variable will be <code>calendars</code>.</p><h3 id="actions">Actions</h3><p>Now it knows everything it needs, plop will run every <code>actions</code> you configured. It can use every variables that inquirer did transmit.</p><p>Actions, just like templates, are parsed with <a href="https://github.com/wycats/handlebars.js/">Handlebars</a>. If you understand how it works, you know how to use plop.</p><p>Therefore <code>{{name}}</code> is the answer given to the prompt, validated and filtered previously. You can drop it wherever needed, in the created file path and/or its template.</p><p>There are 2 types of actions that are supported yet:</p><ul><li><code>"add"</code> that will create a new file into the given <code>path</code> — which is relative to <code>plopfile.js</code></li><li><code>"modify"</code> that will modify the file located at given <code>path</code>. It will replace the RegExp you provided in <code>pattern</code> with the template you provide</li></ul><p>Both actions can either use an inlined template via <code>template</code>, or retrieve it from the path you set via <code>templateFile</code>.</p><h4 id="a-concrete-example">A concrete example</h4><p>Let’s imagine that kind of implementation:</p><div class="highlight"><pre><code class="javascript"><span class="kr">const</span> <span class="nx">modulePath</span> <span class="o">=</span> <span class="s2">&quot;app/modules/{{camelCase name}}.js&quot;</span><span class="p">;</span>
+  <span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Do something when module is considered as ready</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>To insert the reference to the created model:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> Module <span class="token keyword">from</span> <span class="token string">'core/module'</span>
+<span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="token comment">// IMPORT MODULE FILES</span>
+<span class="token keyword">import</span> Model <span class="token keyword">from</span> <span class="token string">'./calendars.model'</span>
 
-  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="token keyword">const</span> namespace <span class="token operator">=</span> <span class="token string">'calendars'</span>
 
-    <span class="c1">// …</span>
+Model <span class="token operator">=</span> Model<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span> namespace<span class="token punctuation">:</span> namespace <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
-        <span class="c1">// Add a new model + tests boilerplate.</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
-        <span class="p">},</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Module<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _<span class="token punctuation">.</span><span class="token function">defaults</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">,</span> <span class="token punctuation">{</span> isDisplayed<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-        <span class="c1">// Modify the module file to inject created model.</span>
-        <span class="c1">// This is basically RegExp replacement.</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
-          <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(\/\/ IMPORT MODULE FILES)/g</span><span class="p">,</span>
-          <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\nimport Model from \&quot;./{{camelCase name}}.model\&quot;;&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;modify&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="nx">modulePath</span><span class="p">,</span>
-          <span class="nx">pattern</span><span class="o">:</span> <span class="sr">/(const namespace = &quot;\w+&quot;;)/g</span><span class="p">,</span>
-          <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;$1\n\nModel = Model.extend( { namespace: namespace } );&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+  <span class="token function">onStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="p">}</span> <span class="p">);</span>
+  <span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Do something when module is considered as ready</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>With <code class="language-text">&quot;add&quot;</code> and <code class="language-text">&quot;modify&quot;</code> you can ease a lot of small repetitive things.</p>
+<h4 id="adapt-actions-to-given-answers"><a href="#adapt-actions-to-given-answers" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adapt actions to given answers</h4>
+<p><a href="https://github.com/amwmedia/plop/pull/1">You can pass a function to <code class="language-text">actions</code></a>. This function will take user’s answers as a parameter and should return the array of actions to take.</p>
+<p>This way you can <strong>adapt actions to given answers</strong>.</p>
+<p>Let’s consider this example of new module creation:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  plop<span class="token punctuation">.</span><span class="token function">setGenerator</span><span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'What is the name of your module?'</span><span class="token punctuation">,</span>
+        validate<span class="token punctuation">:</span> <span class="token function">isNotEmptyFor</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        filter<span class="token punctuation">:</span> ensurePlural<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'dataConfig'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'Tell me about the data, what do you need?'</span><span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+        choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'Nothing'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token string">'none'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'A Model'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token string">'model'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
 
-<span class="p">};</span>
-</code></pre></div><p>Then, let’s say you have the <code>plop-templates/model.js</code> template:</p><div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
-<span class="cm"> * TODO - Describe what your model does.</span>
-<span class="cm"> *</span>
-<span class="cm"> * @class         {{pascalCase name}}.Model</span>
-<span class="cm"> * @module        {{pascalCase name}}</span>
-<span class="cm"> * @constructor</span>
-<span class="cm"> */</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Model</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;backbone&quot;</span><span class="p">;</span>
+    actions<span class="token punctuation">:</span> data <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Add a new module, whatever happens.</span>
+      <span class="token keyword">let</span> actions <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+          path<span class="token punctuation">:</span> <span class="token string">'app/modules/{{camelCase name}}/{{camelCase name}}.js'</span><span class="token punctuation">,</span>
+          templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/module.js'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+          path<span class="token punctuation">:</span>
+            <span class="token string">'app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js'</span><span class="token punctuation">,</span>
+          templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/module.tests.js'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+      <span class="token comment">// If you wish a Model, then we add a Model.</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>dataConfig <span class="token operator">===</span> <span class="token string">'model'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        actions <span class="token operator">=</span> actions<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+            path<span class="token punctuation">:</span> <span class="token string">'app/modules/{{camelCase name}}.model.js'</span><span class="token punctuation">,</span>
+            templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/model.js'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            type<span class="token punctuation">:</span> <span class="token string">'add'</span><span class="token punctuation">,</span>
+            path<span class="token punctuation">:</span> <span class="token string">'app/tests/{{camelCase name}}.model.tests.js'</span><span class="token punctuation">,</span>
+            templateFile<span class="token punctuation">:</span> <span class="token string">'plop-templates/model.tests.js'</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
 
-  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Executed on model initialization</span>
-  <span class="p">}</span>
+      <span class="token comment">// Return the array of actions to take.</span>
+      <span class="token keyword">return</span> actions
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Your generator can adapt to many different scenarios (e.g: a module with a Model, a Collection + Model, with a CollectionView or a CompositeView…).</p>
+<h3 id="helpers"><a href="#helpers" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Helpers</h3>
+<p>A little note about templating helpers of plop: these are <a href="http://handlebarsjs.com/expressions.html#helpers">those from Handlebars</a>.</p>
+<p>You starts with a bunch of <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers plop gives you</a>. <code class="language-text">camelCase</code>, for instance, just works this way: <code class="language-text">{{camelCase name}}</code> with <code class="language-text">name = &quot;my awesome module&quot;</code> gives <code class="language-text">&quot;myAwesomeModule&quot;</code>.</p>
+<p>You can define your own helpers within <code class="language-text">plopfile.js</code> with <code class="language-text">addHelper</code> :</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> plop <span class="token operator">=></span> <span class="token punctuation">{</span>
+  plop<span class="token punctuation">.</span><span class="token function">addHelper</span><span class="token punctuation">(</span><span class="token string">'upperCase'</span><span class="token punctuation">,</span> text <span class="token operator">=></span> text<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="p">}</span> <span class="p">);</span>
-</code></pre></div><p>Considering <code>{{name}}</code> is <code>calendars</code>, then plop will create the following <code>app/modules/calendars.model.js</code> file:</p><div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
-<span class="cm"> * TODO - Describe what your model does.</span>
-<span class="cm"> *</span>
-<span class="cm"> * @class         Calendars.Model</span>
-<span class="cm"> * @module        Calendars</span>
-<span class="cm"> * @constructor</span>
-<span class="cm"> */</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Model</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;backbone&quot;</span><span class="p">;</span>
+  <span class="token comment">// …</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>We just created an <code class="language-text">upperCase</code> helper we could use later in the <code class="language-text">actions</code> and templates: <code class="language-text">{{upperCase name}}</code>.</p>
+<h3 id="just-use-it"><a href="#just-use-it" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Just use it</h3>
+<p>There you go, just type <code class="language-text">npm run plop</code> — or simply <code class="language-text">plop</code>, if you made it global — then follow the guide.</p>
+<p>You can also directly call a specific generator with <code class="language-text">npm run plop [generatorName]</code>.</p>
+<p>Plop is fast and efficient to use, just like Yeoman. However, it’s far more lightweight and easier to maintain.</p>
+<h2 id="my-experience-feedback-in-production"><a href="#my-experience-feedback-in-production" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>My experience feedback in production</h2>
+<p>As of the time of writing, I use plop with my team on the <a href="http://vinoga.com">Vinoga</a> project. Its features perfectly match our use cases.</p>
+<p>I did wrote a Yeoman generator for the project before. It was concretely unused by the team.</p>
+<p>Definitely, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running <code class="language-text">plop module</code> in your console, how cool is that \o/</p></div><div class="post-single__date"><em>Published 25 Nov 2015</em></div></div><div class="post-single__footer"><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/plop/">plop</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/yeoman/">yeoman</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/generator/">generator</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/node-js/">node.js</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/talk/">talk</a></li></ul></div><hr/><p class="post-single__footer-text">I write about web development, agile practices and personal organization.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Follow @nicoespeon</a></li></ul></p><div><div><div id="disqus_thread"></div></div></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"en-2015-11-plop-micro-generator-boilerplate-yeoman-alternative-4e8","path":"/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/"};window.dataPath="781/path---en-2015-11-plop-micro-generator-boilerplate-yeoman-alternative-4-e-8-89b-3oocgeX0ibM0dQxrkfLhQVJXtg";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-7ff74e5535bdd06d11ef.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-537486c90735c3c1377a.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.a91158ac228fdeda3f83.css","/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-tag-template-jsx-9af5daf83e7a19f992d4.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.10a0f6a7823b64195043.css","/component---src-templates-category-template-jsx-2904b34758b9f2881007.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7dad01c535737efdd8d0.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-97677500450b5e762191.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-49360dc815704cae244e.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-fr-index-jsx-3e9f39338bc9c19248bb.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-38760c202caef6425508.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.10a0f6a7823b64195043.css","/component---src-pages-index-jsx-f353ee5021831a4ee797.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-3f2391670fe656f96072.js"]};/*]]>*/</script><script src="/webpack-runtime-b9583aeb2d8577f338c5.js" async=""></script><script src="/0-adb2f97cc27438a8487c.js" async=""></script><script src="/2-95af416e05d9551b4d5b.js" async=""></script><script src="/app-7ff74e5535bdd06d11ef.js" async=""></script><script src="/component---src-templates-post-template-jsx-cdb4a364d1ae7ffac0eb.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
 
-  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Executed on model initialization</span>
-  <span class="p">}</span>
-
-<span class="p">}</span> <span class="p">);</span>
-</code></pre></div><p>And will also transform your current <code>app/modules/calendars.js</code> module file:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="nx">Module</span> <span class="nx">from</span> <span class="s2">&quot;core/module&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">_</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
-
-<span class="c1">// IMPORT MODULE FILES</span>
-
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;calendars&quot;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
-
-  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
-  <span class="p">},</span>
-
-  <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
-  <span class="p">},</span>
-
-  <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Do something when module is considered as ready</span>
-  <span class="p">}</span>
-
-<span class="p">}</span> <span class="p">);</span>
-</code></pre></div><p>To insert the reference to the created model:</p><div class="highlight"><pre><code class="javascript"><span class="kr">import</span> <span class="nx">Module</span> <span class="nx">from</span> <span class="s2">&quot;core/module&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">_</span> <span class="nx">from</span> <span class="s2">&quot;lodash&quot;</span><span class="p">;</span>
-
-<span class="c1">// IMPORT MODULE FILES</span>
-<span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s2">&quot;./calendars.model&quot;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="s2">&quot;calendars&quot;</span><span class="p">;</span>
-
-<span class="nx">Model</span> <span class="o">=</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span> <span class="nx">namespace</span><span class="o">:</span> <span class="nx">namespace</span> <span class="p">}</span> <span class="p">);</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="p">{</span>
-
-  <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">_</span><span class="p">.</span><span class="nx">defaults</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span> <span class="nx">isDisplayed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
-  <span class="p">},</span>
-
-  <span class="nx">onStart</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">ready</span><span class="p">();</span>
-  <span class="p">},</span>
-
-  <span class="nx">onReady</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Do something when module is considered as ready</span>
-  <span class="p">}</span>
-
-<span class="p">}</span> <span class="p">);</span>
-</code></pre></div><p>With <code>"add"</code> and <code>"modify"</code> you can ease a lot of small repetitive things.</p><h4 id="adapt-actions-to-given-answers">Adapt actions to given answers</h4><p><a href="https://github.com/amwmedia/plop/pull/1">You can pass a function to <code>actions</code></a>. This function will take user’s answers as a parameter and should return the array of actions to take.</p><p>This way you can <strong>adapt actions to given answers</strong>.</p><p>Let’s consider this example of new module creation:</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-  <span class="nx">plop</span><span class="p">.</span><span class="nx">setGenerator</span><span class="p">(</span> <span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="p">{</span>
-
-    <span class="nx">prompts</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;What is the name of your module?&quot;</span><span class="p">,</span>
-        <span class="nx">validate</span><span class="o">:</span> <span class="nx">isNotEmptyFor</span><span class="p">(</span> <span class="s2">&quot;name&quot;</span> <span class="p">),</span>
-        <span class="nx">filter</span><span class="o">:</span> <span class="nx">ensurePlural</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;dataConfig&quot;</span><span class="p">,</span>
-        <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Tell me about the data, what do you need?&quot;</span><span class="p">,</span>
-        <span class="k">default</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
-        <span class="nx">choices</span><span class="o">:</span> <span class="p">[</span>
-         <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Nothing&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span> <span class="p">},</span>
-         <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;A Model&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;model&quot;</span> <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-
-    <span class="nx">actions</span><span class="o">:</span> <span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Add a new module, whatever happens.</span>
-      <span class="kd">let</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
-       <span class="p">{</span>
-         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-         <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}/{{camelCase name}}.js&quot;</span><span class="p">,</span>
-         <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.js&quot;</span>
-       <span class="p">},</span>
-       <span class="p">{</span>
-         <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-         <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js&quot;</span><span class="p">,</span>
-         <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/module.tests.js&quot;</span>
-       <span class="p">}</span>
-      <span class="p">];</span>
-
-      <span class="c1">// If you wish a Model, then we add a Model.</span>
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">dataConfig</span> <span class="o">===</span> <span class="s2">&quot;model&quot;</span> <span class="p">)</span> <span class="p">{</span>
-       <span class="nx">actions</span> <span class="o">=</span> <span class="nx">actions</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/modules/{{camelCase name}}.model.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.js&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
-          <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;app/tests/{{camelCase name}}.model.tests.js&quot;</span><span class="p">,</span>
-          <span class="nx">templateFile</span><span class="o">:</span> <span class="s2">&quot;plop-templates/model.tests.js&quot;</span>
-        <span class="p">},</span>
-       <span class="p">]</span> <span class="p">);</span>
-      <span class="p">}</span>
-
-      <span class="c1">// Return the array of actions to take.</span>
-      <span class="k">return</span> <span class="nx">actions</span><span class="p">;</span>
-    <span class="p">}</span>
-
-  <span class="p">}</span> <span class="p">);</span>
-
-<span class="p">};</span>
-</code></pre></div><p>Your generator can adapt to many different scenarios (e.g: a module with a Model, a Collection + Model, with a CollectionView or a CompositeView…).</p><h3 id="helpers">Helpers</h3><p>A little note about templating helpers of plop: these are <a href="http://handlebarsjs.com/expressions.html#helpers">those from Handlebars</a>.</p><p>You starts with a bunch of <a href="https://github.com/amwmedia/plop#baked-in-helpers">helpers plop gives you</a>. <code>camelCase</code>, for instance, just works this way: <code>{{camelCase name}}</code> with <code>name = "my awesome module"</code> gives <code>"myAwesomeModule"</code>.</p><p>You can define your own helpers within <code>plopfile.js</code> with <code>addHelper</code> :</p><div class="highlight"><pre><code class="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">(</span> <span class="nx">plop</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-  <span class="nx">plop</span><span class="p">.</span><span class="nx">addHelper</span><span class="p">(</span> <span class="s2">&quot;upperCase&quot;</span><span class="p">,</span> <span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="p">);</span>
-
-  <span class="c1">// …</span>
-
-<span class="p">};</span>
-</code></pre></div><p>We just created an <code>upperCase</code> helper we could use later in the <code>actions</code> and templates: <code>{{upperCase name}}</code>.</p><h3 id="just-use-it">Just use it</h3><p>There you go, just type <code>npm run plop</code> — or simply <code>plop</code>, if you made it global — then follow the guide.</p><p>You can also directly call a specific generator with <code>npm run plop [generatorName]</code>.</p><p>Plop is fast and efficient to use, just like Yeoman. However, it’s far more lightweight and easier to maintain.</p><h2 id="my-experience-feedback-in-production">My experience feedback in production</h2><p>As of the time of writing, I use plop with my team on the <a href="http://vinoga.com">Vinoga</a> project. Its features perfectly match our use cases.</p><p>I did wrote a Yeoman generator for the project before. It was concretely unused by the team.</p><p>Definitely, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running <code>plop module</code> in your console, how cool is that \o/</p><div id="disqus_thread" role="complementary"></div></article></div><div class="grid__item three-tenths portable-one-whole"role="complementary"><!-- Lang navigation --><nav role="navigation"><ul class="nav nav--stacked text--center"><li class="current" ><a href="/">English version</a></li><li ><a href="/fr/">Version française</a></li></ul></nav><!-- About --><aside class="text--justify"><p>My name is <span class='brand-face'>Nicolas</span> and I'm a french Consultant at <a href='http://www.octo.com/'>OCTO Technology</a>.</p><p>I <a href='/archive'>write</a> posts about web development and project management. I got <a href='https://www.linkedin.com/in/nicolas-carlo-095b243b/'>LinkedIn</a>, I <a href='https://github.com/nicoespeon/'>code</a> and I <a href='http://twitter.com/nicoespeon'>tweet</a> too.</p><p>I tend to <a href='https://medium.com/@nicoespeon'>post on Medium</a> now, in case you want to keep updated ;-)</p></aside><!-- RSS --><aside><p class="text--center"><a href="http://www.nicoespeon.com/feed.xml"><i class="icon-connection"></i>&nbsp;Stay tuned</a></p></aside><!-- Tweets --><aside class="text--center visuallyhidden--portable"><a class="twitter-timeline" href="https://twitter.com/nicoespeon" data-widget-id="320422386929377280">Tweets de @nicoespeon</a></aside><aside class="visuallyhidden--portable push--top"><h2 class="text--center">Friends</h2><a href="http://iceranking.com">IceRanking.com</a> - (SEO) Cédric Brun, Consultant en Référencement Durable</aside></div></div></div><!-- /container --></div><!-- /main-content --><footer role="contentinfo"><div class="container"><p>&copy; 2017 - <a href="https://twitter.com/nicoespeon">Nicolas (Espeon) Carlo</a><br>The website is built upon <a href='https://github.com/mojombo/jekyll'>Jekyll</a> and <a href='http://inuitcss.com/'>inuit.css</a> from the excellent <a href='https://twitter.com/csswizardry'>@csswizardry</a>. Source code is <a href='https://github.com/nicoespeon/nicoespeon.github.io'>hosted on GitHub</a>.</p></div></footer><!-- jQuery --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$( function () {/*** This JS code is still small so its better to keep it inline.** Only apply if we are beyond the desk CSS breakpoint on load*/if ( $( window ).width() >= 1024 ) {var $timeline = $( "ul#timeline" );/*** Then hide every label description of the timeline*/$timeline.find( "a.timeline__label" ).each( function () {$( this ).find( "p" ).hide();} );/*** And delegate the visibility effect on hover for each label description*/$timeline.on( "mouseenter mouseleave", "a.timeline__label", function () {$( this ).find( "p" ).stop().toggle( "slow" );} );}/*** Append anchor to page subtitles with IDs (used for blog posts).*/$( "h2[id], h3[id]" ).each( function () {var $title = $( this );var $anchor = $( "<a href='#" + $title.attr( "id" ) + "' class='anchor'><i class='icon-link'></i></a>" );$title.append( $anchor );} );} );</script><!-- Twitter API --><script>!function ( d, s, id ) {var js, fjs = d.getElementsByTagName( s )[0];if ( !d.getElementById( id ) ) {js = d.createElement( s );js.id = id;js.src = "//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore( js, fjs );}}( document, "script", "twitter-wjs" );</script><!-- Google Analytics --><script>var _gaq = _gaq || [];_gaq.push( ['_setAccount', 'UA-39957541-2'] );_gaq.push( ['_setDomainName', 'nicoespeon.com'] );_gaq.push( ['_trackPageview'] );(function () {var ga = document.createElement( 'script' );ga.type = 'text/javascript';ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName( 'script' )[0];s.parentNode.insertBefore( ga, s );})();</script><!-- Disqus --><script>var disqus_shortname = 'nicoespeon';var disqus_url = 'http://nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/';var title = "Plop — a micro-generator to ease your daily life";(function () {var dsq = document.createElement( 'script' );dsq.type = 'text/javascript';dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName( 'head' )[0] || document.getElementsByTagName( 'body' )[0]).appendChild( dsq );})();</script><noscript>Please enable JavaScript to view the <ahref="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>
