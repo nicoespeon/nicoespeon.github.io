@@ -14,7 +14,7 @@
     "clean": "npm run clean:public",
     "clean:public": "rm -rf public",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master"
   },
   "husky": {
     "hooks": {
