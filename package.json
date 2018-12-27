@@ -14,7 +14,10 @@
     "clean": "npm run clean:public",
     "clean:public": "rm -rf public",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master"
+    "github-files":
+      "touch public/.nojekyll && echo 'www.nicoespeon.com' > public/CNAME",
+    "deploy":
+      "gatsby build --prefix-paths && npm run github-files && gh-pages -d public -b master"
   },
   "husky": {
     "hooks": {
