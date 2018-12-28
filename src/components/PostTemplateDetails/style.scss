@@ -18,6 +18,16 @@
     @include margin-top(1);
     @include margin-bottom(0);
   }
+  &__subtitle {
+    font-size: $typographic-base-font-size * 0.9;
+    max-width: $layout-post-single-width;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-style: italic;
+    @include margin-top(0.25);
+    @include margin-bottom(0);
+  }
   &__body {
     & figure {
       @include margin-bottom(1);
@@ -152,6 +162,9 @@
       font-size: $typographic-base-font-size * 3;
       @include line-height(2.25);
       @include margin-top(2.25);
+    }
+    &__subtitle {
+      font-size: $typographic-base-font-size;
       @include margin-bottom(1.5);
     }
     &__body {

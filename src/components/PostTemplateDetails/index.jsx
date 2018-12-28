@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { formatTimeToRead } from '../../helpers'
 import withLocalMoment from '../../hocs/withLocalMoment'
 import Disqus from '../Disqus/Disqus'
 import Twitter from '../Twitter'
@@ -65,6 +66,9 @@ class PostTemplateDetails extends React.Component {
         <div className="post-single">
           <div className="post-single__inner">
             <h1 className="post-single__title">{post.frontmatter.title}</h1>
+            <p className="post-single__subtitle">
+              {formatTimeToRead(post.timeToRead, i18n.lang)}
+            </p>
             <div
               className="post-single__body"
               /* eslint-disable-next-line react/no-danger */

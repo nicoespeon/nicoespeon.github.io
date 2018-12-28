@@ -15,7 +15,7 @@ class PostTemplate extends React.Component {
 
   render() {
     const { i18n } = this.props
-    const { title, subtitles } = this.props.data.site.siteMetadata
+    const { subtitles } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const { title: postTitle, description: postDescription } = post.frontmatter
     const description =
@@ -60,6 +60,7 @@ export const pageQuery = graphql`
       fields {
         tagSlugs
       }
+      timeToRead
       frontmatter {
         title
         tags

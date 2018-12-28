@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { formatTimeToRead } from '../../helpers'
 import withLocalMoment from '../../hocs/withLocalMoment'
 import './style.scss'
 
 class Post extends React.Component {
   render() {
     const { i18n, localMoment } = this.props
+    const { timeToRead } = this.props.data.node
     const {
       title,
       date,
@@ -34,6 +36,8 @@ class Post extends React.Component {
               {category}
             </Link>
           </span>
+          <span className="post__meta-divider" />
+          <small>{formatTimeToRead(timeToRead, i18n.lang)}</small>
         </div>
         <h2 className="post__title">
           <Link className="post__title-link" to={slug}>

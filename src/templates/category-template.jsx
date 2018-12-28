@@ -75,6 +75,7 @@ export const pageQuery = graphql`
             slug
             categorySlug
           }
+          timeToRead
           frontmatter {
             title
             date
