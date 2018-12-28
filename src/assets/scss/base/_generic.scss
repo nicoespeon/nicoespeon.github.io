@@ -4,11 +4,12 @@
 
 html {
   font-size: $typographic-root-font-size;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 body {
   font-family: $typographic-font-family;
-  color: $typographic-base-font-color;
   line-height: $typographic-base-line-height;
   font-size: $typographic-base-font-size;
   -ms-text-size-adjust: 100%;
@@ -81,7 +82,7 @@ hr {
   margin-top: 52px;
   margin-bottom: 52px;
   border: 0;
-  color: $color-base;
+  color: var(--text-color);
   display: block;
   height: 26px;
   margin-right: auto;
@@ -91,8 +92,8 @@ hr {
     to bottom,
     transparent 1px,
     transparent 11px,
-    $color-base 11px,
-    $color-base 15px,
+    var(--text-color) 11px,
+    var(--text-color) 15px,
     transparent 15px,
     transparent 26px
   );
@@ -100,12 +101,12 @@ hr {
 }
 
 a {
-  color: $typographic-link-p-font-color;
+  color: var(--link-color);
   text-decoration: none;
   &:hover,
   &:focus,
   &:active {
-    color: $typographic-link-s-font-color;
+    color: var(--link-secondary-color);
   }
 }
 
@@ -145,7 +146,7 @@ figure {
 figcaption {
   @include line-height(0.75);
   @include margin-top(0.25);
-  color: $color-base;
+  color: var(--text-color);
   font-size: $typographic-small-font-size;
   font-style: italic;
   margin-bottom: 0;
@@ -160,6 +161,11 @@ figcaption {
   &__inner {
     padding: 25px 20px;
   }
+}
+
+// Header anchors
+.anchor svg {
+  fill: var(--text-secondary-color);
 }
 
 @include breakpoint-sm {

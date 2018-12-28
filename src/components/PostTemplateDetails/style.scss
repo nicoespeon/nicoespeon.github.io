@@ -55,13 +55,13 @@
       @include margin-bottom(1);
     }
     & .gatsby-highlight-code-line {
-      background-color: transparentize($color-secondary, 0.85);
+      background-color: var(--highlight-bg-color);
       display: block;
       margin-right: -1em;
       margin-left: -1em;
       padding-right: 1em;
       padding-left: 0.75em;
-      border-left: 0.25em solid $color-secondary;
+      border-left: 0.25em solid var(--highlight-border-color);
     }
     & :not(div, iframe) {
       max-width: $layout-post-single-width;
@@ -97,17 +97,17 @@
         display: inline-block;
         margin: 10px 5px;
         &-link {
-          background: $color-gray-bg;
+          background: var(--box-light-bg-color);
           text-decoration: none;
           border: 0;
           border-radius: 3px;
-          color: lighten($color-base, 20%);
+          color: var(--text-secondary-color);
           line-height: $typographic-base-line-height;
           padding: 8px 16px;
           &:hover,
           &:focus {
-            color: $color-base;
-            background: darken($color-gray-bg, 5%);
+            color: var(--text-color);
+            background: var(--box-light-bg-hover-color);
             border: 0;
           }
         }
@@ -124,15 +124,15 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    color: lighten($color-base, 20%);
-    background: $color-gray-bg;
+    color: var(--text-secondary-color);
+    background: var(--box-light-bg-color);
     font-weight: 400;
     border-radius: 3px;
     @include margin-top(1);
     &:hover,
     &:focus {
-      color: $color-base;
-      background: darken($color-gray-bg, 5%);
+      color: var(--text-color);
+      background: var(--box-light-bg-hover-color);
       border: 0;
     }
   }

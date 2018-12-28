@@ -6,9 +6,9 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
-  color: black;
+  color: var(--code-text-color);
   background: none;
-  text-shadow: 0 1px white;
+  text-shadow: 0 1px var(--code-shadow-color);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
@@ -32,7 +32,7 @@ pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-shadow: none;
-  background: #b3d4fc;
+  background: var(--code-selection-color);
 }
 
 pre[class*='language-']::selection,
@@ -40,7 +40,7 @@ pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
   text-shadow: none;
-  background: #b3d4fc;
+  background: var(--code-selection-color);
 }
 
 @media print {
@@ -59,7 +59,7 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background: #f5f2f0;
+  background: var(--code-bg-color);
 }
 
 /* Inline code */
@@ -73,11 +73,11 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: slategray;
+  color: var(--code-comment-color);
 }
 
 .token.punctuation {
-  color: #999;
+  color: var(--code-punctuation-color);
 }
 
 .namespace {
@@ -91,7 +91,7 @@ pre[class*='language-'] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #905;
+  color: var(--code-property-color);
 }
 
 .token.selector,
@@ -100,7 +100,7 @@ pre[class*='language-'] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #690;
+  color: var(--code-selector-color);
 }
 
 .token.operator,
@@ -108,24 +108,24 @@ pre[class*='language-'] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #a67f59;
-  background: hsla(0, 0%, 100%, 0.5);
+  color: var(--code-operator-color);
+  background: var(--code-operator-bg-color);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #07a;
+  color: var(--code-keyword-color);
 }
 
 .token.function {
-  color: #dd4a68;
+  color: var(--code-function-color);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #e90;
+  color: var(--code-variable-color);
 }
 
 .token.important,

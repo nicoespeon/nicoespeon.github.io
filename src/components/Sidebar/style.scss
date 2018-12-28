@@ -20,15 +20,15 @@
       @include line-height(1.125);
       @include margin(0.5, 0, 0.5, 0);
       &-link {
-        color: $color-base;
+        color: var(--text-color);
         &:hover,
         &:focus {
-          color: $color-base;
+          color: var(--text-color);
         }
       }
     }
     &-subtitle {
-      color: $color-gray;
+      color: var(--subtitle-color);
       @include line-height(1);
       @include margin-bottom(1);
     }
@@ -41,12 +41,12 @@
     &__inner {
       padding: 30px 20px 0;
       &:after {
-        background: $color-gray-border;
+        background: --separator-bg-color;
         background: linear-gradient(
           to bottom,
-          $color-gray-border 0%,
-          $color-gray-border 48%,
-          $color-white 100%
+          var(--separator-bg-color) 0%,
+          var(--separator-bg-color) 48%,
+          var(--background-color) 100%
         );
         position: absolute;
         content: '';

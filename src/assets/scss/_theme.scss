@@ -1,0 +1,38 @@
+/**
+ * Theme
+ */
+
+// HSL references: https://en.wikipedia.org/wiki/HSL_and_HSV#Swatches
+html {
+  --hue: 210; // Blue
+  --accent-hue: 330; // Red-Magenta
+
+  --background-color: hsl(var(--hue), 0%, 100%);
+  --separator-bg-color: hsl(var(--hue), 0%, 90%);
+  --box-light-bg-color: hsl(var(--hue), 0%, 92%);
+  --box-light-bg-hover-color: hsl(var(--hue), 0%, 87%);
+
+  --text-color: hsl(var(--hue), 0%, 13%);
+  --text-secondary-color: hsl(var(--hue), 0%, 33%);
+  --subtitle-color: hsl(var(--hue), 0%, 53%);
+  --focus-color: hsl(var(--hue), 100%, 57%);
+
+  --link-color: hsl(var(--hue), 100%, 57%);
+  --link-secondary-color: hsl(var(--accent-hue), 100%, 74%);
+
+  --highlight-border-color: hsl(var(--accent-hue), 100%, 74%);
+  --highlight-bg-color: hsl(var(--accent-hue), 100%, 94%);
+
+  --code-bg-color: hsl(30, 20%, 95%);
+  --code-text-color: hsl(210, 0%, 13%);
+  --code-shadow-color: hsl(210, 0%, 100%);
+  --code-selection-color: hsl(210, 92%, 85%);
+  --code-punctuation-color: hsl(210, 0%, 60%);
+  --code-property-color: hsl(0, 93%, 29%);
+  --code-selector-color: hsl(90, 100%, 30%);
+  --code-operator-color: hsl(0, 30%, 50%);
+  --code-operator-bg-color: hsl(210, 0%, 97%);
+  --code-keyword-color: hsl(210, 100%, 33%);
+  --code-function-color: hsl(330, 68%, 58%);
+  --code-variable-color: hsl(30, 100%, 47%);
+}

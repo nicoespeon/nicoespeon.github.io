@@ -16,17 +16,17 @@
       line-height: 24px;
       border-radius: 3px;
       text-align: center;
-      background: $color-gray-bg;
+      background: var(--box-light-bg-color);
       & a {
         border: 0;
         & i {
           font-size: 14px;
-          color: lighten($color-base, 20%);
+          color: var(--text-secondary-color);
         }
         &:hover,
         &:focus {
           & i {
-            color: $color-base;
+            color: var(--text-color);
           }
         }
       }

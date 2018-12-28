@@ -12,11 +12,11 @@
     @include margin-top(0);
     @include margin-bottom(0.5);
     &-link {
-      color: $color-base;
+      color: var(--text-color);
       &:hover,
       &:focus {
-        color: $color-base;
-        border-bottom: 1px solid $color-base;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--text-color);
       }
     }
   }
@@ -28,7 +28,7 @@
   &__meta {
     &-time {
       font-size: $typographic-small-font-size;
-      color: $color-base;
+      color: var(--text-color);
       font-weight: 500;
       text-transform: uppercase;
     }
@@ -38,23 +38,23 @@
     &-category {
       &-link {
         font-size: $typographic-small-font-size;
-        color: $color-secondary;
+        color: var(--link-secondary-color);
         font-weight: 500;
         text-transform: uppercase;
         &:hover,
         &:focus {
-          color: $color-primary;
+          color: var(--focus-color);
         }
       }
     }
   }
   &__readmore {
     font-size: $typographic-base-font-size;
-    color: $color-primary;
+    color: var(--focus-color);
     &:hover,
     &:focus {
-      color: $color-primary;
-      border-bottom: 1px solid $color-primary;
+      color: var(--focus-color);
+      border-bottom: 1px solid var(--focus-color);
     }
   }
 }

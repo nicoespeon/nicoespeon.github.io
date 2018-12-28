@@ -1,4 +1,4 @@
-/** 
+/**
  * Tags
  */
 
@@ -6,11 +6,11 @@
   &__list {
     &-item {
       &-link {
-        color: $color-base;
+        color: var(--text-color);
         &:hover,
         &:focus {
-          color: $color-primary;
-          border-bottom: 1px solid $color-primary;
+          color: var(--focus-color);
+          border-bottom: 1px solid var(--focus-color);
         }
       }
     }

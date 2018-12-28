@@ -12,17 +12,17 @@
       margin: 10px 0;
       &-link {
         font-size: $typographic-base-font-size;
-        color: $typographic-base-font-color;
+        color: var(--text-color);
         font-weight: 400;
         border: 0;
         &:hover,
         &:focus {
-          color: $color-primary;
-          border-bottom: 1px solid $color-primary;
+          color: var(--focus-color);
+          border-bottom: 1px solid var(--focus-color);
         }
         &--active {
-          color: $color-base;
-          border-bottom: 1px solid $color-base;
+          color: var(--text-color);
+          border-bottom: 1px solid var(--text-color);
         }
       }
     }
