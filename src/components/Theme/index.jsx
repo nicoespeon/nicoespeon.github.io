@@ -11,7 +11,7 @@ class Theme extends React.Component {
     super(props)
 
     let initialTheme
-    if (localStorage) {
+    if (typeof localStorage !== 'undefined') {
       initialTheme = localStorage.getItem('theme') || THEME.light
     } else {
       initialTheme = THEME.light
@@ -23,7 +23,7 @@ class Theme extends React.Component {
   }
 
   componentDidMount() {
-    if (document) {
+    if (typeof document !== 'undefined') {
       this.setThemeToHtmlOf(document)
     }
   }
@@ -33,11 +33,11 @@ class Theme extends React.Component {
   }
 
   componentDidUpdate() {
-    if (document) {
+    if (typeof document !== 'undefined') {
       this.setThemeToHtmlOf(document)
     }
 
-    if (localStorage) {
+    if (typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', this.state.theme)
     }
   }
