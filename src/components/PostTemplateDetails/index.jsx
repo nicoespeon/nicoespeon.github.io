@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import startCase from 'lodash/startCase'
 import { formatTimeToRead } from '../../helpers'
 import withLocalMoment from '../../hocs/withLocalMoment'
 import Disqus from '../Disqus/Disqus'
 import Twitter from '../Twitter'
+import Theme from '../Theme'
 import './style.scss'
 
 class PostTemplateDetails extends React.Component {
@@ -15,17 +17,47 @@ class PostTemplateDetails extends React.Component {
 
     const homeBlock = {
       en: (
-        <div>
-          <Link className="post-single__home-button" to="/">
+        <div className="post-single__button-container">
+          <Link
+            className="post-single__button post-single__button--home"
+            to="/"
+          >
             &larr; Articles
           </Link>
+          <Theme lang={i18n.lang}>
+            {(nextTheme, toggleTheme) => {
+              return (
+                <div
+                  className="post-single__button post-single__button--theme"
+                  onClick={toggleTheme}
+                >
+                  {startCase(nextTheme)} theme
+                </div>
+              )
+            }}
+          </Theme>
         </div>
       ),
       fr: (
-        <div>
-          <Link className="post-single__home-button" to="/fr/">
+        <div className="post-single__button-container">
+          <Link
+            className="post-single__button post-single__button--home"
+            to="/fr/"
+          >
             &larr; Articles
           </Link>
+          <Theme lang={i18n.lang}>
+            {(nextTheme, toggleTheme) => {
+              return (
+                <div
+                  className="post-single__button post-single__button--theme"
+                  onClick={toggleTheme}
+                >
+                  Thème {nextTheme}
+                </div>
+              )
+            }}
+          </Theme>
         </div>
       ),
     }[i18n.lang]

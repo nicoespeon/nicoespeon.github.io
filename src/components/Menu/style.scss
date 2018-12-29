@@ -17,6 +17,7 @@
         border: 0;
         &:hover,
         &:focus {
+          cursor: pointer;
           color: var(--focus-color);
           border-bottom: 1px solid var(--focus-color);
         }

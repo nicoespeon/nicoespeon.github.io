@@ -1,6 +1,8 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
+$button-height: 35px;
+
 .post-single {
   &__inner {
     max-width: $layout-post-single-max-width;
@@ -114,15 +116,16 @@
       }
     }
   }
-  &__home-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90px;
+  &__button-container {
+    text-align: center;
+  }
+  &__button {
+    display: inline-block;
+    margin-right: $typographic-base-font-size;
     font-size: $typographic-base-font-size;
     padding: 0 16px;
-    height: 35px;
-    line-height: 35px;
+    height: $button-height;
+    line-height: $button-height;
     text-align: center;
     color: var(--text-secondary-color);
     background: var(--box-light-bg-color);
@@ -131,9 +134,13 @@
     @include margin-top(1);
     &:hover,
     &:focus {
+      cursor: pointer;
       color: var(--text-color);
       background: var(--box-light-bg-hover-color);
       border: 0;
+    }
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
@@ -177,12 +184,16 @@
         @include margin-bottom(1.125);
       }
     }
-    &__home-button {
+    &__button {
       position: fixed;
-      max-width: auto;
       margin: 0;
-      top: 30px;
-      left: 30px;
+      left: 20px;
+      &--home {
+        top: 30px;
+      }
+      &--theme {
+        top: 30px + $button-height + $typographic-base-font-size;
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
-import get from 'lodash/get'
 import { Link } from 'gatsby'
 import Menu from '../Menu'
+import Theme from '../Theme'
 import Links from '../Links'
 import profilePic from '../../pages/photo.jpg'
 import './style.scss'
@@ -46,6 +46,19 @@ class Sidebar extends React.Component {
     )
     /* eslint-enable jsx-a11y/img-redundant-alt */
 
+    const themeBlock = (
+      <Theme lang={i18n.lang}>
+        {(nextTheme, toggleTheme) => {
+          const label = {
+            en: `Switch to ${nextTheme} theme`,
+            fr: `Basculer en thème ${nextTheme}`,
+          }[i18n.lang]
+
+          return <Menu data={[{ label, action: toggleTheme }]} />
+        }}
+      </Theme>
+    )
+
     return (
       <div className="sidebar">
         <div className="sidebar__inner">
@@ -53,6 +66,7 @@ class Sidebar extends React.Component {
           <div>
             <Menu data={menus[i18n.lang]} />
             <Links data={author} />
+            {themeBlock}
             <Menu data={i18n.switchLangMenu} />
           </div>
         </div>

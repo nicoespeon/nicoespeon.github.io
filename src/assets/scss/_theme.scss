@@ -35,4 +35,40 @@ html {
   --code-keyword-color: hsl(210, 100%, 33%);
   --code-function-color: hsl(330, 68%, 58%);
   --code-variable-color: hsl(30, 100%, 47%);
+
+  &[data-theme='dark'] {
+    --background-color: hsl(var(--hue), 0%, 8%);
+    --separator-bg-color: hsl(var(--hue), 0%, 25%);
+    --box-light-bg-color: hsl(var(--hue), 0%, 20%);
+    --box-light-bg-hover-color: hsl(var(--hue), 0%, 30%);
+
+    --text-color: hsl(var(--hue), 0%, 68%);
+    --text-secondary-color: hsl(var(--hue), 0%, 55%);
+    --subtitle-color: hsl(var(--hue), 0%, 40%);
+    --focus-color: hsl(var(--hue), 40%, 60%);
+
+    --link-color: hsl(var(--hue), 40%, 60%);
+    --link-secondary-color: hsl(var(--accent-hue), 60%, 50%);
+
+    --highlight-border-color: hsl(var(--accent-hue), 100%, 34%);
+    --highlight-bg-color: hsl(var(--accent-hue), 30%, 20%);
+
+    --code-bg-color: hsl(30, 10%, 15%);
+    --code-text-color: hsl(210, 0%, 83%);
+    --code-shadow-color: hsl(210, 0%, 10%);
+    --code-selection-color: hsl(210, 92%, 28%);
+    --code-comment-color: hsl(210, 13%, 50%);
+    --code-punctuation-color: hsl(210, 0%, 50%);
+    --code-property-color: hsl(0, 93%, 69%);
+    --code-selector-color: hsl(90, 50%, 60%);
+    --code-operator-color: hsl(0, 40%, 50%);
+    --code-operator-bg-color: hsl(210, 0%, 20%);
+    --code-keyword-color: hsl(210, 50%, 63%);
+    --code-function-color: hsl(330, 55%, 50%);
+    --code-variable-color: hsl(30, 70%, 50%);
+
+    img {
+      filter: brightness(0.8);
+    }
+  }
 }
