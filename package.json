@@ -16,6 +16,7 @@
     "build": "gatsby build",
     "github-files":
       "touch public/.nojekyll && echo 'www.nicoespeon.com' > public/CNAME",
+    "predeploy": "npm run lint",
     "deploy":
       "gatsby build --prefix-paths && npm run github-files && gh-pages -d public -b master"
   },
