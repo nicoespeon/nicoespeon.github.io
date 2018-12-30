@@ -6,6 +6,10 @@ const THEME = {
   dark: 'dark',
 }
 
+function getNextTheme(currentTheme) {
+  return currentTheme === THEME.dark ? THEME.light : THEME.dark
+}
+
 class Theme extends React.Component {
   constructor(props) {
     super(props)
@@ -28,10 +32,6 @@ class Theme extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    // No need to clean the <html> theme for our usage.
-  }
-
   componentDidUpdate() {
     if (typeof document !== 'undefined') {
       this.setThemeToHtmlOf(document)
@@ -40,6 +40,25 @@ class Theme extends React.Component {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', this.state.theme)
     }
+  }
+
+  componentWillUnmount() {
+    // No need to clean the <html> theme for our usage.
+  }
+
+  setThemeToHtmlOf(document) {
+    const html = document.getElementsByTagName('html')[0]
+    if (html) {
+      html.setAttribute('data-theme', this.state.theme)
+    }
+  }
+
+  toggleTheme() {
+    this.setState(prevState => {
+      return {
+        theme: getNextTheme(prevState.theme),
+      }
+    })
   }
 
   render() {
@@ -53,26 +72,9 @@ class Theme extends React.Component {
         [THEME.dark]: 'sombre',
         [THEME.light]: 'clair',
       },
-    }[lang][this.nextTheme(this.state.theme)]
+    }[lang][getNextTheme(this.state.theme)]
 
     return this.props.children(nextTheme, this.toggleTheme.bind(this))
-  }
-
-  setThemeToHtmlOf(document) {
-    const html = document.getElementsByTagName('html')[0]
-    if (html) {
-      html.setAttribute('data-theme', this.state.theme)
-    }
-  }
-
-  toggleTheme() {
-    this.setState(prevState => ({
-      theme: this.nextTheme(prevState.theme),
-    }))
-  }
-
-  nextTheme(currentTheme) {
-    return currentTheme === THEME.dark ? THEME.light : THEME.dark
   }
 }
 

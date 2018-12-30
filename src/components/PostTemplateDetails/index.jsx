@@ -25,16 +25,17 @@ class PostTemplateDetails extends React.Component {
             &larr; Articles
           </Link>
           <Theme lang={i18n.lang}>
-            {(nextTheme, toggleTheme) => {
-              return (
-                <div
-                  className="post-single__button post-single__button--theme"
-                  onClick={toggleTheme}
-                >
-                  {startCase(nextTheme)} theme
-                </div>
-              )
-            }}
+            {(nextTheme, toggleTheme) => (
+              <div
+                className="post-single__button post-single__button--theme"
+                role="button"
+                tabIndex={0}
+                onClick={toggleTheme}
+                onKeyPress={toggleTheme}
+              >
+                {startCase(nextTheme)} theme
+              </div>
+            )}
           </Theme>
         </div>
       ),
@@ -47,16 +48,17 @@ class PostTemplateDetails extends React.Component {
             &larr; Articles
           </Link>
           <Theme lang={i18n.lang}>
-            {(nextTheme, toggleTheme) => {
-              return (
-                <div
-                  className="post-single__button post-single__button--theme"
-                  onClick={toggleTheme}
-                >
-                  Thème {nextTheme}
-                </div>
-              )
-            }}
+            {(nextTheme, toggleTheme) => (
+              <div
+                className="post-single__button post-single__button--theme"
+                role="button"
+                tabIndex={0}
+                onClick={toggleTheme}
+                onKeyPress={toggleTheme}
+              >
+                Thème {nextTheme}
+              </div>
+            )}
           </Theme>
         </div>
       ),
@@ -103,8 +105,9 @@ class PostTemplateDetails extends React.Component {
             </p>
             <div
               className="post-single__body"
-              /* eslint-disable-next-line react/no-danger */
+              /* eslint-disable react/no-danger */
               dangerouslySetInnerHTML={{ __html: post.html }}
+              /* eslint-enable react/no-danger */
             />
             <div className="post-single__date">
               <em>{publishedText}</em>

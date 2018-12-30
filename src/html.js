@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/* eslint-disable */
+// Code was copied from `public/` output to add custom Twitter script.
 export default class HTML extends React.Component {
   render() {
     return (
@@ -57,3 +59,4 @@ HTML.propTypes = {
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
 }
+/* eslint-enable */

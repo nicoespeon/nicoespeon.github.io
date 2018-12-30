@@ -15,8 +15,9 @@ class PageTemplateDetails extends React.Component {
               <h1 className="page__title">{page.frontmatter.title}</h1>
               <div
                 className="page__body"
-                /* eslint-disable-next-line react/no-danger */
+                /* eslint-disable react/no-danger */
                 dangerouslySetInnerHTML={{ __html: page.html }}
+                /* eslint-enable react/no-danger */
               />
             </div>
           </div>

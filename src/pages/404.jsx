@@ -25,12 +25,13 @@ class NotFoundRoute extends React.Component {
               <div className="page">
                 <h1 className="page__title">{title}</h1>
                 <iframe
+                  title="Nothing here but love"
                   width="560"
                   height="315"
                   src="https://www.youtube.com/embed/CDa-0adnlmk?controls=0"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
+                  allowFullscreen
                 />
                 <div className="page__body">
                   <p>{content}</p>

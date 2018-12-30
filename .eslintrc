@@ -3,7 +3,10 @@
   "extends": ["prettier", "airbnb"],
   "plugins": ["import", "jsx-a11y", "react"],
   "globals": {
-    "graphql": true
+    "graphql": true,
+    "document": true,
+    "localStorage": true,
+    "twttr": true
   },
   "rules": {
     "arrow-body-style": [
