@@ -8,7 +8,7 @@ Je m'appelle **Nicolas Carlo**.
 
 Je suis développeur web travaillant actuellement chez [Busbud](https://www.busbud.com/fr/about), à Montréal.
 
-Je m’intéresse à toutes les facettes du développement d’applications web, aussi bien front-end que back-end, ainsi qu’à la gestion de projets agiles. Je suis particulièrement passionné par le [Software Craftmanship](https://fr.wikipedia.org/wiki/Software_craftsmanship).
+Je m’intéresse à toutes les facettes du développement d’applications web, aussi bien front-end que back-end, ainsi qu’à la gestion de projets agiles. Je suis particulièrement passionné par le [Software Craftsmanship](https://fr.wikipedia.org/wiki/Software_craftsmanship).
 
 Sur Montréal, j’organise le meetup [Software Crafters](https://www.meetup.com/fr-FR/Software-Crafters-Montreal/) chaque mois.
 
