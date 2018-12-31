@@ -25,6 +25,10 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "engines": {
+    "node": "~8.12.0",
+    "yarn": ">=1.3.2 <=1.9.4"
+  },
   "dependencies": {
     "bluebird": "3.5.1",
     "gatsby": "2.0.22",
