@@ -222,4 +222,4 @@ Have a look to the website for more information about the library: <a href="http
 
 I was afraid you wouldn't ask. Thereupon I leave you with some Georges Michael tune \o/
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/GaoLU6zKaws?rel=0" frameborder="0" allowfullscreen="true">&nbsp;</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GaoLU6zKaws?rel=0" frameborder="0" allowfullscreen="true">&nbsp;</iframe>

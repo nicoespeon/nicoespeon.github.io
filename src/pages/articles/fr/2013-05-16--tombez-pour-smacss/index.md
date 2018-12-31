@@ -278,7 +278,7 @@ $('form#update-quantity')
   })
 ```
 
-<iframe width="100%" height="100" src="http://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe>
+<iframe width="100%" height="100" src="https://jsfiddle.net/espeon/dt58C/embedded/result" allowfullscreen="allowfullscreen" frameborder="0">Exemple du loading sur la page</iframe>
 
 _Exemple de l'utilisation de <code>.is-loading</code> lors de la modification d'un champ_
 

@@ -33,6 +33,6 @@ J’y ai donc présenté l’implémentation avec [Cycle.js](https://cycle.js.or
 
 Les slides :
 
-<iframe src="//slides.com/nicoespeon/meetup-pwc-webapp-cyclejs/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://slides.com/nicoespeon/meetup-pwc-webapp-cyclejs/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <span class="icon-github"></span> Le code est disponible [sur GitHub](https://github.com/nicoespeon/webapp-exercise/tree/cyclejs).

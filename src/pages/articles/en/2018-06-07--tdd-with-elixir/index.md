@@ -23,4 +23,4 @@ I’ll share with you my findings, successes and pitfalls of doing TDD with Elix
 
 Here are the slides:
 
-<iframe src="//slides.com/nicoespeon/tdd-with-elixir/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://slides.com/nicoespeon/tdd-with-elixir/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

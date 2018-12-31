@@ -20,7 +20,7 @@ J’ai présenté ce talk le 29 juin 2016 au [meetup Paris.js #57 chez Algolia](
 
 Et voici les slides associés qui contiennent pas mal de liens si vous souhaitez approfondir le sujet :
 
-<iframe src="//slides.com/nicoespeon/trello-kanban-cycle-js/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://slides.com/nicoespeon/trello-kanban-cycle-js/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 Le projet est dispo en open-source ici : <https://github.com/nicoespeon/trello-kanban-analysis-tool>
 

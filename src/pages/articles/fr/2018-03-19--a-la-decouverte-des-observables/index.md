@@ -25,7 +25,7 @@ Les Observables sont des flux d’événements paresseux qui peuvent émettre 0 
 
 ### Les slides
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/OnbbVpH98E0z" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/nicolascarlo1/a-la-decouverte-des-observables" title="À la découverte des observables" target="_blank">À la découverte des observables</a> </strong> from <strong><a href="https://www.slideshare.net/nicolascarlo1" target="_blank">Nicolas Carlo</a></strong> </div>
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/OnbbVpH98E0z" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/nicolascarlo1/a-la-decouverte-des-observables" title="À la découverte des observables" target="_blank">À la découverte des observables</a> </strong> from <strong><a href="https://www.slideshare.net/nicolascarlo1" target="_blank">Nicolas Carlo</a></strong> </div>
 
 ---
 
@@ -37,4 +37,4 @@ Les Observables sont des flux d’événements paresseux qui peuvent émettre 0 
 
 ### Les slides
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/zFdReMo7oIamd3" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/nicolascarlo1/a-la-decouverte-des-observables-humantalks-paris-2017" title="À la découverte des Observables - HumanTalks Paris 2017" target="_blank">À la découverte des Observables - HumanTalks Paris 2017</a> </strong> from <strong><a href="https://www.slideshare.net/nicolascarlo1" target="_blank">Nicolas Carlo</a></strong> </div>
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/zFdReMo7oIamd3" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/nicolascarlo1/a-la-decouverte-des-observables-humantalks-paris-2017" title="À la découverte des Observables - HumanTalks Paris 2017" target="_blank">À la découverte des Observables - HumanTalks Paris 2017</a> </strong> from <strong><a href="https://www.slideshare.net/nicolascarlo1" target="_blank">Nicolas Carlo</a></strong> </div>
