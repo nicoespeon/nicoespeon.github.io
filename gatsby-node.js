@@ -3,6 +3,38 @@ const Promise = require('bluebird')
 const path = require('path')
 const slash = require('slash')
 
+// Not sure if this is the most appropriate hook to create redirections
+// but, so far, it works.
+exports.onPostBootstrap = ({ actions }) => {
+  const { createRedirect } = actions
+
+  // Redirect pages from old blog that get referenced in Google.
+  // They contained `.html` suffix, which doesn't exist today.
+  const oldHtmlPages = ['/about', '/projects', '/worth-reading']
+  oldHtmlPages.forEach(page => {
+    createRedirect({
+      fromPath: `${page}.html`,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: page,
+    })
+    createRedirect({
+      fromPath: `/fr${page}.html`,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: `/fr${page}`,
+    })
+  })
+
+  // There is no archive page anymore. It used to contain all articles.
+  createRedirect({
+    fromPath: '/archive/',
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: '/',
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
