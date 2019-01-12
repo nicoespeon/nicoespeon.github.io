@@ -149,15 +149,11 @@ All the red lines, I don't test.
 
 Let's figure out another combination that would cover more lines… An item with a positive quality should do:
 
-```js
+```js{3}
 it('should update quality', () => {
   expect(doUpdateQuality('foo', 0, 0)).toMatchSnapshot()
   expect(doUpdateQuality('foo', 0, 1)).toMatchSnapshot()
 })
-
-function doUpdateQuality(name, sellIn, quality) {
-  // …
-}
 ```
 
 I run the test again. A new snapshot is generated.
@@ -188,7 +184,7 @@ it('should update quality', () => {
 
 No more red lines, but I still have these `E` symbols. These symbols mean that I'm covering the `if` case, but I'm missing the `else` clause – that's why only 68.57% of branches are covered. I need to cover them too:
 
-```js
+```js{6-8,12-17}
 it('should update quality', () => {
   expect(doUpdateQuality('foo', 0, 0)).toMatchSnapshot()
   expect(doUpdateQuality('foo', 0, 1)).toMatchSnapshot()
@@ -276,7 +272,7 @@ if (this.items[i].sellIn < 0) {
 
 That means if `sellIn` is `0`, then it doesn't execute the rest of the code. I try to add another combination:
 
-```js{22-24}
+```js{18-20}
 it('should update quality', () => {
   expect(doUpdateQuality('foo', 0, 0)).toMatchSnapshot()
   expect(doUpdateQuality('foo', 0, 1)).toMatchSnapshot()
