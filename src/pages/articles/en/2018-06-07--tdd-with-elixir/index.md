@@ -11,10 +11,10 @@ tags:
   - meetup
   - tdd
   - talk
-description: A lightning talk I gave at the Montréal Elixir meetup of May 2018.
+description: A lightning talk I gave at the Montreal Elixir meetup of May 2018.
 ---
 
-This is a lightning talk I gave at the [Montréal Elixir](https://www.meetup.com/fr-FR/montrealelixir/events/249752679/) meetup of May 2018.
+This is a lightning talk I gave at the [Montreal Elixir](https://www.meetup.com/fr-FR/montrealelixir/events/249752679/) meetup of May 2018.
 
 I’m quite new to Elixir.
 I love practicing Test Driven Development.
