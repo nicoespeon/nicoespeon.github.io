@@ -10,7 +10,6 @@ tags:
   - yeoman
   - generator
   - node.js
-  - talk
 description: Meet plop, a little node package which quickly bootstraps new files.
 ---
 
