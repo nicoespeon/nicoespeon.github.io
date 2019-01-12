@@ -6,7 +6,7 @@ draft: false
 path: /en/2019/01/approval-testing-on-legacy-code/
 category: Web development
 tags:
-  - testing
+  - tests
   - legacy code
   - jest
 description: An introduction to "Approval Testing" in JavaScript with Jest.
