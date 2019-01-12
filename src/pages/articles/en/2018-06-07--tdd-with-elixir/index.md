@@ -10,6 +10,7 @@ tags:
   - montreal
   - meetup
   - tdd
+  - talk
 description: A lightning talk I gave at the Montréal Elixir meetup of May 2018.
 ---
 
