@@ -6,6 +6,7 @@ path: "/fr/talks"
 
 Voici la liste des talks enregistrés que j’ai donné, en anglais et en français.
 
+* [🇬🇧 Hexagonal Architecture & Elixir](https://youtu.be/sdM1KkjtCe8) - Novembre 2018 au meetup Montréal Elixir
 * [🇬🇧 TDD with Elixir](https://youtu.be/HlGaHZWqItU) - Mai 2018 au meetup Montréal Elixir
 * [À la découverte des Observables](https://youtu.be/JSeOF5UiayY) − Décembre 2017 au meetup HumanTalks Paris
 * [(Quickie) À la découverte des Observables](https://youtu.be/ocgVSQhashY) − Avril 2017 à Devoxx France
