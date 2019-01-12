@@ -117,7 +117,7 @@ To generate test coverage, I run Jest with the `--coverage` option.
 
 I find the `html` report to be the best in this scenario. To do so, I need to configure Jest options. This can be done in a config file, or quickly in `package.json`:
 
-```json
+```js
 {
   "name": "gilded-rose-kata",
   // …
@@ -379,4 +379,4 @@ I discovered Approval Testing thanks to [Emily Bache](https://twitter.com/emilyb
 
 You can read more about Approval Testing on http://approvaltests.com/.
 
-They have a library to do that in JS, with Mocha: https://github.com/approvals/Approvals.NodeJS
+They have a library to do that in JS, with Mocha: https://github.com/approvals/Approvals.NodeJS
