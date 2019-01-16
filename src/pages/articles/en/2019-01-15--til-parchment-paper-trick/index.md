@@ -13,7 +13,7 @@ description: Today, I learned how to easily make parchment paper fits a recipien
 
 Today _aha moment_ is cooking related 👨‍🍳
 
-I usually use parchment paper to protect sheet pans and the like—essentially when I bake cakes, cookies, and other niceties 🍪
+I usually use parchment paper to protect baking sheets and the like—essentially when I bake cakes, cookies, and other niceties 🍪
 
 Sometimes, I also struggle to make it fit the recipient. Especially when it goes 3D. I used to measure and cut to adapt. But overall, it's not really convenient.
 
