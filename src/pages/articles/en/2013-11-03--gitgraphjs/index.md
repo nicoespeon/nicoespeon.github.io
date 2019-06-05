@@ -7,7 +7,7 @@ path: /en/2013/11/gitgraphjs/
 category: Web development
 tags:
   - javascript
-  - project
+  - side-project
   - git
 description: A JavaScript library, git trees, workflows modelisation… and a bit of Georges Michael.
 ---
