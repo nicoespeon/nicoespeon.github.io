@@ -6,6 +6,7 @@ path: "/fr/talks"
 
 Voici la liste des talks enregistrés que j’ai donné, en anglais et en français.
 
+* [🇬🇧 Drawing Git Graphs in the Browser](/en/2019/06/drawing-git-graphs-browser/) - May 2019 at FullStack NYC 2019
 * [🇬🇧 Hexagonal Architecture & Elixir](https://youtu.be/sdM1KkjtCe8) - Novembre 2018 au meetup Montréal Elixir
 * [🇬🇧 TDD with Elixir](https://youtu.be/HlGaHZWqItU) - Mai 2018 au meetup Montréal Elixir
 * [À la découverte des Observables](https://youtu.be/JSeOF5UiayY) − Décembre 2017 au meetup HumanTalks Paris
@@ -17,3 +18,5 @@ Voici la liste des talks enregistrés que j’ai donné, en anglais et en franç
 * [Kanban et Game Development avec Trello](https://youtu.be/4P-mfUew8MQ) - Février 2016 au meetup Trello French UG
 * [Plop : un micro-générateur pour se simplifier la vie au quotidien](https://youtu.be/1GyoY6V-0ss) - Décembre 2015 au meetup Node.js Paris
 * [Tester ses Behaviors Marionette.js](https://youtu.be/0VHW_7PyjBw?t=1702) - Novembre 2015 au meetup Backbone.js Paris
+
+🎩 [Tous les articles](/fr/tags/talk/) que j’ai écris sur les talks que j’ai donné.
