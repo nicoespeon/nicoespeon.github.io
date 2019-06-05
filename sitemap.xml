@@ -27,9 +27,6 @@
 <url> <loc>https://www.nicoespeon.com/en/2013/05/optimize-selectors-css-vs-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/en/2013/05/event-delegation-jquery/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/events/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/en/2013/11/gitgraphjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/tags/project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/tags/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/en/2013/06/convert-sass-project-into-less/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/less/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/sass/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -39,6 +36,7 @@
 <url> <loc>https://www.nicoespeon.com/tags/backbone-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/privacy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/en/2013/08/which-git-workflow-for-my-project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/tags/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/workflow/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/management/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/github/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -122,8 +120,6 @@
 <url> <loc>https://www.nicoespeon.com/fr/2013/06/convertir-projet-sass-en-less/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/less/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/sass/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/fr/2013/11/gitgraphjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/fr/tags/project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/2014/12/fonctions-privees-backbonejs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/backbone-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/privacy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -206,6 +202,12 @@
 <url> <loc>https://www.nicoespeon.com/tags/retrospective/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/en/2019/03/the-secrets-of-hexagonal-architecture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/tags/ports-and-adapters-architecture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/en/2013/11/gitgraphjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/tags/side-project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/fr/2013/11/gitgraphjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/fr/tags/side-project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/tags/gitgraph-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

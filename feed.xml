@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 07 Apr 2019 12:12:31 GMT</lastBuildDate><item><title><![CDATA[The Secrets of Hexagonal Architecture]]></title><description><![CDATA[A talk I gave at ConFoo Montréal 2019 about Hexagonal Architecture.]]></description><link>https://www.nicoespeon.com/en/2019/03/the-secrets-of-hexagonal-architecture/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/03/the-secrets-of-hexagonal-architecture/</guid><pubDate>Tue, 12 Mar 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;If there is one thing you should retain from my talk, it’s that &lt;strong&gt;you should separate the Domain from the Infrastructure if you want to write maintainable software&lt;/strong&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 05 Jun 2019 02:30:45 GMT</lastBuildDate><item><title><![CDATA[Drawing Git Graphs in the Browser]]></title><description><![CDATA[A talk I gave at FullStack NYC 2019 to present GitGraph.js.]]></description><link>https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</guid><pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In this talk I presented a side-project that I’ve been developing with my friend &lt;a href=&quot;https://twitter.com/fabien0102&quot;&gt;Fabien Bernard&lt;/a&gt; since 2013: &lt;a href=&quot;https://gitgraphjs.com&quot;&gt;GitGraph.js&lt;/a&gt; 🎉&lt;/p&gt;
+&lt;p&gt;It’s a JS library that allows you to draw git graphs in the browser. Very handy to prepare presentations or write blog posts. Creating and updating those git illustrations becomes easy!&lt;/p&gt;
+&lt;p&gt;I already &lt;a href=&quot;/en/2013/11/gitgraphjs/&quot;&gt;wrote about GitGraph.js in the past&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If there is one thing you should retain from my talk, it’s that &lt;strong&gt;you can hack your own problems&lt;/strong&gt;. You certainly have this crazy idea in mind, that problem you want to solve for yourself… Stop waiting the perfect moment, just start doing it. &lt;strong&gt;Good things will happen!&lt;/strong&gt;&lt;/p&gt;
+&lt;div&gt;
+          &lt;div
+            class=&quot;gatsby-resp-iframe-wrapper&quot;
+            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
+          &gt;
+            &lt;iframe src=&quot;https://player.vimeo.com/video/336845529&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen style=&quot;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          &quot;&gt;&lt;/iframe&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+&lt;p&gt;Click on the following image to access the slides:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.nicoespeon.com/talk-drawing-git-graphs/&quot;&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 44.53627180899908%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBUlEQVQoz62SMauDMBSFo3QQERRaRRQpiJYuog5aRCgoIhTc1MHSSVTExf8/nYcZHlp8PAodDkluTi4nX0IIIVjEMMzvuNb7/p5/XSdvi2+IgGVZXC4X6LoOTdNgGAbCMKRzjuMQRRFutxt4nofrurAsC7Is43q9wnEcHA6HbcMldhzHqOsaTdPg9Xphmib0fQ/bttF1HeZ5hqqqeD6fGIYB4ziibVvqWwKsrv93fNM0qektAZUoipAkaY/jFnSWZTidTrjf7yjLkh5cakVRwPd9eJ5HESxIjsfjPsO10jSFoiiUT1VVOJ/PlNvj8UAQBEiShGLJ8xyCIPzf8Cuv/Il2/t1GP9Uz2PEEdgU2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Link to slides&quot;
+        title=&quot;&quot;
+        src=&quot;/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-c83f1.png&quot;
+        srcset=&quot;/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-569e3.png 240w,
+/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-93400.png 480w,
+/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-c83f1.png 960w,
+/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-23e13.png 1440w,
+/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-10d8f.png 1920w,
+/static/slides-preview-273794fdc2d01a793e8f4e0c23ae6962-8808a.png 2178w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The project is available on GitHub: &lt;a href=&quot;https://github.com/nicoespeon/gitgraph.js/&quot;&gt;https://github.com/nicoespeon/gitgraph.js/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Different libraries are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/@gitgraph/js&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@gitgraph/js&lt;/code&gt;&lt;/a&gt; for the vanilla JS version&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/@gitgraph/react&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@gitgraph/react&lt;/code&gt;&lt;/a&gt; for the React version&lt;/li&gt;
+&lt;li&gt;There is a &lt;a href=&quot;https://github.com/nicoespeon/gitgraph.js/tree/master/packages/gitgraph-js#browser-bundle-ready-to-use&quot;&gt;browser bundle&lt;/a&gt; you can use directly in the browser 💪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to play with the GitGraph.js, have a look at the online playground:&lt;/p&gt;
+&lt;iframe height=&quot;722&quot; style=&quot;width: 100%;&quot; scrolling=&quot;no&quot; title=&quot;@gitgraph/js playground&quot; src=&quot;//codepen.io/nicoespeon/embed/preview/arqPWb/?height=722&amp;theme-id=dark&amp;default-tab=js,result&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+  See the Pen &lt;a href=&apos;https://codepen.io/nicoespeon/pen/arqPWb/&apos;&gt;@gitgraph/js playground&lt;/a&gt; by Nicolas Carlo
+  (&lt;a href=&apos;https://codepen.io/nicoespeon&apos;&gt;@nicoespeon&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;</content:encoded></item><item><title><![CDATA[The Secrets of Hexagonal Architecture]]></title><description><![CDATA[A talk I gave at ConFoo Montréal 2019 about Hexagonal Architecture.]]></description><link>https://www.nicoespeon.com/en/2019/03/the-secrets-of-hexagonal-architecture/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/03/the-secrets-of-hexagonal-architecture/</guid><pubDate>Tue, 12 Mar 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;If there is one thing you should retain from my talk, it’s that &lt;strong&gt;you should separate the Domain from the Infrastructure if you want to write maintainable software&lt;/strong&gt;.&lt;/p&gt;
 &lt;figure&gt;
 	
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;&gt;
