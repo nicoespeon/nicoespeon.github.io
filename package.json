@@ -9,7 +9,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "serve": "gatsby develop",
+    "start": "gatsby develop",
     "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "clean": "npm run clean:public",
     "clean:public": "rm -rf public",
