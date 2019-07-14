@@ -1,4 +1,201 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 05 Jun 2019 02:42:33 GMT</lastBuildDate><item><title><![CDATA[Drawing Git Graphs in the Browser]]></title><description><![CDATA[A talk I gave at FullStack NYC 2019 to present GitGraph.js.]]></description><link>https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</guid><pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In this talk I presented a side-project that I’ve been developing with my friend &lt;a href=&quot;https://twitter.com/fabien0102&quot;&gt;Fabien Bernard&lt;/a&gt; since 2013: &lt;a href=&quot;https://gitgraphjs.com&quot;&gt;GitGraph.js&lt;/a&gt; 🎉&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 14 Jul 2019 15:40:00 GMT</lastBuildDate><item><title><![CDATA[Introducing a refactoring tool for VS Code]]></title><description><![CDATA[I built "Abracadabra", a VS Code extension to do automated refactorings.]]></description><link>https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</guid><pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.&lt;/p&gt;
+&lt;p&gt;But I am &lt;em&gt;frustrated&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I am frustrated because I miss a &lt;strong&gt;great&lt;/strong&gt; tool to perform &lt;strong&gt;automated refactorings&lt;/strong&gt; for me. And neither VS Code, neither existing extensions provide the experience I’m looking for!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/frustrated-6b45b4f3e49978b3ac79a693e637d601.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Thus, 2 months ago, I decided to follow &lt;a href=&quot;/en/2019/06/drawing-git-graphs-browser/&quot;&gt;my own advice&lt;/a&gt; and hack my own problem. I started creating the VS Code extension I was looking for. This extension analyzes my code, suggests refactorings and executes them with the minimal amount of keystrokes needed. &lt;strong&gt;It helps me focus on my intention instead of manually following the scripted mechanics of a refactoring.&lt;/strong&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;I called this extension: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;Abracadabra&lt;/a&gt; ✨&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/abracadabra-demo-ff7a70954a50b63ddea5bceb419d8c23.gif&quot; alt=&quot;Gif of extracting variables with Abracadabra&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;why-wasnt-i-satisfied-with-vs-code-refactorings&quot;&gt;&lt;a href=&quot;#why-wasnt-i-satisfied-with-vs-code-refactorings&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why wasn’t I satisfied with VS Code refactorings?&lt;/h2&gt;
+&lt;p&gt;It’s true that VS Code ships with &lt;a href=&quot;https://code.visualstudio.com/docs/editor/refactoring&quot;&gt;basic refactoring operations&lt;/a&gt;. So what’s wrong?&lt;/p&gt;
+&lt;p&gt;Well, speaking from a personal point of view, few things aren’t great:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are a lot of automated refactorings that I know and aren’t proposed. I need more than that.&lt;/li&gt;
+&lt;li&gt;To get an appropriate suggestion requires selecting &lt;em&gt;exactly&lt;/em&gt; the code to refactor. I can’t just have the cursor on a variable and trigger an extraction. I need to select the whole extracted statement first, which is slowing me down.&lt;/li&gt;
+&lt;li&gt;I don’t like the UX much. Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what “enclosing scope” vs. “module scope” means in terms of the resulting code. I &lt;em&gt;know&lt;/em&gt; that there is a better way.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+	
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 32.20815752461322%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAABUklEQVQY0x3MS0/CQAAE4P5TDxp/g9FICBIQ49WDioJ4MV4NaNCoQMEI4VFMUKQFjBCghdJlu+12H12Lk8ncvpGAJSxDEIcSbFG8YhhSFzAMmAsQRAgSz/UIo8jDQW0crGe52EYO51zCcPWroq6mDyfGcLL4mS7644U6RtoM9CZAm0JtBjUdqobTNWhH91TdJSyA3Pd9iXOcyVYOktlEOh9PPRym89HkY/j8fe+yuJ+phK7k0HVlN1WK37yVB6A8hNW+ubSAECLQEqP05FYOnT1FLp5j6UI4+RJNlWIZeee0uJm43zrKbR/nNuJ3kfTrEpguggHzfS7+IzHGR4NOp1H4UsqfLbmryEqt0qhqSuejpjTrH61au1lV6u3e92Bujeam6XgGgDZcv0iEEEo9ghH1nPUSB9n2Cgqb+TYTiAtIBWQCEr50sOngBcI6WCGEAvwHk0Y3HcX2qDkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;VS Code shows a popup to either &quot; extract=&quot;&quot; to=&quot;&quot; function=&quot;&quot; in=&quot;&quot; module=&quot;&quot; scope&quot;,=&quot;&quot; or=&quot;&quot; &quot;extract=&quot;&quot; constant=&quot;&quot; enclosing=&quot;&quot; scope&quot;&quot;=&quot;&quot; title=&quot;&quot; src=&quot;/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-c83f1.png&quot; srcset=&quot;/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-569e3.png 240w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-93400.png 480w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-c83f1.png 960w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-fa384.png 1422w&quot; sizes=&quot;(max-width: 960px) 100vw, 960px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+	&lt;figcaption&gt;I understand what it means, but it takes precious seconds to process. Don&amp;apos;t make me think!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Before using VS Code exclusively, I used Webstorm professionally for a few years. And I prefer VS Code: it’s free, feels lighter to use and has a very active community. But there is one thing Webstorm nailed that VS Code doesn’t provide: many, intuitive, automated refactorings.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/extract-function-webstorm-253e9f49e2323fddd9d5fcb72c7de396.gif&quot; alt=&quot;Gif of extracting a function in Webstorm&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 281px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 142.34875444839858%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEbElEQVRIx31WaVMbRxDdP5JKQgJGQkKHBehAq/sAdF/oxggJDDoQmMuYqpBUKp9SlZ/80q9lgWIUf+ia3dmZnn79XvescXb6Eaf9M0zGlxgNxzg/O8f19Bqfrm8wnUwxHk1we3OLwckAe6l9VEpVxCJxBAMmzN3QqwVDCAXDMJLxJHY8XjhsDrgd7+FxbcFpd8K56dLn987ZHL/brZtwbbr1m9P+1vzeAIwt9zZojKbf6+P4qIdWo43ehxMUckWNaHg+lPlj3WBd21DHNov9je1seWGEJFxGcH93j7FApp0NzjC6GKFZbyKd3BPnPUwEejQcw/qqZanDjXUbtj07MKLhqC5YXVnDTz+siP2stvLjL7CsWXUxnbz7dR2bG7O0EPa3xjRohH5fAAd7GZwI3LubO/Ql+ePRGN3OESKhKMJm5MWY9EUiOJfPFlCr1JCIJeHb8cPwbvuUvWwmh267i4bAbDXbArel8/FoAsl4So3scuOiZfYzyB7kZF18BtnlcKNx2JRTDkEJdVodJeFU8tg7PsEHIWN0McbjwyOOJOoL+Xbx8QI3n240r+PhRN/p1PLOKg4F/376QGHncwWNikQQEiHTSAZt/h4RqIx2Ps+9nN+w2GBUylWUixWFS2YpHUbFBczZ92yex1KxrPDJtOqwKkktFUpKBCEzfJ68SMgyo1MeXMyXNGKNcFMqoFquyWRRHR6L5g6rdV3M8qLx+f8c8uBcNo9oJAYrIzR3TRVwvVbH9PJKa5fV8vT4pDXMVITN6BvnhJtKpAVRV0mNSqRO0bORlElKgkTkMnmFqzKSkWXHDQUhi8Rl9rP/yS2fVT7SD6JyiNfuhhH0eUSQAez6g6J0H6hLmse9hQPR2PNvz1KWD/h8/1mlM3c4h8x9tKBEbGUO4+YO2hJFURrByXFfK4b66vcGevq8KhbZnTsjZCqESmEubXTokDAPJX8sIcKjeJlD5oUwFx0sksNnVhE7ElnmnM1qF4c2pzojKVfTK61jnsZCZ7taxux8JIKqRFevNTQVbG1GTOimQ57UOGyofPheKpSVmG+dLDpOxBJKJPdGQjEEY9tCSmAmm7KonRXC/J1LbTJaVg6JCYcib7TId4qZBcFK4RrPtos5dKIt3aUu0Q3FwaA/0I5NGKHgW6iLxhyzKCqlikrPsiqQKQ/qjWyxM5OgZqOlTqnHuYiXQY4LZKaFsF9YZj+rf3XCm296OdV2xKvgQfTXbR/p4mVs86AXHUrqlGWvsJlOpiWaPYWQSqReWhNlMWtby5sD180bsMpGrgsjLmXTbh3hcnIlzXOMdCojcgki4DPh98noNyUC8+s9bL7cxxxZrpoi6e50bF2XHO5KudWrci+U8mjWimq1Uk6tWsyhXBDL55CXKyIj+couMeaQdc7OZexJJ3m67eL3+zae79r45482/vrSwd/PHfz52MGX69l4Pexor2w1O6KKVyN5HBklu79h25C/AYcHbvlDcDleje+8Mmd/EzPjX4T7O8Yc/gtSAQb+tyZOPQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;List of available refactorings in Webstorm&quot;
+        title=&quot;&quot;
+        src=&quot;/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-22c77.png&quot;
+        srcset=&quot;/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-5fe8f.png 240w,
+/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-22c77.png 281w&quot;
+        sizes=&quot;(max-width: 281px) 100vw, 281px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;p&gt;This made me so productive back in the days. I relied on my editor to move fast.&lt;/p&gt;
+&lt;p&gt;And I think it matters. If refactoring code takes 2 keystrokes I’m more likely to do it than if I have to do it by hand, or if I have to find the correct combination of 5 keystrokes to make it work. Great automated refactorings are a productivity boost for every developer.&lt;/p&gt;
+&lt;h2 id=&quot;but-wait-wasnt-there-an-extension-already&quot;&gt;&lt;a href=&quot;#but-wait-wasnt-there-an-extension-already&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;But wait, wasn’t there an extension already?&lt;/h2&gt;
+&lt;p&gt;Yes! And I used it for some time. Well… I tried to.&lt;/p&gt;
+&lt;p&gt;I essentially work with JavaScript (and TypeScript). If you &lt;a href=&quot;https://marketplace.visualstudio.com/search?term=js%20refactoring&amp;#x26;target=VSCode&amp;#x26;category=All%20categories&amp;#x26;sortBy=Relevance&quot;&gt;search for “JS refactoring” on VS Code Marketplace&lt;/a&gt;, you’ll find a promising extension called “JS Refactor”:&lt;/p&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 32.7134404057481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAABYlAAAWJQFJUiTwAAABI0lEQVQY001Qu07EMBDMd/MBlCc+gCspaKioEdJxdFchSiSEooRc/Fq/X8FMQsFNYc/Oztq7203Tt7UmXMKHkKI5M/7woqQkTZfQWv+dxphuHDmRJ1L/eaVIG+WjmvnqcxZWuYEx1vc9yDiOIB2bnrV6S3lJKaaUMq5cCrH8foh1id6bYfTOtdZOp9Px9ZhzjhHyiu7r45pN9z+tQXTW1ZJra8vjzXJ3BRKI5qeDMwbF+/3tbrcDKaWgstbacXHWWnkf5nnmnKOlEOLcf0o2w3GGSIoLkXJWSmFO/Izmh2EQQnRSQLLWWcHhERgSPW0DFOedJoUQERahhMAq44Ytn7uIVee0fk4ESXvjSVZrkdOWkhQ1BBu9JYkHsBIyq62W6oL7BfkuiKF5wENdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;marketplace js refactoring&quot;
+        title=&quot;&quot;
+        src=&quot;/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-c83f1.png&quot;
+        srcset=&quot;/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-569e3.png 240w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-93400.png 480w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-c83f1.png 960w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-23e13.png 1440w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-10d8f.png 1920w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-a78a6.png 2366w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;p&gt;I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, shared that for free and maintained it. But it’s not exactly what I’m looking for, for a few reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It still misses a lot of refactorings I’m looking for. In fact, it doesn’t have many. The way it performs operations like “Add Export”, “Negate Expression” or “Wrap Selection”, even if they’re handy, is not refactoring because they modify code behavior.&lt;/li&gt;
+&lt;li&gt;It often tended to just &lt;em&gt;not work&lt;/em&gt;. Until very recently, it would fail if I had a JS class in the file. Still today, it doesn’t work on TypeScript code.&lt;/li&gt;
+&lt;li&gt;It provides features I’m not looking for (I don’t want code snippets, I want refactorings)&lt;/li&gt;
+&lt;li&gt;Selection doesn’t have to be as precise as VS Code. It understands what you want to do with a partial selection. Though I still can’t “just have the cursor inside” and make it work.&lt;/li&gt;
+&lt;li&gt;The UX is still not the one I expect. It requires too many keystrokes for me to extract a variable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 66.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIklEQVQ4y21TCY6jMBDM/9+30q6UTGIg3EcMBl/Y1BZkktGMBqnUDaarqw+fhEgghIBIEpRliaqqviFNU9zv9wP7f3meo20bNE19oG0aFEWB6/V6nJ+GrkJXFyibAZdS4pwPOBefPm3aa6Tdglx6VPOGUsUD9QLUMw5bjQ7TNGHRGifjHbxaoSqDW1bgfM1wvmX4SHJcxB0X+pcPvgvi9oRIc+RlQ7S4Fw3qpkOwFmEnXJzH6jdEu8H7FdYSjjCevkfgt81FRE/fasJgNfrAl28Owt2e7LpiJcm6rPAkN9rBLPYgsy7AmGeCuCf1INxTzQskieR4PSQMJKTKhaXz0BkHPWsSM+MaqZrn/GeLG7btEzF+x/Z1dtIsxWsGThGOwZOyaKVDz0YrZdhsA03yEMOhYA/67XkTKioy3mLxM0YjoewM7WbaCWGLvwTim6JXgjehoUJNhWoC+xbgSCjnBRPhLGEUB2RYOqvYexnCr+rePZzZ2L35U20xdiOkUhgJvSjMLFlxQErT7r21DiOHJrkBmtNfGOuc+1HywtEzq54l2irFv6vg5mcY+zvybELeWmTDA0knkfQjRDvib7VbiVpO6B+Sa+ffpCfNVQkhsqwF46ODqHp0w4BF9eg7TbUBA8vvlcaVt6aQmu8a7WPE+kPdUfK0rwcJ5+mBuhA477eACocmQSpGFK1DThUZ1e0qd3ujuj8FFbNFlVRoup6inr39D1c96U++aQzuAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Extract a variable with JS&amp;#xA0;Refactor, user input pops up at top of the file&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-1ea6b.png 240w,
+/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-eaa96.png 480w,
+/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;figcaption&gt;&amp;quot;Extract Variable&amp;quot; scope is clearer than VS Code&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 18.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAXElEQVQY06XMSQ6AIBAFUe5/RReSaIITDY1og1G/Bm+Ai7esUkQO87IURASRVEmQcoZqTICmA63N0PZAx1cdf6LnG6qbGCMnDF4K4/YfBCp4hy0GxPWzVSrt+3kA8IwyQ89Y/cIAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Then, it asks for declaration type&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-1ea6b.png 240w,
+/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-eaa96.png 480w,
+/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;figcaption&gt;Hmmm 99% of the time I extract a variable, it&amp;apos;s a const. Don&amp;apos;t ask me every time!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 10.571428571428571%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAVklEQVQI11WKSRKAIBAD+f8/lQEOIjCsh8iiVHno6lQSYT0j14aYK1L583Vx57bNqXTy64XjBEFKQxJBadOtcEqaHiizuvEZ+3HK6fG57I3AET7wxnUe0Y+ZJYD/xTkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Finally, it asks for a name&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-1ea6b.png 240w,
+/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-eaa96.png 480w,
+/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;figcaption&gt;Having 3 popups before extracting feels like it&amp;apos;s not trivial. It adds friction.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;At that point, I thought:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OK, maybe I can contribute and improve it!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Heading to &lt;a href=&quot;https://github.com/cmstead/js-refactor&quot;&gt;the repository&lt;/a&gt;, I was really happy to see it seemed well tested. But I felt the architecture was not quite what I’d have in mind:&lt;/p&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 315px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 158.73015873015873%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAIAAACdAM/hAAAACXBIWXMAABYlAAAWJQFJUiTwAAADv0lEQVQ4y42Vi5aaSBCGef+Xytkkm2RuOjcNXkAFBUFBEPreMPm7EaMzyZ7lFH3KsptuvvqrcAjlUXpgoimJhtWsefvfl5MV9T9348G8vpmQ5wWdrHljl7ftW9uPf12slLZTf8+xvrXeaZo/m1OUJIz3Xiw+PVc3bj2c04FHhx599OjDjEzXfBwwIf+8vcOFJIxXTB+pJlwXtSJMc9lgZEIfalUS1ZrDtE373hzKRFlRodqSalhFzYIkk/FBpYWsaFMxw5JyQ+LdARysjNJsmcqBT0chA7Mnnw2n5GlBn5f00aevK/bis81edhRPLNsOmNbXj+xpXV0WfHf1IM2xDyUJop2/FXdT8jgndy4ZzCnS9rKi39wa+wPh/QyGOLmbmH9/BgwU8QQDjDIuVQNIXGilGxh8RCjXUjfC+l0EvlCWJdfY2oHCDmUNYe1KtS9VnMloL6NM5keFSFoovO02V6nllxyMIYJ/zbE7YEEqXxZ0vGTuii22AjobBQyoXpfsZcmePPrsAyQFThx4hPiCEEo/KqztFfYxNZf8DDUAq1ebtAM2mBkkkBf8oW8ggd+PiQneuOR2Qr7DnxrfDYgQwgErjlsZHjAj2rbVukVENw0cDX7ihA0jJmDU9nJqyrOigjaTQsE2O9ASq1TEAJOJYC/BDH6cy2UiksI4oIUgBO8ca7rd5ZgEQm7IJiFbJcK1wIZIsk9NbYQgZ9Jr4is2DTlmEtZcArMYrhT2H7VsFZZbYMjND5c8eez7T/L5tb4Zk1uXfBnVDzOjMJQn8sREe9kkjLaFxOkNKMOpMXlqTre5tA1BXuhT3W6Xl1MRlh2OEBMgJbkMUxGkYr0X3pZ7EV/vRLgT0NY2l11VXpVkVbMkK8KdBKr5hvsRBxhAQj12ETfks4jDR1W/w+Agxe25W/WoLgV32dve9zAobLlOZpEAqlurJOgJzP4dG1oQGfoBtB3n6twMLrqnRBnqDqHpTBad7p5tEEJMVnnt6UTXwGqaZmVyUIsthzxgfgyHbzK5iDng4bUxAhsoAtupcqwZ2mZxoaC+ecRnG46cg/zSLvMt8+maBYmYmp8C+zc9G5Pn7mzafilsvlvrtOeX1PYVfmM7t14DbJOMA/5tVIPW11H1dVyjez3YqnywCO+npqvd43uAfjalpG/DRtvY9tw0u3yc2mR32yMo3UJk+AygsfcTUFUVgBXbg5ptmBdzvHZHDiNKBy0JtPAzP+qLvt0vrgnb5eX+qMEDU70ItE0PQxvEBwyR9U5CZGiAbx8+mr8ApF0jjUNMNwcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;js refactor architecture&quot;
+        title=&quot;&quot;
+        src=&quot;/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png&quot;
+        srcset=&quot;/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-7fe74.png 240w,
+/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png 315w&quot;
+        sizes=&quot;(max-width: 315px) 100vw, 315px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;p&gt;I think abstractions are great, as long as ”[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise” as Dijkstra said. To me, too many “factories” adds a lot of indirection for which I can’t figure out the added value. For example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// add-export-factory.js&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;addExportFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  coordsHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  editActionsFactory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;/span&gt;  logger&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  parser&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  selectionExportHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  selectionExpressionHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  templateHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  vsCodeHelperFactory
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-actions-factory.js&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editActionsFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  editFactory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;/span&gt;  vscodeFactory
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-factory.js&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;editApiFactory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-api-factory.js&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editApiFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;vscodeFactory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Abstracting VS Code API so we isolate our domain logic from the actual platform brings a lot of value. But, in my opinion, all of the intermediate factories make the code more difficult to reason about.&lt;/p&gt;
+&lt;p&gt;So, I was not really satisfied with the extension, neither aligned with the overall design of the code—but I respect the choice of the author, whatever works best for him! That’s when popped up in my head the idea of scratching my own itch and build my own.&lt;/p&gt;
+&lt;h2 id=&quot;abracadabra&quot;&gt;&lt;a href=&quot;#abracadabra&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Abracadabra!&lt;/h2&gt;
+&lt;p&gt;That’s why, 2 months ago, I started to build this extension.&lt;/p&gt;
+&lt;p&gt;My goal is essentially to build the tool I’m missing. A side-effect for me is the learning part. Digging into &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstract_syntax_tree&quot;&gt;Abstract Syntax Trees&lt;/a&gt; manipulations is super interesting. Also, I’m discovering how to build a VS Code extension for the first time. Finally, it’s a playground for me to test architectural decisions and practices, like &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/tree/master/docs/adr&quot;&gt;documenting architectural decisions through ADRs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I implemented a couple of refactorings across these 2 months. I published the extension a few days ago &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;on the Marketplace&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I still consider it under “initial development” phase. I’m waiting for feedback to improve these first refactorings. Next steps include adding more refactorings (I’ve got a bunch I want to implement), fixing edge cases that I still didn’t consider and improving the UX to match what I expect from a &lt;strong&gt;great&lt;/strong&gt; extension!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/magic-98f51cd9f53554f6d6ea08dbc350e379.gif&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-about-you&quot;&gt;&lt;a href=&quot;#what-about-you&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What about you?&lt;/h3&gt;
+&lt;p&gt;Well first, if you do JavaScript or TypeScript and you’re looking for great automated refactorings, you can &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;give Abracadabra a try&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Then, if you want to help me, you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Give me your feedbacks on what you like and what you’d like to improve. Whether you find a bug, have a suggestion or just want to share something, &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/issues&quot;&gt;have a look at existing issues or open a new one&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you’d like to contribute, you can start with the &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/issues?q=is%3Aissue+is%3Aopen+label%3A%22%3Awave%3A+Good+first+issue%22&quot;&gt;“Good First Issues” I’ve listed&lt;/a&gt;. Any kind of contribution is welcomed 🙂&lt;/li&gt;
+&lt;li&gt;Spread the word so I can get more use-cases and more feedbacks to improve the extension!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That’s it. I’m really excited about this, about happy to start spreading the word.&lt;/p&gt;
+&lt;p&gt;Now, &lt;em&gt;I feel better&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/thumbs-up-b8bf8658dd216b2ec14a1b9a27123f20.gif&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Drawing Git Graphs in the Browser]]></title><description><![CDATA[A talk I gave at FullStack NYC 2019 to present GitGraph.js.]]></description><link>https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</guid><pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In this talk I presented a side-project that I’ve been developing with my friend &lt;a href=&quot;https://twitter.com/fabien0102&quot;&gt;Fabien Bernard&lt;/a&gt; since 2013: &lt;a href=&quot;https://gitgraphjs.com&quot;&gt;GitGraph.js&lt;/a&gt; 🎉&lt;/p&gt;
 &lt;p&gt;It’s a JS library that allows you to draw git graphs in the browser. Very handy to prepare presentations or write blog posts. Creating and updating those git illustrations becomes easy!&lt;/p&gt;
 &lt;p&gt;I already &lt;a href=&quot;/en/2013/11/gitgraphjs/&quot;&gt;wrote about GitGraph.js in the past&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If there is one thing you should retain from my talk, it’s that &lt;strong&gt;you can hack your own problems&lt;/strong&gt;. You certainly have this crazy idea in mind, that problem you want to solve for yourself… Stop waiting the perfect moment, just start doing it. &lt;strong&gt;Good things will happen!&lt;/strong&gt;&lt;/p&gt;
@@ -3192,7 +3389,334 @@ keyCodesBuffer$&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt
 &lt;p&gt;Elle répondait à la problématique suivante : que faire quand une tâche doit être réalisée à un moment donné, pas avant, pas après. Autrement dit, &lt;strong&gt;une tâche qui ne passe pas dans un flow&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Nous avions alors mis en place une board &lt;em&gt;TODO &gt; Doing &gt; Done&lt;/em&gt; avec le power-up calendar activé. Chaque carte était attribuée à quelqu’un et était planifiée à une date précise. Ce qui répondait parfaitement au besoin.&lt;/p&gt;
 &lt;p&gt;Finalement, il y a eu de moins en moins de cartes de ce genre à mesure que l’équipe s’est rôdée avec Kanban et que l’organisation a évolué jusqu’à son état actuel. Chaque cas &lt;em&gt;« unique, qui ne peut pas fonctionner avec un système Kanban »&lt;/em&gt; (souvent, des tâches marketing / business d’ailleurs) a finalement trouvé sa place dans le flow à mesure que la philosophie Kanban a été intégrée.&lt;/p&gt;
-&lt;p&gt;Et finalement, j’ai pu fermer cette board devenue inutile… À la demande de l’équipe !&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Plop — un micro-générateur pour se simplifier la vie au quotidien]]></title><description><![CDATA[Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers.]]></description><link>https://www.nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/</link><guid isPermaLink="false">https://www.nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/</guid><pubDate>Thu, 26 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;vidéo--slides&quot;&gt;&lt;a href=&quot;#vid%C3%A9o--slides&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vidéo &amp;#x26; Slides&lt;/h2&gt;
+&lt;p&gt;Et finalement, j’ai pu fermer cette board devenue inutile… À la demande de l’équipe !&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Plop — a micro-generator to ease your daily life]]></title><description><![CDATA[Meet plop, a little node package which quickly bootstraps new files.]]></description><link>https://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/</guid><pubDate>Thu, 26 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;whats-plop&quot;&gt;&lt;a href=&quot;#whats-plop&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What’s plop?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/amwmedia/plop&quot;&gt;Plop&lt;/a&gt; is a little node package that will ease your life whenever you need to create a new controller / router / helper / …&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hey, that’s damn easy to create a new controller: copy-paste another controller code, delete specific lines you won’t use. Tadaaa!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Well, now pop a bunch of legitimate questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which “other” controller do you speak about? The more recent? The “best” coded? Is there any reference controller around there?&lt;/li&gt;
+&lt;li&gt;How can I get the previous point if I’m not — yet — an expert of the project codebase?&lt;/li&gt;
+&lt;li&gt;How can I ensure I’m correct when I name the new file? When I delete lines I consider “useless”?&lt;/li&gt;
+&lt;li&gt;Do I need to declare this new controller in some existing file? Which one? How?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Find a good file, open it, copy its content, create a new file, paste the content, delete useless lines… It’s repetitive, error prone and doesn’t have a lot of added value. And that could take some time. Most of all, that’s frequent!&lt;/p&gt;
+&lt;p&gt;It would just be awesome to write &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt; in your terminal, answer 2 questions and BIM, you’re all set!&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/plop-behavior-62658fd875867f5e906af0d0cae2be0a.gif&quot; alt=&quot;Plop behavior&quot;&gt;
+  &lt;figcaption&gt;Quick, neat. Still tempted with the copy-paste option?&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;That’s exactly what I’m talking about here.&lt;/p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;&lt;a href=&quot;#setup&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setup&lt;/h2&gt;
+&lt;h3 id=&quot;installation&quot;&gt;&lt;a href=&quot;#installation&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installation&lt;/h3&gt;
+&lt;p&gt;As a node package, &lt;code class=&quot;language-text&quot;&gt;npm install -g plop&lt;/code&gt; and you’re ready to play with plop.&lt;/p&gt;
+&lt;p&gt;You also can install it locally to the project, adding it to dependencies: &lt;code class=&quot;language-text&quot;&gt;npm install --save-dev plop&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then add it to your &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; scripts so you can run it with &lt;code class=&quot;language-text&quot;&gt;npm run plop&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;your-awesome-project&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;This is an awesome project, isn&apos;t it?&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;plop&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.1&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;plop&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;plop&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Voilà!&lt;/p&gt;
+&lt;h3 id=&quot;configuration&quot;&gt;&lt;a href=&quot;#configuration&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;Plop uses a simple &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here’s the standard configuration file I’d suggest you to put at the root of the project:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Here we&apos;ll define our generators&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Plop will also use templates that can either be inlined within the configuration file, or put in separate files. My suggestion is to put them into a &lt;code class=&quot;language-text&quot;&gt;plop-templates/&lt;/code&gt; folder, at the root of the project too.&lt;/p&gt;
+&lt;h3 id=&quot;all-inclusive-ftw&quot;&gt;&lt;a href=&quot;#all-inclusive-ftw&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;All inclusive FTW&lt;/h3&gt;
+&lt;p&gt;As you’d guess: both generator and templates are embedded in the project, just like your tests or task runner (brunch, gulp, grunt…).&lt;/p&gt;
+&lt;p&gt;This has &lt;strong&gt;tremendous advantages&lt;/strong&gt; over a &lt;a href=&quot;http://yeoman.io/authoring/&quot;&gt;customized Yeoman generator&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a single repo to maintain them all&lt;/li&gt;
+&lt;li&gt;everything is embedded, no need for installing yeoman and a generator to use it&lt;/li&gt;
+&lt;li&gt;update a template is dead easy, you don’t a to publish a new version of your generator and make sure everyone is up-to-date before using it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In a nutshell, when a project-specific Yeoman generator may sound overkill, plop fits perfectly. Lightweight, close to source code, it will be &lt;strong&gt;easier to adopt&lt;/strong&gt;, maintain and, at the end, &lt;strong&gt;it will be used&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;our-first-generator&quot;&gt;&lt;a href=&quot;#our-first-generator&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Our first generator&lt;/h2&gt;
+&lt;p&gt;To declare a new generator, &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt; provides you &lt;code class=&quot;language-text&quot;&gt;setGenerator&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// We declare a new generator called &quot;module&quot;&lt;/span&gt;
+  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Succintly describes what generator does.&lt;/span&gt;
+    description&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Create a new module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// Get inputs from the user.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// That&apos;s Inquirer.js doing the job behind the hood.&lt;/span&gt;
+    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is your module name?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// List of actions to take.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Here we &quot;add&quot; new files from our templates.&lt;/span&gt;
+    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;prompts&quot;&gt;&lt;a href=&quot;#prompts&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Prompts&lt;/h3&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;prompts&lt;/code&gt; part is delegated to &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js/&quot;&gt;Inquirer.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can just refer to &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js/#objects&quot;&gt;their documentation&lt;/a&gt; to learn whatever you can do — questions types, output filter, input validation…&lt;/p&gt;
+&lt;p&gt;You can imagine doing some not trivial stuff:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; trimRight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isEmpty &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;ensurePlural&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;trimRight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;isNotEmptyFor&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; value &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos; is required&apos;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
+
+    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is your module name?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        validate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isNotEmptyFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        filter&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ensurePlural&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;validate&lt;/code&gt; will ensure the given module name is not empty.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;filter&lt;/code&gt; allow you to standardize the output: here module names should end with an &lt;code class=&quot;language-text&quot;&gt;s&lt;/code&gt; by convention. Even if I do it wrong and give &lt;code class=&quot;language-text&quot;&gt;calendar&lt;/code&gt; as the module name, I can be sure the &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; variable will be &lt;code class=&quot;language-text&quot;&gt;calendars&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;actions&quot;&gt;&lt;a href=&quot;#actions&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Actions&lt;/h3&gt;
+&lt;p&gt;Now it knows everything it needs, plop will run every &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt; you configured. It can use every variables that inquirer did transmit.&lt;/p&gt;
+&lt;p&gt;Actions, just like templates, are parsed with &lt;a href=&quot;https://github.com/wycats/handlebars.js/&quot;&gt;Handlebars&lt;/a&gt;. If you understand how it works, you know how to use plop.&lt;/p&gt;
+&lt;p&gt;Therefore &lt;code class=&quot;language-text&quot;&gt;{{name}}&lt;/code&gt; is the answer given to the prompt, validated and filtered previously. You can drop it wherever needed, in the created file path and/or its template.&lt;/p&gt;
+&lt;p&gt;There are 2 types of actions that are supported yet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;add&amp;quot;&lt;/code&gt; that will create a new file into the given &lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt; — which is relative to &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;modify&amp;quot;&lt;/code&gt; that will modify the file located at given &lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt;. It will replace the RegExp you provided in &lt;code class=&quot;language-text&quot;&gt;pattern&lt;/code&gt; with the template you provide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both actions can either use an inlined template via &lt;code class=&quot;language-text&quot;&gt;template&lt;/code&gt;, or retrieve it from the path you set via &lt;code class=&quot;language-text&quot;&gt;templateFile&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;a-concrete-example&quot;&gt;&lt;a href=&quot;#a-concrete-example&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;A concrete example&lt;/h4&gt;
+&lt;p&gt;Let’s imagine that kind of implementation:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; modulePath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.js&apos;&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
+
+    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Add a new model + tests boilerplate.&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;token comment&quot;&gt;// Modify the module file to inject created model.&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// This is basically RegExp replacement.&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;modify&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; modulePath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        pattern&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/(\/\/ IMPORT MODULE FILES)/g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;$1\nimport Model from &quot;./{{camelCase name}}.model&quot;;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;modify&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; modulePath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        pattern&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/(const namespace = &quot;\w+&quot;;)/g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;$1\n\nModel = Model.extend( { namespace: namespace } );&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then, let’s say you have the &lt;code class=&quot;language-text&quot;&gt;plop-templates/model.js&lt;/code&gt; template:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * TODO - Describe what your model does.
+ *
+ * @class {{pascalCase name}}.Model
+ * @module {{pascalCase name}}
+ * @constructor
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Model &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;backbone&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Executed on model initialization&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Considering &lt;code class=&quot;language-text&quot;&gt;{{name}}&lt;/code&gt; is &lt;code class=&quot;language-text&quot;&gt;calendars&lt;/code&gt;, then plop will create the following &lt;code class=&quot;language-text&quot;&gt;app/modules/calendars.model.js&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * TODO - Describe what your model does.
+ *
+ * @class Calendars.Model
+ * @module Calendars
+ * @constructor
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Model &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;backbone&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Executed on model initialization&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And will also transform your current &lt;code class=&quot;language-text&quot;&gt;app/modules/calendars.js&lt;/code&gt; module file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Module &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;core/module&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; _ &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// IMPORT MODULE FILES&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; namespace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;calendars&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    _&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; isDisplayed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;onReady&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Do something when module is considered as ready&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To insert the reference to the created model:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Module &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;core/module&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; _ &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// IMPORT MODULE FILES&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Model &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./calendars.model&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; namespace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;calendars&apos;&lt;/span&gt;
+
+Model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; namespace&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; namespace &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    _&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; isDisplayed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;onReady&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Do something when module is considered as ready&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With &lt;code class=&quot;language-text&quot;&gt;&amp;quot;add&amp;quot;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;quot;modify&amp;quot;&lt;/code&gt; you can ease a lot of small repetitive things.&lt;/p&gt;
+&lt;h4 id=&quot;adapt-actions-to-given-answers&quot;&gt;&lt;a href=&quot;#adapt-actions-to-given-answers&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Adapt actions to given answers&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/amwmedia/plop/pull/1&quot;&gt;You can pass a function to &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt;&lt;/a&gt;. This function will take user’s answers as a parameter and should return the array of actions to take.&lt;/p&gt;
+&lt;p&gt;This way you can &lt;strong&gt;adapt actions to given answers&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s consider this example of new module creation:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is the name of your module?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        validate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isNotEmptyFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        filter&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ensurePlural&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;list&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;dataConfig&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Tell me about the data, what do you need?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;none&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        choices&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Nothing&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;none&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A Model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Add a new module, whatever happens.&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; actions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}/{{camelCase name}}.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+      &lt;span class=&quot;token comment&quot;&gt;// If you wish a Model, then we add a Model.&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dataConfig &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        actions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; actions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token comment&quot;&gt;// Return the array of actions to take.&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; actions
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Your generator can adapt to many different scenarios (e.g: a module with a Model, a Collection + Model, with a CollectionView or a CompositeView…).&lt;/p&gt;
+&lt;h3 id=&quot;helpers&quot;&gt;&lt;a href=&quot;#helpers&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Helpers&lt;/h3&gt;
+&lt;p&gt;A little note about templating helpers of plop: these are &lt;a href=&quot;http://handlebarsjs.com/expressions.html#helpers&quot;&gt;those from Handlebars&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You starts with a bunch of &lt;a href=&quot;https://github.com/amwmedia/plop#baked-in-helpers&quot;&gt;helpers plop gives you&lt;/a&gt;. &lt;code class=&quot;language-text&quot;&gt;camelCase&lt;/code&gt;, for instance, just works this way: &lt;code class=&quot;language-text&quot;&gt;{{camelCase name}}&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;name = &amp;quot;my awesome module&amp;quot;&lt;/code&gt; gives &lt;code class=&quot;language-text&quot;&gt;&amp;quot;myAwesomeModule&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can define your own helpers within &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;addHelper&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;upperCase&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We just created an &lt;code class=&quot;language-text&quot;&gt;upperCase&lt;/code&gt; helper we could use later in the &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt; and templates: &lt;code class=&quot;language-text&quot;&gt;{{upperCase name}}&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;just-use-it&quot;&gt;&lt;a href=&quot;#just-use-it&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Just use it&lt;/h3&gt;
+&lt;p&gt;There you go, just type &lt;code class=&quot;language-text&quot;&gt;npm run plop&lt;/code&gt; — or simply &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt;, if you made it global — then follow the guide.&lt;/p&gt;
+&lt;p&gt;You can also directly call a specific generator with &lt;code class=&quot;language-text&quot;&gt;npm run plop [generatorName]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Plop is fast and efficient to use, just like Yeoman. However, it’s far more lightweight and easier to maintain.&lt;/p&gt;
+&lt;h2 id=&quot;my-experience-feedback-in-production&quot;&gt;&lt;a href=&quot;#my-experience-feedback-in-production&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;My experience feedback in production&lt;/h2&gt;
+&lt;p&gt;As of the time of writing, I use plop with my team on the &lt;a href=&quot;http://vinoga.com&quot;&gt;Vinoga&lt;/a&gt; project. Its features perfectly match our use cases.&lt;/p&gt;
+&lt;p&gt;I did wrote a Yeoman generator for the project before. It was concretely unused by the team.&lt;/p&gt;
+&lt;p&gt;Definitely, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running &lt;code class=&quot;language-text&quot;&gt;plop module&lt;/code&gt; in your console, how cool is that \o/&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Plop — un micro-générateur pour se simplifier la vie au quotidien]]></title><description><![CDATA[Découvrez plop, un petit paquet node qui permet de bootstrap rapidement de nouveaux fichiers.]]></description><link>https://www.nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/</link><guid isPermaLink="false">https://www.nicoespeon.com/fr/2015/11/plop-micro-generateur-boilerplate-alternative-yeoman/</guid><pubDate>Thu, 26 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;vidéo--slides&quot;&gt;&lt;a href=&quot;#vid%C3%A9o--slides&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vidéo &amp;#x26; Slides&lt;/h2&gt;
 &lt;p&gt;J’ai présenté ce talk le 21 décembre 2015 au &lt;a href=&quot;http://www.meetup.com/fr-FR/Nodejs-Paris/events/227335326/&quot;&gt;meetup Node.js Paris Chapitre 3 / Conférence 2&lt;/a&gt;.&lt;/p&gt;
 &lt;div&gt;
           &lt;div
@@ -3552,334 +4076,7 @@ Model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Model&lt;span 
 &lt;h2 id=&quot;retour-dexpérience-en-production&quot;&gt;&lt;a href=&quot;#retour-dexp%C3%A9rience-en-production&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Retour d’expérience en production&lt;/h2&gt;
 &lt;p&gt;À l’heure actuelle, j’utilise plop avec mon équipe sur le projet &lt;a href=&quot;http://vinoga.com&quot;&gt;Vinoga&lt;/a&gt;. Ses fonctionnalités conviennent parfaitement à nos use cases.&lt;/p&gt;
 &lt;p&gt;J’avais développé un générateur Yeoman auparavant, largement inutilisé par l’équipe en pratique.&lt;/p&gt;
-&lt;p&gt;Vraiment, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer &lt;code class=&quot;language-text&quot;&gt;plop module&lt;/code&gt; dans sa console, c’est plutôt cool \o/&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Plop — a micro-generator to ease your daily life]]></title><description><![CDATA[Meet plop, a little node package which quickly bootstraps new files.]]></description><link>https://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2015/11/plop-micro-generator-boilerplate-yeoman-alternative/</guid><pubDate>Thu, 26 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;whats-plop&quot;&gt;&lt;a href=&quot;#whats-plop&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What’s plop?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/amwmedia/plop&quot;&gt;Plop&lt;/a&gt; is a little node package that will ease your life whenever you need to create a new controller / router / helper / …&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Hey, that’s damn easy to create a new controller: copy-paste another controller code, delete specific lines you won’t use. Tadaaa!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Well, now pop a bunch of legitimate questions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Which “other” controller do you speak about? The more recent? The “best” coded? Is there any reference controller around there?&lt;/li&gt;
-&lt;li&gt;How can I get the previous point if I’m not — yet — an expert of the project codebase?&lt;/li&gt;
-&lt;li&gt;How can I ensure I’m correct when I name the new file? When I delete lines I consider “useless”?&lt;/li&gt;
-&lt;li&gt;Do I need to declare this new controller in some existing file? Which one? How?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Find a good file, open it, copy its content, create a new file, paste the content, delete useless lines… It’s repetitive, error prone and doesn’t have a lot of added value. And that could take some time. Most of all, that’s frequent!&lt;/p&gt;
-&lt;p&gt;It would just be awesome to write &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt; in your terminal, answer 2 questions and BIM, you’re all set!&lt;/p&gt;
-&lt;figure&gt;
-  &lt;img src=&quot;/plop-behavior-62658fd875867f5e906af0d0cae2be0a.gif&quot; alt=&quot;Plop behavior&quot;&gt;
-  &lt;figcaption&gt;Quick, neat. Still tempted with the copy-paste option?&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;That’s exactly what I’m talking about here.&lt;/p&gt;
-&lt;h2 id=&quot;setup&quot;&gt;&lt;a href=&quot;#setup&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setup&lt;/h2&gt;
-&lt;h3 id=&quot;installation&quot;&gt;&lt;a href=&quot;#installation&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installation&lt;/h3&gt;
-&lt;p&gt;As a node package, &lt;code class=&quot;language-text&quot;&gt;npm install -g plop&lt;/code&gt; and you’re ready to play with plop.&lt;/p&gt;
-&lt;p&gt;You also can install it locally to the project, adding it to dependencies: &lt;code class=&quot;language-text&quot;&gt;npm install --save-dev plop&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Then add it to your &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; scripts so you can run it with &lt;code class=&quot;language-text&quot;&gt;npm run plop&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;your-awesome-project&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;This is an awesome project, isn&apos;t it?&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token property&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token property&quot;&gt;&quot;plop&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.1&quot;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token property&quot;&gt;&quot;plop&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;plop&quot;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Voilà!&lt;/p&gt;
-&lt;h3 id=&quot;configuration&quot;&gt;&lt;a href=&quot;#configuration&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Configuration&lt;/h3&gt;
-&lt;p&gt;Plop uses a simple &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Here’s the standard configuration file I’d suggest you to put at the root of the project:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// Here we&apos;ll define our generators&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Plop will also use templates that can either be inlined within the configuration file, or put in separate files. My suggestion is to put them into a &lt;code class=&quot;language-text&quot;&gt;plop-templates/&lt;/code&gt; folder, at the root of the project too.&lt;/p&gt;
-&lt;h3 id=&quot;all-inclusive-ftw&quot;&gt;&lt;a href=&quot;#all-inclusive-ftw&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;All inclusive FTW&lt;/h3&gt;
-&lt;p&gt;As you’d guess: both generator and templates are embedded in the project, just like your tests or task runner (brunch, gulp, grunt…).&lt;/p&gt;
-&lt;p&gt;This has &lt;strong&gt;tremendous advantages&lt;/strong&gt; over a &lt;a href=&quot;http://yeoman.io/authoring/&quot;&gt;customized Yeoman generator&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a single repo to maintain them all&lt;/li&gt;
-&lt;li&gt;everything is embedded, no need for installing yeoman and a generator to use it&lt;/li&gt;
-&lt;li&gt;update a template is dead easy, you don’t a to publish a new version of your generator and make sure everyone is up-to-date before using it&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In a nutshell, when a project-specific Yeoman generator may sound overkill, plop fits perfectly. Lightweight, close to source code, it will be &lt;strong&gt;easier to adopt&lt;/strong&gt;, maintain and, at the end, &lt;strong&gt;it will be used&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;our-first-generator&quot;&gt;&lt;a href=&quot;#our-first-generator&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Our first generator&lt;/h2&gt;
-&lt;p&gt;To declare a new generator, &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt; provides you &lt;code class=&quot;language-text&quot;&gt;setGenerator&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// We declare a new generator called &quot;module&quot;&lt;/span&gt;
-  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Succintly describes what generator does.&lt;/span&gt;
-    description&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Create a new module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-    &lt;span class=&quot;token comment&quot;&gt;// Get inputs from the user.&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// That&apos;s Inquirer.js doing the job behind the hood.&lt;/span&gt;
-    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is your module name?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-    &lt;span class=&quot;token comment&quot;&gt;// List of actions to take.&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Here we &quot;add&quot; new files from our templates.&lt;/span&gt;
-    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;prompts&quot;&gt;&lt;a href=&quot;#prompts&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Prompts&lt;/h3&gt;
-&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;prompts&lt;/code&gt; part is delegated to &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js/&quot;&gt;Inquirer.js&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can just refer to &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js/#objects&quot;&gt;their documentation&lt;/a&gt; to learn whatever you can do — questions types, output filter, input validation…&lt;/p&gt;
-&lt;p&gt;You can imagine doing some not trivial stuff:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; trimRight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isEmpty &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;ensurePlural&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;trimRight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;s&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;isNotEmptyFor&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; value &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos; is required&apos;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
-
-    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is your module name?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        validate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isNotEmptyFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        filter&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ensurePlural&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;validate&lt;/code&gt; will ensure the given module name is not empty.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;filter&lt;/code&gt; allow you to standardize the output: here module names should end with an &lt;code class=&quot;language-text&quot;&gt;s&lt;/code&gt; by convention. Even if I do it wrong and give &lt;code class=&quot;language-text&quot;&gt;calendar&lt;/code&gt; as the module name, I can be sure the &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; variable will be &lt;code class=&quot;language-text&quot;&gt;calendars&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;actions&quot;&gt;&lt;a href=&quot;#actions&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Actions&lt;/h3&gt;
-&lt;p&gt;Now it knows everything it needs, plop will run every &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt; you configured. It can use every variables that inquirer did transmit.&lt;/p&gt;
-&lt;p&gt;Actions, just like templates, are parsed with &lt;a href=&quot;https://github.com/wycats/handlebars.js/&quot;&gt;Handlebars&lt;/a&gt;. If you understand how it works, you know how to use plop.&lt;/p&gt;
-&lt;p&gt;Therefore &lt;code class=&quot;language-text&quot;&gt;{{name}}&lt;/code&gt; is the answer given to the prompt, validated and filtered previously. You can drop it wherever needed, in the created file path and/or its template.&lt;/p&gt;
-&lt;p&gt;There are 2 types of actions that are supported yet:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;add&amp;quot;&lt;/code&gt; that will create a new file into the given &lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt; — which is relative to &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;modify&amp;quot;&lt;/code&gt; that will modify the file located at given &lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt;. It will replace the RegExp you provided in &lt;code class=&quot;language-text&quot;&gt;pattern&lt;/code&gt; with the template you provide&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Both actions can either use an inlined template via &lt;code class=&quot;language-text&quot;&gt;template&lt;/code&gt;, or retrieve it from the path you set via &lt;code class=&quot;language-text&quot;&gt;templateFile&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&quot;a-concrete-example&quot;&gt;&lt;a href=&quot;#a-concrete-example&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;A concrete example&lt;/h4&gt;
-&lt;p&gt;Let’s imagine that kind of implementation:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; modulePath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.js&apos;&lt;/span&gt;
-
-module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
-
-    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// Add a new model + tests boilerplate.&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-      &lt;span class=&quot;token comment&quot;&gt;// Modify the module file to inject created model.&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// This is basically RegExp replacement.&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;modify&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; modulePath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        pattern&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/(\/\/ IMPORT MODULE FILES)/g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;$1\nimport Model from &quot;./{{camelCase name}}.model&quot;;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;modify&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; modulePath&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        pattern&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/(const namespace = &quot;\w+&quot;;)/g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;$1\n\nModel = Model.extend( { namespace: namespace } );&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then, let’s say you have the &lt;code class=&quot;language-text&quot;&gt;plop-templates/model.js&lt;/code&gt; template:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
- * TODO - Describe what your model does.
- *
- * @class {{pascalCase name}}.Model
- * @module {{pascalCase name}}
- * @constructor
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Model &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;backbone&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Executed on model initialization&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Considering &lt;code class=&quot;language-text&quot;&gt;{{name}}&lt;/code&gt; is &lt;code class=&quot;language-text&quot;&gt;calendars&lt;/code&gt;, then plop will create the following &lt;code class=&quot;language-text&quot;&gt;app/modules/calendars.model.js&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
- * TODO - Describe what your model does.
- *
- * @class Calendars.Model
- * @module Calendars
- * @constructor
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Model &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;backbone&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Executed on model initialization&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;And will also transform your current &lt;code class=&quot;language-text&quot;&gt;app/modules/calendars.js&lt;/code&gt; module file:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Module &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;core/module&apos;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; _ &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;// IMPORT MODULE FILES&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; namespace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;calendars&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    _&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; isDisplayed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;onReady&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Do something when module is considered as ready&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To insert the reference to the created model:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Module &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;core/module&apos;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; _ &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lodash&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;// IMPORT MODULE FILES&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Model &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./calendars.model&apos;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; namespace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;calendars&apos;&lt;/span&gt;
-
-Model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; namespace&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; namespace &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    _&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; isDisplayed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;onReady&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Do something when module is considered as ready&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;With &lt;code class=&quot;language-text&quot;&gt;&amp;quot;add&amp;quot;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;quot;modify&amp;quot;&lt;/code&gt; you can ease a lot of small repetitive things.&lt;/p&gt;
-&lt;h4 id=&quot;adapt-actions-to-given-answers&quot;&gt;&lt;a href=&quot;#adapt-actions-to-given-answers&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Adapt actions to given answers&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/amwmedia/plop/pull/1&quot;&gt;You can pass a function to &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt;&lt;/a&gt;. This function will take user’s answers as a parameter and should return the array of actions to take.&lt;/p&gt;
-&lt;p&gt;This way you can &lt;strong&gt;adapt actions to given answers&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Let’s consider this example of new module creation:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setGenerator&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;module&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    prompts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;What is the name of your module?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        validate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isNotEmptyFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        filter&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ensurePlural&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;list&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;dataConfig&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Tell me about the data, what do you need?&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;none&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        choices&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Nothing&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;none&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A Model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-
-    actions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// Add a new module, whatever happens.&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; actions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}/{{camelCase name}}.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}/tests/{{camelCase name}}.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/module.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-
-      &lt;span class=&quot;token comment&quot;&gt;// If you wish a Model, then we add a Model.&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dataConfig &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;model&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        actions &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; actions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/modules/{{camelCase name}}.model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;add&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app/tests/{{camelCase name}}.model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            templateFile&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;plop-templates/model.tests.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-      &lt;span class=&quot;token comment&quot;&gt;// Return the array of actions to take.&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; actions
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Your generator can adapt to many different scenarios (e.g: a module with a Model, a Collection + Model, with a CollectionView or a CompositeView…).&lt;/p&gt;
-&lt;h3 id=&quot;helpers&quot;&gt;&lt;a href=&quot;#helpers&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Helpers&lt;/h3&gt;
-&lt;p&gt;A little note about templating helpers of plop: these are &lt;a href=&quot;http://handlebarsjs.com/expressions.html#helpers&quot;&gt;those from Handlebars&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You starts with a bunch of &lt;a href=&quot;https://github.com/amwmedia/plop#baked-in-helpers&quot;&gt;helpers plop gives you&lt;/a&gt;. &lt;code class=&quot;language-text&quot;&gt;camelCase&lt;/code&gt;, for instance, just works this way: &lt;code class=&quot;language-text&quot;&gt;{{camelCase name}}&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;name = &amp;quot;my awesome module&amp;quot;&lt;/code&gt; gives &lt;code class=&quot;language-text&quot;&gt;&amp;quot;myAwesomeModule&amp;quot;&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can define your own helpers within &lt;code class=&quot;language-text&quot;&gt;plopfile.js&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;addHelper&lt;/code&gt; :&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; plop &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  plop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addHelper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;upperCase&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;token comment&quot;&gt;// …&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We just created an &lt;code class=&quot;language-text&quot;&gt;upperCase&lt;/code&gt; helper we could use later in the &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt; and templates: &lt;code class=&quot;language-text&quot;&gt;{{upperCase name}}&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;just-use-it&quot;&gt;&lt;a href=&quot;#just-use-it&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Just use it&lt;/h3&gt;
-&lt;p&gt;There you go, just type &lt;code class=&quot;language-text&quot;&gt;npm run plop&lt;/code&gt; — or simply &lt;code class=&quot;language-text&quot;&gt;plop&lt;/code&gt;, if you made it global — then follow the guide.&lt;/p&gt;
-&lt;p&gt;You can also directly call a specific generator with &lt;code class=&quot;language-text&quot;&gt;npm run plop [generatorName]&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Plop is fast and efficient to use, just like Yeoman. However, it’s far more lightweight and easier to maintain.&lt;/p&gt;
-&lt;h2 id=&quot;my-experience-feedback-in-production&quot;&gt;&lt;a href=&quot;#my-experience-feedback-in-production&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;My experience feedback in production&lt;/h2&gt;
-&lt;p&gt;As of the time of writing, I use plop with my team on the &lt;a href=&quot;http://vinoga.com&quot;&gt;Vinoga&lt;/a&gt; project. Its features perfectly match our use cases.&lt;/p&gt;
-&lt;p&gt;I did wrote a Yeoman generator for the project before. It was concretely unused by the team.&lt;/p&gt;
-&lt;p&gt;Definitely, plop is the kind of tool that saves you 10 minutes here and there, every single day. And running &lt;code class=&quot;language-text&quot;&gt;plop module&lt;/code&gt; in your console, how cool is that \o/&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Testing Marionette.js Behaviors]]></title><description><![CDATA[How to unit test your Marionette.js Behaviors with ease.]]></description><link>https://www.nicoespeon.com/en/2015/11/testing-marionette-behaviors/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2015/11/testing-marionette-behaviors/</guid><pubDate>Mon, 23 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;context&quot;&gt;&lt;a href=&quot;#context&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Context&lt;/h2&gt;
+&lt;p&gt;Vraiment, plop est le genre d’outil qui nous fait gagner 10 minutes par-ci par-là au quotidien. Et lancer &lt;code class=&quot;language-text&quot;&gt;plop module&lt;/code&gt; dans sa console, c’est plutôt cool \o/&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Testing Marionette.js Behaviors]]></title><description><![CDATA[How to unit test your Marionette.js Behaviors with ease.]]></description><link>https://www.nicoespeon.com/en/2015/11/testing-marionette-behaviors/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2015/11/testing-marionette-behaviors/</guid><pubDate>Mon, 23 Nov 2015 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;context&quot;&gt;&lt;a href=&quot;#context&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Context&lt;/h2&gt;
 &lt;p&gt;This is a talk I gave on November 10th, 2015 at &lt;a href=&quot;http://www.meetup.com/fr/backbone-paris/events/226050848/&quot;&gt;meetup Backbone.js Paris S02E01&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;video-fr&quot;&gt;&lt;a href=&quot;#video-fr&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Video (FR)&lt;/h2&gt;
 &lt;div&gt;
@@ -7127,7 +7324,7 @@ The second one, closer to the CSS syntax, is the most used.&lt;/li&gt;
 &lt;li&gt;LESS is compiled with Javascript, it has one syntax which is quite close to the CSS.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As a general rule, we can say that &lt;a href=&quot;http://css-tricks.com/sass-vs-less/&quot;&gt;SASS is more powerful than LESS&lt;/a&gt; because it notably has a bunch of additional functionalities. However, this is a matter of taste and LESS could suffice enough to please you and, in my opinion, is easier to use at first.&lt;/p&gt;
-&lt;p&gt;Personnally, &lt;strong&gt;I use LESS instead of SASS&lt;/strong&gt; with my projects, mostfully because I get used to it.&lt;/p&gt;
+&lt;p&gt;Personally, &lt;strong&gt;I use LESS instead of SASS&lt;/strong&gt; with my projects, mostfully because I get used to it.&lt;/p&gt;
 &lt;p&gt;In the same time, I tend to use the inuit.css framework (instead of Bootstrap) on these projects. But inuit.css uses SASS!&lt;/p&gt;
 &lt;p&gt;Hopefully, I’m not the only one who likes LESS and &lt;a href=&quot;http://twitter.com/pwcc&quot;&gt;Peter Wilson&lt;/a&gt; has worked to create the LESS version of the framework. As I was keen on this idea, I joined the project we are maintaining today: &lt;a href=&quot;https://github.com/peterwilsoncc/inuit.css&quot;&gt;the official LESS port of inuit.css&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It’s all about &lt;strong&gt;traducing the SASS framework into LESS&lt;/strong&gt;, which leads us to 3 options:&lt;/p&gt;

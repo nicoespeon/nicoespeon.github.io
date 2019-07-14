@@ -1,0 +1,269 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.2247a6ba2b16e762244f.css">html{--hue:210;--accent-hue:330;--background-color:hsl(var(--hue),0%,100%);--separator-bg-color:hsl(var(--hue),0%,90%);--box-light-bg-color:hsl(var(--hue),0%,92%);--box-light-bg-hover-color:hsl(var(--hue),0%,87%);--text-color:hsl(var(--hue),0%,13%);--text-secondary-color:hsl(var(--hue),0%,33%);--subtitle-color:hsl(var(--hue),0%,53%);--focus-color:hsl(var(--hue),100%,57%);--link-color:hsl(var(--hue),100%,57%);--link-secondary-color:hsl(var(--accent-hue),100%,74%);--highlight-border-color:hsl(var(--accent-hue),100%,74%);--highlight-bg-color:hsl(var(--accent-hue),100%,94%);--code-bg-color:#f5f2f0;--code-text-color:#212121;--code-shadow-color:#fff;--code-selection-color:#b6d9fc;--code-punctuation-color:#999;--code-property-color:#8f0505;--code-selector-color:#4d9900;--code-operator-color:#a65959;--code-operator-bg-color:#f7f7f7;--code-keyword-color:#0054a8;--code-function-color:#dd4b94;--code-variable-color:#f07800}html[data-theme=dark]{--background-color:hsl(var(--hue),0%,8%);--separator-bg-color:hsl(var(--hue),0%,25%);--box-light-bg-color:hsl(var(--hue),0%,20%);--box-light-bg-hover-color:hsl(var(--hue),0%,30%);--text-color:hsl(var(--hue),0%,68%);--text-secondary-color:hsl(var(--hue),0%,55%);--subtitle-color:hsl(var(--hue),0%,40%);--focus-color:hsl(var(--hue),40%,60%);--link-color:hsl(var(--hue),40%,60%);--link-secondary-color:hsl(var(--accent-hue),60%,50%);--highlight-border-color:hsl(var(--accent-hue),100%,34%);--highlight-bg-color:hsl(var(--accent-hue),30%,20%);--code-bg-color:#2a2622;--code-text-color:#d4d4d4;--code-shadow-color:#1a1a1a;--code-selection-color:#064789;--code-comment-color:#6f7f90;--code-punctuation-color:grey;--code-property-color:#f96666;--code-selector-color:#9c6;--code-operator-color:#b34d4d;--code-operator-bg-color:#333;--code-keyword-color:#71a1d0;--code-function-color:#c63980;--code-variable-color:#d97f26}html[data-theme=dark] img{-webkit-filter:brightness(.8);filter:brightness(.8)}
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100;background-color:var(--background-color);color:var(--text-color)}body{line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:var(--text-color);height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,var(--text-color) 0,var(--text-color) 15px,transparent 0,transparent 26px);width:6.25rem}a{color:var(--link-color);text-decoration:none}a:active,a:focus,a:hover{color:var(--link-secondary-color)}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:var(--text-color);font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}.anchor svg{fill:var(--text-secondary-color)}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:var(--code-text-color);background:none;text-shadow:0 1px var(--code-shadow-color);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:var(--code-selection-color)}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:var(--code-bg-color)}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:var(--code-comment-color)}.token.punctuation{color:var(--code-punctuation-color)}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:var(--code-property-color)}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:var(--code-selector-color)}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:var(--code-operator-color);background:var(--code-operator-bg-color)}.token.atrule,.token.attr-value,.token.keyword{color:var(--code-keyword-color)}.token.function{color:var(--code-function-color)}.token.important,.token.regex,.token.variable{color:var(--code-variable-color)}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:var(--text-color)}.tags__list-item-link:focus,.tags__list-item-link:hover{color:var(--focus-color);border-bottom:1px solid var(--focus-color)}.categories__list-item-link{color:var(--text-color)}.categories__list-item-link:focus,.categories__list-item-link:hover{color:var(--focus-color);border-bottom:1px solid var(--focus-color)}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__subtitle{font-size:.9rem;max-width:40rem;text-align:center;font-style:italic;margin:.40625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:var(--highlight-bg-color);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid var(--highlight-border-color)}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__date{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:var(--box-light-bg-color);text-decoration:none;border:0;border-radius:.1875rem;color:var(--text-secondary-color);line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:var(--text-color);background:var(--box-light-bg-hover-color);border:0}.post-single__button-container{text-align:center}.post-single__button{display:inline-block;margin-right:1rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:var(--text-secondary-color);background:var(--box-light-bg-color);font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__button:focus,.post-single__button:hover{cursor:pointer;color:var(--text-color);background:var(--box-light-bg-hover-color);border:0}.post-single__button:last-child{margin-right:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem}.post-single__subtitle{font-size:1rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__button{position:fixed;margin:0;left:20px}.post-single__button--home{top:30px}.post-single__button--theme{top:81px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Introducing a refactoring tool for VS Code</title><meta data-react-helmet="true" name="description" content="I built &quot;Abracadabra&quot;, a VS Code extension to do automated refactorings."/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-9a46291d20bacd982e4d.js"/><link as="script" rel="preload" href="/app-4b69be65322cef6f2922.js"/><link as="script" rel="preload" href="/2-a4be8b4be4b8b83b17fa.js"/><link as="script" rel="preload" href="/0-90b3f267660c5b5198fe.js"/><link as="script" rel="preload" href="/webpack-runtime-ac24432d5a8590d2a0be.js"/><link rel="preload" href="/static/d/235/path---en-2019-07-introducing-refactoring-tool-vscode-94-d-586-IrX1Q0AuKBw3jAiEk9W6rK8.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div class="post-single__button-container"><a class="post-single__button post-single__button--home" href="/">← Articles</a><div class="post-single__button post-single__button--theme" role="button" tabindex="0">Dark<!-- --> theme</div></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Introducing a refactoring tool for VS Code</h1><p class="post-single__subtitle">☕ 6 min read</p><div class="post-single__body"><p>I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.</p>
+<p>But I am <em>frustrated</em>.</p>
+<p>I am frustrated because I miss a <strong>great</strong> tool to perform <strong>automated refactorings</strong> for me. And neither VS Code, neither existing extensions provide the experience I’m looking for!</p>
+<p><img src="/frustrated-6b45b4f3e49978b3ac79a693e637d601.gif"></p>
+<p>Thus, 2 months ago, I decided to follow <a href="/en/2019/06/drawing-git-graphs-browser/">my own advice</a> and hack my own problem. I started creating the VS Code extension I was looking for. This extension analyzes my code, suggests refactorings and executes them with the minimal amount of keystrokes needed. <strong>It helps me focus on my intention instead of manually following the scripted mechanics of a refactoring.</strong></p>
+<figure>
+  <blockquote>
+    <p>I called this extension: <a href="https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra">Abracadabra</a> ✨</p>
+  </blockquote>
+</figure>
+<p><img src="/abracadabra-demo-ff7a70954a50b63ddea5bceb419d8c23.gif" alt="Gif of extracting variables with Abracadabra"></p>
+<h2 id="why-wasnt-i-satisfied-with-vs-code-refactorings"><a href="#why-wasnt-i-satisfied-with-vs-code-refactorings" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why wasn’t I satisfied with VS Code refactorings?</h2>
+<p>It’s true that VS Code ships with <a href="https://code.visualstudio.com/docs/editor/refactoring">basic refactoring operations</a>. So what’s wrong?</p>
+<p>Well, speaking from a personal point of view, few things aren’t great:</p>
+<ul>
+<li>There are a lot of automated refactorings that I know and aren’t proposed. I need more than that.</li>
+<li>To get an appropriate suggestion requires selecting <em>exactly</em> the code to refactor. I can’t just have the cursor on a variable and trigger an extraction. I need to select the whole extracted statement first, which is slowing me down.</li>
+<li>I don’t like the UX much. Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what “enclosing scope” vs. “module scope” means in terms of the resulting code. I <em>know</em> that there is a better way.</li>
+</ul>
+<figure>
+	
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 32.20815752461322%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAABUklEQVQY0x3MS0/CQAAE4P5TDxp/g9FICBIQ49WDioJ4MV4NaNCoQMEI4VFMUKQFjBCghdJlu+12H12Lk8ncvpGAJSxDEIcSbFG8YhhSFzAMmAsQRAgSz/UIo8jDQW0crGe52EYO51zCcPWroq6mDyfGcLL4mS7644U6RtoM9CZAm0JtBjUdqobTNWhH91TdJSyA3Pd9iXOcyVYOktlEOh9PPRym89HkY/j8fe+yuJ+phK7k0HVlN1WK37yVB6A8hNW+ubSAECLQEqP05FYOnT1FLp5j6UI4+RJNlWIZeee0uJm43zrKbR/nNuJ3kfTrEpguggHzfS7+IzHGR4NOp1H4UsqfLbmryEqt0qhqSuejpjTrH61au1lV6u3e92Bujeam6XgGgDZcv0iEEEo9ghH1nPUSB9n2Cgqb+TYTiAtIBWQCEr50sOngBcI6WCGEAvwHk0Y3HcX2qDkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="VS Code shows a popup to either " extract="" to="" function="" in="" module="" scope",="" or="" "extract="" constant="" enclosing="" scope""="" title="" src="/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-c83f1.png" srcset="/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-569e3.png 240w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-93400.png 480w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-c83f1.png 960w,
+/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-fa384.png 1422w" sizes="(max-width: 960px) 100vw, 960px">
+    </span>
+  </span>
+  
+	<figcaption>I understand what it means, but it takes precious seconds to process. Don&apos;t make me think!</figcaption>
+</figure>
+<p>Before using VS Code exclusively, I used Webstorm professionally for a few years. And I prefer VS Code: it’s free, feels lighter to use and has a very active community. But there is one thing Webstorm nailed that VS Code doesn’t provide: many, intuitive, automated refactorings.</p>
+<p><img src="/extract-function-webstorm-253e9f49e2323fddd9d5fcb72c7de396.gif" alt="Gif of extracting a function in Webstorm"></p>
+<p>
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 281px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 142.34875444839858%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEbElEQVRIx31WaVMbRxDdP5JKQgJGQkKHBehAq/sAdF/oxggJDDoQmMuYqpBUKp9SlZ/80q9lgWIUf+ia3dmZnn79XvescXb6Eaf9M0zGlxgNxzg/O8f19Bqfrm8wnUwxHk1we3OLwckAe6l9VEpVxCJxBAMmzN3QqwVDCAXDMJLxJHY8XjhsDrgd7+FxbcFpd8K56dLn987ZHL/brZtwbbr1m9P+1vzeAIwt9zZojKbf6+P4qIdWo43ehxMUckWNaHg+lPlj3WBd21DHNov9je1seWGEJFxGcH93j7FApp0NzjC6GKFZbyKd3BPnPUwEejQcw/qqZanDjXUbtj07MKLhqC5YXVnDTz+siP2stvLjL7CsWXUxnbz7dR2bG7O0EPa3xjRohH5fAAd7GZwI3LubO/Ql+ePRGN3OESKhKMJm5MWY9EUiOJfPFlCr1JCIJeHb8cPwbvuUvWwmh267i4bAbDXbArel8/FoAsl4So3scuOiZfYzyB7kZF18BtnlcKNx2JRTDkEJdVodJeFU8tg7PsEHIWN0McbjwyOOJOoL+Xbx8QI3n240r+PhRN/p1PLOKg4F/376QGHncwWNikQQEiHTSAZt/h4RqIx2Ps+9nN+w2GBUylWUixWFS2YpHUbFBczZ92yex1KxrPDJtOqwKkktFUpKBCEzfJ68SMgyo1MeXMyXNGKNcFMqoFquyWRRHR6L5g6rdV3M8qLx+f8c8uBcNo9oJAYrIzR3TRVwvVbH9PJKa5fV8vT4pDXMVITN6BvnhJtKpAVRV0mNSqRO0bORlElKgkTkMnmFqzKSkWXHDQUhi8Rl9rP/yS2fVT7SD6JyiNfuhhH0eUSQAez6g6J0H6hLmse9hQPR2PNvz1KWD/h8/1mlM3c4h8x9tKBEbGUO4+YO2hJFURrByXFfK4b66vcGevq8KhbZnTsjZCqESmEubXTokDAPJX8sIcKjeJlD5oUwFx0sksNnVhE7ElnmnM1qF4c2pzojKVfTK61jnsZCZ7taxux8JIKqRFevNTQVbG1GTOimQ57UOGyofPheKpSVmG+dLDpOxBJKJPdGQjEEY9tCSmAmm7KonRXC/J1LbTJaVg6JCYcib7TId4qZBcFK4RrPtos5dKIt3aUu0Q3FwaA/0I5NGKHgW6iLxhyzKCqlikrPsiqQKQ/qjWyxM5OgZqOlTqnHuYiXQY4LZKaFsF9YZj+rf3XCm296OdV2xKvgQfTXbR/p4mVs86AXHUrqlGWvsJlOpiWaPYWQSqReWhNlMWtby5sD180bsMpGrgsjLmXTbh3hcnIlzXOMdCojcgki4DPh98noNyUC8+s9bL7cxxxZrpoi6e50bF2XHO5KudWrci+U8mjWimq1Uk6tWsyhXBDL55CXKyIj+couMeaQdc7OZexJJ3m67eL3+zae79r45482/vrSwd/PHfz52MGX69l4Pexor2w1O6KKVyN5HBklu79h25C/AYcHbvlDcDleje+8Mmd/EzPjX4T7O8Yc/gtSAQb+tyZOPQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="List of available refactorings in Webstorm"
+        title=""
+        src="/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-22c77.png"
+        srcset="/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-5fe8f.png 240w,
+/static/webstorm-list-refactorings-422f35440b5c7a1cdd67c412817bfb4c-22c77.png 281w"
+        sizes="(max-width: 281px) 100vw, 281px"
+      />
+    </span>
+  </span>
+  </p>
+<p>This made me so productive back in the days. I relied on my editor to move fast.</p>
+<p>And I think it matters. If refactoring code takes 2 keystrokes I’m more likely to do it than if I have to do it by hand, or if I have to find the correct combination of 5 keystrokes to make it work. Great automated refactorings are a productivity boost for every developer.</p>
+<h2 id="but-wait-wasnt-there-an-extension-already"><a href="#but-wait-wasnt-there-an-extension-already" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>But wait, wasn’t there an extension already?</h2>
+<p>Yes! And I used it for some time. Well… I tried to.</p>
+<p>I essentially work with JavaScript (and TypeScript). If you <a href="https://marketplace.visualstudio.com/search?term=js%20refactoring&#x26;target=VSCode&#x26;category=All%20categories&#x26;sortBy=Relevance">search for “JS refactoring” on VS Code Marketplace</a>, you’ll find a promising extension called “JS Refactor”:</p>
+<p>
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 32.7134404057481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAABYlAAAWJQFJUiTwAAABI0lEQVQY001Qu07EMBDMd/MBlCc+gCspaKioEdJxdFchSiSEooRc/Fq/X8FMQsFNYc/Oztq7203Tt7UmXMKHkKI5M/7woqQkTZfQWv+dxphuHDmRJ1L/eaVIG+WjmvnqcxZWuYEx1vc9yDiOIB2bnrV6S3lJKaaUMq5cCrH8foh1id6bYfTOtdZOp9Px9ZhzjhHyiu7r45pN9z+tQXTW1ZJra8vjzXJ3BRKI5qeDMwbF+/3tbrcDKaWgstbacXHWWnkf5nnmnKOlEOLcf0o2w3GGSIoLkXJWSmFO/Izmh2EQQnRSQLLWWcHhERgSPW0DFOedJoUQERahhMAq44Ytn7uIVee0fk4ESXvjSVZrkdOWkhQ1BBu9JYkHsBIyq62W6oL7BfkuiKF5wENdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="marketplace js refactoring"
+        title=""
+        src="/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-c83f1.png"
+        srcset="/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-569e3.png 240w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-93400.png 480w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-c83f1.png 960w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-23e13.png 1440w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-10d8f.png 1920w,
+/static/marketplace-js-refactoring-c73c9a2aae5ecf8dd3a4de7251c25c29-a78a6.png 2366w"
+        sizes="(max-width: 960px) 100vw, 960px"
+      />
+    </span>
+  </span>
+  </p>
+<p>I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, shared that for free and maintained it. But it’s not exactly what I’m looking for, for a few reasons:</p>
+<ul>
+<li>It still misses a lot of refactorings I’m looking for. In fact, it doesn’t have many. The way it performs operations like “Add Export”, “Negate Expression” or “Wrap Selection”, even if they’re handy, is not refactoring because they modify code behavior.</li>
+<li>It often tended to just <em>not work</em>. Until very recently, it would fail if I had a JS class in the file. Still today, it doesn’t work on TypeScript code.</li>
+<li>It provides features I’m not looking for (I don’t want code snippets, I want refactorings)</li>
+<li>Selection doesn’t have to be as precise as VS Code. It understands what you want to do with a partial selection. Though I still can’t “just have the cursor inside” and make it work.</li>
+<li>The UX is still not the one I expect. It requires too many keystrokes for me to extract a variable.</li>
+</ul>
+<figure>
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 66.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIklEQVQ4y21TCY6jMBDM/9+30q6UTGIg3EcMBl/Y1BZkktGMBqnUDaarqw+fhEgghIBIEpRliaqqviFNU9zv9wP7f3meo20bNE19oG0aFEWB6/V6nJ+GrkJXFyibAZdS4pwPOBefPm3aa6Tdglx6VPOGUsUD9QLUMw5bjQ7TNGHRGifjHbxaoSqDW1bgfM1wvmX4SHJcxB0X+pcPvgvi9oRIc+RlQ7S4Fw3qpkOwFmEnXJzH6jdEu8H7FdYSjjCevkfgt81FRE/fasJgNfrAl28Owt2e7LpiJcm6rPAkN9rBLPYgsy7AmGeCuCf1INxTzQskieR4PSQMJKTKhaXz0BkHPWsSM+MaqZrn/GeLG7btEzF+x/Z1dtIsxWsGThGOwZOyaKVDz0YrZdhsA03yEMOhYA/67XkTKioy3mLxM0YjoewM7WbaCWGLvwTim6JXgjehoUJNhWoC+xbgSCjnBRPhLGEUB2RYOqvYexnCr+rePZzZ2L35U20xdiOkUhgJvSjMLFlxQErT7r21DiOHJrkBmtNfGOuc+1HywtEzq54l2irFv6vg5mcY+zvybELeWmTDA0knkfQjRDvib7VbiVpO6B+Sa+ffpCfNVQkhsqwF46ODqHp0w4BF9eg7TbUBA8vvlcaVt6aQmu8a7WPE+kPdUfK0rwcJ5+mBuhA477eACocmQSpGFK1DThUZ1e0qd3ujuj8FFbNFlVRoup6inr39D1c96U++aQzuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Extract a variable with JS&#xA0;Refactor, user input pops up at top of the file" title="" src="/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png" srcset="/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-1ea6b.png 240w,
+/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-eaa96.png 480w,
+/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png 700w" sizes="(max-width: 700px) 100vw, 700px">
+    </span>
+  </span>
+  
+  <figcaption>&quot;Extract Variable&quot; scope is clearer than VS Code</figcaption>
+</figure>
+<figure>
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 18.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAXElEQVQY06XMSQ6AIBAFUe5/RReSaIITDY1og1G/Bm+Ai7esUkQO87IURASRVEmQcoZqTICmA63N0PZAx1cdf6LnG6qbGCMnDF4K4/YfBCp4hy0GxPWzVSrt+3kA8IwyQ89Y/cIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Then, it asks for declaration type" title="" src="/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png" srcset="/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-1ea6b.png 240w,
+/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-eaa96.png 480w,
+/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png 700w" sizes="(max-width: 700px) 100vw, 700px">
+    </span>
+  </span>
+  
+  <figcaption>Hmmm 99% of the time I extract a variable, it&apos;s a const. Don&apos;t ask me every time!</figcaption>
+</figure>
+<figure>
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 10.571428571428571%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAVklEQVQI11WKSRKAIBAD+f8/lQEOIjCsh8iiVHno6lQSYT0j14aYK1L583Vx57bNqXTy64XjBEFKQxJBadOtcEqaHiizuvEZ+3HK6fG57I3AET7wxnUe0Y+ZJYD/xTkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="Finally, it asks for a name" title="" src="/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png" srcset="/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-1ea6b.png 240w,
+/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-eaa96.png 480w,
+/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png 700w" sizes="(max-width: 700px) 100vw, 700px">
+    </span>
+  </span>
+  
+  <figcaption>Having 3 popups before extracting feels like it&apos;s not trivial. It adds friction.</figcaption>
+</figure>
+<p>At that point, I thought:</p>
+<blockquote>
+<p>OK, maybe I can contribute and improve it!</p>
+</blockquote>
+<p>Heading to <a href="https://github.com/cmstead/js-refactor">the repository</a>, I was really happy to see it seemed well tested. But I felt the architecture was not quite what I’d have in mind:</p>
+<p>
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 315px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 158.73015873015873%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAIAAACdAM/hAAAACXBIWXMAABYlAAAWJQFJUiTwAAADv0lEQVQ4y42Vi5aaSBCGef+Xytkkm2RuOjcNXkAFBUFBEPreMPm7EaMzyZ7lFH3KsptuvvqrcAjlUXpgoimJhtWsefvfl5MV9T9348G8vpmQ5wWdrHljl7ftW9uPf12slLZTf8+xvrXeaZo/m1OUJIz3Xiw+PVc3bj2c04FHhx599OjDjEzXfBwwIf+8vcOFJIxXTB+pJlwXtSJMc9lgZEIfalUS1ZrDtE373hzKRFlRodqSalhFzYIkk/FBpYWsaFMxw5JyQ+LdARysjNJsmcqBT0chA7Mnnw2n5GlBn5f00aevK/bis81edhRPLNsOmNbXj+xpXV0WfHf1IM2xDyUJop2/FXdT8jgndy4ZzCnS9rKi39wa+wPh/QyGOLmbmH9/BgwU8QQDjDIuVQNIXGilGxh8RCjXUjfC+l0EvlCWJdfY2oHCDmUNYe1KtS9VnMloL6NM5keFSFoovO02V6nllxyMIYJ/zbE7YEEqXxZ0vGTuii22AjobBQyoXpfsZcmePPrsAyQFThx4hPiCEEo/KqztFfYxNZf8DDUAq1ebtAM2mBkkkBf8oW8ggd+PiQneuOR2Qr7DnxrfDYgQwgErjlsZHjAj2rbVukVENw0cDX7ihA0jJmDU9nJqyrOigjaTQsE2O9ASq1TEAJOJYC/BDH6cy2UiksI4oIUgBO8ca7rd5ZgEQm7IJiFbJcK1wIZIsk9NbYQgZ9Jr4is2DTlmEtZcArMYrhT2H7VsFZZbYMjND5c8eez7T/L5tb4Zk1uXfBnVDzOjMJQn8sREe9kkjLaFxOkNKMOpMXlqTre5tA1BXuhT3W6Xl1MRlh2OEBMgJbkMUxGkYr0X3pZ7EV/vRLgT0NY2l11VXpVkVbMkK8KdBKr5hvsRBxhAQj12ETfks4jDR1W/w+Agxe25W/WoLgV32dve9zAobLlOZpEAqlurJOgJzP4dG1oQGfoBtB3n6twMLrqnRBnqDqHpTBad7p5tEEJMVnnt6UTXwGqaZmVyUIsthzxgfgyHbzK5iDng4bUxAhsoAtupcqwZ2mZxoaC+ecRnG46cg/zSLvMt8+maBYmYmp8C+zc9G5Pn7mzafilsvlvrtOeX1PYVfmM7t14DbJOMA/5tVIPW11H1dVyjez3YqnywCO+npqvd43uAfjalpG/DRtvY9tw0u3yc2mR32yMo3UJk+AygsfcTUFUVgBXbg5ptmBdzvHZHDiNKBy0JtPAzP+qLvt0vrgnb5eX+qMEDU70ItE0PQxvEBwyR9U5CZGiAbx8+mr8ApF0jjUNMNwcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="js refactor architecture"
+        title=""
+        src="/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png"
+        srcset="/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-7fe74.png 240w,
+/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png 315w"
+        sizes="(max-width: 315px) 100vw, 315px"
+      />
+    </span>
+  </span>
+  </p>
+<p>I think abstractions are great, as long as ”[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise” as Dijkstra said. To me, too many “factories” adds a lot of indirection for which I can’t figure out the added value. For example:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// add-export-factory.js</span>
+<span class="token keyword">function</span> <span class="token function">addExportFactory</span><span class="token punctuation">(</span>
+  coordsHelper<span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">  editActionsFactory<span class="token punctuation">,</span>
+</span>  logger<span class="token punctuation">,</span>
+  parser<span class="token punctuation">,</span>
+  selectionExportHelper<span class="token punctuation">,</span>
+  selectionExpressionHelper<span class="token punctuation">,</span>
+  templateHelper<span class="token punctuation">,</span>
+  vsCodeHelperFactory
+<span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// edit-actions-factory.js</span>
+<span class="token keyword">function</span> <span class="token function">editActionsFactory</span><span class="token punctuation">(</span>
+<span class="gatsby-highlight-code-line">  editFactory<span class="token punctuation">,</span>
+</span>  vscodeFactory
+<span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// edit-factory.js</span>
+<span class="token keyword">function</span> <span class="token function">editFactory</span><span class="token punctuation">(</span>editApiFactory<span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// edit-api-factory.js</span>
+<span class="token keyword">function</span> <span class="token function">editApiFactory</span><span class="token punctuation">(</span>vscodeFactory<span class="token punctuation">)</span></code></pre></div>
+<p>Abstracting VS Code API so we isolate our domain logic from the actual platform brings a lot of value. But, in my opinion, all of the intermediate factories make the code more difficult to reason about.</p>
+<p>So, I was not really satisfied with the extension, neither aligned with the overall design of the code—but I respect the choice of the author, whatever works best for him! That’s when popped up in my head the idea of scratching my own itch and build my own.</p>
+<h2 id="abracadabra"><a href="#abracadabra" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Abracadabra!</h2>
+<p>That’s why, 2 months ago, I started to build this extension.</p>
+<p>My goal is essentially to build the tool I’m missing. A side-effect for me is the learning part. Digging into <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Trees</a> manipulations is super interesting. Also, I’m discovering how to build a VS Code extension for the first time. Finally, it’s a playground for me to test architectural decisions and practices, like <a href="https://github.com/nicoespeon/abracadabra/tree/master/docs/adr">documenting architectural decisions through ADRs</a>.</p>
+<p>I implemented a couple of refactorings across these 2 months. I published the extension a few days ago <a href="https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra">on the Marketplace</a>.</p>
+<p>I still consider it under “initial development” phase. I’m waiting for feedback to improve these first refactorings. Next steps include adding more refactorings (I’ve got a bunch I want to implement), fixing edge cases that I still didn’t consider and improving the UX to match what I expect from a <strong>great</strong> extension!</p>
+<p><img src="/magic-98f51cd9f53554f6d6ea08dbc350e379.gif"></p>
+<h3 id="what-about-you"><a href="#what-about-you" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What about you?</h3>
+<p>Well first, if you do JavaScript or TypeScript and you’re looking for great automated refactorings, you can <a href="https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra">give Abracadabra a try</a>!</p>
+<p>Then, if you want to help me, you can:</p>
+<ul>
+<li>Give me your feedbacks on what you like and what you’d like to improve. Whether you find a bug, have a suggestion or just want to share something, <a href="https://github.com/nicoespeon/abracadabra/issues">have a look at existing issues or open a new one</a>.</li>
+<li>If you’d like to contribute, you can start with the <a href="https://github.com/nicoespeon/abracadabra/issues?q=is%3Aissue+is%3Aopen+label%3A%22%3Awave%3A+Good+first+issue%22">“Good First Issues” I’ve listed</a>. Any kind of contribution is welcomed 🙂</li>
+<li>Spread the word so I can get more use-cases and more feedbacks to improve the extension!</li>
+</ul>
+<p>That’s it. I’m really excited about this, about happy to start spreading the word.</p>
+<p>Now, <em>I feel better</em>.</p>
+<p><img src="/thumbs-up-b8bf8658dd216b2ec14a1b9a27123f20.gif"></p></div><div class="post-single__date"><em>Published 12 Jul 2019</em></div></div><div class="post-single__footer"><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/abracadabra/">abracadabra</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/refactoring/">refactoring</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/vscode/">vscode</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/side-project/">side-project</a></li></ul></div><hr/><div class="post-single__footer-text">I write about web development, agile practices and personal organization.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Follow @nicoespeon</a></li></ul></div><div><div><div id="disqus_thread"></div></div></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"en-2019-07-introducing-refactoring-tool-vscode-94d","path":"/en/2019/07/introducing-refactoring-tool-vscode/"};window.dataPath="235/path---en-2019-07-introducing-refactoring-tool-vscode-94-d-586-IrX1Q0AuKBw3jAiEk9W6rK8";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-4b69be65322cef6f2922.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-de1559bbcc941017ee70.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.2247a6ba2b16e762244f.css","/component---src-templates-post-template-jsx-9a46291d20bacd982e4d.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-templates-tag-template-jsx-4d1353b0eb21b1b39ec1.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-templates-category-template-jsx-6f2742fbc3298b407e3a.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7856d8e49ab062d7bb70.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-23e998c7f4b5bdc23ff9.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-5d439be21ba8c3185ba7.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-pages-fr-index-jsx-2ef5c52e595de12b8581.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-d65a0bb0ef437037cf84.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-pages-index-jsx-f009cd138e1df3aeee40.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-c5488a5c5276fbaf7bd5.js"]};/*]]>*/</script><script src="/webpack-runtime-ac24432d5a8590d2a0be.js" async=""></script><script src="/0-90b3f267660c5b5198fe.js" async=""></script><script src="/2-a4be8b4be4b8b83b17fa.js" async=""></script><script src="/app-4b69be65322cef6f2922.js" async=""></script><script src="/component---src-templates-post-template-jsx-9a46291d20bacd982e4d.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
+
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>
