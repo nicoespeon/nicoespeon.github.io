@@ -25,7 +25,7 @@ However, there are some differences:
 
 As a general rule, we can say that [SASS is more powerful than LESS](http://css-tricks.com/sass-vs-less/) because it notably has a bunch of additional functionalities. However, this is a matter of taste and LESS could suffice enough to please you and, in my opinion, is easier to use at first.
 
-Personnally, **I use LESS instead of SASS** with my projects, mostfully because I get used to it.
+Personally, **I use LESS instead of SASS** with my projects, mostfully because I get used to it.
 
 In the same time, I tend to use the inuit.css framework (instead of Bootstrap) on these projects. But inuit.css uses SASS!
 
