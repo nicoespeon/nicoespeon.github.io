@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 14 Jul 2019 15:40:00 GMT</lastBuildDate><item><title><![CDATA[Introducing a refactoring tool for VS Code]]></title><description><![CDATA[I built "Abracadabra", a VS Code extension to do automated refactorings.]]></description><link>https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</guid><pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 18 Jul 2019 15:27:24 GMT</lastBuildDate><item><title><![CDATA[Introducing a refactoring tool for VS Code]]></title><description><![CDATA[I built "Abracadabra", a VS Code extension to do automated refactorings.]]></description><link>https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</guid><pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.&lt;/p&gt;
 &lt;p&gt;But I am &lt;em&gt;frustrated&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;I am frustrated because I miss a &lt;strong&gt;great&lt;/strong&gt; tool to perform &lt;strong&gt;automated refactorings&lt;/strong&gt; for me. And neither VS Code, neither existing extensions provide the experience I’m looking for!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/frustrated-6b45b4f3e49978b3ac79a693e637d601.gif&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Thus, 2 months ago, I decided to follow &lt;a href=&quot;/en/2019/06/drawing-git-graphs-browser/&quot;&gt;my own advice&lt;/a&gt; and hack my own problem. I started creating the VS Code extension I was looking for. This extension analyzes my code, suggests refactorings and executes them with the minimal amount of keystrokes needed. &lt;strong&gt;It helps me focus on my intention instead of manually following the scripted mechanics of a refactoring.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Thus, 2 months ago, I decided to follow &lt;a href=&quot;/en/2019/06/drawing-git-graphs-browser/&quot;&gt;my own advice&lt;/a&gt; and hack my own problem. I started creating the VS Code extension I was looking for. This extension analyzes my code, suggests refactorings and executes them with the minimal amount of keystrokes needed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It helps me focus on my intention instead of manually following the scripted mechanics of a refactoring.&lt;/strong&gt;&lt;/p&gt;
 &lt;figure&gt;
   &lt;blockquote&gt;
     &lt;p&gt;I called this extension: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;Abracadabra&lt;/a&gt; ✨&lt;/p&gt;
@@ -13,12 +14,12 @@
 &lt;p&gt;It’s true that VS Code ships with &lt;a href=&quot;https://code.visualstudio.com/docs/editor/refactoring&quot;&gt;basic refactoring operations&lt;/a&gt;. So what’s wrong?&lt;/p&gt;
 &lt;p&gt;Well, speaking from a personal point of view, few things aren’t great:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;There are a lot of automated refactorings that I know and aren’t proposed. I need more than that.&lt;/li&gt;
-&lt;li&gt;To get an appropriate suggestion requires selecting &lt;em&gt;exactly&lt;/em&gt; the code to refactor. I can’t just have the cursor on a variable and trigger an extraction. I need to select the whole extracted statement first, which is slowing me down.&lt;/li&gt;
-&lt;li&gt;I don’t like the UX much. Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what “enclosing scope” vs. “module scope” means in terms of the resulting code. I &lt;em&gt;know&lt;/em&gt; that there is a better way.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I need more than that.&lt;/strong&gt; There are a lot of automated refactorings that I know and aren’t proposed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I can’t just have the cursor on a variable and trigger an extraction.&lt;/strong&gt; To get an appropriate suggestion requires selecting &lt;em&gt;exactly&lt;/em&gt; the code to refactor. I need to select the whole extracted statement first, which is slowing me down.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I don’t like the UX much.&lt;/strong&gt; Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what “enclosing scope” vs. “module scope” means in terms of the resulting code. I &lt;em&gt;know&lt;/em&gt; that there is a better way.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure&gt;
-	
+  
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 32.20815752461322%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAABUklEQVQY0x3MS0/CQAAE4P5TDxp/g9FICBIQ49WDioJ4MV4NaNCoQMEI4VFMUKQFjBCghdJlu+12H12Lk8ncvpGAJSxDEIcSbFG8YhhSFzAMmAsQRAgSz/UIo8jDQW0crGe52EYO51zCcPWroq6mDyfGcLL4mS7644U6RtoM9CZAm0JtBjUdqobTNWhH91TdJSyA3Pd9iXOcyVYOktlEOh9PPRym89HkY/j8fe+yuJ+phK7k0HVlN1WK37yVB6A8hNW+ubSAECLQEqP05FYOnT1FLp5j6UI4+RJNlWIZeee0uJm43zrKbR/nNuJ3kfTrEpguggHzfS7+IzHGR4NOp1H4UsqfLbmryEqt0qhqSuejpjTrH61au1lV6u3e92Bujeam6XgGgDZcv0iEEEo9ghH1nPUSB9n2Cgqb+TYTiAtIBWQCEr50sOngBcI6WCGEAvwHk0Y3HcX2qDkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
       &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;VS Code shows a popup to either &quot; extract=&quot;&quot; to=&quot;&quot; function=&quot;&quot; in=&quot;&quot; module=&quot;&quot; scope&quot;,=&quot;&quot; or=&quot;&quot; &quot;extract=&quot;&quot; constant=&quot;&quot; enclosing=&quot;&quot; scope&quot;&quot;=&quot;&quot; title=&quot;&quot; src=&quot;/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-c83f1.png&quot; srcset=&quot;/static/confusing-vscode-extraction-572e00251e6e2f0e096b770c58fc0ade-569e3.png 240w,
@@ -28,9 +29,10 @@
     &lt;/span&gt;
   &lt;/span&gt;
   
-	&lt;figcaption&gt;I understand what it means, but it takes precious seconds to process. Don&amp;apos;t make me think!&lt;/figcaption&gt;
+  &lt;figcaption&gt;I understand what it means, but it takes precious seconds to process. Don&amp;apos;t make me think!&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Before using VS Code exclusively, I used Webstorm professionally for a few years. And I prefer VS Code: it’s free, feels lighter to use and has a very active community. But there is one thing Webstorm nailed that VS Code doesn’t provide: many, intuitive, automated refactorings.&lt;/p&gt;
+&lt;p&gt;Before using VS Code exclusively, I used Webstorm professionally for a few years. And I prefer VS Code: it’s free, feels lighter to use and has a very active community.&lt;/p&gt;
+&lt;p&gt;But there is one thing Webstorm nailed that VS Code doesn’t provide: many, intuitive, automated refactorings.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/extract-function-webstorm-253e9f49e2323fddd9d5fcb72c7de396.gif&quot; alt=&quot;Gif of extracting a function in Webstorm&quot;&gt;&lt;/p&gt;
 &lt;p&gt;
   &lt;span
@@ -54,11 +56,12 @@
     &lt;/span&gt;
   &lt;/span&gt;
   &lt;/p&gt;
-&lt;p&gt;This made me so productive back in the days. I relied on my editor to move fast.&lt;/p&gt;
-&lt;p&gt;And I think it matters. If refactoring code takes 2 keystrokes I’m more likely to do it than if I have to do it by hand, or if I have to find the correct combination of 5 keystrokes to make it work. Great automated refactorings are a productivity boost for every developer.&lt;/p&gt;
+&lt;p&gt;This made me so productive back in the days. I relied on my editor to move fast 🏇&lt;/p&gt;
+&lt;p&gt;And I think it matters. If refactoring code takes 2 keystrokes I’m very likely to do it. If I have to find the correct combination of 5 keystrokes to make it work, I’m less likely. If I have to do it by hand… You get the idea.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Great automated refactorings are a productivity boost for every developer.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;but-wait-wasnt-there-an-extension-already&quot;&gt;&lt;a href=&quot;#but-wait-wasnt-there-an-extension-already&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;But wait, wasn’t there an extension already?&lt;/h2&gt;
 &lt;p&gt;Yes! And I used it for some time. Well… I tried to.&lt;/p&gt;
-&lt;p&gt;I essentially work with JavaScript (and TypeScript). If you &lt;a href=&quot;https://marketplace.visualstudio.com/search?term=js%20refactoring&amp;#x26;target=VSCode&amp;#x26;category=All%20categories&amp;#x26;sortBy=Relevance&quot;&gt;search for “JS refactoring” on VS Code Marketplace&lt;/a&gt;, you’ll find a promising extension called “JS Refactor”:&lt;/p&gt;
+&lt;p&gt;I essentially work with JavaScript (and TypeScript). If you search for “JS refactoring” &lt;a href=&quot;https://marketplace.visualstudio.com/search?term=js%20refactoring&amp;#x26;target=VSCode&amp;#x26;category=All%20categories&amp;#x26;sortBy=Relevance&quot;&gt;on VS Code Marketplace&lt;/a&gt;, you’ll find a promising extension called “JS Refactor”:&lt;/p&gt;
 &lt;p&gt;
   &lt;span
     class=&quot;gatsby-resp-image-wrapper&quot;
@@ -85,7 +88,8 @@
     &lt;/span&gt;
   &lt;/span&gt;
   &lt;/p&gt;
-&lt;p&gt;I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, shared that for free and maintained it. But it’s not exactly what I’m looking for, for a few reasons:&lt;/p&gt;
+&lt;p&gt;I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, &lt;strong&gt;shared that for free&lt;/strong&gt; and maintained it 👏👏&lt;/p&gt;
+&lt;p&gt;But it’s not exactly what I’m looking for, for a few reasons:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It still misses a lot of refactorings I’m looking for. In fact, it doesn’t have many. The way it performs operations like “Add Export”, “Negate Expression” or “Wrap Selection”, even if they’re handy, is not refactoring because they modify code behavior.&lt;/li&gt;
 &lt;li&gt;It often tended to just &lt;em&gt;not work&lt;/em&gt;. Until very recently, it would fail if I had a JS class in the file. Still today, it doesn’t work on TypeScript code.&lt;/li&gt;
@@ -133,7 +137,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;OK, maybe I can contribute and improve it!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Heading to &lt;a href=&quot;https://github.com/cmstead/js-refactor&quot;&gt;the repository&lt;/a&gt;, I was really happy to see it seemed well tested. But I felt the architecture was not quite what I’d have in mind:&lt;/p&gt;
+&lt;p&gt;Heading to &lt;a href=&quot;https://github.com/cmstead/js-refactor&quot;&gt;the repository&lt;/a&gt;, I was really happy to see it seemed well tested 👍&lt;/p&gt;
+&lt;p&gt;But I felt the architecture was not quite what I’d have in mind:&lt;/p&gt;
 &lt;p&gt;
   &lt;span
     class=&quot;gatsby-resp-image-wrapper&quot;
@@ -156,7 +161,8 @@
     &lt;/span&gt;
   &lt;/span&gt;
   &lt;/p&gt;
-&lt;p&gt;I think abstractions are great, as long as ”[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise” as Dijkstra said. To me, too many “factories” adds a lot of indirection for which I can’t figure out the added value. For example:&lt;/p&gt;
+&lt;p&gt;I think abstractions are great, as long as ”[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise” as Dijkstra said. To me, too many “factories” adds a lot of indirection for which I can’t figure out the added value.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// add-export-factory.js&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;addExportFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
   coordsHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -181,9 +187,10 @@
 &lt;p&gt;So, I was not really satisfied with the extension, neither aligned with the overall design of the code—but I respect the choice of the author, whatever works best for him! That’s when popped up in my head the idea of scratching my own itch and build my own.&lt;/p&gt;
 &lt;h2 id=&quot;abracadabra&quot;&gt;&lt;a href=&quot;#abracadabra&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Abracadabra!&lt;/h2&gt;
 &lt;p&gt;That’s why, 2 months ago, I started to build this extension.&lt;/p&gt;
-&lt;p&gt;My goal is essentially to build the tool I’m missing. A side-effect for me is the learning part. Digging into &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstract_syntax_tree&quot;&gt;Abstract Syntax Trees&lt;/a&gt; manipulations is super interesting. Also, I’m discovering how to build a VS Code extension for the first time. Finally, it’s a playground for me to test architectural decisions and practices, like &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/tree/master/docs/adr&quot;&gt;documenting architectural decisions through ADRs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My goal is essentially to &lt;strong&gt;build the tool I’m missing&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;There is a very cool side-effect of this: the learning part. Digging into &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstract_syntax_tree&quot;&gt;Abstract Syntax Trees&lt;/a&gt; manipulations is super interesting. Also, I’m discovering how to build a VS Code extension for the first time. Finally, it’s a playground for me to test architectural decisions and practices, like &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/tree/master/docs/adr&quot;&gt;documenting architectural decisions through ADRs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I implemented a couple of refactorings across these 2 months. I published the extension a few days ago &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;on the Marketplace&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I still consider it under “initial development” phase. I’m waiting for feedback to improve these first refactorings. Next steps include adding more refactorings (I’ve got a bunch I want to implement), fixing edge cases that I still didn’t consider and improving the UX to match what I expect from a &lt;strong&gt;great&lt;/strong&gt; extension!&lt;/p&gt;
+&lt;p&gt;Now I’m waiting for feedback to improve these first refactorings, fix edge cases and improve the UX to match what I’d expect from a &lt;strong&gt;great&lt;/strong&gt; extension!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/magic-98f51cd9f53554f6d6ea08dbc350e379.gif&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;what-about-you&quot;&gt;&lt;a href=&quot;#what-about-you&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What about you?&lt;/h3&gt;
 &lt;p&gt;Well first, if you do JavaScript or TypeScript and you’re looking for great automated refactorings, you can &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=nicoespeon.abracadabra&quot;&gt;give Abracadabra a try&lt;/a&gt;!&lt;/p&gt;
@@ -193,7 +200,7 @@
 &lt;li&gt;If you’d like to contribute, you can start with the &lt;a href=&quot;https://github.com/nicoespeon/abracadabra/issues?q=is%3Aissue+is%3Aopen+label%3A%22%3Awave%3A+Good+first+issue%22&quot;&gt;“Good First Issues” I’ve listed&lt;/a&gt;. Any kind of contribution is welcomed 🙂&lt;/li&gt;
 &lt;li&gt;Spread the word so I can get more use-cases and more feedbacks to improve the extension!&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;That’s it. I’m really excited about this, about happy to start spreading the word.&lt;/p&gt;
+&lt;p&gt;That’s it. I’m really excited about this and happy to start spreading the word.&lt;/p&gt;
 &lt;p&gt;Now, &lt;em&gt;I feel better&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/thumbs-up-b8bf8658dd216b2ec14a1b9a27123f20.gif&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Drawing Git Graphs in the Browser]]></title><description><![CDATA[A talk I gave at FullStack NYC 2019 to present GitGraph.js.]]></description><link>https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/06/drawing-git-graphs-browser/</guid><pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In this talk I presented a side-project that I’ve been developing with my friend &lt;a href=&quot;https://twitter.com/fabien0102&quot;&gt;Fabien Bernard&lt;/a&gt; since 2013: &lt;a href=&quot;https://gitgraphjs.com&quot;&gt;GitGraph.js&lt;/a&gt; 🎉&lt;/p&gt;
 &lt;p&gt;It’s a JS library that allows you to draw git graphs in the browser. Very handy to prepare presentations or write blog posts. Creating and updating those git illustrations becomes easy!&lt;/p&gt;
