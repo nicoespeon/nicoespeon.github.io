@@ -143,7 +143,11 @@ function editApiFactory(vscodeFactory)
 
 Abstracting VS Code API so we isolate our domain logic from the actual platform brings a lot of value. But, in my opinion, all of the intermediate factories make the code more difficult to reason about.
 
-So, I was not really satisfied with the extension, neither aligned with the overall design of the code—but I respect the choice of the author, whatever works best for him! That's when popped up in my head the idea of scratching my own itch and build my own.
+Now, I'm not saying this is bad and I know better. Actually, I think the code is quite clean and well tested. But I started imagining how I'd build such solution, and I had this desire to make it happen. In fact, it would be a great opportunity for me to work on something where I could try things, fast, to scratch my own itch.
+
+Sure, building another extension is not the best idea, community wise. For the greater good, I should have reached the author of the existing extension and see how could I help. And, at some point, I'll probably ping him to see how I could help, now that I've a clearer idea of how all of this could work.
+
+But for the moment, **I wanted to build something on my own**. Not to replace the existing extension, but to try something different. Something aligned with what I needed. Without having to deal with existing code and users.
 
 ## Abracadabra!
 
