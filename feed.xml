@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 16 Sep 2019 12:15:49 GMT</lastBuildDate><item><title><![CDATA[Introducing a refactoring tool for VS Code]]></title><description><![CDATA[I built "Abracadabra", a VS Code extension to do automated refactorings.]]></description><link>https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</guid><pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 16 Sep 2019 17:10:08 GMT</lastBuildDate><item><title><![CDATA[Introducing a refactoring tool for VS Code]]></title><description><![CDATA[I built "Abracadabra", a VS Code extension to do automated refactorings.]]></description><link>https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/07/introducing-refactoring-tool-vscode/</guid><pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I use VS Code every day. I use it exclusively since February 2018, both personally and professionally. I like it a lot.&lt;/p&gt;
 &lt;p&gt;But I am &lt;em&gt;frustrated&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;I am frustrated because I miss a &lt;strong&gt;great&lt;/strong&gt; tool to perform &lt;strong&gt;automated refactorings&lt;/strong&gt; for me. And neither VS Code, neither existing extensions provide the experience I’m looking for!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/frustrated-6b45b4f3e49978b3ac79a693e637d601.gif&quot;&gt;&lt;/p&gt;
@@ -60,7 +60,7 @@
 &lt;p&gt;And I think it matters. If refactoring code takes 2 keystrokes I’m very likely to do it. If I have to find the correct combination of 5 keystrokes to make it work, I’m less likely. If I have to do it by hand… You get the idea.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Great automated refactorings are a productivity boost for every developer.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;but-wait-wasnt-there-an-extension-already&quot;&gt;&lt;a href=&quot;#but-wait-wasnt-there-an-extension-already&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;But wait, wasn’t there an extension already?&lt;/h2&gt;
-&lt;p&gt;Yes! And I used it for some time. Well… I tried to.&lt;/p&gt;
+&lt;p&gt;Yes! And I used it for some time.&lt;/p&gt;
 &lt;p&gt;I essentially work with JavaScript (and TypeScript). If you search for “JS refactoring” &lt;a href=&quot;https://marketplace.visualstudio.com/search?term=js%20refactoring&amp;#x26;target=VSCode&amp;#x26;category=All%20categories&amp;#x26;sortBy=Relevance&quot;&gt;on VS Code Marketplace&lt;/a&gt;, you’ll find a promising extension called “JS Refactor”:&lt;/p&gt;
 &lt;p&gt;
   &lt;span
@@ -89,101 +89,18 @@
   &lt;/span&gt;
   &lt;/p&gt;
 &lt;p&gt;I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, &lt;strong&gt;shared that for free&lt;/strong&gt; and maintained it 👏👏&lt;/p&gt;
-&lt;p&gt;But it’s not exactly what I’m looking for, for a few reasons:&lt;/p&gt;
+&lt;p&gt;But at this point, it was not exactly what I needed, for a few reasons:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;It still misses a lot of refactorings I’m looking for. In fact, it doesn’t have many. The way it performs operations like “Add Export”, “Negate Expression” or “Wrap Selection”, even if they’re handy, is not refactoring because they modify code behavior.&lt;/li&gt;
-&lt;li&gt;It often tended to just &lt;em&gt;not work&lt;/em&gt;. Until very recently, it would fail if I had a JS class in the file. Still today, it doesn’t work on TypeScript code.&lt;/li&gt;
-&lt;li&gt;It provides features I’m not looking for (I don’t want code snippets, I want refactorings)&lt;/li&gt;
-&lt;li&gt;Selection doesn’t have to be as precise as VS Code. It understands what you want to do with a partial selection. Though I still can’t “just have the cursor inside” and make it work.&lt;/li&gt;
-&lt;li&gt;The UX is still not the one I expect. It requires too many keystrokes for me to extract a variable.&lt;/li&gt;
+&lt;li&gt;I needed more refactorings operations. I’d consider operations like “Add Export”, “Negate Expression” or “Wrap Selection” not being “refactorings”. Even if they’re handy, they modify code behavior.&lt;/li&gt;
+&lt;li&gt;Also, sometimes, it didn’t work well. It had some hiccups working on classes or on TypeScript.&lt;/li&gt;
+&lt;li&gt;It handles partial selection better than VS Code, but it was still not as smooth as I was looking for. The UX was not the one I expected.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure&gt;
-  
-  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 66.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIklEQVQ4y21TCY6jMBDM/9+30q6UTGIg3EcMBl/Y1BZkktGMBqnUDaarqw+fhEgghIBIEpRliaqqviFNU9zv9wP7f3meo20bNE19oG0aFEWB6/V6nJ+GrkJXFyibAZdS4pwPOBefPm3aa6Tdglx6VPOGUsUD9QLUMw5bjQ7TNGHRGifjHbxaoSqDW1bgfM1wvmX4SHJcxB0X+pcPvgvi9oRIc+RlQ7S4Fw3qpkOwFmEnXJzH6jdEu8H7FdYSjjCevkfgt81FRE/fasJgNfrAl28Owt2e7LpiJcm6rPAkN9rBLPYgsy7AmGeCuCf1INxTzQskieR4PSQMJKTKhaXz0BkHPWsSM+MaqZrn/GeLG7btEzF+x/Z1dtIsxWsGThGOwZOyaKVDz0YrZdhsA03yEMOhYA/67XkTKioy3mLxM0YjoewM7WbaCWGLvwTim6JXgjehoUJNhWoC+xbgSCjnBRPhLGEUB2RYOqvYexnCr+rePZzZ2L35U20xdiOkUhgJvSjMLFlxQErT7r21DiOHJrkBmtNfGOuc+1HywtEzq54l2irFv6vg5mcY+zvybELeWmTDA0knkfQjRDvib7VbiVpO6B+Sa+ffpCfNVQkhsqwF46ODqHp0w4BF9eg7TbUBA8vvlcaVt6aQmu8a7WPE+kPdUfK0rwcJ5+mBuhA477eACocmQSpGFK1DThUZ1e0qd3ujuj8FFbNFlVRoup6inr39D1c96U++aQzuAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Extract a variable with JS&amp;#xA0;Refactor, user input pops up at top of the file&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-1ea6b.png 240w,
-/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-eaa96.png 480w,
-/static/js-refactor-extract-variable-1-03b425280c33d82b898d19591c3e6e1e-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;figcaption&gt;&amp;quot;Extract Variable&amp;quot; scope is clearer than VS Code&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-  
-  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 18.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAXElEQVQY06XMSQ6AIBAFUe5/RReSaIITDY1og1G/Bm+Ai7esUkQO87IURASRVEmQcoZqTICmA63N0PZAx1cdf6LnG6qbGCMnDF4K4/YfBCp4hy0GxPWzVSrt+3kA8IwyQ89Y/cIAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Then, it asks for declaration type&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-1ea6b.png 240w,
-/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-eaa96.png 480w,
-/static/js-refactor-extract-variable-2-1ebe49907dc8537611ed4985dc698018-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;figcaption&gt;Hmmm 99% of the time I extract a variable, it&amp;apos;s a const. Don&amp;apos;t ask me every time!&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-  
-  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 10.571428571428571%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAVklEQVQI11WKSRKAIBAD+f8/lQEOIjCsh8iiVHno6lQSYT0j14aYK1L583Vx57bNqXTy64XjBEFKQxJBadOtcEqaHiizuvEZ+3HK6fG57I3AET7wxnUe0Y+ZJYD/xTkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Finally, it asks for a name&quot; title=&quot;&quot; src=&quot;/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png&quot; srcset=&quot;/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-1ea6b.png 240w,
-/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-eaa96.png 480w,
-/static/js-refactor-extract-variable-3-3209c412ffbf845d1ed5c7827d4d767d-ea3ff.png 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;figcaption&gt;Having 3 popups before extracting feels like it&amp;apos;s not trivial. It adds friction.&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;At that point, I thought:&lt;/p&gt;
+&lt;p&gt;At that point, the best move for me would have been:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;OK, maybe I can contribute and improve it!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Heading to &lt;a href=&quot;https://github.com/cmstead/js-refactor&quot;&gt;the repository&lt;/a&gt;, I was really happy to see it seemed well tested 👍&lt;/p&gt;
-&lt;p&gt;But I felt the architecture was not quite what I’d have in mind:&lt;/p&gt;
-&lt;p&gt;
-  &lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block;  max-width: 315px; margin-left: auto; margin-right: auto;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 158.73015873015873%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAIAAACdAM/hAAAACXBIWXMAABYlAAAWJQFJUiTwAAADv0lEQVQ4y42Vi5aaSBCGef+Xytkkm2RuOjcNXkAFBUFBEPreMPm7EaMzyZ7lFH3KsptuvvqrcAjlUXpgoimJhtWsefvfl5MV9T9348G8vpmQ5wWdrHljl7ftW9uPf12slLZTf8+xvrXeaZo/m1OUJIz3Xiw+PVc3bj2c04FHhx599OjDjEzXfBwwIf+8vcOFJIxXTB+pJlwXtSJMc9lgZEIfalUS1ZrDtE373hzKRFlRodqSalhFzYIkk/FBpYWsaFMxw5JyQ+LdARysjNJsmcqBT0chA7Mnnw2n5GlBn5f00aevK/bis81edhRPLNsOmNbXj+xpXV0WfHf1IM2xDyUJop2/FXdT8jgndy4ZzCnS9rKi39wa+wPh/QyGOLmbmH9/BgwU8QQDjDIuVQNIXGilGxh8RCjXUjfC+l0EvlCWJdfY2oHCDmUNYe1KtS9VnMloL6NM5keFSFoovO02V6nllxyMIYJ/zbE7YEEqXxZ0vGTuii22AjobBQyoXpfsZcmePPrsAyQFThx4hPiCEEo/KqztFfYxNZf8DDUAq1ebtAM2mBkkkBf8oW8ggd+PiQneuOR2Qr7DnxrfDYgQwgErjlsZHjAj2rbVukVENw0cDX7ihA0jJmDU9nJqyrOigjaTQsE2O9ASq1TEAJOJYC/BDH6cy2UiksI4oIUgBO8ca7rd5ZgEQm7IJiFbJcK1wIZIsk9NbYQgZ9Jr4is2DTlmEtZcArMYrhT2H7VsFZZbYMjND5c8eez7T/L5tb4Zk1uXfBnVDzOjMJQn8sREe9kkjLaFxOkNKMOpMXlqTre5tA1BXuhT3W6Xl1MRlh2OEBMgJbkMUxGkYr0X3pZ7EV/vRLgT0NY2l11VXpVkVbMkK8KdBKr5hvsRBxhAQj12ETfks4jDR1W/w+Agxe25W/WoLgV32dve9zAobLlOZpEAqlurJOgJzP4dG1oQGfoBtB3n6twMLrqnRBnqDqHpTBad7p5tEEJMVnnt6UTXwGqaZmVyUIsthzxgfgyHbzK5iDng4bUxAhsoAtupcqwZ2mZxoaC+ecRnG46cg/zSLvMt8+maBYmYmp8C+zc9G5Pn7mzafilsvlvrtOeX1PYVfmM7t14DbJOMA/5tVIPW11H1dVyjez3YqnywCO+npqvd43uAfjalpG/DRtvY9tw0u3yc2mR32yMo3UJk+AygsfcTUFUVgBXbg5ptmBdzvHZHDiNKBy0JtPAzP+qLvt0vrgnb5eX+qMEDU70ItE0PQxvEBwyR9U5CZGiAbx8+mr8ApF0jjUNMNwcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-    &gt;
-      &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
-        alt=&quot;js refactor architecture&quot;
-        title=&quot;&quot;
-        src=&quot;/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png&quot;
-        srcset=&quot;/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-7fe74.png 240w,
-/static/js-refactor-architecture-3f2d11e610457df14b22b24301f23a56-dbf09.png 315w&quot;
-        sizes=&quot;(max-width: 315px) 100vw, 315px&quot;
-      /&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  &lt;/p&gt;
-&lt;p&gt;I think abstractions are great, as long as ”[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise” as Dijkstra said. To me, too many “factories” adds a lot of indirection for which I can’t figure out the added value.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// add-export-factory.js&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;addExportFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-  coordsHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  editActionsFactory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;/span&gt;  logger&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  parser&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  selectionExportHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  selectionExpressionHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  templateHelper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  vsCodeHelperFactory
-&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-actions-factory.js&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editActionsFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  editFactory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;/span&gt;  vscodeFactory
-&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-factory.js&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;editApiFactory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// edit-api-factory.js&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;editApiFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;vscodeFactory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Abstracting VS Code API so we isolate our domain logic from the actual platform brings a lot of value. But, in my opinion, all of the intermediate factories make the code more difficult to reason about.&lt;/p&gt;
+&lt;p&gt;But I felt the architecture was not quite what I’d have in mind. I’d have done abstractions differently…&lt;/p&gt;
 &lt;p&gt;Now, I’m not saying this is bad and I know better. Actually, I think the code is quite clean and well tested. But I started imagining how I’d build such solution, and I had this desire to make it happen. In fact, it would be a great opportunity for me to work on something where I could try things, fast, to scratch my own itch.&lt;/p&gt;
 &lt;p&gt;Sure, building another extension is not the best idea, community wise. For the greater good, I should have reached the author of the existing extension and see how could I help. And, at some point, I’ll probably ping him to see how I could help, now that I’ve a clearer idea of how all of this could work.&lt;/p&gt;
 &lt;p&gt;But for the moment, &lt;strong&gt;I wanted to build something on my own&lt;/strong&gt;. Not to replace the existing extension, but to try something different. Something aligned with what I needed. Without having to deal with existing code and users.&lt;/p&gt;
