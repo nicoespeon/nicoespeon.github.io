@@ -64,7 +64,7 @@ And I think it matters. If refactoring code takes 2 keystrokes I'm very likely t
 
 ## But wait, wasn't there an extension already?
 
-Yes! And I used it for some time. Well… I tried to.
+Yes! And I used it for some time.
 
 I essentially work with JavaScript (and TypeScript). If you search for "JS refactoring" [on VS Code Marketplace](https://marketplace.visualstudio.com/search?term=js%20refactoring&target=VSCode&category=All%20categories&sortBy=Relevance), you'll find a promising extension called "JS Refactor":
 
@@ -72,76 +72,19 @@ I essentially work with JavaScript (and TypeScript). If you search for "JS refac
 
 I appreciate the good efforts that were put in it. At least someone worked to provide more refactorings, **shared that for free** and maintained it 👏👏
 
-But it's not exactly what I'm looking for, for a few reasons:
+But at this point, it was not exactly what I needed, for a few reasons:
 
-* It still misses a lot of refactorings I'm looking for. In fact, it doesn't have many. The way it performs operations like "Add Export", "Negate Expression" or "Wrap Selection", even if they're handy, is not refactoring because they modify code behavior.
-* It often tended to just _not work_. Until very recently, it would fail if I had a JS class in the file. Still today, it doesn't work on TypeScript code.
-* It provides features I'm not looking for (I don't want code snippets, I want refactorings)
-* Selection doesn't have to be as precise as VS Code. It understands what you want to do with a partial selection. Though I still can't "just have the cursor inside" and make it work.
-* The UX is still not the one I expect. It requires too many keystrokes for me to extract a variable.
+* I needed more refactorings operations. I'd consider operations like "Add Export", "Negate Expression" or "Wrap Selection" not being "refactorings". Even if they're handy, they modify code behavior.
+* Also, sometimes, it didn't work well. It had some hiccups working on classes or on TypeScript.
+* It handles partial selection better than VS Code, but it was still not as smooth as I was looking for. The UX was not the one I expected.
 
-<figure>
-  <img src='./js-refactor-extract-variable-1.png' alt='Extract a variable with JS Refactor, user input pops up at top of the file' />
-  <figcaption>"Extract Variable" scope is clearer than VS Code</figcaption>
-</figure>
-
-<figure>
-  <img src='./js-refactor-extract-variable-2.png' alt='Then, it asks for declaration type' />
-  <figcaption>Hmmm 99% of the time I extract a variable, it's a const. Don't ask me every time!</figcaption>
-</figure>
-
-<figure>
-  <img src='./js-refactor-extract-variable-3.png' alt='Finally, it asks for a name' />
-  <figcaption>Having 3 popups before extracting feels like it's not trivial. It adds friction.</figcaption>
-</figure>
-
-At that point, I thought:
+At that point, the best move for me would have been:
 
 > OK, maybe I can contribute and improve it!
 
 Heading to [the repository](https://github.com/cmstead/js-refactor), I was really happy to see it seemed well tested 👍
 
-But I felt the architecture was not quite what I'd have in mind:
-
-![](./js-refactor-architecture.png)
-
-I think abstractions are great, as long as "[their purpose] is not to be vague, but to create a new semantic level in which one can be absolutely precise" as Dijkstra said. To me, too many "factories" adds a lot of indirection for which I can't figure out the added value.
-
-For example:
-
-```js{4}
-// add-export-factory.js
-function addExportFactory(
-  coordsHelper,
-  editActionsFactory,
-  logger,
-  parser,
-  selectionExportHelper,
-  selectionExpressionHelper,
-  templateHelper,
-  vsCodeHelperFactory
-)
-```
-
-```js{3}
-// edit-actions-factory.js
-function editActionsFactory(
-  editFactory,
-  vscodeFactory
-)
-```
-
-```js
-// edit-factory.js
-function editFactory(editApiFactory)
-```
-
-```js
-// edit-api-factory.js
-function editApiFactory(vscodeFactory)
-```
-
-Abstracting VS Code API so we isolate our domain logic from the actual platform brings a lot of value. But, in my opinion, all of the intermediate factories make the code more difficult to reason about.
+But I felt the architecture was not quite what I'd have in mind. I'd have done abstractions differently…
 
 Now, I'm not saying this is bad and I know better. Actually, I think the code is quite clean and well tested. But I started imagining how I'd build such solution, and I had this desire to make it happen. In fact, it would be a great opportunity for me to work on something where I could try things, fast, to scratch my own itch.
 
