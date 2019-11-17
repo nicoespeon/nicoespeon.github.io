@@ -1,10 +1,10 @@
 ---
-title: "Drawing Git Graphs in the Browser"
+title: 'Drawing Git Graphs in the Browser'
 date: 2019-06-04
 layout: post
 draft: false
 path: /en/2019/06/drawing-git-graphs-browser/
-category: Web Development
+category: Web development
 tags:
   - git
   - gitgraph.js

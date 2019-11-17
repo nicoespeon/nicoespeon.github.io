@@ -1,13 +1,13 @@
 ---
-title: "TIL: How to start a talk"
+title: 'TIL: How to start a talk'
 date: 2019-01-14
 layout: post
 draft: false
 path: /en/2019/01/til-how-to-start-a-talk/
-category: Personal development
+category: Public speaking
 tags:
   - til
-  - public speaking
+  - talk
 description: Today, I learned how to do a great introduction for a conference talk.
 ---
 

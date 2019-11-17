@@ -1,10 +1,10 @@
 ---
-title: "5 refactorings I use every day"
+title: '5 refactorings I use every day'
 date: 2019-11-03
 layout: post
 draft: false
 path: /en/2019/11/5-refactorings-i-use-every-day/
-category: Web Development
+category: Web development
 tags:
   - refactoring
   - vscode

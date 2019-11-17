@@ -4,7 +4,7 @@ date: 2019-07-13
 layout: post
 draft: false
 path: /en/2019/07/introducing-refactoring-tool-vscode/
-category: Web Development
+category: Web development
 tags:
   - abracadabra
   - refactoring

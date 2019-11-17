@@ -1,10 +1,10 @@
 ---
-title: "The Secrets of Hexagonal Architecture"
+title: 'The Secrets of Hexagonal Architecture'
 date: 2019-03-12
 layout: post
 draft: false
 path: /en/2019/03/the-secrets-of-hexagonal-architecture/
-category: Web Development
+category: Web development
 tags:
   - hexagonal architecture
   - ports and adapters architecture

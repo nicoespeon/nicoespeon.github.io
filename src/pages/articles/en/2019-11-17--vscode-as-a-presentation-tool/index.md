@@ -4,7 +4,7 @@ date: 2019-11-17
 layout: post
 draft: false
 path: /en/2019/11/vscode-as-a-presentation-tool/
-category: Public Speaking
+category: Public speaking
 tags:
   - vscode
   - talk
