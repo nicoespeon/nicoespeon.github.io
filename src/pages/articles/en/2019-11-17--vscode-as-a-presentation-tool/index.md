@@ -22,11 +22,11 @@ Here's the why and how I did that, so I can just refer to it instead of repeatin
 
 Well, I got inspired by [Kent C. Dodds' talk on "Managing an Open Source Project"](https://www.youtube.com/watch?v=zCJyiBu12Jw link to tweet). I read [the original blog post from André Staltz](https://staltz.com/your-ide-as-a-presentation-tool.html) and I liked it a lot. I recommend you to read it, but here's my recap:
 
-* What really matters in a technical talk, is **the content**. Using your code editor really helps focus on what matters. You don't go fancy on animations and all, you deliver the content.
-* When you explain technical concepts with code, it's better to **show that in action**. Live-code it from a blank file. Show people there's no black magic and what you say actually works.
-* It helps people understand your message. It really just feels like you're showing a colleague how to do something.
-* If you want to show code, it's even better to stay in your code editor than switching from a presentation tool.
-* You can still show images if you need to.
+- What really matters in a technical talk, is **the content**. Using your code editor really helps focus on what matters. You don't go fancy on animations and all, you deliver the content.
+- When you explain technical concepts with code, it's better to **show that in action**. Live-code it from a blank file. Show people there's no black magic and what you say actually works.
+- It helps people understand your message. It really just feels like you're showing a colleague how to do something.
+- If you want to show code, it's even better to stay in your code editor than switching from a presentation tool.
+- You can still show images if you need to.
 
 My talk was about "The Secrets of Hexagonal Architecture". I wanted people to understand what's the universally true axiom behind a maintainable codebase, regardless of the language, the architecture or the tooling. Thus, I wanted to show the code. I needed to illustrate the theory with concrete, working examples.
 
@@ -51,9 +51,9 @@ Focus on the content. Write this content in plain Markdown. Show that.
 
 For your (great) content to be seen comfortably, it's better to configure VS Code appropriately. Based on André Staltz's advice, it's better if you:
 
-* **Use a light theme**. Contrast is always better so people can read regardless of how dark is the room.
-* **Use a big enough font size**, so anyone can read from the back of the room.
-* **Get rid of distractions**. Hide the sidebars and everything. Just show the file content.
+- **Use a light theme**. Contrast is always better so people can read regardless of how dark is the room.
+- **Use a big enough font size**, so anyone can read from the back of the room.
+- **Get rid of distractions**. Hide the sidebars and everything. Just show the file content.
 
 ### Rich content through diagrams and drawings
 
@@ -71,7 +71,7 @@ I name files in alphabetical order. For convenience, I use a counter as a prefix
 
 When I want to live-code, I put an empty file in which I'll code. For example `04.php` or `04.js`.
 
-It's better to leave the file empty. If it already has content inside, it should be something the audience already knows for sure.
+It's better to leave the file empty. If it has content inside, it should be something the audience already knows for sure.
 
 Since **it's just a regular file in my code editor**, I can run the code from the terminal afterward. No black magic involved!
 
@@ -107,7 +107,7 @@ Thus, you have 2 options:
 
 The main difference is **the delivery**.
 
-In my talk, I wanted people to see the code be written, from a blank file, in the context of a code editor. When the code is written, I can run it. I think it's best for understanding.
+In my talk, I wanted people to see the code being written, from a blank file, in the context of a code editor. When the code is written, I can run it. I think it's best for understanding.
 
 My typing skills matter less to attendees. While I replay the macro I saved, I'm able to focus my attention on my speech and keep the contact with my audience. What I say is more interesting, and connected with what people see appearing on the screen.
 
@@ -172,9 +172,9 @@ At the beginning of the talk, I go to the back of the room to check the font si
 
 If we recap, at the beginning of my talk I need to:
 
-* Update my VS Code settings
-* Configure the shortcuts so I can switch between slides
-* Open all files, in order
+- Update my VS Code settings
+- Configure the shortcuts so I can switch between slides
+- Open all files, in order
 
 At the end of the talk, I usually get rid of that because it's not convenient when I work on the talk, on my computer. This is, the "slides" mode if you will.
 
