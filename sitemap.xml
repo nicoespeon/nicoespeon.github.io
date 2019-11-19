@@ -3,10 +3,8 @@
 <url> <loc>https://www.nicoespeon.com/worth-reading</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/talks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/worth-reading</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.nicoespeon.com/fr/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/2013/05/jquery-data-et-performance/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/javascript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/tags/jquery/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -213,6 +211,8 @@
 <url> <loc>https://www.nicoespeon.com/en/2019/01/til-how-to-start-a-talk/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/categories/public-speaking/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/en/2019/11/vscode-as-a-presentation-tool/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/fr/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
