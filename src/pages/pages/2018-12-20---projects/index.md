@@ -1,12 +1,32 @@
 ---
-title: "Side projects"
+title: 'Side projects'
 layout: page
-path: "/projects"
+path: '/projects'
 ---
 
 <!-- I don't know why, but this comment makes images path resolution work. -->
 
 All my open-source contributions are [on my <span class="icon-github"></span> GitHub](https://github.com/nicoespeon/).
+
+## Abracadabra
+
+Automated refactorings for VS Code, in JavaScript and TypeScript. ✨ It's magic ✨
+
+[<span class="icon-github"></span> Check the project](https://github.com/nicoespeon/abracadabra)
+
+![](./abracadabra.png)
+
+[I wrote a post on that](/en/2019/07/introducing-refactoring-tool-vscode/).
+
+## VS Code Slides
+
+👩‍🏫 Use VS Code as a presentation tool.
+
+[<span class="icon-github"></span> Check the project](https://github.com/nicoespeon/vscode-slides)
+
+![](./slides-showcase.gif)
+
+[I wrote a post on that](/en/2019/11/vscode-as-a-presentation-tool/).
 
 ## Gitgraph.js
 

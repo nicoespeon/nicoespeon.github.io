@@ -1,10 +1,30 @@
 ---
-title: "Projets personnels"
+title: 'Projets personnels'
 layout: page
-path: "/fr/projects"
+path: '/fr/projects'
 ---
 
 Toutes mes contributions open-source sont [sur mon <span class="icon-github"></span> GitHub](https://github.com/nicoespeon/).
+
+## Abracadabra
+
+Refactorings automatiques pour VS Code, en JavaScript et TypeScript. ✨ Magique ✨
+
+[<span class="icon-github"></span> Voir le projet](https://github.com/nicoespeon/abracadabra)
+
+![](./abracadabra.png)
+
+[J’ai écrit un article à ce sujet](/en/2019/07/introducing-refactoring-tool-vscode/).
+
+## VS Code Slides
+
+👩‍🏫 Utilisez VS Code comme outil de présentation.
+
+[<span class="icon-github"></span> Voir le projet](https://github.com/nicoespeon/vscode-slides)
+
+![](./slides-showcase.gif)
+
+[J’ai écrit un article à ce sujet](/en/2019/11/vscode-as-a-presentation-tool/).
 
 ## Gitgraph.js
 
