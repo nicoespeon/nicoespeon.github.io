@@ -16,6 +16,8 @@ Last week, [I spoke at Bulgaria PHP 2019](https://www.bgphp.org/speakers/). Afte
 
 Here's the why and how I did that, so I can just refer to it instead of repeating my explanations. Hopefully, it will inspire you to do the same. I really think this is a powerful format for technical talks.
 
+> TL;DR I made a VS Code Extension to help you do the same: [it's called Slides](https://marketplace.visualstudio.com/items?itemName=nicoespeon.slides)
+
 ## VS Code as a presentation tool. But, why?
 
 ![](./why.gif)
