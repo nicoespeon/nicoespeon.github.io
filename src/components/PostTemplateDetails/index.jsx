@@ -9,7 +9,7 @@ import './style.scss'
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { i18n, localMoment } = this.props
+    const { i18n, localMoment, location } = this.props
     const { subtitles, author } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
@@ -84,7 +84,10 @@ class PostTemplateDetails extends React.Component {
         target="_blank"
         rel="noopener noreferrer"
       >
-        💬 Discuss this article on Twitter
+        <span role="img" aria-label="Speech balloon">
+          💬
+        </span>{' '}
+        Discuss this article on Twitter
       </a>
     )
 
