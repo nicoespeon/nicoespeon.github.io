@@ -84,10 +84,19 @@ $button-height: 35px;
       }
     }
   }
-  &__date {
+  &__meta {
     max-width: $layout-post-single-width;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+  }
+  &__date {
+    flex-grow: 1;
+    font-style: italic;
+  }
+  &__comments {
+    flex-grow: 1;
+    text-align: right;
   }
   &__tags {
     @include margin-bottom(0.5);
