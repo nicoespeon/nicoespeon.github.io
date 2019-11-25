@@ -73,7 +73,6 @@ module.exports = {
       linkedin: 'nicolas-carlo-095b243b',
       rss: '/feed.xml',
     },
-    disqusShortname: 'nicoespeon',
     feedDescription:
       'I write about web development, agile practices and personal organization.',
   },
