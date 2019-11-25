@@ -37,6 +37,10 @@ module.exports = {
           label: 'My talks',
           path: '/talks',
         },
+        {
+          label: 'TIL (Today I learned)',
+          path: '/tags/til',
+        },
       ],
       fr: [
         {
