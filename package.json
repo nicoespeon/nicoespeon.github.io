@@ -4,7 +4,10 @@
   "description": "Nicolas Carlo personal blog",
   "private": true,
   "repository": "git+https://github.com/nicoespeon/nicoespeon.github.io.git",
-  "keywords": ["nicoespeon", "blog"],
+  "keywords": [
+    "nicoespeon",
+    "blog"
+  ],
   "author": "Nicolas Carlo <nicolascarlo.espeon@gmail.com>",
   "license": "MIT",
   "main": "n/a",
@@ -14,11 +17,9 @@
     "clean": "npm run clean:public",
     "clean:public": "rm -rf public",
     "build": "gatsby build",
-    "github-files":
-      "touch public/.nojekyll && echo 'www.nicoespeon.com' > public/CNAME",
+    "github-files": "touch public/.nojekyll && echo 'www.nicoespeon.com' > public/CNAME",
     "predeploy": "npm run lint",
-    "deploy":
-      "gatsby build --prefix-paths && npm run github-files && gh-pages -d public -b master"
+    "deploy": "gatsby build --prefix-paths && npm run github-files && gh-pages -d public -b master"
   },
   "husky": {
     "hooks": {
