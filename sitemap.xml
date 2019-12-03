@@ -214,6 +214,7 @@
 <url> <loc>https://www.nicoespeon.com/fr/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/worth-reading</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/talks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.nicoespeon.com/en/2019/12/til-git-checkout-previous-branch/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.nicoespeon.com/fr/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
