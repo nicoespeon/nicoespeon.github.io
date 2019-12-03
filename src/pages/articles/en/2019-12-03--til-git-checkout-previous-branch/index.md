@@ -15,7 +15,7 @@ Git is the kind of awesome tool that keeps giving. Ok, this feature is not as im
 
 Say you're on a branch. You checkout to `master` temporarily. Then, you want to come back to your branch. Wait… what's the name of your branch again?
 
-Turns out, you can just ask git to go back to the previous branch you were on with `git checkout -`
+Turns out, you can just ask git to go back to the previous branch you were on with `git checkout -`.
 
 It works like `cd -`: it checkouts the previous branch and if you run it twice, you'll end up on the same branch you're now.
 
