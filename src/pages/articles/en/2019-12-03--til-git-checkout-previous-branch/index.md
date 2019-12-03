@@ -1,5 +1,5 @@
 ---
-title: "TIL: How to checkout to "previous" branch"
+title: 'TIL: How to checkout to "previous" branch'
 date: 2019-12-03
 layout: post
 draft: false
