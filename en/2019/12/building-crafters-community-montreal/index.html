@@ -1,0 +1,348 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-template-jsx.8973a9913c53eab5adc6.css">html{--hue:210;--accent-hue:330;--background-color:hsl(var(--hue),0%,100%);--separator-bg-color:hsl(var(--hue),0%,90%);--box-light-bg-color:hsl(var(--hue),0%,92%);--box-light-bg-hover-color:hsl(var(--hue),0%,87%);--text-color:hsl(var(--hue),0%,13%);--text-secondary-color:hsl(var(--hue),0%,33%);--subtitle-color:hsl(var(--hue),0%,53%);--focus-color:hsl(var(--hue),100%,57%);--link-color:hsl(var(--hue),100%,57%);--link-secondary-color:hsl(var(--accent-hue),100%,74%);--highlight-border-color:hsl(var(--accent-hue),100%,74%);--highlight-bg-color:hsl(var(--accent-hue),100%,94%);--code-bg-color:#f5f2f0;--code-text-color:#212121;--code-shadow-color:#fff;--code-selection-color:#b6d9fc;--code-punctuation-color:#999;--code-property-color:#8f0505;--code-selector-color:#4d9900;--code-operator-color:#a65959;--code-operator-bg-color:#f7f7f7;--code-keyword-color:#0054a8;--code-function-color:#dd4b94;--code-variable-color:#f07800}html[data-theme=dark]{--background-color:hsl(var(--hue),0%,8%);--separator-bg-color:hsl(var(--hue),0%,25%);--box-light-bg-color:hsl(var(--hue),0%,20%);--box-light-bg-hover-color:hsl(var(--hue),0%,30%);--text-color:hsl(var(--hue),0%,68%);--text-secondary-color:hsl(var(--hue),0%,55%);--subtitle-color:hsl(var(--hue),0%,40%);--focus-color:hsl(var(--hue),40%,60%);--link-color:hsl(var(--hue),40%,60%);--link-secondary-color:hsl(var(--accent-hue),60%,50%);--highlight-border-color:hsl(var(--accent-hue),100%,34%);--highlight-bg-color:hsl(var(--accent-hue),30%,20%);--code-bg-color:#2a2622;--code-text-color:#d4d4d4;--code-shadow-color:#1a1a1a;--code-selection-color:#064789;--code-comment-color:#6f7f90;--code-punctuation-color:grey;--code-property-color:#f96666;--code-selector-color:#9c6;--code-operator-color:#b34d4d;--code-operator-bg-color:#333;--code-keyword-color:#71a1d0;--code-function-color:#c63980;--code-variable-color:#d97f26}html[data-theme=dark] img{-webkit-filter:brightness(.8);filter:brightness(.8)}
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 2.5rem}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 .125rem;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}[hidden],template{display:none}html{font-size:100;background-color:var(--background-color);color:var(--text-color)}body{line-height:1.625;font-size:1rem;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body,h1,h2,h3,h4,h5,h6{font-family:Roboto,Helvetica Neue,Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:500}h1{font-size:2.5rem;line-height:3.25rem;margin-top:6.5rem;margin-bottom:1.625rem}h2{font-size:1.6875rem;line-height:2.4375rem}h2,h3{margin-top:3.25rem;margin-bottom:.8125rem}h3{font-size:1.375rem;line-height:1.625rem}h4{font-size:1.2rem;margin-top:2.4375rem}h4,h5{line-height:1.625rem;margin-bottom:.8125rem}h5,h6{font-size:1rem;margin-top:4.0625rem}h6{line-height:1.625rem;margin-bottom:.8125rem}img{max-width:100%;margin:auto}hr,img{border:0;display:block}hr{color:var(--text-color);height:26px;margin:3.25rem auto;background-size:100% 26px;background-image:linear-gradient(180deg,transparent 1px,transparent 11px,var(--text-color) 0,var(--text-color) 15px,transparent 0,transparent 26px);width:6.25rem}a{color:var(--link-color);text-decoration:none}a:active,a:focus,a:hover{color:var(--link-secondary-color)}b,strong{font-weight:500}ul{list-style:square;margin-bottom:1.625rem}ul li{padding:0 .3125rem;margin-bottom:.625rem}p{line-height:1.625rem;margin-bottom:1.625rem}blockquote{padding:0;font-style:italic;text-align:center}figure{display:block;width:100%;height:auto;margin-left:0;margin-right:0}figcaption{line-height:1.21875rem;margin-top:.40625rem;color:var(--text-color);font-size:.875rem;font-style:italic;margin-bottom:0;text-align:center}.layout{max-width:66.875rem;margin-left:auto;margin-right:auto}.layout:after,.layout:before{content:"";display:table}.layout:after{clear:both}.content__inner{padding:1.5625rem 1.25rem}.anchor svg{fill:var(--text-secondary-color)}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:19.375rem;padding:0 1.625rem}.float-right{float:right}.float-left{float:left}.content{width:calc(58.275% - .78125rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(12n){margin-right:0;float:right}.content:nth-child(12n+1){clear:both}.content__inner{padding:1.875rem 1.25rem}}@media screen and (min-width:960px){.content{width:calc(66.6% - .625rem)}.content:nth-child(1n){float:left;margin-right:1.875rem;clear:none}.content:last-child{margin-right:0}.content:nth-child(3n){margin-right:0;float:right}.content:nth-child(3n+1){clear:both}.content__inner{padding:2.5rem 2.1875rem}}code[class*=language-],pre[class*=language-]{color:var(--code-text-color);background:none;text-shadow:0 1px var(--code-shadow-color);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:var(--code-selection-color)}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:var(--code-bg-color)}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:var(--code-comment-color)}.token.punctuation{color:var(--code-punctuation-color)}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:var(--code-property-color)}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:var(--code-selector-color)}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:var(--code-operator-color);background:var(--code-operator-bg-color)}.token.atrule,.token.attr-value,.token.keyword{color:var(--code-keyword-color)}.token.function{color:var(--code-function-color)}.token.important,.token.regex,.token.variable{color:var(--code-variable-color)}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags__list-item-link{color:var(--text-color)}.tags__list-item-link:focus,.tags__list-item-link:hover{color:var(--focus-color);border-bottom:1px solid var(--focus-color)}.categories__list-item-link{color:var(--text-color)}.categories__list-item-link:focus,.categories__list-item-link:hover{color:var(--focus-color);border-bottom:1px solid var(--focus-color)}ul.twitter{list-style:none;padding-left:0;margin-bottom:2rem}ul.twitter li{display:inline;margin-right:1rem}.post-single__inner{max-width:59.0625rem;padding:0 .9375rem;margin:0 auto}.post-single__title{font-size:2rem;max-width:40rem;font-weight:600;text-align:center;line-height:2.68125rem;margin:1.625rem auto 0}.post-single__subtitle{font-size:.9rem;max-width:40rem;text-align:center;font-style:italic;margin:.40625rem auto 0}.post-single__body figure{margin-bottom:1.625rem}.post-single__body figure blockquote{font-style:italic;text-align:center;margin-top:0;padding:1.625rem 0}.post-single__body figure blockquote p{max-width:40rem;font-size:1.6817rem;margin-top:0;margin-bottom:1.625rem;line-height:2.4375rem}.post-single__body a{text-decoration:underline}.post-single__body .gatsby-highlight{max-width:40rem;margin-left:.9375rem;margin-right:.9375rem;margin-bottom:1.625rem}.post-single__body .gatsby-highlight-code-line{background-color:var(--highlight-bg-color);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid var(--highlight-border-color)}.post-single__body{max-width:40rem;margin-left:auto;margin-right:auto}.post-single__footer{max-width:40rem;line-height:1.625rem;margin:1.625rem .9375rem 3.25rem}.post-single__footer-text a{text-decoration:underline}.post-single__meta{max-width:40rem;margin-left:auto;margin-right:auto;display:flex}.post-single__date{flex-grow:1;font-style:italic}.post-single__comments{flex-grow:1;text-align:right}.post-single__tags{margin-bottom:.8125rem}.post-single__tags-list{list-style:none;margin:0 -.3125rem;padding:0}.post-single__tags-list-item{display:inline-block;margin:.625rem .3125rem}.post-single__tags-list-item-link{background:var(--box-light-bg-color);text-decoration:none;border:0;border-radius:.1875rem;color:var(--text-secondary-color);line-height:1.625;padding:.5rem 1rem}.post-single__tags-list-item-link:focus,.post-single__tags-list-item-link:hover{color:var(--text-color);background:var(--box-light-bg-hover-color);border:0}.post-single__button-container{text-align:center}.post-single__button{display:inline-block;margin-right:1rem;font-size:1rem;padding:0 1rem;height:35px;line-height:2.1875rem;text-align:center;color:var(--text-secondary-color);background:var(--box-light-bg-color);font-weight:400;border-radius:.1875rem;margin-top:1.625rem}.post-single__button:focus,.post-single__button:hover{cursor:pointer;color:var(--text-color);background:var(--box-light-bg-hover-color);border:0}.post-single__button:last-child{margin-right:0}@media screen and (min-width:685px){.post-single__body .gatsby-highlight,.post-single__footer{margin-left:auto;margin-right:auto}}@media screen and (min-width:960px){.post-single__inner{padding:0}.post-single__title{font-size:3rem;line-height:3.65625rem;margin-top:3.65625rem}.post-single__subtitle{font-size:1rem;margin-bottom:2.4375rem}.post-single__body,.post-single__body p{font-size:1.125rem;line-height:1.82813rem;margin-bottom:1.82813rem}.post-single__button{position:fixed;margin:0;left:20px}.post-single__button--home{top:30px}.post-single__button--theme{top:81px}}</style><meta name="generator" content="Gatsby 2.0.22"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Building a (Crafters) community in Montreal</title><meta data-react-helmet="true" name="description" content="My reflexions after a year of growing a new tech community in Montreal, Canada."/><link rel="shortcut icon" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons-ad72c5f34acd111a2daec190afc34979/favicon-32x32.png"/><link rel="manifest" href="/icons-ad72c5f34acd111a2daec190afc34979/manifest.json"/><meta name="mobile-web-app-capable" content="yes"/><meta name="theme-color" content="#fff"/><meta name="application-name" content="nicoespeon.github.io"/><link rel="apple-touch-icon" sizes="57x57" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="167x167" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-167x167.png"/><link rel="apple-touch-icon" sizes="180x180" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-180x180.png"/><link rel="apple-touch-icon" sizes="1024x1024" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-icon-1024x1024.png"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="apple-mobile-web-app-title" content="nicoespeon.github.io"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-320x460.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x920.png"/><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-640x1096.png"/><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-750x1294.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1182x2208.png"/><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1242x2148.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-748x1024.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-768x1004.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1496x2048.png"/><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-ad72c5f34acd111a2daec190afc34979/apple-touch-startup-image-1536x2008.png"/><link as="script" rel="preload" href="/component---src-templates-post-template-jsx-fe37b511731a90ee6c68.js"/><link as="script" rel="preload" href="/app-a28781cee54de6f2bd9c.js"/><link as="script" rel="preload" href="/2-9d62d26dd2cdaa76a942.js"/><link as="script" rel="preload" href="/0-1fc3bea78341134a4e47.js"/><link as="script" rel="preload" href="/webpack-runtime-1f047caecbd88ff57309.js"/><link rel="preload" href="/static/d/658/path---en-2019-12-building-crafters-community-montreal-9-ad-570-sp5BJhbEJlsYoWzjLP5rxTO4Y1U.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout"><div><div><div class="post-single__button-container"><a class="post-single__button post-single__button--home" href="/">← Articles</a><div class="post-single__button post-single__button--theme" role="button" tabindex="0">Dark<!-- --> theme</div></div><div class="post-single"><div class="post-single__inner"><h1 class="post-single__title">Building a (Crafters) community in Montreal</h1><p class="post-single__subtitle">☕☕ 10 min read</p><div class="post-single__body"><p>As we’re approaching the new year, I’m taking some time to reflect on what happened in 2019. In particular, I would like to share my thoughts regarding the Software Crafters community of Montreal.</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/craft-bee0fd5c4b0117118564860151e8b013-5992f.jpeg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHME2JFh//EABkQAQACAwAAAAAAAAAAAAAAAAEAAhARIf/aAAgBAQABBQIrNcQhn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAAMAAAAAAAAAAAAAAAAAABAgMf/aAAgBAQAGPwIVP//EABoQAQEAAgMAAAAAAAAAAAAAAAEAEEERITH/2gAIAQEAAT8hJ47fLcuoDgZv/9oADAMBAAIAAwAAABD0D//EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPxChf//EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxCFf//EABsQAQACAwEBAAAAAAAAAAAAAAEAETFBYSHw/9oACAEBAAE/EDAktseRA2WFrv1RCW1rkTWYmom5/9k='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="craft"
+        title=""
+        src="/static/craft-bee0fd5c4b0117118564860151e8b013-5992f.jpeg"
+        srcset="/static/craft-bee0fd5c4b0117118564860151e8b013-9995a.jpeg 240w,
+/static/craft-bee0fd5c4b0117118564860151e8b013-b7826.jpeg 480w,
+/static/craft-bee0fd5c4b0117118564860151e8b013-5992f.jpeg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<h2 id="2018-arriving-at-montreal-"><a href="#2018-arriving-at-montreal-" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2018, arriving at Montreal 🛬</h2>
+<p>That was almost 2 years ago, in February 2018. My wife and I left Paris for a one-way trip to Montreal, Canada. I won’t go into the details of this decision (that would worth a dedicated blog post), but I can tell you today that we’ve found the perfect work-life balance here. We enjoy such a high-quality life that we’ve started to build our family: our daughter, Alice, was born in September 2019. We’re here to stay 👪 🇨🇦</p>
+<p>On a personal note, I was really involved in the tech community, back in Paris. Meetups. I did a lot of meetups since 2013. I attended to a lot of them, I talked to some of them and I even got into organizing a few of them: <a href="https://www.meetup.com/fr-FR/backbone-paris/">Backbone.js Paris</a>, <a href="https://www.meetup.com/fr-FR/paris-webComponents/">Paris Web Components</a> and the <a href="http://bestofweb.paris/">Best of Web</a> conference I initiated in 2016 with <a href="https://twitter.com/cbalit">Cyril Balit</a> and other meetup organizers.</p>
+<p>When I arrived in Montreal in 2018, I was really looking into joining the tech community.</p>
+<p>And certainly more than any other tech meetup, I was looking for some kind of “Software Crafters” community. <a href="https://www.meetup.com/fr-FR/paris-software-craftsmanship/">The one in Paris</a> is huge and one of the most interesting meetups I’ve been to. It’s not yet another group of people interested in some technology or hyped framework who’d watch amateur talks about that technology or framework every month. The “Software Crafters” community is <a href="https://www.softwarecrafters.org/">a worldwide group</a> of diverse people who are interested in building high-quality software. Communication and practices matter more than specific tools. We talk about testing, software architecture, how to better understand business problems, how to write maintainable code, how to build great teams, etc.</p>
+<figure>
+	
+  <a class="gatsby-resp-image-link" href="/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-828ba.png" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 50.38434661076171%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACN0lEQVQozzWRW1MTQRCF949aBApKoaC8/xgLECykgBKDCNGHeIkQYpYku5vdZOc+kxAuopbim2/H3ll86Jqt6dnT3zkdhJVp9GZn0ZmdQzI3h5PKDE6m6G5mGuFUBc2lB2g/foqvj56ge/8hju9U8HlqBq278zi9N49kcRH9pSV/RgsLCLjUuL66wuW379AX1/gwtPiUSUipsJ8obHUlVkKJ3UgiH+ZoUe9ooJAygQHVmXOYUF1NJrj5fYNAWAdjLWoDi7eZxeHAoZo5HNC5Gjls9R3W0zM0uUHINHJtMSIB58tCXP5E9+IPYqYwHo8RaK2hlEaLWYTC+h82YovVnsVaMsKLNkP1S4R6IhAOFYxWsNbAGOO/zeUPiF9/IUfnuDifICgahSgzFslQ4jhV2E4d1iKL9ZjoSLz6sYf6Xh1pnBCJREYxMSEJREEaB6Yd7GiM8zMilJ0uTbSwSqIRCyyf6lKIBJ+T5Y3YoNmOUIs49psJTjKOiERzzsEZuyXVHqqVKwQHPUYTDOoDg52ERG6piioE97ocQgjkFEuHcoy58nTdXILxsqcIRpPDKjkLVuMRXveN3+hOrLFJRCtRabk4j1IOJxi0lN7FkAucpkOfcz2VeJ9pNGjr7/oSmx2B4L+19cigkZVW6vRog0iL+22iPkwk2gMORaKciGqpwTL1NiPto3mVGNRIcDcmywXJi7ikaRDN2GiMqEJOW/akDs96Dm/6GkYKb7Wg80uLyjcvaehuv4zsH3r4nzA3GlYaAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="software crafters worldwide" title="" src="/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-c83f1.png" srcset="/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-569e3.png 240w,
+/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-93400.png 480w,
+/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-c83f1.png 960w,
+/static/software-crafters-worldwide-69263c96483e7c94398acd3cd13993a5-828ba.png 1431w" sizes="(max-width: 960px) 100vw, 960px">
+    </span>
+  </span>
+  
+  </a>
+    
+	<figcaption>Software Crafters communities, worldwide</figcaption>
+</figure>
+<p>Ok, you got the point.</p>
+<p>But when we arrived in Canada in 2018, there was no “Software Crafters” community in Montréal. At all. To be honest, tech meetups, in general, are less popular here than they are in Paris, even today. I’d say that’s cultural. Every day, I’m home before 6pm, sometimes even at 5! In Paris, I was hardly back home before 8pm. That’s 2-3 hours I can spend with my family. Hence, that’s not surprising it’s harder to get people to stay after 7pm to attend a tech meetup compared to Paris!</p>
+<p>Still, I knew that a community of Crafters was missing. I mean, there are plenty of developers in Montréal. I bet they also have issues with continuously delivering value to their business without creating bugs in the process. Regardless of the language or company they’re working with, they would certainly love to talk with other people about these issues to find better ways.</p>
+<p>All it needed was a spark. I thought I could be that spark. I knew what it looked like, and I organized meetups before. So I created <a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal">Software Crafters Montréal</a> in September 2018.</p>
+<h2 id="2019-a-growing-community-"><a href="#2019-a-growing-community-" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2019, a growing community 🌱</h2>
+<p>I remember <a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal/events/251774287/">the first meetup we had</a>. It was the 4th of September 2019, a Tuesday. 3 people joined. We were 4, sitting around a table. I presented the idea of the meetup.</p>
+<p>Indeed, unlike other tech meetups, the “Software Crafters” one has a different format. People don’t come to attend a few talks passively. Instead, the meetup adopts <a href="https://en.wikipedia.org/wiki/Unconference">the unconference format</a>: participants drive the content of the meeting.</p>
+<p>A typical “Software Crafters” meetup in Montréal looks like that:</p>
+<ol>
+<li>
+<p>People arrive progressively, food is available, that’s networking time where you meet and talk with other participants</p>
+</li>
+<li>
+<p>All participants regroup, the organizers do a short intro of the meetup for the newcomers and announcements</p>
+</li>
+<li>
+<p>There is a 30min window for lightning talks. These could be 5min talks with slides, but generally, people spontaneously take 2-3 min to share a book, a blog post or a video they really enjoyed.</p>
+</li>
+<li>
+<p>Then, all participants can propose topics for discussions. Typical topics could be “Feature branches vs. Trunk based-development” or “Burn-out: how to prevent and recover” or specific needs like “My coworkers don’t want to pair-program, what could I do to make them try?“.</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-97f0b.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAD/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHQx2h5Qaz/xAAaEAEAAgMBAAAAAAAAAAAAAAACAAEDESEy/9oACAEBAAEFAkzKZuLPj3XVRrS9f//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AVf/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFH/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAECETEh/9oACAEBAAY/AqaMORZTMGf/xAAcEAACAgIDAAAAAAAAAAAAAAAAAREhMUFRcbH/2gAIAQEAAT8hUaQsjtvTUzsrMbXEi7wmCKrWT//aAAwDAQACAAMAAAAQcP8A/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EBE//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EF0j/8QAGRABAQEBAQEAAAAAAAAAAAAAAREhADFh/9oACAEBAAE/EEU9lCRDgtZGlH12cIANJvVoB0pyeKY4BEPk7//Z'); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="People proposing topics"
+        title=""
+        src="/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-d564d.jpg"
+        srcset="/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-865fd.jpg 240w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-d40a0.jpg 480w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-d564d.jpg 960w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-c67c1.jpg 1440w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-667be.jpg 1920w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-85f07.jpg 2880w,
+/static/proposing-topics-58e245d9a763a615a2d770ac9f68b1b1-97f0b.jpg 4032w"
+        sizes="(max-width: 960px) 100vw, 960px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+</li>
+<li>
+<p>Finally, everyone votes on the proposed topics. The most voted topics got discussed during 1h as we split into groups of ~10 people. Anyone can attend any discussion and move from one group to another if they want to.</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-97f0b.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB45TbmqJKA//EABsQAAICAwEAAAAAAAAAAAAAAAECAAQDERMz/9oACAEBAAEFAse2HZ1is4BJlQBpZ9//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAcEAABBAMBAAAAAAAAAAAAAAAAAQIRIRIiMkH/2gAIAQEABj8C1QpaOWEeSQ68Vocf/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARITFBcZH/2gAIAQEAAT8hTs2e4gY2HnZX1PWmG30YitFLA8i+8//aAAwDAQACAAMAAAAQID//xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAEDAQE/EKVYf//EABcRAAMBAAAAAAAAAAAAAAAAAAABEVH/2gAIAQIBAT8QkI9P/8QAHxABAAMAAQQDAAAAAAAAAAAAAQARITFBUWFxgbHR/9oACAEBAAE/EBewVVAB8sDqx681h+kPOLvhPZ3hwWNEcLHdBVGm618hENOj6J//2Q=='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="People discussing topics"
+        title=""
+        src="/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-d564d.jpg"
+        srcset="/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-865fd.jpg 240w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-d40a0.jpg 480w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-d564d.jpg 960w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-c67c1.jpg 1440w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-667be.jpg 1920w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-85f07.jpg 2880w,
+/static/discussing-topics-4b5dbb73266d09a99e11e348b91fe7a0-97f0b.jpg 4032w"
+        sizes="(max-width: 960px) 100vw, 960px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+</li>
+<li>
+<p>That’s it, we regroup for each group to do a summary of what was discussed. Then we say goodbye.</p>
+</li>
+</ol>
+<p>It’s a very <strong>social</strong> meetup.</p>
+<p>Over 2019, the community progressively grew. For the first 4-5 meetups, we were less than 10 participants, with a no-show rate of ~40%. The “no-show rate” is the percentage of people who registered, but finally didn’t show up. For tech meetups, I’d say the average rate in Montréal is 50% since these events are free.</p>
+<p>In the 3 last meetups, we were about 25 to attend, with a no-show rate of ~33%.</p>
+<p>That makes me really happy. I don’t care much about the numbers as long as the quality is here. <strong>I can feel the community is growing</strong>. I met a lot of new people. I saw people coming back. I saw people bringing friends. Every meetup, I connect with new persons and I see familiar faces. And we always have insightful topics. At the last meetup, I was in the group talking about burn-out (preventing it and recovering from it) which triggered powerful feedbacks from people who experienced it. The other group was a roundtable of everyone sharing the tools that saved them a lot of time. A lot of helpful tips and links were shared.</p>
+<figure>
+	
+  <a class="gatsby-resp-image-link" href="/static/tools-87bdbb60bbebcfe976298cb871173aff-97f0b.jpg" style="display: block" target="_blank" rel="noopener">
+  
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABtr5MoeJI0//EABsQAAMAAgMAAAAAAAAAAAAAAAABAgMREyEj/9oACAEBAAEFAsfZOjOvRU0clFU2/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAEAAgMAAAAAAAAAAAAAAAAAITEBEBH/2gAIAQEABj8Cz1SEL1//xAAZEAADAQEBAAAAAAAAAAAAAAAAAREhQTH/2gAIAQEAAT8hygno0SCD8NHpoalcbfD/2gAMAwEAAgADAAAAEKwP/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAx/9oACAEDAQE/EBjL/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QQm//xAAZEAEBAQEBAQAAAAAAAAAAAAABEQAxIVH/2gAIAQEAAT8QVzbAdA3pBk8mFJgEwiKHCUr5wzA1g4b/2Q==&apos;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="tools" title="" src="/static/tools-87bdbb60bbebcfe976298cb871173aff-d564d.jpg" srcset="/static/tools-87bdbb60bbebcfe976298cb871173aff-865fd.jpg 240w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-d40a0.jpg 480w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-d564d.jpg 960w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-c67c1.jpg 1440w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-667be.jpg 1920w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-85f07.jpg 2880w,
+/static/tools-87bdbb60bbebcfe976298cb871173aff-97f0b.jpg 4032w" sizes="(max-width: 960px) 100vw, 960px">
+    </span>
+  </span>
+  
+  </a>
+    
+	<figcaption>List of tools that were shared</figcaption>
+</figure>
+<p>Retrospectively, in 2019 we did:</p>
+<ul>
+<li>1 regular meetup every month (so 12 in total)</li>
+<li>
+<p>2 special meetups with guests:</p>
+<ul>
+<li><a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal/events/261631034/">J. B. Rainsberger</a> who improvised an amazing workshop on universal software architecture</li>
+<li><a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal/events/263866536/">Adam Dymitruk</a> who did a workshop on CQRS and Event Sourcing</li>
+</ul>
+</li>
+<li>2 dojos “Introduction to TDD” animated by <a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal/events/263779706/">Christophe Fernandez</a></li>
+<li>We participated in the <a href="https://www.coderetreat.org/">Global Day of Coderetreat</a>, hosting an event in Montréal</li>
+</ul>
+<p>All of that was possible thanks to the different hosts and sponsors we had. But most of all, 2 companies really supported us in this initiative:</p>
+<ul>
+<li><a href="https://www.busbud.com/">Busbud</a>, my employer, which sponsors and hosts the meetup since the very beginning. They give me full support to do what I need to make all of this happens, playing a big part in making this even possible.</li>
+<li><a href="https://www.zenika.ca/">Zenika</a>, a French consulting company that recently arrived in Canada. Their consultants are really into Craft, so they know what they’re talking about. Actually, a lot of Zenika consultants participate in the monthly meetup.</li>
+</ul>
+<p>If I ignited the meetup in September 2018, two people rapidly helped me make the flame grow: <a href="https://twitter.com/damienbeaufils">Damien Beaufils</a> co-organizes the meetups with me since April 2019 and <a href="https://twitter.com/khaledsouf">Khaled Souf</a> joined us when he arrived in Canada in November—but he started providing support remotely before that, helping me to get in touch with Adam Dymitruk. Not surprisingly, these two great people were part of the Software Crafters Paris community and are Zenika consultants 😉</p>
+<h2 id="2020-to-many-more-"><a href="#2020-to-many-more-" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2020, to many more 🍻</h2>
+<p>End of 2018, I was the one guy organizing a meetup of ~7 persons at Busbud every month.</p>
+<p>End of 2019, we’re 3 organizers who bring ~25 people every month to different venues in Montréal for regular or special meetups.</p>
+<p>I think the community will continue to gently grow in 2020. Maybe we’d be ~50 every month to join and talk.</p>
+<p>At least, here’s what we’ve planned for 2020:</p>
+<ul>
+<li><strong>Our monthly meetup</strong>, as usual, every 1st Wednesday of the month</li>
+<li><strong>Another monthly event</strong>, oriented on hands-on and practice (think “coding dojo”). We did 2 experimental dojos on TDD in 2019. We’ll have that every month in 2020. Thanks to <a href="https://twitter.com/badraone">Badradine Boulahia</a> who’s joining us in the organization, we’ll have the bandwidth to make that happens. It’s called <a href="https://www.meetup.com/fr-FR/Software-Crafters-Montreal/events/tcpzlrybccbtb/">“Craft your skills”</a> and it will occur every 3rd Wednesday of the month.</li>
+<li><strong>The very first <a href="https://socrates-ca.github.io/">SoCraTes Canada conference</a></strong>. We’ll bring 20 people in a lodge near Mont-Tremblant in March, for 2 days. Craft discussions, coding dojos, snow and fun to be expected 🍁</li>
+<li><strong>Punctual special meetups</strong> if there is a special guest in town. Who knows.</li>
+</ul>
+<p>That’s it. 2019 is about to end and I’m really proud to realize how much the Craft community of Montréal is developing.</p>
+<p>To many more!</p>
+<p><img src="/to-many-more-6d749235d41e781b89be4d28cef7261a.gif"></p>
+<p>If you want to get in touch, you can join us on Slack, channel <strong>#montreal</strong>: <a href="http://slack.softwarecraftsmanship.org/">http://slack.softwarecraftsmanship.org/</a></p>
+<h2 id="my-tips-and-tricks-to-help-you-build-such-a-community-"><a href="#my-tips-and-tricks-to-help-you-build-such-a-community-" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>My tips and tricks to help you build such a community 📝</h2>
+<p>I was recently asked if I could provide some advice to people who’d like to build such a community. I think that could be useful to you, so let me share that here.</p>
+<p>First of all, if you’re willing to build it, thank you. It takes someone to take the initiative. Thanks for being that person ❤️</p>
+<h3 id="it-takes-courage-to-create-something-from-the-void"><a href="#it-takes-courage-to-create-something-from-the-void" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>It takes courage to create something from the void.</h3>
+<p>Nothing is in place, you have to set up everything. You’ll have to explain something new to people again, and again. Don’t give up. Push it through. It’s fine to have only 3 people attending.</p>
+<p>After a few months, you’ll see more and more people attend. Communities are built through time.</p>
+<h3 id="be-consistent"><a href="#be-consistent" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Be consistent.</h3>
+<p>Make sure people can count on you. Have a clear frequency for the meetup (e.g. 1st Wednesday of the month). That helps to set a pace. It will also push you to find a place and a sponsor.</p>
+<h3 id="dont-do-this-alone"><a href="#dont-do-this-alone" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Don’t do this alone.</h3>
+<p>Check if your employer can host/sponsor the first meetups. That helps. If not, ask around.</p>
+<p>After some time, tell your community you’re looking for co-organizers. They will help you carry the load. You want the community to live even when you can’t attend because you’re enjoying holidays with your family!</p>
+<h3 id="in-doubt-ask"><a href="#in-doubt-ask" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In doubt, ask.</h3>
+<p>If you don’t, then it’s already a “no”.</p>
+<p>If you ask, you increase the odds of getting a “yes”.</p>
+<p>That’s why I pinged JBrains and Adam Dymitruk when I learned they were in town. “Hey, do you think we could set up something with the community and you when you’re here?“. It’s not bold. It’s the only way to make good things happen. Surprisingly, they said “yes” and we all had a great time. So go ahead, ask!</p>
+<h3 id="propose-other-kinds-of-food-than-pizzas-beers"><a href="#propose-other-kinds-of-food-than-pizzas-beers" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Propose other kinds of food than pizzas-beers.</h3>
+<p>I mean, these are convenient and quite cheap. But that’s not super healthy food. Sometimes, that’s just a sloppy organizer fallback.</p>
+<p>If you look a bit around, you can find alternatives. Sushis, for example. They are not much more expensive than pizzas because people will eat less of them.</p>
+<p>If you have enough time before the event, you can even go to a supermarket to bring some fruits, chips, nuts, snacks, bread, cheese, vegetables… Whatever you want. People like that better and are not used to it.</p>
+<h3 id="account-for-the-no-show"><a href="#account-for-the-no-show" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Account for the no-show.</h3>
+<p>I’d recommend keeping track of it, so you can anticipate the food better.</p>
+<p>It’s fine to do mistakes at first. But you can progressively adjust. After some time, you’ll have a good idea of how much sushis to order regarding the number of attendees (for us, it’s the number of registered people x 4.5).</p>
+<h3 id="dont-open-registrations-until-1-week-before-the-event"><a href="#dont-open-registrations-until-1-week-before-the-event" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Don’t open registrations until 1 week before the event.</h3>
+<p>To limit the no-show. Otherwise, people register and forget.</p>
+<p>It’s also a good idea to send a short email the day before to ask people to free their spot if they finally can’t attend.</p>
+<h3 id="celebrate"><a href="#celebrate" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Celebrate!</h3>
+<p>For the meetup 1-year anniversary, I bought a little cake (thanks to sponsors) and had a little word. It was a chill moment.</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/birthday-cake-292e8483435e3c43ab49ae29c1461bf9-4d09d.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 429px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 118.18181818181819%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsSAAALEgHS3X78AAAGeklEQVQ4yyWTWVCVRxqGf4KIbAqoIMIgOHBA4hbBFUFMEBFR1EgMiIZdFhHXATWyKMYAIo6JCLgQBQ4EBEQwbMoi+2E7HM5hU9xwpryaqqnM1FTNXDzTkIu3+qvu/t9++v36l/p6u+jr7hBqR9HZRktTPT3tLQz1dTM8oPhDQ/2MqJSoR4Znx+HhISElSuUQQ2JtYKCPHkUPnV0dSMrBfpT9CgYVXfR3tNLbUs9gVyua4QEmNKpZjY4IM7WKMVGrVUOMjY4IqRkfHxUaY3RUM7uu1qiRxsZGZzdoxEcj4jSVoh1VXyeTY2rev53ig9DkxChKQfVW1G/evOLd2zdifM2792/58HGaqakpxsY0jE+OIw10v6S/s0XQNdP38jm9L2rpfV7LYGczI4oONAPd4pBOlL3djKv6mdQohYaZEBCvhMHr16+YmBhjXBhOvppEUrQ3o2gTRq2N9DTX090kDJtq6GuuE/MvaCgvplYup628io7nDXS+aKRPZKxoa0TZMwMjYhJ1d2sDPW1NSGrlIBoRtEZkoxkeFBRDjI+oqKso417OHU4GBxPtf5jrcYlEfuPPiaNB/HDmBDUV5bNXnSEdnclVUI+PjSANKbqZkWqgl1HRCEV7K4/yckhKPM8qO3viouNorKljoENBbW09vt67cbSyJDEylIqih6JJwkitnDWekTTY0ylwnzPc341GOcCT0lKyrqSyysGJPT57eT/9iY9//8S7D9P8/u//Ut/YgszWnq1rVnH14gW6urr+oBQw4+ohceX+HjSiu2/GR/gl7y5XTsZyIiKceXPmERYSzu//gddTH5h6M80///U/XnZ0YWlmzmp7GTFBhykvekRbczMTgnJyVIX05GEeNYX5NJUVEBsZT0ZqGvFRx7A0t8R59VrK5SVMf/zE3z79A0XfEN5eO1lgYMBSYxOigwJ5cDOTB3m59LQ0zDZKelpeQvOzas6ejMd5zWZy0lKofVyO3979SJKEuYkJnu7ueHvuwMbSEvvl9sjsHNiyxZ3c6+nkZl0jOuIYlcUFvKj+FamjoZbG6kpkshVYLLbmL1ExFGencfPmLRztHbA2NUFXSwt9HV3sl9ngIOZcN7pSUyrn54w0AnbvZKPzRtLS0pgSb1Tq+K2SH1MuoaNrwDJrO1w/X835qDB+q3hM9dNnXEy4QFBQMC7rXNjksp7o0BBuZ2WSGHGYw/v98BDz9rbL2e7xJcrO50jttWUc9f8arTn6ODnI2OO6gT1ublyNPUJ26kWqH+RSIS+i7F4uVy5dZJe7K/mZl3FzEUaLzIgO2IeP13Zsbe1oq6tAaq4s5mtfHyQtXZzsbclOCMd73UpWWZiyyW4ZZ7/dQ6CXG1knQwjc64WpoSErra1wWmKOp8tarl86jqfHZmxmDGtKkBpK7xPsvw9tHT3MFppyLsCT66fCOOi2Hp8Na9j2uYw/GRqwysoCOwszLBfMR2a+mEDfrwg7tJekGH+WmC1m84b1tD55iFSSncqF8AD09Y2Yq6vP9tXWpEf6Eee/i+SoQLLOhBOwYys+W5yJ+GY3sUH7iA85xOnoEMLEHs/1K9Ceq8/x0AB66uRIWRfiuRoXzIrlNoJSF2MjQ464O5C4fxMJgbtJijzEpehALsUGcT46iDMRAUQG+hGxfxtezssxMJyP+eLFZJwNo+x2GtKzknyq7mZy8Ts/YWaA9hxhaqiP3xcWnPN2JOnABhIOunPygAcRvq4Ee31BgJsd21YuxUBPDyOjBcQH7aEw6wJFN5KQKvIzKPnpCgXJMUR6OWNioI/02Vx05+oiMzPE48/GeDmYssNxEVvtFrLW2gTLhYZoaesyX2Qb4beVuvuXaa/5he6GUkFYdEs8jUzk1xPJOR1I/M61rF5qjJGeLp8JY0maMystbR3xEnRma715eqy0Mef4vk2UZsTx7FEmDb/m8KLqPlJV7mWqcpKRp5/jQeoJck59S9pBF0I3WuEpW8Q6K2MczIxwNJ/PWlF7OS0h1MORlCMeFKSGU5EnftXCbOpLb9NUeQ+p+u5VHv+chDwzgcJrZ8j//hhZMQdIP7qdawfXkeq7guRdMlJ8HPjRfx3Z37lyM2qXODwcedYpKu98z9MHP1BXmEFj6S1BmHeZ8tvJlGTNGJ7mnsgyJyGMm/EB/DXuADcivMkO+5KfonaQd8qPu4mHKEgJpTg9FvmN01Tkp4impgrKdOrK7/B/zSKwETp4wcIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="The 1-year birthday cake"
+        title=""
+        src="/static/birthday-cake-292e8483435e3c43ab49ae29c1461bf9-4d09d.png"
+        srcset="/static/birthday-cake-292e8483435e3c43ab49ae29c1461bf9-dc89c.png 240w,
+/static/birthday-cake-292e8483435e3c43ab49ae29c1461bf9-4d09d.png 429w"
+        sizes="(max-width: 429px) 100vw, 429px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<p>The community we’re building is not just another “XYZ Framework” meetup. It’s a social group of people who want to have meaningful conversations with others.</p>
+<p>These kinds of moments make everyone feel we’re part of a human community. I believe that’s part of why our no-show rate is lower than other tech meetups out there. And most of all: it feels good.</p></div><div class="post-single__meta"><span class="post-single__date">Published 22 Dec 2019</span><span class="post-single__comments"><a href="https://mobile.twitter.com/search?q=undefined" target="_blank" rel="noopener noreferrer"><span role="img" aria-label="Speech balloon">💬</span> <!-- -->Discuss this article on Twitter</a></span></div></div><div class="post-single__footer"><hr/><div class="post-single__tags"><ul class="post-single__tags-list"><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/meetup/">meetup</a></li><li class="post-single__tags-list-item"><a class="post-single__tags-list-item-link" href="/tags/software-craftsmanship/">software craftsmanship</a></li></ul></div><div class="post-single__footer-text">I write about web development, agile practices and personal organization.<ul class="twitter"><li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=nicoespeon" data-size="large">Tweet</a></li><li><a class="twitter-follow-button" href="https://twitter.com/nicoespeon" data-show-count="false" data-size="large">Follow @nicoespeon</a></li></ul></div></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-39957541-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-template-jsx","jsonName":"en-2019-12-building-crafters-community-montreal-9ad","path":"/en/2019/12/building-crafters-community-montreal/"};window.dataPath="658/path---en-2019-12-building-crafters-community-montreal-9-ad-570-sp5BJhbEJlsYoWzjLP5rxTO4Y1U";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-a28781cee54de6f2bd9c.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5f2b74aaa9780afd7bf0.js"],"component---src-templates-page-template-jsx":["/component---src-templates-page-template-jsx.20eefe64b5c91dc9fdf9.css","/component---src-templates-page-template-jsx-58ac45933bb0bf6d3254.js"],"component---src-templates-post-template-jsx":["/component---src-templates-post-template-jsx.8973a9913c53eab5adc6.css","/component---src-templates-post-template-jsx-fe37b511731a90ee6c68.js"],"component---src-templates-tag-template-jsx":["/component---src-templates-tag-template-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-templates-tag-template-jsx-4d1353b0eb21b1b39ec1.js"],"component---src-templates-category-template-jsx":["/component---src-templates-category-template-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-templates-category-template-jsx-6f2742fbc3298b407e3a.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-7856d8e49ab062d7bb70.js"],"component---src-pages-categories-jsx":["/component---src-pages-categories-jsx-d747233b22c5f74e6799.js"],"component---src-pages-fr-categories-jsx":["/component---src-pages-fr-categories-jsx-af2ca80329593aff3b82.js"],"component---src-pages-fr-index-jsx":["/component---src-pages-fr-index-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-pages-fr-index-jsx-2ef5c52e595de12b8581.js"],"component---src-pages-fr-tags-jsx":["/component---src-pages-fr-tags-jsx-287f1f55c3c9a087eb29.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.34b8bc1aa60cfb20f0d8.css","/component---src-pages-index-jsx-f009cd138e1df3aeee40.js"],"component---src-pages-tags-jsx":["/component---src-pages-tags-jsx-7714f8a09ce64c52a289.js"]};/*]]>*/</script><script src="/webpack-runtime-1f047caecbd88ff57309.js" async=""></script><script src="/0-1fc3bea78341134a4e47.js" async=""></script><script src="/2-9d62d26dd2cdaa76a942.js" async=""></script><script src="/app-a28781cee54de6f2bd9c.js" async=""></script><script src="/component---src-templates-post-template-jsx-fe37b511731a90ee6c68.js" async=""></script><script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                  t._e.push(f);
+                };
+
+                return t;
+              }(document, "script", "twitter-wjs"));</script></body></html>
