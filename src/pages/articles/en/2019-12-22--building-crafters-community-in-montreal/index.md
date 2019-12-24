@@ -71,7 +71,7 @@ In the 3 last meetups, we were about 25 to attend, with a no-show rate of ~33%.
 That makes me really happy. I don't care much about the numbers as long as the quality is here. **I can feel the community is growing**. I met a lot of new people. I saw people coming back. I saw people bringing friends. Every meetup, I connect with new persons and I see familiar faces. And we always have insightful topics. At the last meetup, I was in the group talking about burn-out (preventing it and recovering from it) which triggered powerful feedbacks from people who experienced it. The other group was a roundtable of everyone sharing the tools that saved them a lot of time. A lot of helpful tips and links were shared.
 
 <figure>
-	<img src="./tools.jpg">
+	<img src="./presented-tools.jpg">
 	<figcaption>List of tools that were shared</figcaption>
 </figure>
 
