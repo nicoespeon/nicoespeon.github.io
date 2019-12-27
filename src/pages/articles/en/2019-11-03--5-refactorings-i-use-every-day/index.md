@@ -45,7 +45,7 @@ Sometimes, a variable is not reused and its name doesn't bring much value. If I 
 
 The typical scenario is temporary, intermediate variables. They often have poor names. They might have been valid before, but after some other refactorings they have become unnecessary and they just add noise.
 
-In that situation, I put my cursor somewhere in the variable I want to inline. Then I press `⌘ ⌥ N` (`Ctrl Alt N` if not on a Mac) and it gets inlined for me:
+In that situation, I put my cursor somewhere in the variable I want to inline. Then I press `⌘ ⌥ N` (`Ctrl Alt N` if not on a Mac) and it gets inlined for me:
 
 ![Illustration of the refactoring](./inline-variable.gif)
 
