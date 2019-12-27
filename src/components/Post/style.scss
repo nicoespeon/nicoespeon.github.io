@@ -39,6 +39,7 @@
       margin: 0 5px;
     }
     &-category {
+      display: block;
       &-link {
         font-size: $typographic-small-font-size;
         color: var(--link-secondary-color);
@@ -53,5 +54,15 @@
   }
   &__readmore {
     font-size: $typographic-base-font-size;
+  }
+}
+
+@include breakpoint-sm {
+  .post {
+    &__meta {
+      &-category {
+        display: inherit;
+      }
+    }
   }
 }

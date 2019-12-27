@@ -2,7 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .links {
-  @include margin-bottom(1);
+  @include margin-bottom(0.5);
   &__list {
     display: flex;
     list-style: none;
@@ -31,5 +31,11 @@
         }
       }
     }
+  }
+}
+
+@include breakpoint-sm {
+  .links {
+    @include margin-bottom(1);
   }
 }

@@ -3,6 +3,7 @@
 
 .sidebar {
   width: 100%;
+  border-bottom: 2px var(--separator-bg-color) solid;
   &__inner {
     position: relative;
     padding: 25px 0 0 20px;
@@ -44,6 +45,7 @@
 @include breakpoint-sm {
   .sidebar {
     lost-column: 5/12;
+    border-bottom: none;
     &__inner {
       padding: 30px 20px 0;
       &:after {
