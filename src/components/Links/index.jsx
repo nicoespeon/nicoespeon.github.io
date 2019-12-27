@@ -18,6 +18,7 @@ class Links extends React.Component {
         <ul className="links__list">
           <li className="links__list-item">
             <a
+              className="no-underline"
               href={`https://www.twitter.com/${links.twitter}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -27,6 +28,7 @@ class Links extends React.Component {
           </li>
           <li className="links__list-item">
             <a
+              className="no-underline"
               href={`https://www.github.com/${links.github}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -36,6 +38,7 @@ class Links extends React.Component {
           </li>
           <li className="links__list-item">
             <a
+              className="no-underline"
               href={`https://www.linkedin.com/in/${links.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"

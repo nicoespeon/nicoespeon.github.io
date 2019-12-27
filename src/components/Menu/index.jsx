@@ -8,7 +8,7 @@ function renderLink(item) {
       <Link
         to={item.path}
         className="menu__list-item-link"
-        activeClassName="menu__list-item-link menu__list-item-link--active"
+        activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
       >
         {item.label}
       </Link>

@@ -2,35 +2,38 @@
 @import '../../assets/scss/mixins';
 
 .post {
-  @include margin-bottom(1.25);
+  @include margin-bottom(1.5);
   &:last-child {
     @include margin-bottom(0.5);
   }
   &__title {
     font-size: $typographic-base-font-size * 1.6875;
-    @include line-height(1.5);
+    letter-spacing: -0.05em;
+    @include line-height(1.2);
     @include margin-top(0);
-    @include margin-bottom(0.5);
+    @include margin-bottom(0);
     &-link {
       color: var(--text-color);
       &:hover,
       &:focus {
         color: var(--text-color);
-        border-bottom: 1px solid var(--text-color);
       }
     }
   }
   &__description {
     font-size: $typographic-base-font-size;
     @include line-height(1);
-    @include margin-bottom(0.75);
+    @include margin-bottom(0.25);
   }
   &__meta {
     &-time {
       font-size: $typographic-small-font-size;
-      color: var(--text-color);
+      color: var(--text-secondary-color);
       font-weight: 500;
       text-transform: uppercase;
+    }
+    &-readtime {
+      margin-right: 1rem;
     }
     &-divider {
       margin: 0 5px;
@@ -50,11 +53,5 @@
   }
   &__readmore {
     font-size: $typographic-base-font-size;
-    color: var(--focus-color);
-    &:hover,
-    &:focus {
-      color: var(--focus-color);
-      border-bottom: 1px solid var(--focus-color);
-    }
   }
 }

@@ -11,7 +11,7 @@ class PageTemplateDetails extends React.Component {
         <Sidebar {...this.props} />
         <div className="content">
           <div className="content__inner">
-            <div className="page">
+            <div className="page with-links">
               <h1 className="page__title">{page.frontmatter.title}</h1>
               <div
                 className="page__body"

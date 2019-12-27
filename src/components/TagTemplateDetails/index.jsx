@@ -16,7 +16,7 @@ class TagTemplateDetails extends React.Component {
     const tagTitle = this.props.pageContext.tag
     const title = {
       en: `All Posts tagged as "${tagTitle}" `,
-      fr: `Tous les articles tagués "${tagTitle}"`,
+      fr: `Tous les articles portant le tag "${tagTitle}"`,
     }[i18n.lang]
 
     return (

@@ -23,6 +23,11 @@ class Post extends React.Component {
 
     return (
       <div className="post">
+        <h2 className="post__title">
+          <Link className="post__title-link" to={slug}>
+            {title}
+          </Link>
+        </h2>
         <div className="post__meta">
           <time
             className="post__meta-time"
@@ -31,21 +36,18 @@ class Post extends React.Component {
             {localMoment(date).format('MMMM YYYY')}
           </time>
           <span className="post__meta-divider" />
+          <small class="post__meta-readtime">
+            {formatTimeToRead(timeToRead, i18n.lang)}
+          </small>
+          <span className="post__meta-divider" />
           <span className="post__meta-category" key={categorySlug}>
             <Link to={categorySlug} className="post__meta-category-link">
-              {category}
+              #{category}
             </Link>
           </span>
-          <span className="post__meta-divider" />
-          <small>{formatTimeToRead(timeToRead, i18n.lang)}</small>
         </div>
-        <h2 className="post__title">
-          <Link className="post__title-link" to={slug}>
-            {title}
-          </Link>
-        </h2>
         <p className="post__description">{description}</p>
-        <Link className="post__readmore" to={slug}>
+        <Link className="post__readmore link-underlined" to={slug}>
           {read}
         </Link>
       </div>

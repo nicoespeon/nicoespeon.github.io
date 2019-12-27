@@ -18,9 +18,10 @@ html {
   --focus-color: hsl(var(--hue), 100%, 57%);
 
   --link-color: hsl(var(--hue), 100%, 57%);
-  --link-secondary-color: hsl(var(--accent-hue), 100%, 74%);
+  --link-secondary-color: hsl(var(--accent-hue), 100%, 70%);
 
   --highlight-border-color: hsl(var(--accent-hue), 100%, 74%);
+  --highlight-link-color: hsl(var(--accent-hue), 100%, 88%);
   --highlight-bg-color: hsl(var(--accent-hue), 100%, 94%);
 
   --code-bg-color: hsl(30, 20%, 95%);
@@ -51,6 +52,7 @@ html {
     --link-secondary-color: hsl(var(--accent-hue), 60%, 50%);
 
     --highlight-border-color: hsl(var(--accent-hue), 100%, 34%);
+    --highlight-link-color: hsl(var(--accent-hue), 100%, 30%);
     --highlight-bg-color: hsl(var(--accent-hue), 30%, 20%);
 
     --code-bg-color: hsl(30, 10%, 15%);

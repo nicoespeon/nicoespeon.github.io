@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  border-top: 5px solid var(--link-secondary-color);
   font-family: $typographic-font-family;
   line-height: $typographic-base-line-height;
   font-size: $typographic-base-font-size;
@@ -103,10 +104,36 @@ hr {
 a {
   color: var(--link-color);
   text-decoration: none;
+  text-underline-position: unset;
   &:hover,
   &:focus,
   &:active {
     color: var(--link-secondary-color);
+    text-decoration: underline;
+  }
+}
+a[href^='http'],
+.with-links a[href^='/'],
+.with-links a[href^='mailto'],
+.link-underlined {
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0.9em,
+    var(--highlight-link-color) 0.9em,
+    var(--highlight-link-color)
+  );
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--link-secondary-color);
+    background: none;
+    text-decoration: none;
+  }
+  &.no-underline {
+    background: none;
   }
 }
 
