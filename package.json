@@ -17,6 +17,7 @@
     "clean": "npm run clean:public",
     "clean:public": "rm -rf public",
     "build": "gatsby build",
+    "testprod": "gatsby build && gatsby serve",
     "github-files": "touch public/.nojekyll && echo 'www.nicoespeon.com' > public/CNAME",
     "predeploy": "npm run lint",
     "deploy": "gatsby build --prefix-paths && npm run github-files && gh-pages -d public -b master"
