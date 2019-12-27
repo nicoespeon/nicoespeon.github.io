@@ -36,7 +36,7 @@ class Post extends React.Component {
             {localMoment(date).format('MMMM YYYY')}
           </time>
           <span className="post__meta-divider" />
-          <small class="post__meta-readtime">
+          <small className="post__meta-readtime">
             {formatTimeToRead(timeToRead, i18n.lang)}
           </small>
           <span className="post__meta-divider" />
