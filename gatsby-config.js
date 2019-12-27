@@ -22,20 +22,20 @@ module.exports = {
           path: '/',
         },
         {
-          label: 'About me',
-          path: '/about',
+          label: 'Talks',
+          path: '/talks',
         },
         {
           label: 'Side projects',
           path: '/projects',
         },
         {
-          label: 'My recommendations',
-          path: '/worth-reading',
+          label: 'Who I am',
+          path: '/about',
         },
         {
-          label: 'My talks',
-          path: '/talks',
+          label: 'My recommendations',
+          path: '/worth-reading',
         },
         {
           label: 'TIL (Today I learned)',
@@ -48,20 +48,20 @@ module.exports = {
           path: '/fr/',
         },
         {
-          label: 'À propos de moi',
-          path: '/fr/about',
+          label: 'Talks',
+          path: '/fr/talks',
         },
         {
           label: 'Projets personnels',
           path: '/fr/projects',
         },
         {
-          label: 'Mes recommandations',
-          path: '/fr/worth-reading',
+          label: 'Qui je suis',
+          path: '/fr/about',
         },
         {
-          label: 'Mes présentations',
-          path: '/fr/talks',
+          label: 'Mes recommandations',
+          path: '/fr/worth-reading',
         },
       ],
     },
