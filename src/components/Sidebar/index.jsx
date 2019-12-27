@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
     /* eslint-disable jsx-a11y/img-redundant-alt */
     const authorBlock = (
-      <>
+      <React.Fragment>
         <Link to="/">
           <img
             src={profilePic}
@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
           )}
           <p className="sidebar__author-subtitle">{subtitles[i18n.lang]}</p>
         </div>
-      </>
+      </React.Fragment>
     )
     /* eslint-enable jsx-a11y/img-redundant-alt */
 

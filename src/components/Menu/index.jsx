@@ -41,6 +41,7 @@ class Menu extends React.Component {
   render() {
     const menu = this.props.data
 
+    /* eslint-disable no-confusing-arrow */
     const menuBlock = (
       <ul className="menu__list">
         {menu.map((item, i) =>
@@ -48,6 +49,7 @@ class Menu extends React.Component {
         )}
       </ul>
     )
+    /* eslint-enable no-confusing-arrow */
 
     return <nav className="menu">{menuBlock}</nav>
   }
