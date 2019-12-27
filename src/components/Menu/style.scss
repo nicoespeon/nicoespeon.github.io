@@ -8,8 +8,9 @@
     padding: 0;
     margin: 0;
     &-item {
+      display: inline;
+      margin-right: 32px;
       padding: 0;
-      margin: 10px 0;
       &-link {
         font-size: $typographic-base-font-size;
         color: var(--text-color);
@@ -26,6 +27,17 @@
             text-decoration: underline;
           }
         }
+      }
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .menu {
+    &__list {
+      &-item {
+        display: block;
+        margin: 10px 0;
       }
     }
   }

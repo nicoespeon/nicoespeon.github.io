@@ -195,6 +195,10 @@ figcaption {
   fill: var(--text-secondary-color);
 }
 
+.hide-sm {
+  display: none;
+}
+
 @include breakpoint-sm {
   figure.float-left,
   figure.float-right {
@@ -212,6 +216,9 @@ figcaption {
     &__inner {
       padding: 30px 20px;
     }
+  }
+  .hide-sm {
+    display: initial;
   }
 }
 

@@ -2,12 +2,17 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './style.scss'
 
-function renderLink(item) {
+function renderLink(item, hideOnSm) {
+  let className = 'menu__list-item-link'
+  if (hideOnSm) {
+    className += ' hide-sm'
+  }
+
   return (
     <li className="menu__list-item" key={item.path}>
       <Link
         to={item.path}
-        className="menu__list-item-link"
+        className={className}
         activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
       >
         {item.label}
@@ -38,7 +43,9 @@ class Menu extends React.Component {
 
     const menuBlock = (
       <ul className="menu__list">
-        {menu.map(item => (item.path ? renderLink(item) : renderAction(item)))}
+        {menu.map((item, i) =>
+          item.path ? renderLink(item, i > 2) : renderAction(item)
+        )}
       </ul>
     )
 
