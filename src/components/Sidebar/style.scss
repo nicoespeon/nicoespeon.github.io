@@ -5,9 +5,15 @@
   width: 100%;
   &__inner {
     position: relative;
-    padding: 25px 20px 0;
+    padding: 25px 0 0 20px;
   }
   &__author {
+    display: flex;
+    align-items: center;
+    &-content {
+      flex: 1;
+      margin-left: 20px;
+    }
     &-photo {
       display: inline-block;
       margin-bottom: 0;
@@ -55,6 +61,12 @@
         top: 30px;
         right: -10px;
         bottom: 0;
+      }
+    }
+    &__author {
+      display: block;
+      &-content {
+        margin-left: 0;
       }
     }
   }

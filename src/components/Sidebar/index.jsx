@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
     /* eslint-disable jsx-a11y/img-redundant-alt */
     const authorBlock = (
-      <div>
+      <>
         <Link to="/">
           <img
             src={profilePic}
@@ -28,21 +28,23 @@ class Sidebar extends React.Component {
             alt={author.name}
           />
         </Link>
-        {isHomePage ? (
-          <h1 className="sidebar__author-title">
-            <Link className="sidebar__author-title-link" to="/">
-              {greetings[i18n.lang]}
-            </Link>
-          </h1>
-        ) : (
-          <h2 className="sidebar__author-title">
-            <Link className="sidebar__author-title-link" to="/">
-              {greetings[i18n.lang]}
-            </Link>
-          </h2>
-        )}
-        <p className="sidebar__author-subtitle">{subtitles[i18n.lang]}</p>
-      </div>
+        <div className="sidebar__author-content">
+          {isHomePage ? (
+            <h1 className="sidebar__author-title">
+              <Link className="sidebar__author-title-link" to="/">
+                {greetings[i18n.lang]}
+              </Link>
+            </h1>
+          ) : (
+            <h2 className="sidebar__author-title">
+              <Link className="sidebar__author-title-link" to="/">
+                {greetings[i18n.lang]}
+              </Link>
+            </h2>
+          )}
+          <p className="sidebar__author-subtitle">{subtitles[i18n.lang]}</p>
+        </div>
+      </>
     )
     /* eslint-enable jsx-a11y/img-redundant-alt */
 
