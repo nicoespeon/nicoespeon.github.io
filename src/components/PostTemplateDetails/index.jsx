@@ -81,7 +81,7 @@ class PostTemplateDetails extends React.Component {
 
     const commentsBlock = (
       <React.Fragment>
-        <i className="icon-twitter"></i>
+        <i className="icon-twitter" />
         <a
           href={`https://mobile.twitter.com/search?q=${location.href}`}
           target="_blank"

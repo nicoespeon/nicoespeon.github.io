@@ -55,7 +55,7 @@ function SignupForm({ lang }) {
         />
         {botsHoneypot}
         <button className="form-inline__submit" type="submit">
-          Subscribe <i className="icon-paper-plane"></i>
+          Subscribe <i className="icon-paper-plane" />
         </button>
       </div>
     </form>
