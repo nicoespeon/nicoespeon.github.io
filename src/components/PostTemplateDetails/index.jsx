@@ -79,16 +79,16 @@ class PostTemplateDetails extends React.Component {
     )
 
     const commentsBlock = (
-      <a
-        href={`https://mobile.twitter.com/search?q=${location.href}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span role="img" aria-label="Speech balloon">
-          💬
-        </span>{' '}
-        Discuss this article on Twitter
-      </a>
+      <React.Fragment>
+        <i className="icon-twitter"></i>
+        <a
+          href={`https://mobile.twitter.com/search?q=${location.href}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discuss this article on Twitter
+        </a>
+      </React.Fragment>
     )
 
     const date = localMoment(post.frontmatter.date)
