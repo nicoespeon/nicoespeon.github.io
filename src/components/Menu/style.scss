@@ -9,8 +9,11 @@
     margin: 0;
     &-item {
       display: inline;
-      margin-right: 32px;
+      margin-left: 32px;
       padding: 0;
+      &:first-of-type {
+        margin-left: 0;
+      }
       &-link {
         font-size: $typographic-base-font-size;
         color: var(--text-color);

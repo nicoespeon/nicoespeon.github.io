@@ -3,16 +3,16 @@ import { Link } from 'gatsby'
 import './style.scss'
 
 function renderLink(item, hideOnSm) {
-  let className = 'menu__list-item-link'
+  let className = 'menu__list-item'
   if (hideOnSm) {
     className += ' hide-sm'
   }
 
   return (
-    <li className="menu__list-item" key={item.path}>
+    <li className={className} key={item.path}>
       <Link
         to={item.path}
-        className={className}
+        className="menu__list-item-link"
         activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
       >
         {item.label}

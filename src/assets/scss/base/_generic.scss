@@ -196,7 +196,7 @@ figcaption {
 }
 
 .hide-sm {
-  display: none;
+  display: none !important;
 }
 
 @include breakpoint-sm {
