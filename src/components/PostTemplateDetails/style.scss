@@ -26,9 +26,30 @@ $button-height: 35px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-style: italic;
     @include margin-top(0.25);
     @include margin-bottom(0);
+  }
+  &__line-through {
+    display: inline-block;
+    position: relative;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 2%;
+      border-bottom: 2px solid var(--link-secondary-color);
+      top: 49%;
+      transform: translate(0, -50%);
+      width: 100%;
+    }
+    &:before {
+      right: 100%;
+      margin-right: 15px;
+    }
+    &:after {
+      left: 100%;
+      margin-left: 15px;
+    }
   }
   &__body {
     & figure {

@@ -104,7 +104,9 @@ class PostTemplateDetails extends React.Component {
           <div className="post-single__inner">
             <h1 className="post-single__title">{post.frontmatter.title}</h1>
             <p className="post-single__subtitle">
-              {formatTimeToRead(post.timeToRead, i18n.lang)}
+              <span className="post-single__line-through">
+                {formatTimeToRead(post.timeToRead, i18n.lang)}
+              </span>
             </p>
             <div
               className="post-single__body"
