@@ -24,7 +24,8 @@ function SignupForm({ lang }) {
     >
       <span className="highlighted">
         <h2>
-          Subscribe to <span className="highlighted__text">my newsletter</span>
+          Get fresh content from{' '}
+          <span className="highlighted__text">my newsletter</span>
         </h2>
       </span>
       <p>
