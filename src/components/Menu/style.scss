@@ -11,6 +11,9 @@
       display: inline;
       margin-left: 32px;
       padding: 0;
+      &.hide-sm {
+        display: none;
+      }
       &:first-of-type {
         margin-left: 0;
       }
@@ -42,6 +45,9 @@
       &-item {
         display: block;
         margin: 10px 0;
+        &.hide-sm {
+          display: block;
+        }
       }
     }
   }
