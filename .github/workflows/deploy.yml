@@ -9,8 +9,6 @@ jobs:
   build:
     name: Deploy
     runs-on: ubuntu-latest
-    with:
-      repo-token: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: setup git config
         run: |
@@ -22,3 +20,5 @@ jobs:
           node-version: '8.12.x'
       - run: yarn install
       - run: yarn deploy
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
