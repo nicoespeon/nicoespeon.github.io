@@ -20,5 +20,5 @@ jobs:
           node-version: '8.12.x'
       - run: yarn install
       - run: yarn deploy
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
