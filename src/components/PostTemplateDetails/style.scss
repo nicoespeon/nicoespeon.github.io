@@ -40,7 +40,7 @@ $button-height: 35px;
       border-bottom: 2px solid var(--link-secondary-color);
       top: 49%;
       transform: translate(0, -50%);
-      width: 100%;
+      width: 50%;
     }
     &:before {
       right: 100%;
@@ -220,6 +220,12 @@ $button-height: 35px;
       }
       &--theme {
         top: 30px + $button-height + $typographic-base-font-size;
+      }
+    }
+    &__line-through {
+      &:before,
+      &:after {
+        width: 100%;
       }
     }
   }

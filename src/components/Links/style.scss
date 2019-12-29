@@ -2,7 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .links {
-  @include margin-bottom(0.5);
+  @include margin-bottom(0.75);
   &__list {
     display: flex;
     list-style: none;
