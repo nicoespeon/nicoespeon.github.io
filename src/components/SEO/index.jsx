@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import profilePic from '../../pages/photo.jpg'
 
 const query = graphql`
   query GetSiteMetadata {
@@ -34,7 +35,7 @@ function SEO({
       render={data => {
         const { siteMetadata } = data.site
         const metaDescription = description || siteMetadata.subtitles[lang]
-        const metaImage = image ? `${siteMetadata.url}/${image}` : null
+        const metaImage = image ? `${siteMetadata.url}/${image}` : profilePic
         const url = `${siteMetadata.url}${slug}`
         return (
           <Helmet
