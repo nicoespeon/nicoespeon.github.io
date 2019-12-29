@@ -1,8 +1,8 @@
 name: CI
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - develop
 
 jobs:
@@ -10,9 +10,13 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: setup git config
+        run: |
+          git config --global user.email nicolascarlo.espeon@gmail.com
+          git config --global user.name "Nicolas Carlo"
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: "8.12.x"
+          node-version: '8.12.x'
       - run: yarn install
       - run: yarn deploy
