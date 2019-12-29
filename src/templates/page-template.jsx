@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import withI18n from '../hocs/withI18n'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import PageTemplateDetails from '../components/PageTemplateDetails'
 
 class PageTemplate extends React.Component {
@@ -21,6 +22,11 @@ class PageTemplate extends React.Component {
             <title>{`${pageTitle} - ${title}`}</title>
             <meta name="description" content={description} />
           </Helmet>
+          <SEO
+            title={`${pageTitle} - ${title}`}
+            description={description}
+            slug={page.fields.slug}
+          />
           <PageTemplateDetails {...this.props} />
         </div>
       </Layout>
@@ -66,6 +72,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date

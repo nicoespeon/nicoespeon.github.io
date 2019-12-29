@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import withI18n from '../hocs/withI18n'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import PostTemplateDetails from '../components/PostTemplateDetails'
 
 class PostTemplate extends React.Component {
@@ -28,6 +29,12 @@ class PostTemplate extends React.Component {
             <title>{postTitle}</title>
             <meta name="description" content={description} />
           </Helmet>
+          <SEO
+            title={postTitle}
+            description={description}
+            slug={post.fields.slug}
+            lang={i18n.lang}
+          />
           <PostTemplateDetails {...this.props} />
         </div>
       </Layout>

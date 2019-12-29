@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import withI18n from '../hocs/withI18n'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
+import SEO from '../components/SEO'
 import TagTemplateDetails from '../components/TagTemplateDetails'
 
 class TagTemplate extends React.Component {
@@ -11,16 +12,25 @@ class TagTemplate extends React.Component {
     const { title } = this.props.data.site.siteMetadata
     const { tag } = this.props.pageContext
 
-    const { i18n: { lang } } = this.props
-    const pageTitle = {
-      en: `All Posts tagged as "${tag}" - ${title}`,
-      fr: `Tous les articles tagués "${tag}" - ${title}`,
+    const {
+      i18n: { lang },
+    } = this.props
+    const pageTitle = `Tag "${tag}" - ${title}`
+    const description = {
+      en: `All my posts tagged as "${tag}".`,
+      fr: `Tous mes articles avec l’étiquette "${tag}".`,
     }[lang]
 
     return (
       <Layout>
         <div>
           <Helmet title={pageTitle} />
+          <SEO
+            title={pageTitle}
+            description={description}
+            slug={this.props.location.pathname}
+            lang={lang}
+          />
           <Sidebar {...this.props} />
           <TagTemplateDetails {...this.props} />
         </div>

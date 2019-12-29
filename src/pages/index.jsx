@@ -5,6 +5,7 @@ import withI18n from '../hocs/withI18n'
 import Layout from '../components/Layout'
 import Post from '../components/Post'
 import Sidebar from '../components/Sidebar'
+import SEO from '../components/SEO'
 
 class IndexRoute extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class IndexRoute extends React.Component {
             <title>{title}</title>
             <meta name="description" content={subtitles[i18n.lang]} />
           </Helmet>
+          <SEO />
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">{items}</div>

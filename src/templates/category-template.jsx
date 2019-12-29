@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import withI18n from '../hocs/withI18n'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
+import SEO from '../components/SEO'
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails'
 
 class CategoryTemplate extends React.Component {
@@ -15,6 +16,11 @@ class CategoryTemplate extends React.Component {
       <Layout>
         <div>
           <Helmet title={`${category} - ${title}`} />
+          <SEO
+            title={`${category} - ${title}`}
+            slug={this.props.location.pathname}
+            lang={this.props.i18n.lang}
+          />
           <Sidebar {...this.props} />
           <CategoryTemplateDetails {...this.props} />
         </div>
