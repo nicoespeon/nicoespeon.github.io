@@ -35,7 +35,7 @@ function SEO({
       render={data => {
         const { siteMetadata } = data.site
         const metaDescription = description || siteMetadata.subtitles[lang]
-        const metaImage = `${siteMetadata.url}/${image}`
+        const metaImage = `${siteMetadata.url}${image}`
         const url = `${siteMetadata.url}${slug}`
         return (
           <Helmet
