@@ -9,6 +9,8 @@ jobs:
   build:
     name: Deploy
     runs-on: ubuntu-latest
+    with:
+      repo-token: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: setup git config
         run: |
