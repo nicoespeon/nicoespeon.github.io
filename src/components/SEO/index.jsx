@@ -26,7 +26,7 @@ function SEO({
   title = '',
   slug = '',
   lang = 'en',
-  image,
+  image = profilePic,
   description,
 }) {
   return (
@@ -35,7 +35,7 @@ function SEO({
       render={data => {
         const { siteMetadata } = data.site
         const metaDescription = description || siteMetadata.subtitles[lang]
-        const metaImage = image ? `${siteMetadata.url}/${image}` : profilePic
+        const metaImage = `${siteMetadata.url}/${image}`
         const url = `${siteMetadata.url}${slug}`
         return (
           <Helmet
