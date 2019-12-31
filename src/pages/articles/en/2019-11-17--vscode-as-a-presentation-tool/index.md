@@ -4,9 +4,8 @@ date: 2019-11-17
 layout: post
 draft: false
 path: /en/2019/11/vscode-as-a-presentation-tool/
-category: Public speaking
+category: VS Code
 tags:
-  - vscode
   - talk
   - side-project
 description: Instead of using a regular presentation tool, I did everything from VS Code. And I really think this is a powerful format for technical talks.

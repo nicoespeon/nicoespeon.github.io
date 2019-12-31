@@ -4,9 +4,8 @@ date: 2019-11-26
 layout: post
 draft: false
 path: /en/2019/11/fix-vscode-extension-performance-issue/
-category: Web development
+category: VS Code
 tags:
-  - vscode
   - performance
   - side-project
 description: I fixed a performance issue on a VS Code Extension I'm developing. Let me share with you what I learned.

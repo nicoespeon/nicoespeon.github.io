@@ -4,10 +4,9 @@ date: 2019-11-03
 layout: post
 draft: false
 path: /en/2019/11/5-refactorings-i-use-every-day/
-category: Web development
+category: VS Code
 tags:
   - refactoring
-  - vscode
   - abracadabra
   - side-project
 description: Today, I want to share with you the refactorings I use the most on VS Code!

@@ -1,14 +1,13 @@
 ---
-title: "Introducing a refactoring tool for VS Code"
+title: 'Introducing a refactoring tool for VS Code'
 date: 2019-07-13
 layout: post
 draft: false
 path: /en/2019/07/introducing-refactoring-tool-vscode/
-category: Web development
+category: VS Code
 tags:
   - abracadabra
   - refactoring
-  - vscode
   - side-project
 description: I built "Abracadabra", a VS Code extension to do automated refactorings.
 ---
@@ -39,9 +38,9 @@ It's true that VS Code ships with [basic refactoring operations](https://code.vi
 
 Well, speaking from a personal point of view, few things aren't great:
 
-* **I need more than that.** There are a lot of automated refactorings that I know and aren't proposed.
-* **I can't just have the cursor on a variable and trigger an extraction.** To get an appropriate suggestion requires selecting _exactly_ the code to refactor. I need to select the whole extracted statement first, which is slowing me down.
-* **I don't like the UX much.** Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what "enclosing scope" vs. "module scope" means in terms of the resulting code. I _know_ that there is a better way.
+- **I need more than that.** There are a lot of automated refactorings that I know and aren't proposed.
+- **I can't just have the cursor on a variable and trigger an extraction.** To get an appropriate suggestion requires selecting _exactly_ the code to refactor. I need to select the whole extracted statement first, which is slowing me down.
+- **I don't like the UX much.** Talking about extraction, I often feel confused in front of all the suggested options. I need to play the computer in my head and decipher what "enclosing scope" vs. "module scope" means in terms of the resulting code. I _know_ that there is a better way.
 
 <figure>
   <img src="./confusing-vscode-extraction.png" alt='VS Code shows a popup to either "extract to function in module scope", or to "extract to constant in enclosing scope"'>
@@ -74,9 +73,9 @@ I appreciate the good efforts that were put in it. At least someone worked to pr
 
 But at this point, it was not exactly what I needed, for a few reasons:
 
-* I needed more refactorings operations. I'd consider operations like "Add Export", "Negate Expression" or "Wrap Selection" not being "refactorings". Even if they're handy, they modify code behavior.
-* Also, sometimes, it didn't work well. It had some hiccups working on classes or on TypeScript.
-* It handles partial selection better than VS Code, but it was still not as smooth as I was looking for. The UX was not the one I expected.
+- I needed more refactorings operations. I'd consider operations like "Add Export", "Negate Expression" or "Wrap Selection" not being "refactorings". Even if they're handy, they modify code behavior.
+- Also, sometimes, it didn't work well. It had some hiccups working on classes or on TypeScript.
+- It handles partial selection better than VS Code, but it was still not as smooth as I was looking for. The UX was not the one I expected.
 
 At that point, the best move for me would have been:
 
@@ -112,9 +111,9 @@ Well first, if you do JavaScript or TypeScript and you're looking for great auto
 
 Then, if you want to help me, you can:
 
-* Give me your feedbacks on what you like and what you'd like to improve. Whether you find a bug, have a suggestion or just want to share something, [have a look at existing issues or open a new one](https://github.com/nicoespeon/abracadabra/issues).
-* If you'd like to contribute, you can start with the ["Good First Issues" I've listed](https://github.com/nicoespeon/abracadabra/issues?q=is%3Aissue+is%3Aopen+label%3A%22%3Awave%3A+Good+first+issue%22). Any kind of contribution is welcomed 🙂
-* Spread the word so I can get more use-cases and more feedbacks to improve the extension!
+- Give me your feedbacks on what you like and what you'd like to improve. Whether you find a bug, have a suggestion or just want to share something, [have a look at existing issues or open a new one](https://github.com/nicoespeon/abracadabra/issues).
+- If you'd like to contribute, you can start with the ["Good First Issues" I've listed](https://github.com/nicoespeon/abracadabra/issues?q=is%3Aissue+is%3Aopen+label%3A%22%3Awave%3A+Good+first+issue%22). Any kind of contribution is welcomed 🙂
+- Spread the word so I can get more use-cases and more feedbacks to improve the extension!
 
 That's it. I'm really excited about this and happy to start spreading the word.
 

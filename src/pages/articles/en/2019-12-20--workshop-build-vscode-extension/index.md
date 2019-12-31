@@ -4,9 +4,8 @@ date: 2019-12-20
 layout: post
 draft: false
 path: /en/2019/12/workshop-build-vscode-extension/
-category: Web development
+category: VS Code
 tags:
-  - vscode
   - javascript
   - typescript
   - talk
