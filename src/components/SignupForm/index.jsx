@@ -33,7 +33,7 @@ function SignupForm({ lang }) {
         <p>
           I frequently publish tips and tutorials. Subscribe to get{' '}
           <a
-            href="https://us4.campaign-archive.com/home/?u=ca05d369ee1b4a4e803dce32c&id=2fd39e1501"
+            href="https://us4.campaign-archive.com/?u=ca05d369ee1b4a4e803dce32c&id=b53c1f97e7"
             target="_blank"
             rel="noreferrer noopener"
           >
