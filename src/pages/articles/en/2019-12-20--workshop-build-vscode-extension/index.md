@@ -6,6 +6,7 @@ draft: false
 path: /en/2019/12/workshop-build-vscode-extension/
 category: VS Code
 tags:
+  - vscode extension
   - javascript
   - typescript
   - talk

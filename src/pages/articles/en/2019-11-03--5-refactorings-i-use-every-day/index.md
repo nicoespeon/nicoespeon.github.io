@@ -6,6 +6,7 @@ draft: false
 path: /en/2019/11/5-refactorings-i-use-every-day/
 category: VS Code
 tags:
+  - vscode extension
   - refactoring
   - abracadabra
   - side-project

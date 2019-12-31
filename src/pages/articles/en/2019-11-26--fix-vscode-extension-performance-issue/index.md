@@ -6,6 +6,7 @@ draft: false
 path: /en/2019/11/fix-vscode-extension-performance-issue/
 category: VS Code
 tags:
+  - vscode extension
   - performance
   - side-project
 description: I fixed a performance issue on a VS Code Extension I'm developing. Let me share with you what I learned.

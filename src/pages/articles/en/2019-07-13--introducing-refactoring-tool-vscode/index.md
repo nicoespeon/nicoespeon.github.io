@@ -6,6 +6,7 @@ draft: false
 path: /en/2019/07/introducing-refactoring-tool-vscode/
 category: VS Code
 tags:
+  - vscode extension
   - abracadabra
   - refactoring
   - side-project
