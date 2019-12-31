@@ -122,12 +122,12 @@ class PostTemplateDetails extends React.Component {
           </div>
           <div className="post-single__footer">
             {tagsBlock}
+            <SignupForm lang={i18n.lang} />
             <hr />
             <div className="post-single__footer-text">
               {subtitles[i18n.lang]}
               <Twitter lang={i18n.lang} author={author.twitter} />
             </div>
-            <SignupForm lang={i18n.lang} />
           </div>
         </div>
       </div>
