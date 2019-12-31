@@ -6,10 +6,9 @@ module.exports = {
     url: 'https://www.nicoespeon.com',
     title: "@nicoespeon's blog",
     subtitles: {
-      en:
-        'I write about web development, agile practices and personal organization.',
+      en: 'I write about VS Code, web development and life in general.',
       fr:
-        'J’écris sur le développement web, les pratiques agiles et l’organisation personnelle.',
+        'J’écris à propos de VS Code, du développement web et de la vie en général.',
     },
     greetings: {
       en: "Hi, I'm Nicolas 👋",
