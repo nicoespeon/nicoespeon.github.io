@@ -26,20 +26,20 @@ function SignupForm({ lang }) {
       >
         <span className="highlighted">
           <h2>
-            Get fresh content from{' '}
-            <span className="highlighted__text">my newsletter</span>
+            Wanna learn more about{' '}
+            <span className="highlighted__text">VS Code</span>?
           </h2>
         </span>
         <p>
-          Receive an email{' '}
+          I frequently publish tips and tutorials. Subscribe to get{' '}
           <a
             href="https://us4.campaign-archive.com/home/?u=ca05d369ee1b4a4e803dce32c&id=2fd39e1501"
             target="_blank"
             rel="noreferrer noopener"
           >
-            like this one
+            emails like this
           </a>{' '}
-          when I publish new content, <strong>before everyone else!</strong>
+          before anyone else!
         </p>
         <div className="form-inline">
           <input
