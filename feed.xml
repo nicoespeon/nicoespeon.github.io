@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 31 Dec 2019 09:44:58 GMT</lastBuildDate><item><title><![CDATA[How to add colors to plain text copied in VS Code]]></title><description><![CDATA[If you wonder why your code is all grey, here's how to solve the problem.]]></description><link>https://www.nicoespeon.com/en/2019/12/vscode-syntax-highlight-on-copied-text/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/12/vscode-syntax-highlight-on-copied-text/</guid><pubDate>Tue, 31 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You might be in a situation where you have a text file open in VS Code, but &lt;strong&gt;everything is grey&lt;/strong&gt;. You have some code written. Maybe it’s CSS, maybe it’s JavaScript, maybe it’s Python. But you don’t have these nice colors that differentiate the variables from the properties, the functions, etc.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Jan 2020 12:16:23 GMT</lastBuildDate><item><title><![CDATA[Why files open over existing tabs in VS Code and how to change that]]></title><description><![CDATA[If you constantly loose the file you had open because you clicked on another one, here's the solution.]]></description><link>https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</guid><pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Using Visual Studio Code, you probably noticed this behavior:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You click on a file. It opens in a new tab.&lt;/li&gt;
+&lt;li&gt;You click on another file. It opens the file in the same tab, replacing the previous file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;/open-preview-3927b8de39afed43f75760e5c49547a0.gif&quot; alt=&quot;open-preview&quot;&gt;&lt;/p&gt;
+&lt;p&gt;And that can feel a bit annoying. What if you want to open each file in a new tab when you click them? Why is it behaving like that? 😭&lt;/p&gt;
+&lt;p&gt;Well, if you look closer, you can notice the tab name is &lt;em&gt;italicised&lt;/em&gt;. In fact, this tab is &lt;strong&gt;a preview&lt;/strong&gt; of the file. When you click on a file, you preview its content. Since there can only be one preview tab, the preview will change if you select another file.&lt;/p&gt;
+&lt;p&gt;Actually, this is a VS Code feature. It’s meant to prevent you from opening 10 different tabs if you are just looking for something, but you don’t intent to keep the files open. That way, you can easily see what’s inside a file, just by clicking on it.&lt;/p&gt;
+&lt;p&gt;If you want the file to open and stick in it’s own tab, you can double-click on the file name, or on the tab.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/keep-file-open-6540fc01710dab99c9334fde5e81b768.gif&quot; alt=&quot;keep-file-open&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ok-but-id-prefer-to-open-files-when-i-click-on-them-how-can-i-do-that&quot;&gt;&lt;a href=&quot;#ok-but-id-prefer-to-open-files-when-i-click-on-them-how-can-i-do-that&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OK, but I’d prefer to open files when I click on them. How can I do that?&lt;/h2&gt;
+&lt;p&gt;I hear you. Maybe you usually want to open the files you select and you find that behavior kinda annoying.&lt;/p&gt;
+&lt;p&gt;It just adds friction because you think the file is open but it’s hard to make the difference with a preview. So you forget, you click on another file and snap, your previous file is gone and you need to go get it again!&lt;/p&gt;
+&lt;p&gt;I’ve got a good news for you: &lt;strong&gt;you can configure this behavior!&lt;/strong&gt; 😉&lt;/p&gt;
+&lt;p&gt;To do so, open VS Code settings. Search for “enable preview”. You’ll see a &lt;strong&gt;Workbench › Editor: Enable Preview&lt;/strong&gt; option that’s certainly checked.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/settings-77069fe2783eca4e0254bd0213cdc434-b9035.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 28.62944162436548%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABCUlEQVQY022QSVLDMBBFfQISsDXYkjxFdiwpjpNAFVuq2LPIGbj/FT4tOVAUZPGqpS/17yHT/QimajzkHBsm7yBWil/ctJgT3q94vX7Cv30grwyyfu9g+gG5kHjiAtuCERzbnGFDPDJOCHqTdxDgukXZ9BQb8iiR+eUZioRoojuLMSywboabTwjLGXVvIU0DqWsIFTErej3zUoGVFXilUdA5GXajI1EldtMBg59hKVp3QL/3aIcJpWlR1d0/ykSbmoqm2TSf6XOTxopiNG/thMGFhJ089mEmbUQhKzBKWovf4s9dpTVk4fSCejcmwzhCHNkdL4iF/HJJ3dW0Y0PrqJouFf3Ltx53+AUajKGxImV/tQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;settings&quot;
+        title=&quot;&quot;
+        src=&quot;/static/settings-77069fe2783eca4e0254bd0213cdc434-c83f1.png&quot;
+        srcset=&quot;/static/settings-77069fe2783eca4e0254bd0213cdc434-569e3.png 240w,
+/static/settings-77069fe2783eca4e0254bd0213cdc434-93400.png 480w,
+/static/settings-77069fe2783eca4e0254bd0213cdc434-c83f1.png 960w,
+/static/settings-77069fe2783eca4e0254bd0213cdc434-b9035.png 985w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Uncheck that&lt;/strong&gt; to change your editor behavior.&lt;/p&gt;
+&lt;p&gt;Notice you can also control this behavior for files you open through the &lt;strong&gt;Quick Open&lt;/strong&gt; feature.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/quick-open-16fe678438939bdad17c847f3fc8e715-948e3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 635px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 34.960629921259844%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABLElEQVQoz3WQ2XKCQBBF+QRjDIogbuwyo+AygiKh1Jik8pT//5ebnhHXqjycmu6eqlO3WzPHPpodCy8dE6/dHpqGhZZpn6G+1bWvvfxv6MaNt3aNjkbbgG4NoI1Zivz7F+vqhHmxx6I8IFpkZ5bZra4J5+sagTD7QLj5gp99Ii1PGAYTaA6bYXX8QbbbI8kKzMQGXjzDwAvRdwP1/ksQEwx9P8YoZDBsSiglCdlFUSlZnK7AKVnA01ocwRw6sCQjF72xd4d7hua240E3e9C4yDHdHSC2lRJxWsuj1FImcSJOMLiTqUolRbbjPyBncps23VkTuUBRFVhu6X6bkoRrOBN+lUnRhXvhvVjVJNSl0IlirN6PWOSlSsjo4DKhzxL4PEEwnav6su6z7Fn4B7E5zm60j/erAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;quick-open&quot;
+        title=&quot;&quot;
+        src=&quot;/static/quick-open-16fe678438939bdad17c847f3fc8e715-948e3.png&quot;
+        srcset=&quot;/static/quick-open-16fe678438939bdad17c847f3fc8e715-ce909.png 240w,
+/static/quick-open-16fe678438939bdad17c847f3fc8e715-d81a4.png 480w,
+/static/quick-open-16fe678438939bdad17c847f3fc8e715-948e3.png 635w&quot;
+        sizes=&quot;(max-width: 635px) 100vw, 635px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;When you open a file by its name through the &lt;strong&gt;Quick Open&lt;/strong&gt; feature, it’s probable you want to have it open instead of previewed. If so, uncheck the &lt;strong&gt;Workbench › Editor: Enable Preview From Quick Open&lt;/strong&gt; option too.&lt;/p&gt;
+&lt;p&gt;Finally, if you prefer to update the &lt;code class=&quot;language-text&quot;&gt;settings.json&lt;/code&gt;, here are the keys you’re looking for:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;workbench.editor.enablePreview&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;workbench.editor.enablePreviewFromQuickOpen&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[How to add colors to plain text copied in VS Code]]></title><description><![CDATA[If you wonder why your code is all grey, here's how to solve the problem.]]></description><link>https://www.nicoespeon.com/en/2019/12/vscode-syntax-highlight-on-copied-text/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2019/12/vscode-syntax-highlight-on-copied-text/</guid><pubDate>Tue, 31 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You might be in a situation where you have a text file open in VS Code, but &lt;strong&gt;everything is grey&lt;/strong&gt;. You have some code written. Maybe it’s CSS, maybe it’s JavaScript, maybe it’s Python. But you don’t have these nice colors that differentiate the variables from the properties, the functions, etc.&lt;/p&gt;
 &lt;p&gt;Sometimes you end up here because you copy pasted some code from the Internet. Everything looks grey and it seems that VS Code doesn’t “understand” your code. 😭&lt;/p&gt;
 &lt;p&gt;This is a legit question you have to face when you start using this editor.&lt;/p&gt;
 &lt;p&gt;Hopefully, there is a simple answer. This is not about editor theme or something, it’s called the &lt;strong&gt;syntax highlighting&lt;/strong&gt;.&lt;/p&gt;
