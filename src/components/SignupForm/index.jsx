@@ -26,8 +26,7 @@ function SignupForm({ lang }) {
       >
         <span className="highlighted">
           <h2>
-            Wanna learn more about{' '}
-            <span className="highlighted__text">VS Code</span>?
+            Join my <span className="highlighted__text">newsletter</span>
           </h2>
         </span>
         <p>
