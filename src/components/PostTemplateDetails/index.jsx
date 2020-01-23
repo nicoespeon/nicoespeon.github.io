@@ -5,7 +5,6 @@ import { formatTimeToRead } from '../../helpers'
 import withLocalMoment from '../../hocs/withLocalMoment'
 import Twitter from '../Twitter'
 import Theme from '../Theme'
-import SignupForm from '../SignupForm'
 import './style.scss'
 
 class PostTemplateDetails extends React.Component {
@@ -122,7 +121,6 @@ class PostTemplateDetails extends React.Component {
           </div>
           <div className="post-single__footer">
             {tagsBlock}
-            <SignupForm lang={i18n.lang} />
             <hr />
             <div className="post-single__footer-text">
               {subtitles[i18n.lang]}
