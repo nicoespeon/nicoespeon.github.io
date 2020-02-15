@@ -97,6 +97,39 @@ class PostTemplateDetails extends React.Component {
       fr: `Publié le ${date.format('D MMM YYYY')}`,
     }[i18n.lang]
 
+    const understandLegacyCode =
+      i18n.lang === 'fr' ? (
+        <>
+          <h2>☝ Le saviez-vous?</h2>
+          <p>
+            Je suis l’auteur de{' '}
+            <a href="https://understandlegacycode.com">
+              <strong>understand</strong>legacycode.com
+            </a>
+            .
+          </p>
+          <p>
+            Chaque semaine, je partage <strong>des astuces pratiques</strong> to
+            pour aider les gens à travailler avec du Code Legacy.
+          </p>
+        </>
+      ) : (
+        <>
+          <h2>☝ Did you know?</h2>
+          <p>
+            I'm the author of{' '}
+            <a href="https://understandlegacycode.com">
+              <strong>understand</strong>legacycode.com
+            </a>
+            .
+          </p>
+          <p>
+            Every week, I share <strong>practical tips</strong> to help people
+            work with Legacy Code.
+          </p>
+        </>
+      )
+
     return (
       <div>
         {homeBlock}
@@ -122,16 +155,7 @@ class PostTemplateDetails extends React.Component {
           <div className="post-single__footer">
             {tagsBlock}
             <hr />
-            <h2>☝ Did you know?</h2>
-            <p>
-              I'm the author of{' '}
-              <a href="https://understandlegacycode.com">
-                <strong>understand</strong>legacycode.com
-              </a>
-              .<br />
-              Every week, I share <strong>practical tips</strong> to help people
-              work with Legacy Code.
-            </p>
+            {understandLegacyCode}
             <hr />
             <div className="post-single__footer-text">
               {subtitles[i18n.lang]}
