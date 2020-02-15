@@ -66,7 +66,21 @@ class Sidebar extends React.Component {
         <div className="sidebar__inner">
           <div className="sidebar__author">{authorBlock}</div>
           <div>
-            <Menu data={menus[i18n.lang]} />
+            <Menu data={menus[i18n.lang]}>
+              <li
+                className="menu__list-item hide-sm"
+                key="understandlegacycode.com"
+              >
+                🧭&nbsp;
+                <a
+                  href="https://understandlegacycode.com"
+                  className="menu__list-item-link"
+                  activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
+                >
+                  <strong>understand</strong>legacycode.com
+                </a>
+              </li>
+            </Menu>
             <Links data={author} />
             {themeBlock}
             <Menu data={i18n.switchLangMenu} />

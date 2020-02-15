@@ -47,6 +47,7 @@ class Menu extends React.Component {
         {menu.map((item, i) =>
           item.path ? renderLink(item, i > 2) : renderAction(item)
         )}
+        {this.props.children}
       </ul>
     )
     /* eslint-enable no-confusing-arrow */
