@@ -36,10 +36,6 @@ module.exports = {
           label: 'My recommendations',
           path: '/worth-reading',
         },
-        {
-          label: 'TIL (Today I learned)',
-          path: '/tags/til',
-        },
       ],
       fr: [
         {
