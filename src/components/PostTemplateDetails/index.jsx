@@ -99,8 +99,13 @@ class PostTemplateDetails extends React.Component {
 
     const understandLegacyCode =
       i18n.lang === 'fr' ? (
-        <>
-          <h2>☝ Le saviez-vous?</h2>
+        <React.Fragment>
+          <h2>
+            <span role="img" aria-label="Lève le doigt">
+              ☝
+            </span>
+            Le saviez-vous?
+          </h2>
           <p>
             Je suis l’auteur de{' '}
             <a href="https://understandlegacycode.com">
@@ -112,12 +117,17 @@ class PostTemplateDetails extends React.Component {
             Chaque semaine, je partage <strong>des astuces pratiques</strong> to
             pour aider les gens à travailler avec du Code Legacy.
           </p>
-        </>
+        </React.Fragment>
       ) : (
-        <>
-          <h2>☝ Did you know?</h2>
+        <React.Fragment>
+          <h2>
+            <span role="img" aria-label="Raising finger">
+              ☝
+            </span>
+            Did you know?
+          </h2>
           <p>
-            I'm the author of{' '}
+            I’m the author of{' '}
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
             </a>
@@ -127,7 +137,7 @@ class PostTemplateDetails extends React.Component {
             Every week, I share <strong>practical tips</strong> to help people
             work with Legacy Code.
           </p>
-        </>
+        </React.Fragment>
       )
 
     return (
