@@ -122,6 +122,17 @@ class PostTemplateDetails extends React.Component {
           <div className="post-single__footer">
             {tagsBlock}
             <hr />
+            <h2>☝ Did you know?</h2>
+            <p>
+              I'm the author of{' '}
+              <a href="https://understandlegacycode.com">
+                <strong>understand</strong>legacycode.com
+              </a>
+              .<br />
+              Every week, I share <strong>practical tips</strong> to help people
+              work with Legacy Code.
+            </p>
+            <hr />
             <div className="post-single__footer-text">
               {subtitles[i18n.lang]}
               <Twitter lang={i18n.lang} author={author.twitter} />
