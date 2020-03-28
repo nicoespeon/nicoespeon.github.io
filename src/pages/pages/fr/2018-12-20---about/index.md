@@ -1,24 +1,26 @@
 ---
-title: "Qui suis-je ?"
+title: 'Qui suis-je ?'
 layout: page
-path: "/fr/about"
+path: '/fr/about'
 ---
 
 Je m'appelle **Nicolas Carlo**.
 
 Je suis développeur web travaillant actuellement chez [Busbud](https://www.busbud.com/fr/about), à Montréal.
 
-Je m’intéresse à toutes les facettes du développement d’applications web, aussi bien front-end que back-end, ainsi qu’à la gestion de projets agiles. Je suis particulièrement passionné par le [Software Craftsmanship](https://fr.wikipedia.org/wiki/Software_craftsmanship).
+J’aide les gens à construire des logiciels facile à maintenir. Je suis spécialisé dans le Legacy Code.
 
 Sur Montréal, j’organise le meetup [Software Crafters](https://www.meetup.com/fr-FR/Software-Crafters-Montreal/) chaque mois.
+
+Je co-organise aussi la conférence [SoCraTes Canada](https://socrates-ca.github.io/) chaque année ainsi que la télé-conférence [The Legacy of SoCraTes](https://www.crowdcast.io/e/the-legacy-of-socrates) qui se focalise sur le Legacy Code.
 
 ## Auparavant
 
 Sur Paris, j’ai co-organisé :
 
-* le meetup [Backbone.js Paris](https://www.meetup.com/backbone-paris/)
-* le meetup [Paris WebComponents](https://www.meetup.com/fr-FR/paris-webComponents/)
-* la conférence annuelle [Best of Web Paris](https://bestofweb.paris/).
+- le meetup [Backbone.js Paris](https://www.meetup.com/backbone-paris/)
+- le meetup [Paris WebComponents](https://www.meetup.com/fr-FR/paris-webComponents/)
+- la conférence annuelle [Best of Web Paris](https://bestofweb.paris/).
 
 De 2016 à 2018, j’ai été Consultant chez [OCTO Technology](https://www.octo.com/). J'intervenais sur des missions d'accompagnement de projets Agiles, de développement web et de coaching sur les pratiques du Software Craftsmanship.
 
