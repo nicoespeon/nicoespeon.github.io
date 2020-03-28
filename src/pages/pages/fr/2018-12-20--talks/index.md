@@ -6,6 +6,8 @@ path: '/fr/talks'
 
 Voici la liste des talks enregistrés que j’ai donné, en anglais et en français.
 
+- [Interview sur le Legacy Code par le Bracket Show](https://youtu.be/an59283vJgg) - Février 2020 à ConFoo
+- [🇬🇧 The Secrets of Hexagonal Architecture](https://youtu.be/iQE_XDJVAZA) - Novembre 2019 à Bulgaria PHP
 - [🇬🇧 Workshop: Build your First VS Code Extension](/en/2019/12/workshop-build-vscode-extension/) - Décembre 2019 à Node+JS Interactive
 - [🇬🇧 Drawing Git Graphs in the Browser](/en/2019/06/drawing-git-graphs-browser/) - Mai 2019 à FullStack NYC
 - [🇬🇧 Hexagonal Architecture & Elixir](https://youtu.be/sdM1KkjtCe8) - Novembre 2018 au meetup Montréal Elixir
