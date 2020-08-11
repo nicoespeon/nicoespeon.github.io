@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 28 Mar 2020 15:07:49 GMT</lastBuildDate><item><title><![CDATA[Why files open over existing tabs in VS Code and how to change that]]></title><description><![CDATA[If you constantly loose the file you had open because you clicked on another one, here's the solution.]]></description><link>https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</guid><pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Using Visual Studio Code, you probably noticed this behavior:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[@nicoespeon's blog]]></title><description><![CDATA[I write about web development, agile practices and personal organization.]]></description><link>https://www.nicoespeon.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 11 Aug 2020 00:48:33 GMT</lastBuildDate><item><title><![CDATA[Prevent VS Code extensions from updating automatically]]></title><description><![CDATA[How VS Code extensions update themselves and how to configure that.]]></description><link>https://www.nicoespeon.com/en/2020/10/prevent-vscode-extensions-automatic-updates/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2020/10/prevent-vscode-extensions-automatic-updates/</guid><pubDate>Mon, 10 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;If you use VS Code, you certainly have a couple of extensions installed.&lt;/p&gt;
+&lt;p&gt;These extensions have a version number that looks like &lt;a href=&quot;https://semver.org/&quot;&gt;SemVer&lt;/a&gt;: vX.Y.Z. How X, Y, and Z evolve is totally up to the extension author. Good extensions usually provide a Changelog to understand the difference between 2 versions.&lt;/p&gt;
+&lt;p&gt;At this point, a very legitimate question raises up: when a new version is published, how do you know you need to upgrade? Actually, do you need to upgrade extensions yourself? How do you upgrade a VS Code extension anyway?&lt;/p&gt;
+&lt;p&gt;If you didn’t notice already, I’ve got good news for you: &lt;strong&gt;VS Code automatically checks for extension upgrades&lt;/strong&gt;. If it finds a more recent version, it will install it and update your extension the next time you open the editor.&lt;/p&gt;
+&lt;p&gt;It’s good news because that means &lt;strong&gt;you don’t have to think about it&lt;/strong&gt;, you always get the latest version available. It keeps updating in the background.&lt;/p&gt;
+&lt;p&gt;Now, maybe that’s not the behavior you want. Maybe you’ve got a limited internet bandwidth and you don’t want VS Code to install things under the hood. Or maybe you like to know what’s under the hood and you’d prefer check and install extensions updates yourself.&lt;/p&gt;
+&lt;p&gt;To prevent VS Code extensions from updating automatically, open the editor settings, and search for “extension auto-update”:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-faf14.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 27.206551410373063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7UlEQVQY022QW3LDIAxFvYA0Djb4AcaYh19xkk470x10Bd3/Xm6F+tFMpx9nBAJdXalwMcE4j8aM6KxDS1HpAY22Twz/YKF6AxNWTMcbTNyo1qK4yAZ128P6iDEkqE7j5SKYU6YUOIsK56qm+ATdT2WJ8XjH6+cX3P0DQioUWUwSLi6wYWZx4wL8siNtV8z7AT1O5Gb449byNLLtUNWSY65lQUEu5/2O5XhAqJZHSfsNcb1yPm03bpAJlMvR+oSeVtSPHmaK1NT/ClZNxw6yUBbs7YQprSS4c5GkfHaV33/+DZCdYQFJK6pbzefMN3BQg8J/ewNoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;prevent extension auto update&quot;
+        title=&quot;&quot;
+        src=&quot;/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-c83f1.png&quot;
+        srcset=&quot;/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-569e3.png 240w,
+/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-93400.png 480w,
+/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-c83f1.png 960w,
+/static/prevent-extension-auto-update-54a722e5a7ea2c042a27b77705e27de3-faf14.png 1099w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;You should see 2 options checked:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Extensions: Auto Check Updates&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensions: Auto Update&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Disable both options. If you still want VS Code to check for updates in the background but install the updates manually, disable the “Auto Update” one.&lt;/p&gt;
+&lt;p&gt;If you prefer to configure the settings from the JSON file, set the following IDs:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;extensions.autoCheckUpdates&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;extensions.autoUpdate&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why files open over existing tabs in VS Code and how to change that]]></title><description><![CDATA[If you constantly loose the file you had open because you clicked on another one, here's the solution.]]></description><link>https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</link><guid isPermaLink="false">https://www.nicoespeon.com/en/2020/01/change-vscode-preview-files/</guid><pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Using Visual Studio Code, you probably noticed this behavior:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;You click on a file. It opens in a new tab.&lt;/li&gt;
 &lt;li&gt;You click on another file. It opens the file in the same tab, replacing the previous file.&lt;/li&gt;
