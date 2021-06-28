@@ -6,7 +6,7 @@ path: '/fr/about'
 
 Je m'appelle **Nicolas Carlo**.
 
-Je suis développeur web travaillant actuellement chez [Busbud](https://www.busbud.com/fr/about), à Montréal.
+Je suis développeur web travaillant actuellement chez [Centered](https://centered.app), depuis Montréal.
 
 J’aide les gens à construire des logiciels facile à maintenir. Je suis spécialisé dans le Legacy Code.
 

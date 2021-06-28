@@ -6,7 +6,7 @@ path: '/about'
 
 My name is **Nicolas Carlo**.
 
-I am a web developer, currently working at [Busbud](https://www.busbud.com/en/about), in Montreal, Canada.
+I am a web developer, currently working at [Centered](https://centered.app), from Montreal, Canada.
 
 I help people build maintainable softwares. I'm specialized in working with Legacy Code.
 
