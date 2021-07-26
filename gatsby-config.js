@@ -65,7 +65,7 @@ module.exports = {
       email: 'nicolascarlo.espeon@gmail.com',
       twitter: 'nicoespeon',
       github: 'nicoespeon',
-      linkedin: 'nicolas-carlo-095b243b',
+      linkedin: '💡-nicolas-carlo-095b243b',
       rss: '/feed.xml',
     },
     feedDescription:
