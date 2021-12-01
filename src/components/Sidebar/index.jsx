@@ -80,6 +80,19 @@ class Sidebar extends React.Component {
                   <strong>understand</strong>legacycode.com
                 </a>
               </li>
+              <li
+                className="menu__list-item hide-sm"
+                key="refactoringjavascript.dev"
+              >
+                ⚛&nbsp;
+                <a
+                  href="https://refactoringjavascript.dev"
+                  className="menu__list-item-link"
+                  activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
+                >
+                  <strong>refactoring</strong>javascript.dev
+                </a>
+              </li>
             </Menu>
             <Links data={author} />
             {themeBlock}
