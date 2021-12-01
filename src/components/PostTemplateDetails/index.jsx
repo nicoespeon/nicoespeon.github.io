@@ -111,10 +111,12 @@ class PostTemplateDetails extends React.Component {
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
             </a>
-            et je développe un cours intéractif pour apprendre à refactor n’importe quelle application JavaScript:{' '}
+            et je développe un cours intéractif pour apprendre à refactor
+            n’importe quelle application JavaScript:{' '}
             <a href="https://refactoringjavascript.dev">
               <strong>refactoring</strong>javascript.dev
-            </a>.
+            </a>
+            .
           </p>
           <p>
             Chaque semaine, je partage <strong>des astuces pratiques</strong> to
@@ -134,10 +136,12 @@ class PostTemplateDetails extends React.Component {
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
             </a>
-            and I'm building an interactive course to teach you to refactor any JavaScript application:{' '}
+            and I’m building an interactive course to teach you to refactor any
+            JavaScript application:{' '}
             <a href="https://refactoringjavascript.dev">
               <strong>refactoring</strong>javascript.dev
-            </a>.
+            </a>
+            .
           </p>
           <p>
             Every week, I share <strong>practical tips</strong> to help people
