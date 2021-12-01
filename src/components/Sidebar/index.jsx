@@ -84,7 +84,10 @@ class Sidebar extends React.Component {
                 className="menu__list-item hide-sm"
                 key="refactoringjavascript.dev"
               >
-                ⚛&nbsp;
+                <span role="img" aria-label="">
+                  🌸
+                </span>
+                &nbsp;
                 <a
                   href="https://refactoringjavascript.dev"
                   className="menu__list-item-link"

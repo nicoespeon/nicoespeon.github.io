@@ -110,7 +110,7 @@ class PostTemplateDetails extends React.Component {
             Je suis l’auteur de{' '}
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
-            </a>
+            </a>{' '}
             et je développe un cours intéractif pour apprendre à refactor
             n’importe quelle application JavaScript:{' '}
             <a href="https://refactoringjavascript.dev">
@@ -135,7 +135,7 @@ class PostTemplateDetails extends React.Component {
             I’m the author of{' '}
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
-            </a>
+            </a>{' '}
             and I’m building an interactive course to teach you to refactor any
             JavaScript application:{' '}
             <a href="https://refactoringjavascript.dev">
