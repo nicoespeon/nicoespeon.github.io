@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /* eslint-disable */
-// Code was copied from `public/` output to add custom Twitter script.
+// Code was copied from `public/` output to add custom Twitter script (that was removed in 2025).
 export default class HTML extends React.Component {
   render() {
     return (
@@ -24,27 +24,6 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          {/* See https://www.stevenmercatante.com/how-to-add-twitter-buttons-to-a-gatsby-site/ */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.twttr = (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                  t = window.twttr || {};
-                if (d.getElementById(id)) return t;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js, fjs);
-
-                t._e = [];
-                t.ready = function(f) {
-                  t._e.push(f);
-                };
-
-                return t;
-              }(document, "script", "twitter-wjs"));`,
-            }}
-          />
         </body>
       </html>
     )

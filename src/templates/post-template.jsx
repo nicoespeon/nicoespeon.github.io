@@ -55,7 +55,7 @@ export const pageQuery = graphql`
         }
         author {
           name
-          twitter
+          bluesky
         }
         url
       }

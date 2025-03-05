@@ -65,22 +65,6 @@ function SEO({
                 property: 'og:description',
                 content: metaDescription,
               },
-              {
-                name: 'twitter:card',
-                content: 'summary',
-              },
-              {
-                name: 'twitter:creator',
-                content: `@${siteMetadata.author.twitter}`,
-              },
-              {
-                name: 'twitter:title',
-                content: title || siteMetadata.title,
-              },
-              {
-                name: 'twitter:description',
-                content: metaDescription,
-              },
             ]
               .concat(
                 metaImage

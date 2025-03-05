@@ -30,6 +30,6 @@ Auparavant, j’étais développeur web en freelance. J’ai réalisé différen
 
 ## Comment me contacter ?
 
-Le plus simple, c’est de <a href="https://twitter.com/nicoespeon" target="_blank" rel="noopener noreferrer">me tweeter</a>.
+Le plus simple, c’est de <a href="https://bsky.app/profile/nicoespeon.com" target="_blank" rel="noopener noreferrer">m'envoyer un message sur Bluesky</a>.
 
 Vous pouvez également [m'envoyer un e-mail](mailto:nicolascarlo.espeon@gmail.com) si besoin.

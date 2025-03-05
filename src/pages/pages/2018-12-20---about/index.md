@@ -30,6 +30,6 @@ Before that, I was a freelance web developer. I did many missions for different 
 
 ## How to contact me?
 
-The easiest way to do so, is to <a href="https://twitter.com/nicoespeon" target="_blank" rel="noopener noreferrer">tweet me</a>.
+The easiest way to do so, is to <a href="https://bsky.app/profile/nicoespeon.com" target="_blank" rel="noopener noreferrer">DM me on Bluesky</a>.
 
 You could also [send me an email](mailto:nicolascarlo.espeon@gmail.com) if necessary.

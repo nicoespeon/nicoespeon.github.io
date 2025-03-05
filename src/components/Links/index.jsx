@@ -6,7 +6,7 @@ class Links extends React.Component {
   render() {
     const author = this.props.data
     const links = {
-      twitter: author.twitter,
+      bluesky: author.bluesky,
       github: author.github,
       linkedin: author.linkedin,
       rss: author.rss,
@@ -19,11 +19,13 @@ class Links extends React.Component {
           <li className="links__list-item">
             <a
               className="no-underline"
-              href={`https://www.twitter.com/${links.twitter}`}
+              href={`https://www.bluesky.com/${links.bluesky}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="icon-twitter" />
+              <span role="img" aria-label="Bluesky icon">
+                🦋
+              </span>
             </a>
           </li>
           <li className="links__list-item">

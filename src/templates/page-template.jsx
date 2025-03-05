@@ -62,7 +62,7 @@ export const pageQuery = graphql`
         author {
           name
           email
-          twitter
+          bluesky
           github
           linkedin
           rss

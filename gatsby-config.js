@@ -63,9 +63,9 @@ module.exports = {
     author: {
       name: 'Nicolas Carlo',
       email: 'nicolascarlo.espeon@gmail.com',
-      twitter: 'nicoespeon',
+      bluesky: 'nicoespeon',
       github: 'nicoespeon',
-      linkedin: '💡-nicolas-carlo-095b243b',
+      linkedin: 'nicolas-carlo-095b243b',
       rss: '/feed.xml',
     },
     feedDescription:

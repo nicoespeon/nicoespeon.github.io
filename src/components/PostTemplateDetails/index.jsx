@@ -3,14 +3,13 @@ import { Link } from 'gatsby'
 import startCase from 'lodash/startCase'
 import { formatTimeToRead } from '../../helpers'
 import withLocalMoment from '../../hocs/withLocalMoment'
-import Twitter from '../Twitter'
 import Theme from '../Theme'
 import './style.scss'
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { i18n, localMoment, location } = this.props
-    const { subtitles, author } = this.props.data.site.siteMetadata
+    const { i18n, localMoment } = this.props
+    const { subtitles } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
@@ -78,18 +77,18 @@ class PostTemplateDetails extends React.Component {
       </div>
     )
 
-    const commentsBlock = (
-      <React.Fragment>
-        <i className="icon-twitter" />
-        <a
-          href={`https://mobile.twitter.com/search?q=${location.href}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discuss this article on Twitter
-        </a>
-      </React.Fragment>
-    )
+    // const commentsBlock = (
+    //   <React.Fragment>
+    //     <i className="icon-twitter" />
+    //     <a
+    //       href={`https://mobile.twitter.com/search?q=${location.href}`}
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       Discuss this article on Twitter
+    //     </a>
+    //   </React.Fragment>
+    // )
 
     const date = localMoment(post.frontmatter.date)
     const publishedText = {
@@ -169,7 +168,7 @@ class PostTemplateDetails extends React.Component {
             />
             <div className="post-single__meta">
               <span className="post-single__date">{publishedText}</span>
-              <span className="post-single__comments">{commentsBlock}</span>
+              {/* <span className="post-single__comments">{commentsBlock}</span> */}
             </div>
           </div>
           <div className="post-single__footer">
@@ -179,7 +178,6 @@ class PostTemplateDetails extends React.Component {
             <hr />
             <div className="post-single__footer-text">
               {subtitles[i18n.lang]}
-              <Twitter lang={i18n.lang} author={author.twitter} />
             </div>
           </div>
         </div>

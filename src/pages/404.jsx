@@ -6,7 +6,9 @@ import Layout from '../components/Layout'
 
 class NotFoundRoute extends React.Component {
   render() {
-    const { i18n: { lang } } = this.props
+    const {
+      i18n: { lang },
+    } = this.props
     const title = {
       en: "Hmmm, there's nothing there…",
       fr: 'Hum, il n’y a rien ici…',
@@ -73,7 +75,7 @@ export const pageQuery = graphql`
         author {
           name
           email
-          twitter
+          bluesky
           github
           linkedin
           rss
