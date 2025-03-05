@@ -70,5 +70,6 @@ path: '/talks'
 
 - February 2025 - [Test Driven Development](https://youtu.be/r-fxYaHDVBQ?si=V0cVjRd64bqCn6YT)
 - February 2024 - [SE Radio 602: Nicolas Carlo on Improving Legacy Code](https://se-radio.net/2024/02/se-radio-602-nicolas-carlo-on-improving-legacy-code/)
+- March 2022 - [Enabling human connections](https://devjourney.info/Guests/193-NicolasCarlo.html)
 - 2021 - [Tips for Working with Legacy Code with Nicolas Carlo](https://www.codewithjason.com/podcast/9478269-046-tips-for-working-with-legacy-code-with-nicolas-carlo/)
 - October 2020 - [Changing Messy Software Without Breaking It](https://maintainable.fm/episodes/nicolas-carlo-changing-messy-software-without-breaking-it)
