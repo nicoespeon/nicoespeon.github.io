@@ -14,7 +14,7 @@ const query = graphql`
         }
         url
         author {
-          twitter
+          bluesky
         }
       }
     }
@@ -71,10 +71,6 @@ function SEO({
                   ? [
                       {
                         property: 'og:image',
-                        content: metaImage,
-                      },
-                      {
-                        name: 'twitter:image',
                         content: metaImage,
                       },
                     ]
