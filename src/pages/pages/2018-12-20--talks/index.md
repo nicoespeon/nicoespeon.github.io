@@ -6,6 +6,8 @@ path: '/talks'
 
 ## Talks I gave (the English ones) 🎤
 
+🎩 [All blog posts](/tags/talk/) I wrote, related to English talks I gave.
+
 ### 6 Safe Refactorings for Untested Legacy Code
 
 - [May 2025 at JS Heroes](https://jsheroes.io/#agenda)
@@ -58,16 +60,15 @@ path: '/talks'
 
 ### Hexagonal Architecture & Elixir
 
-- [Hexagonal Architecture & Elixir](https://youtu.be/sdM1KkjtCe8)
+- [January 2019 at Montreal Elixir meetup](https://youtu.be/sdM1KkjtCe8)
 
 ### TDD with Elixir
 
 - [May 2018 at Montreal Elixir meetup](https://youtu.be/HlGaHZWqItU)
 
-🎩 [All blog posts](/tags/talk/) I wrote, related to English talks I gave.
-
 ## Podcasts I've recorded in English 🎧
 
+- February 2025 - [Test Driven Development](https://youtu.be/r-fxYaHDVBQ?si=V0cVjRd64bqCn6YT)
 - February 2024 - [SE Radio 602: Nicolas Carlo on Improving Legacy Code](https://se-radio.net/2024/02/se-radio-602-nicolas-carlo-on-improving-legacy-code/)
 - 2021 - [Tips for Working with Legacy Code with Nicolas Carlo](https://www.codewithjason.com/podcast/9478269-046-tips-for-working-with-legacy-code-with-nicolas-carlo/)
 - October 2020 - [Changing Messy Software Without Breaking It](https://maintainable.fm/episodes/nicolas-carlo-changing-messy-software-without-breaking-it)
