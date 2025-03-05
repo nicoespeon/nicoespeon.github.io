@@ -20,4 +20,4 @@ You can confirm by running `arch` and you should see `i386`
 
 Then, make sure to have Node.js 8 installed. Eg. with nvm: `nvm use 8`
 
-Now you can run commands like `yarn deploy` to deploy changes.
+Now you can run commands like `npm run deploy` to deploy changes.
