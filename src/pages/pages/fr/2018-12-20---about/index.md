@@ -6,13 +6,11 @@ path: '/fr/about'
 
 Je m'appelle **Nicolas Carlo**.
 
-Je suis développeur web travaillant actuellement chez [Centered](https://centered.app), depuis Montréal.
+Je suis développeur web freelance, vivant et travaillant depuis Montréal au Canada.
 
 J’aide les gens à construire des logiciels facile à maintenir. Je suis spécialisé dans le Legacy Code.
 
-Sur Montréal, j’organise le meetup [Software Crafters](https://www.meetup.com/fr-FR/Software-Crafters-Montreal/) chaque mois.
-
-Je co-organise aussi la conférence [SoCraTes Canada](https://socrates-ca.github.io/) chaque année ainsi que la télé-conférence [The Legacy of SoCraTes](https://www.crowdcast.io/e/the-legacy-of-socrates) qui se focalise sur le Legacy Code.
+Je suis _très_ investi dans les communautés tech 🍻 J'organise les guildes [Software Crafters](https://guild.host/software-crafters-montreal/events) et [React](https://guild.host/react-montreal/events) à Montréal. Je donne aussi un coup de main aux autres communautés locales, telles que [TypeScript](https://guild.host/typescript-montreal/events) et [Elixir](https://guild.host/elixir-montreal/events). J’ai aussi organisé les conférences [The Legacy of SoCraTes](https://www.youtube.com/channel/UC0M37QolwmwobAY4Bt8Tszg), [SoCraTes Canada](https://socrates-ca.github.io/), ainsi que [MenderCon](https://mendercon.com).
 
 ## Auparavant
 
