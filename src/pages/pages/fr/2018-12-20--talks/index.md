@@ -11,6 +11,7 @@ path: '/fr/talks'
 ### 6 Safe Refactorings for Untested Legacy Code
 
 - [Mai 2025 à JS Heroes](https://jsheroes.io/#agenda)
+- [Avril 2025 à Epic Web](https://www.epicweb.dev/talks/6-safe-refactorings-for-untested-legacy-code)
 - [Février 2025 à ConFoo](https://confoo.ca/en/2025/session/6-safe-refactorings-for-untested-legacy-code)
 
 ### Functional Domain Modeling in TypeScript
@@ -32,6 +33,7 @@ path: '/fr/talks'
 
 ### 7 techniques to tame a Legacy Code
 
+− [Avril 2025 à Epic Web](https://www.epicweb.dev/talks/4-techniques-to-tame-a-legacy-codebase)
 − 🇫🇷 [Mai 2023 à Web à Québec](https://youtu.be/N4D30sh0ng4)
 − [Avril 2023 à Promyze Webinar](https://youtu.be/zd9gt71fbrU)
 
