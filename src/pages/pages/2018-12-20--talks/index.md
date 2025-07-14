@@ -10,7 +10,7 @@ path: '/talks'
 
 ### 6 Safe Refactorings for Untested Legacy Code
 
-- [May 2025 at JS Heroes](https://jsheroes.io/#agenda)
+- [May 2025 at JS Heroes](https://youtu.be/Ao4f1rYRHa0?si=_wuufsY5AZ6ZQMZ_)
 - [April 2025 at Epic Web](https://www.epicweb.dev/talks/6-safe-refactorings-for-untested-legacy-code)
 - [February 2025 at ConFoo](https://confoo.ca/en/2025/session/6-safe-refactorings-for-untested-legacy-code)
 

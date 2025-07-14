@@ -10,7 +10,7 @@ path: '/fr/talks'
 
 ### 6 Safe Refactorings for Untested Legacy Code
 
-- [Mai 2025 à JS Heroes](https://jsheroes.io/#agenda)
+- [Mai 2025 à JS Heroes](https://youtu.be/Ao4f1rYRHa0?si=_wuufsY5AZ6ZQMZ_)
 - [Avril 2025 à Epic Web](https://www.epicweb.dev/talks/6-safe-refactorings-for-untested-legacy-code)
 - [Février 2025 à ConFoo](https://confoo.ca/en/2025/session/6-safe-refactorings-for-untested-legacy-code)
 
@@ -101,6 +101,7 @@ path: '/fr/talks'
 
 ## Podcasts que j'ai enregistrés 🎧
 
+- 🇫🇷 Avril 2025 - [Transférer 30 ans de connaissance en 2 mois](https://podcast.ausha.co/stb/1)
 - Février 2025 - [Test Driven Development](https://youtu.be/r-fxYaHDVBQ?si=V0cVjRd64bqCn6YT)
 - 🇫🇷 Juin 2024 - [Maitriser le code legacy](https://podcast.ausha.co/tech-lead-corner-3/nicolas-carlo-maitriser-le-code-legacy)
 - 🇫🇷 Juillet 2023 - [Code patrimonial](https://baladoquebec.ca/visual-studio-talk-show/0281-nicolas-carlo-code-patrimonial)
