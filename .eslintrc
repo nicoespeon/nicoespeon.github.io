@@ -5,8 +5,7 @@
   "globals": {
     "graphql": true,
     "document": true,
-    "localStorage": true,
-    "twttr": true
+    "localStorage": true
   },
   "rules": {
     "arrow-body-style": [

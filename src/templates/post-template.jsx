@@ -7,13 +7,6 @@ import SEO from '../components/SEO'
 import PostTemplateDetails from '../components/PostTemplateDetails'
 
 class PostTemplate extends React.Component {
-  componentDidMount() {
-    // See https://www.stevenmercatante.com/how-to-add-twitter-buttons-to-a-gatsby-site/
-    if (typeof twttr.widgets !== 'undefined') {
-      twttr.widgets.load()
-    }
-  }
-
   render() {
     const { i18n } = this.props
     const { subtitles } = this.props.data.site.siteMetadata
