@@ -33,9 +33,8 @@ path: '/talks'
 
 ### 7 techniques to tame a Legacy Code
 
-− [April 2025 at Epic Web](https://www.epicweb.dev/talks/4-techniques-to-tame-a-legacy-codebase)
-− [April 2023 at a Promyze Webinar](https://youtu.be/zd9gt71fbrU)
-
+- [April 2025 at Epic Web](https://www.epicweb.dev/talks/4-techniques-to-tame-a-legacy-codebase)
+- [April 2023 at a Promyze Webinar](https://youtu.be/zd9gt71fbrU)
 - [September 2021 at Java User Group Switzerland](https://youtu.be/ZmnI1cuS02k)
 - [June 2021 at Software Craftsmanship Luxembourg](https://youtu.be/sAbvS7nQtQ8)
 - [May 2021 at MenderCon](https://youtu.be/6KUUbV0NcA8)
