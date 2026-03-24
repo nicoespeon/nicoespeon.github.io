@@ -110,16 +110,8 @@ class PostTemplateDetails extends React.Component {
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
             </a>{' '}
-            et je développe un cours intéractif pour apprendre à refactor
-            n’importe quelle application JavaScript:{' '}
-            <a href="https://refactoringjavascript.dev">
-              <strong>refactoring</strong>javascript.dev
-            </a>
-            .
-          </p>
-          <p>
-            Chaque semaine, je partage <strong>des astuces pratiques</strong> to
-            pour aider les gens à travailler avec du Code Legacy.
+            où je partage <strong>des astuces pratiques</strong> to pour aider
+            les gens à travailler avec du Code Legacy.
           </p>
         </React.Fragment>
       ) : (
@@ -134,17 +126,9 @@ class PostTemplateDetails extends React.Component {
             I’m the author of{' '}
             <a href="https://understandlegacycode.com">
               <strong>understand</strong>legacycode.com
-            </a>{' '}
-            and I’m building an interactive course to teach you to refactor any
-            JavaScript application:{' '}
-            <a href="https://refactoringjavascript.dev">
-              <strong>refactoring</strong>javascript.dev
             </a>
-            .
-          </p>
-          <p>
-            Every week, I share <strong>practical tips</strong> to help people
-            work with Legacy Code.
+            , where I share <strong>practical tips</strong> to help people work
+            with Legacy Code.
           </p>
         </React.Fragment>
       )
