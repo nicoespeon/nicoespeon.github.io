@@ -80,20 +80,17 @@ class Sidebar extends React.Component {
                   <strong>understand</strong>legacycode.com
                 </a>
               </li>
-              <li
-                className="menu__list-item hide-sm"
-                key="refactoringjavascript.dev"
-              >
+              <li className="menu__list-item hide-sm" key="nikado.app">
                 <span role="img" aria-label="">
                   🌸
                 </span>
                 &nbsp;
                 <a
-                  href="https://refactoringjavascript.dev"
+                  href="https://nikado.app"
                   className="menu__list-item-link"
                   activeClassName="menu__list-item-link menu__list-item-link--active link-underlined"
                 >
-                  <strong>refactoring</strong>javascript.dev
+                  <strong>nikado</strong>.app
                 </a>
               </li>
             </Menu>
